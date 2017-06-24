@@ -1,0 +1,372 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-------------------- BIFIEsurvey NEWS -----------------------
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+.........................`  ,::;              :,:;       ` .;';. .,:                
+:::::::::::::::::::::::::.  ##+@              ##+#       .@####+ ;+# `              
+:::::::::::::::::::::::::.  ###@              ####       @@;   :`;##``              
+:::::::::::::::::::::::::.  ###@              ##+#     `##.      .,,                
+:::::::::::::::::::::::::.  ###@              ::,:    ` ##                          
+:::::::::::::::::::::::::.  ###@                 `      @@                          
+:::::::::::::::::::::::::.  ###@                      ` #@                          
+:::::::::::::::::::::::::.  ###@                        #@                   `      
+:::::::::::::::::::::::::.  ##@# ,@###@       @@## ` @@@+##@@@@   #@     `.@#####   
+:::::::::::::::::::::::::.  ####'@#####@.``   ####   @@#@@@####   #@     ;##+''#+@` 
+:::::::::::::::::::::::::.  ##@@##,,#+##@     ####      @@        #@    .#@`  ` '## 
+::::,::::::::::::::::::::.  ##+@@    ####,    ####      #@        #@    ##,      #+`
+::::``.::::::::::::::::::.  ##+@, `` ,###@    ####      #@        #@    @@       ;@;
+:::::`  .::::::::::::::::.  ##`       ####    ####      #@        #@   .##@@@@@@@#+#
+:::::::`   `,,:::::::::::.     :      ###@    ####      #@        #@   ;##@@@@@@@@@@
+:::::::::.      ``....`      ,@#      ####    ####      #@        #@   '@'`         
+::::::::::::.`              ####      @###`   ####      #@        #@  `+#'          
+::::::::::::::::,,,,,,,::.  ####      ####    ####      #@        #@  `'#'          
+:::::::::::::::::::::::::.  ####      @###    ####      #@        #@   ,##          
+:::::::::::::::::::::::::.  ###@   `  @##+    ####      #@        #@   `#@          
+:::::::::::::::::::::::::`  @@##     ,#@##    ####      #@        #@    @#          
+:::::::::::::::::::::::::`  @+##,    @###'    ####      #@        #@   `+#@         
+::::::::::::::::::::::::.    ###@:  '###@     ####      #@        #@     #@+        
+:::::::::::::::::::::::.   ``;@#@#@####@.     ####      #@        #@     `@#@:`   ` 
+::::::::::::::::::::::.       ,@######@.      ####`     ##        @+      `#####@## 
+::::::::::::::::::::.`        ` .'##'. `        ```     `.        ``         ;##+;. 
+
+
+Federal Institute for Educational Research, Innovation and 
+Development of the Austrian School System (BIFIE)
+Salzburg (Austria)
+https://www.bifie.at/
+
+Questions or suggestions about BIFIEsurvey should be sent to
+robitzsch@ipn.uni-kiel.de
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CHANGELOG BIFIEsurvey
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.2  |  2017-06-24  |  Last: BIFIEsurvey 2.2-12
+--------------------------------------------------------------------------
+ 
+ADDED * included arguments 'pvpre' and 'pv_vars' in 'BIFIE.data' function
+NOTE  * reformatted summary output for all analyses in BIFIEsurvey 
+        to digits in scientific notation
+NOTE  * exported utility functions 'bifie_rubin_rules',
+        'bifie_replication_variance' and 'BIFIE_NMI_inference_parameters'
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.1  |  2017-05-17  |  Last: BIFIEsurvey 2.1-6
+--------------------------------------------------------------------------
+ 
+FIXED * fixed a bug in 'BIFIE.data.jack' for replication designs in PISA which
+        was not able to handle more than 9 plausible values (for example,
+        10 plausible values as in PISA 2015)
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.0  |  2017-04-27  |  Last: BIFIEsurvey 2.0-7
+--------------------------------------------------------------------------
+ 
+NOTE  * changed degrees of freedom ('df') for model estimation to df=Inf
+        in case of only one (imputed) dataset
+ADDED * included argument jktype="JK_TIMSS2" in 'BIFIE.data.jack' for
+        TIMSS 2015 replication method
+NOTE  * included argument 'mse=TRUE' in examples with survey::svrepdesign
+        which now provides equivalent results of the BIFIEsurvey package
+        and survey package
+ADDED * included function 'BIFIEdata2svrepdesign' which converts objects
+        of class 'BIFIEdata' to objects in the survey package 
+
+DATA  * ---
+EXAMP * data.timss1 (1), data.pisaNLD (1), BIFIEdata2svrepdesign (1,2)
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 1.13  |  2017-03-02  |  Last: BIFIEsurvey 1.13-24
+--------------------------------------------------------------------------
+ 
+NOTE  * restructured Rcpp functions
+NOTE  * small addition in manual of 'BIFIE.data.jack'
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------
+Versions 1.12 -- 2017-01-16  --  CRAN BIFIEsurvey 1.12-0
+--------------------------------------------------------------
+ 
+FIXED * fixed a problem in 'BIFIE.data.select' with side effects
+        on 'BIFIE.mva' if there is only one missing case of a
+        variable
+ADDED * added option for fixed entries in random effects
+        covariance matrix in 'BIFIE.twolevelreg', see 
+        Example 1, Models 2d und 2e for specification  
+        (suggested by Andrea Cantieni)
+
+DATA  * ---
+EXAMP * BIFIE.twolevelreg (1.2d, 1.2e)
+
+--------------------------------------------------------------
+Versions 1.11 -- 2016-10-18  --  CRAN BIFIEsurvey 1.11-0
+--------------------------------------------------------------
+ 
+NOTE  * added an example of B-spline regression and nonparametric
+        regression in 'BIFIE.linreg' (Example 2)
+        (question raised by Lena Keller)
+NOTE  * included more details about calculation method of quantiles
+        in 'BIFIE.ecdf'
+
+DATA  * ---
+EXAMP * BIFIE.linreg (2)
+
+--------------------------------------------------------------
+Versions 1.9.4 -- 2016-06-01  --  CRAN BIFIEsurvey 1.9.4-0
+--------------------------------------------------------------
+ 
+NOTE  * added S3 method 'print' for 'BIFIEdata' objects
+FIXED * fixed a bug in 'BIFIE.twolevelreg' in handling cases
+        with zero sample weights (thanks to Nicole Haag)
+FIXED * fixed a bug in 'BIFIE.univar.test' for nested multiply
+        imputed datasets. This update also needs miceadds 
+        package version >= 1.8 (thanks to Nicole Haag and
+        Anja Schiepe-Tiska) 
+NOTE  * added note to descriptive functions in the miceadds
+        package (which can now handle objects of class
+        BIFIEdata) in the help site of 'BIFIE.univar'
+FIXED * The function 'BIFIE.twolevelreg' needs ordered cluster
+        identifiers which is now checked in advance of model
+        fitting. If this condition is not fulfilled, then 
+        the estimation will not run (thanks to Mihaela Stiglic).   
+NOTE  * included a simplified example for including cluster
+        means in BIFIEdata object       
+
+DATA  * ---
+EXAMP * BIFIE.data.transform (1.7)
+
+--------------------------------------------------------------
+Versions 1.8 -- 2016-01-30  --  CRAN BIFIEsurvey 1.8-0
+--------------------------------------------------------------
+
+FIXED * fixed a bug in calculation of D2 statistic
+FIXED * corrected a wrong output of 'VarMI' for several 
+        models for nested multiply imputed datasets
+NOTE  * cleaned namespace file and defined imported functions
+        in a more explicit way
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------
+Versions 1.7 -- 2015-11-04  --  CRAN BIFIEsurvey 1.7-0
+--------------------------------------------------------------
+ 
+NOTE  * corrected output of 'BIFIE.univar.test' in case of
+        no replicate weights
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------
+Versions 1.6 -- 2015-10-15  --  CRAN BIFIEsurvey 1.6-0
+--------------------------------------------------------------
+ 
+FIXED * fixed a bug in 'BIFIE.univar.test' with multiple grouping
+        variables (thanks to Thilo Siegle)
+FIXED * fixed a recently included bug (in BIFIEsurvey >= 1.3) 
+        in creating 'BIFIEdata' objects for PISA designs: an incorrect 
+        value of 'fayfac' was generated by default 
+        (thanks to Thilo Siegle)
+FIXED * fixed a bug in 'BIFIE.univar.test' for designs with no replication
+        weights which caused noncalculation of the Wald test. Now,
+        the Wald test is disabled (thanks to Thilo Siegle)
+
+DATA  * ---
+EXAMP * BIFIE.univar.test (2)
+
+--------------------------------------------------------------
+Versions 1.5 -- 2015-10-08  --  CRAN BIFIEsurvey 1.5-0
+--------------------------------------------------------------
+ 
+NOTE  * added citation information
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------
+Versions 1.4 -- 2015-09-08  --  CRAN BIFIEsurvey 1.4-0
+--------------------------------------------------------------
+ 
+FIXED * fixed a bug in 'BIFIE.pathmodel' in data preprocessing
+        phase (thanks to Michael Bruneforth) 
+NOTE  * added statistical inference in 'BIFIE.univar' and 
+        created separate output for means and standard deviations
+        (suggested by Hong Giang Pham)
+NOTE  * fixed a bug in 'BIFIE.freq' with more than two variables
+        when all variables have the same number of categories
+        (thanks to Thilo Siegle)
+ADDED * added multiple grouping variables in the argument
+        'group' in all functions of BIFIEsurvey
+
+DATA  * ---
+EXAMP * BIFIE.freq (1)
+
+--------------------------------------------------------------
+Versions 1.3 -- 2015-07-10  --  CRAN BIFIEsurvey 1.3-0
+--------------------------------------------------------------
+
+FIXED * fixed a bug in creating 'cdata=TRUE' objects in
+        'BIFIE.data.boot' (thanks to Hong Giang Pham)
+FIXED * fixed incorrect p values for D1 statistic in case of
+        only one imputed dataset (thanks to Frank Goldhammer)
+NOTE  * creation of sav files 'write.BIFIEdata' now does not
+        longer depend on PSPP, but on sjmisc package using the
+        updated 'save.data' function from the miceadds package 
+FIXED * allowed overwriting of variables in 'BIFIE.data.transform'
+        (thanks to Thilo Siegle)
+FIXED * fixed a bug in 'BIFIE.mva' when only one variable is analyzed.
+        A change has also been made if no covariates were provided.
+NOTE  * changed defaults for argument 'fayfac' in 'BIFIE.data.jack'
+NOTE  * large sample approximation of degrees of freedom is now 
+        used for statistical inference
+ADDED * added statistical inference for nested multiply imputed 
+        datasets. Use 'NMI=TRUE' for creating appropriate 'BIFIE.data'
+        objects.
+ADDED * included inference for nested multiply imputed datasets
+        for all implemented methods
+NOTE  * included pure R implementation of user defined function in
+        'BIFIE.by'. Now, the user can choose via the 'use_Rcpp'
+        argument whether Rcpp or pure R should be employed for
+        function evaluation.
+
+DATA  * data.timss4
+EXAMP * BIFIE.data.transform (1), BIFIE.data (1), data.timss (2)
+
+--------------------------------------------------------------
+Versions 1.2 -- 2015-02-22  --  CRAN BIFIEsurvey 1.2-6
+--------------------------------------------------------------
+
+FIXED * fixed a bug in creation of jackknife zones when jackknife
+        zone identifier is provided (thanks to Hong Giang Pham)
+NOTE  * added lavaan.survey and lme4 to Suggests, mitools is 
+        now imported
+ADDED * included initial version of two-level regression
+ADDED * included initial version of path model estimation
+        with measurement errors in predictors
+FIXED * enabled summary.BIFIE.logistreg which was not yet working
+NOTE  * extended DESCRIPTION        
+ADDED * included option for finite sampling correction by allowing
+        vector input of 'fayfac' argument in 'BIFIE.data'
+        (see Example 3 in 'BIFIE.data')
+        
+DATA  * data.bifie01 
+EXAMP * data.timss (1,2,3), BIFIE.twolevelreg (1,2),
+        BIFIE.pathmodel (1), BIFIE.data (3) 
+
+--------------------------------------------------------------
+Versions 1.1 -- 2014-11-22  --  CRAN BIFIEsurvey 1.1
+--------------------------------------------------------------
+
+FIXED * fixed a bug in frequency tabulation for constant variables
+
+DATA  * ---
+EXAMP * ---
+
+--------------------------------------------------------------
+Versions 1.0 -- 2014-10-12  --  CRAN BIFIEsurvey 1.0
+--------------------------------------------------------------
+
+NOTE  * changed output for non-imputed datasets    
+FIXED * fixed a bug in data handling for linear and logistic
+        regression
+ADDED * included function 'BIFIE.BIFIEdata2datalist' for conversion
+        from BIFIEdata objects into a list of imputed datasets 
+FIXED * fixed a bug when converting datasets containing a one
+        into BIFIEdata objects
+EXAMP * added example for extracting number of unique values using
+        the BIFIE.by function (Example 1, Model 3)
+EXAMP * added an example for inclusing fitted values from lm and
+        a scores from principal component analysis in 
+        BIFIE.data.transformat
+FIXED * fixed a bug in calculating the variance between imputations        
+ADDED * included function 'BIFIE.derivedParameters' for statistical 
+        inference of derived parameters
+ADDED * included coef and vcov S3 methods for all descriptive functions
+        and statistical models
+NOTE  * fixed a bug in extracting values of grouping variables        
+ADDED * included an Rcpp based equivalent to the table function in R:
+        'bifietable'
+
+DATA  * ---
+EXAMP * BIFIE.BIFIEdata2datalist (2), BIFIE.by (1), 
+        BIFIE.data.transform (8,9), BIFIE.derivedParameters (1),
+        BIFIE.by (1)
+
+--------------------------------------------------------------
+Versions 0.3 -- 2014-07-31  --  CRAN BIFIEsurvey 0.3-47
+--------------------------------------------------------------
+
+NOTE  * changed handling of factors in conversion into a BIFIEdata object
+ADDED * included generation of bootstrap designs ('BIFIE.data.boot')
+ADDED * included logistic regression 'BIFIE.logistreg'
+ADDED * included function 'save.BIFIEdata' and 'load.BIFIEdata' for 
+        saving and loading BIFIEdata objects
+ADDED * included option for saving, loading and holding BIFIE datasets
+        in a compact format ('cdata') which avoids memory overflow in
+        some applications
+NOTE  * enabled all methods to work for BIFIEdata obejcts which are saved 
+        as 'cdata'
+ADDED * included BIFIEdata conversion and selection functions 'BIFIE.dataselect',
+        'BIFIE.BIFIEdata2BIFIEcdata', 'BIFIE.BIFIEcdata2BIFIEdata'
+FIXED * fixed a bug in linear regression with formula specification and
+        some missing values
+FIXED * fixed a bug in BIFIE.data.transform  
+ADDED * included a function 'write.BIFIEdata' for writing separate imputed 
+        datasets from BIFIEdata objects permitting the formats csv, csv2, table
+        and Rdata
+FIXED * corrected output of standard errors in cases in which no replicate 
+        weights were specified
+NOTE  * included an option for conversion of PISA data in 'BIFIE.data.jack'
+ADDED * included function 'load.BIFIEdata' for efficient loading of files
+        and creation of BIFIEdata objects
+FIXED * applied data transformation separately for every imputed dataset     
+ADDED * included function 'BIFIE.mva' for conducting missing value analyses
+
+DATA  * included/modified datasets: data.timss1.ind
+EXAMP * included/modified examples: BIFIE.data.boot (1), BIFIE.logistreg (1,2),
+        save.BIFIEdata (1,2)
+
+--------------------------------------------------------------
+Versions 0.2 -- 2014-07-12  --  CRAN BIFIEsurvey 0.2-37
+--------------------------------------------------------------
+
+ADDED * included histogram 'BIFIE.hist'
+ADDED * included empirical distribution function 'BIFIE.ecdf'
+ADDED * included data transformation function 'BIFIE.data.transform'
+NOTE  * extended creation of jackknife grouping designs in 'BIFIE.data.jack'
+
+DATA  * included/modified datasets: data.test1, data.pisaNLD
+EXAMP * included/modified examples: BIFIE.ecdf (1), BIFIE.data.transform (1),
+        BIFIE.data.jack (2), data.pisa (1)
+
+--------------------------------------------------------------
+Versions 0.1 -- 2014-07-01  --  CRAN BIFIEsurvey 0.1-61
+--------------------------------------------------------------
+
+ADDED * included functions: BIFIE.data, BIFIE.univar, BIFIE.freq,
+        BIFIE.correl, BIFIE.linreg, BIFIE.waldtest, BIFIE.univar.test,
+        BIFIE.data.jack, BIFIE.crosstab, BIFIE.by
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

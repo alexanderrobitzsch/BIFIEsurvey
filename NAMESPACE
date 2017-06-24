@@ -1,0 +1,140 @@
+
+
+useDynLib(BIFIEsurvey)
+
+
+
+
+######################################
+########### IMPORTS ##################
+
+
+#***************************************************
+#*************** R Basics / Linking To *************
+
+importFrom(graphics, par)
+importFrom(graphics, plot)
+importFrom(grDevices, nclass.Sturges)
+importFrom(methods, is)
+importFrom(Rcpp, evalCpp)
+importFrom(stats, as.formula)
+importFrom(stats, coef)
+importFrom(stats, model.matrix)
+importFrom(stats, na.omit)
+importFrom(stats, pchisq)
+importFrom(stats, pnorm)
+importFrom(stats, pt)
+importFrom(stats, runif)
+importFrom(stats, sd)
+importFrom(stats, terms)
+importFrom(stats, var)
+importFrom(stats, vcov)
+importFrom(utils, flush.console)
+importFrom(utils, object.size)
+importFrom(utils, packageDescription)
+
+
+
+#***************************************************
+#************** Depends ****************************
+
+##  import(survey)
+
+
+#***************************************************
+#************** Imports ****************************
+
+importFrom(miceadds, load.data)
+importFrom(miceadds, micombine.chisquare)
+importFrom(miceadds, NMIcombine)
+importFrom(miceadds, NMIwaldtest)
+importFrom(miceadds, Reval)
+importFrom(miceadds, save.data)
+importFrom(mitools, imputationList)
+importFrom(mitools, MIcombine)
+importFrom(survey, svrepdesign)
+importFrom(TAM, lavaanify.IRT)
+
+
+
+######################################
+########### EXPORTS ##################
+
+
+export(bifie_rubin_rules)
+export(bifie_replication_variance)
+export(BIFIE_NMI_inference_parameters)
+export(BIFIE.BIFIEcdata2BIFIEdata)
+export(BIFIE.BIFIEdata2BIFIEcdata)
+export(BIFIE.BIFIEdata2datalist)
+export(BIFIE.by)
+export(BIFIE.correl)
+export(BIFIE.crosstab)
+export(BIFIE.data)
+export(BIFIE.data.boot)
+export(BIFIE.data.jack)
+export(BIFIE.data.transform)
+export(BIFIE.derivedParameters)
+export(BIFIE.ecdf)
+export(BIFIE.freq)
+export(BIFIE.hist)
+export(BIFIE.linreg)
+export(BIFIE.logistreg)
+export(BIFIE.mva)
+export(BIFIE.pathmodel)
+export(BIFIE.twolevelreg)
+export(BIFIE.univar)
+export(BIFIE.univar.test)
+export(BIFIE.waldtest)
+export(BIFIEdata.select)
+export(BIFIEdata2svrepdesign)
+export(bifietable)
+export(load.BIFIEdata)
+export(load.BIFIEdata.files)
+export(save.BIFIEdata)
+export(write.BIFIEdata)
+
+    
+    
+
+#########################################
+########### S3 METHODS ##################
+
+S3method(coef, BIFIE.by)
+S3method(coef, BIFIE.correl)
+S3method(coef, BIFIE.crosstab)
+S3method(coef, BIFIE.derivedParameters)
+S3method(coef, BIFIE.freq)
+S3method(coef, BIFIE.linreg)
+S3method(coef, BIFIE.logistreg)
+S3method(coef, BIFIE.pathmodel)
+S3method(coef, BIFIE.twolevelreg)
+S3method(coef, BIFIE.univar)
+S3method(plot, BIFIE.hist)
+S3method(print, BIFIEdata)
+S3method(summary, BIFIE.by)
+S3method(summary, BIFIE.correl)
+S3method(summary, BIFIE.crosstab)
+S3method(summary, BIFIE.derivedParameters)
+S3method(summary, BIFIE.ecdf)
+S3method(summary, BIFIE.freq)
+S3method(summary, BIFIE.hist)
+S3method(summary, BIFIE.linreg)
+S3method(summary, BIFIE.logistreg)
+S3method(summary, BIFIE.mva)
+S3method(summary, BIFIE.pathmodel) 
+S3method(summary, BIFIE.twolevelreg)
+S3method(summary, BIFIE.univar)
+S3method(summary, BIFIE.univar.test)
+S3method(summary, BIFIE.waldtest)
+S3method(summary, BIFIEdata)
+S3method(vcov, BIFIE.by)
+S3method(vcov, BIFIE.correl)
+S3method(vcov, BIFIE.crosstab)
+S3method(vcov, BIFIE.derivedParameters)
+S3method(vcov, BIFIE.freq)
+S3method(vcov, BIFIE.linreg)
+S3method(vcov, BIFIE.logistreg)
+S3method(vcov, BIFIE.pathmodel)
+S3method(vcov, BIFIE.twolevelreg)
+S3method(vcov, BIFIE.univar)
