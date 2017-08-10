@@ -53,7 +53,7 @@ Rcpp::List univar_multiple_V2group( Rcpp::NumericMatrix datalist, Rcpp::NumericM
      // loop multiply imputed datasets  
      for ( int ii=0; ii < Nimp ; ii++){  
        
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
      // statistics single data  
      Rcpp::List res1 = univar_helper_multiple_V2group( dat1,  wgt1,  vars_index ,  
      	group_index1 , group_values ) ;  
@@ -198,7 +198,7 @@ Rcpp::List bifie_freq( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix wgt1,
      // loop over imputed datasets  
      for (int ii = 0 ;ii<Nimp; ii++ ){   
               
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
        
      //****** statistics single data  
      Rcpp::List res1 = bifiehelper_freq( dat1 , wgt1 , group_index1 , group_values ,  
@@ -322,7 +322,7 @@ Rcpp::List bifie_correl( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1 
                 
      for (int ii = 0 ; ii < Nimp ; ii++){   
      // extract dataset  
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
        
      // perform listwise deletion of cases  
      // create indicators of persons  
@@ -950,18 +950,18 @@ Rcpp::List bifie_test_univar( Rcpp::NumericMatrix mean1M , Rcpp::NumericMatrix s
      for (int vv=0; vv < VV ; vv++){  
               
      // dataset ii  
-     Rcpp::NumericMatrix mean1M_ii = mean1M( Range(vv*GG,vv*GG+GG-1) , Range(ii,ii) ) ;  
-     Rcpp::NumericMatrix sd1M_ii = sd1M( Range(vv*GG,vv*GG+GG-1) , Range(ii,ii) ) ;  
-     Rcpp::NumericMatrix sumweightM_ii = sumweightM( Range(0,GG-1) , Range(ii,ii) ) ;  
+     Rcpp::NumericMatrix mean1M_ii = mean1M( Rcpp::Range(vv*GG,vv*GG+GG-1) , Rcpp::Range(ii,ii) ) ;  
+     Rcpp::NumericMatrix sd1M_ii = sd1M( Rcpp::Range(vv*GG,vv*GG+GG-1) , Rcpp::Range(ii,ii) ) ;  
+     Rcpp::NumericMatrix sumweightM_ii = sumweightM( Rcpp::Range(0,GG-1) , Rcpp::Range(ii,ii) ) ;  
               
      Rcpp::List res = bifiehelpers_etasquared( mean1M_ii , sd1M_ii , sumweightM_ii ,  GG ) ;  
      eta2V = matr2vec( res["eta2"] ) ;  
      Rcpp::NumericVector dstatV = matr2vec( res["dstat"] ) ;  
        
      // analysis replicate weights  
-     Rcpp::NumericMatrix mean1M_rr = mean1repM( Range(vv*GG,vv*GG+GG-1) , Range(ii*RR,ii*RR + RR-1) ) ;  
-     Rcpp::NumericMatrix sd1M_rr = sd1repM( Range(vv*GG,vv*GG+GG-1) , Range(ii*RR,ii*RR + RR-1)  ) ;  
-     Rcpp::NumericMatrix sumweightM_rr = sumweightrepM( Range(0,GG-1) , Range(ii*RR,ii*RR + RR-1)  ) ;  
+     Rcpp::NumericMatrix mean1M_rr = mean1repM( Rcpp::Range(vv*GG,vv*GG+GG-1) , Rcpp::Range(ii*RR,ii*RR + RR-1) ) ;  
+     Rcpp::NumericMatrix sd1M_rr = sd1repM( Rcpp::Range(vv*GG,vv*GG+GG-1) , Rcpp::Range(ii*RR,ii*RR + RR-1)  ) ;  
+     Rcpp::NumericMatrix sumweightM_rr = sumweightrepM( Rcpp::Range(0,GG-1) , Rcpp::Range(ii*RR,ii*RR + RR-1)  ) ;  
      Rcpp::List res1 = bifiehelpers_etasquared( mean1M_rr , sd1M_rr , sumweightM_rr ,  GG ) ;  
      Rcpp::NumericMatrix eta2repM = res1["eta2"] ;      
      Rcpp::NumericMatrix dstatrepM = res1["dstat"] ;
@@ -1074,7 +1074,7 @@ Rcpp::List bifie_crosstab( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt
        
      for (int ii=0; ii <Nimp ; ii++){  
      	  
-     	dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     	dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
      	  
      	//*** analysis for original data   
      	Rcpp::List res20 = bifiehelpers_crosstab( dat1 ,  wgt1 , group_values , group_index1 ,   
@@ -1147,7 +1147,7 @@ Rcpp::List bifie_by( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix wgt1 ,
      // start with a calculation to compute the number of parameters  
      Rcpp::NumericVector w = wgt1(_,0) ;    
      int ii=0;  
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
      Rcpp::NumericMatrix X(N,VV) ;  
      for (int vv=0;vv<VV;vv++){  
          X(_,vv) = dat1(_, vars_index[vv] ) ;	  
@@ -1170,7 +1170,7 @@ Rcpp::List bifie_by( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix wgt1 ,
        
      // dataset ii  
      for (ii=0;ii<Nimp;ii++){  // beg ii  
-     	dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;  
+     	dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;  
      	  
      	//-- compute dimensions  
      	for (int nn=0;nn<N;nn++){ // beg nn  
@@ -1281,7 +1281,7 @@ Rcpp::List bifie_hist( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix wgt1 ,
        
      for ( int ii=0; ii < Nimp ; ii++ ){  
        
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;  
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;  
        
      for (int nn=0; nn<N;nn++){ // beg nn  
      for (int gg=0; gg<GG;gg++){ // beg gg  
@@ -1389,7 +1389,7 @@ Rcpp::List bifie_ecdf( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix wgt1 ,
      for (int ii=0;ii<Nimp;ii++){ // beg dataset ii  
        
      // int ii=0;  
-     	dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;  
+     	dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;  
      	  
      	ecdfMtemp = bifie_helper_ecdf( dat1 , wgt1 , breaks ,  
      		 group_values , group_index1 ,vars_index , ii ,  
@@ -1460,7 +1460,7 @@ Rcpp::List bifie_logistreg( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix w
      // loop over imputed datasets  
      for ( int ii=0; ii < Nimp ; ii ++ ){                
      // extract dataset  
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
        
      // loop over group values gg  
      int ind=1;                
@@ -2001,7 +2001,7 @@ Rcpp::List bifie_pathmodel( Rcpp::NumericMatrix datalist , Rcpp::NumericMatrix w
      for (int ii=0;ii<Nimp;ii++){  
        
      //--- extract dataset  
-     dat1 = datalist( Range( ii*N+0 , ii*N+ (N-1) ) , Range(0,NV-1) ) ;   
+     dat1 = datalist( Rcpp::Range( ii*N+0 , ii*N+ (N-1) ) , Rcpp::Range(0,NV-1) ) ;   
        
      //--- computation complete data  
      Rcpp::List res21 = bifie_pathmodel_helper(   dat1 ,  wgt1 ,   group_values ,  group_index1 ,     

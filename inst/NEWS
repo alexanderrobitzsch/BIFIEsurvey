@@ -48,7 +48,7 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.2  |  2017-06-24  |  Last: BIFIEsurvey 2.2-12
+VERSIONS BIFIEsurvey 2.2  |  2017-08-10  |  Last: BIFIEsurvey 2.2-22
 --------------------------------------------------------------------------
  
 ADDED * included arguments 'pvpre' and 'pv_vars' in 'BIFIE.data' function

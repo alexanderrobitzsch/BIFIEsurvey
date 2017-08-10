@@ -220,7 +220,7 @@ Rcpp::List bifie_pathmodel_helper( Rcpp::NumericMatrix dat1 ,
 			sigma_XY(vv,0) = XtX_gg( preds_rr[vv] , R_row_index[rr]+gg*VV) ;
 					}
 					
-		arma::mat regr_coef = arma::mat( arma::inv( sigma_XX ) * sigma_XY ) ;
+		arma::mat regr_coef = arma::mat( arma::pinv( sigma_XX ) * sigma_XY ) ;
 		for (int vv=0 ; vv < nv_rr ; vv ++ ){
 			regr_coef_stand(vv,0) = regr_coef(vv,0) * 
 				sqrt( sigma_XX(vv,vv) ) /
@@ -2147,7 +2147,7 @@ Rcpp::List mla2_emsteps( Rcpp::NumericMatrix X, Rcpp::NumericMatrix Z ,
 					  }
 					}
 				}
-		Cjinv = arma::inv(Cj) ;
+		Cjinv = arma::pinv(Cj) ;
 		
 		// # compute theta_rj^\ast
 		// r1 <- y[ id.jj ] - X[ id.jj , ] %*% theta

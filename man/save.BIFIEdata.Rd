@@ -56,7 +56,7 @@ is the working directory.}
 	\code{table} (function \code{\link[utils:write.table]{utils::write.table}}),
 	\code{sav} (function \code{\link[foreign:read.spss]{foreign::read.spss}}
 		for reading sav files and function
-	\code{\link[sjmisc:write_spss]{sjmisc::write_spss}}.
+	\code{\link[sjlabelled:write_spss]{sjlabelled::write_spss}}.
 		}
 \item{\dots}{Additional arguments to be passed to 
 	\code{\link[base:save]{base::save}},
@@ -64,7 +64,7 @@ is the working directory.}
 	\code{\link[utils:write.csv2]{utils::write.csv2}},
 	\code{\link[utils:write.table]{utils::write.table}}, 
 	\code{\link[foreign:read.spss]{foreign::read.spss}},
-	\code{\link[sjmisc:write_spss]{sjmisc::write_spss}}
+	\code{\link[sjlabelled:write_spss]{sjlabelled::write_spss}}
 }
 \item{filename}{
 	File name of \code{BIFIEdata} object
@@ -121,26 +121,26 @@ bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]
 summary(bifieobj)       
 
 # save bifieobj in a compact way 
-save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_cdata" )
+BIFIEsurvey::save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_cdata" )
 # save bifieobj in a non-compact way
-save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_data", cdata=FALSE )
+BIFIEsurvey::save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_data", cdata=FALSE)
 
 # load this object with object name "bdat2"
 bdat2 <- BIFIEsurvey::load.BIFIEdata( filename = "timss1_data.Rdata" )
 summary(bdat2)
 
 # save bifieobj with selected variables
-save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_cdata" , 
+BIFIEsurvey::save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_cdata" , 
                      varnames= bifieobj$varnames[ c(1:7,13,12,9) ] )
 # the same object, but use the non-compact way of saving
-save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_data", cdata=FALSE, 
+BIFIEsurvey::save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_data", cdata=FALSE, 
                      varnames= bifieobj$varnames[ c(1:7,13,12,9) ] )
 
 # load object timss1_cdata (in compact data format)
 bdat3 <- BIFIEsurvey::load.BIFIEdata( filename = "timss1_cdata.Rdata" )
 summary(bdat3)
 # save selected variables of object bdat3
-save.BIFIEdata( bdat3, name.BIFIEdata="timss1_selectvars2_cdata" ,  
+BIFIEsurvey::save.BIFIEdata( bdat3, name.BIFIEdata="timss1_selectvars2_cdata" ,  
                      varnames= bifieobj$varnames[ c(1:4,12,8) ] )      
                      
 #############################################################################
@@ -156,24 +156,24 @@ bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss2, wgt=data.timss2[[1]]
 summary(bifieobj)           
 
 # save imputed datasets in format csv2
-write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save1", type="csv2", row.names=FALSE)
+BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save1", type="csv2", row.names=FALSE)
 
 # save imputed datasets of BIFIEdata object in format table without column names 
 # and code missings as "."
-write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save2" , type="table" , 
+BIFIEsurvey::write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save2" , type="table" , 
                   col.names=FALSE , row.names=FALSE , na="." )
 
 # save imputed datasets of  BIFIEdata object in format csv and select some variables 
 # and only the first three datasets
 varnames <- c("IDSTUD","TOTWGT","female","books","lang","ASMMAT")
-write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save3" , type="csv" ,
+BIFIEsurvey::write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save3" , type="csv" ,
                    impdata.index = 1:3  , varnames=varnames)
 
 # save imputed datasets of BIFIEdata object in format Rdata, the R binary format            
-write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save4" , type="Rdata"  )
+BIFIEsurvey::write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save4" , type="Rdata"  )
 
 # save imputed datasets in sav (SPSS) format
-write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save5" , type="sav" )
+BIFIEsurvey::write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save5" , type="sav" )
              
 #############################################################################
 # EXAMPLE 3: Loading BIFIEdata objects saved in separate files 
