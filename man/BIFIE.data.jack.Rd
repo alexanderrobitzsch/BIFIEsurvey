@@ -1,3 +1,7 @@
+%% File Name: BIFIE.data.jack.Rd
+%% File Version: 0.26
+%% File Last Change: 2017-04-19 20:16:06
+
 \name{BIFIE.data.jack}
 \alias{BIFIE.data.jack}
 %- Also NEED an '\alias' for EACH other topic documented here.

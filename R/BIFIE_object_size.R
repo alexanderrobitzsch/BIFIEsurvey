@@ -1,3 +1,6 @@
+## File Name: BIFIE_object_size.R
+## File Version: 0.01
+## File Last Change: 2017-06-23 19:46:24
 
 
 ##################################################

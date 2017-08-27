@@ -1,3 +1,6 @@
+## File Name: vcov.BIFIE.survey.R
+## File Version: 0.22
+## File Last Change: 2017-02-03 15:03:42
 
 ####################################################
 # vcov.BIFIEsurvey

@@ -1,3 +1,6 @@
+## File Name: BIFIE.BIFIEdata2datalist.R
+## File Version: 0.03
+## File Last Change: 2017-01-31 19:22:43
 
 #############################################################################
 # converts a BIFIEdata object into a list of multiply imputed datasets

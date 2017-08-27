@@ -1,3 +1,7 @@
+%% File Name: BIFIE.data.select.Rd
+%% File Version: 0.07
+%% File Last Change: 2017-01-16 19:26:28
+
 \name{BIFIEdata.select}
 \alias{BIFIEdata.select}
 

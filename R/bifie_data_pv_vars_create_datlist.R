@@ -1,3 +1,6 @@
+## File Name: bifie_data_pv_vars_create_datlist.R
+## File Version: 0.02
+## File Last Change: 2017-06-23 19:19:12
 
 bifie_data_pv_vars_create_datlist <- function(pvpre, pv_vars, jktype, data)
 {

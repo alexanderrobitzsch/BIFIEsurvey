@@ -1,3 +1,7 @@
+%% File Name: BIFIE.univar.test.Rd
+%% File Version: 0.13
+%% File Last Change: 2017-01-16 19:42:25
+
 \name{BIFIE.univar.test}
 \alias{BIFIE.univar.test}
 \alias{summary.BIFIE.univar.test}

@@ -1,3 +1,8 @@
+//// File Name: univar_helpers.h
+//// File Version: 7.15
+//// File Last Change: 2017-08-27 14:44:38
+
+
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 

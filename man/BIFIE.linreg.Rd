@@ -1,3 +1,7 @@
+%% File Name: BIFIE.linreg.Rd
+%% File Version: 0.22
+%% File Last Change: 2017-01-16 19:36:13
+
 \name{BIFIE.linreg}
 \alias{BIFIE.linreg}
 \alias{summary.BIFIE.linreg}

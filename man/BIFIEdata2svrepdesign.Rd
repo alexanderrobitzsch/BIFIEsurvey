@@ -1,3 +1,7 @@
+%% File Name: BIFIEdata2svrepdesign.Rd
+%% File Version: 0.02
+%% File Last Change: 2017-04-27 10:47:35
+
 \name{BIFIEdata2svrepdesign}
 \alias{BIFIEdata2svrepdesign}
 %- Also NEED an '\alias' for EACH other topic documented here.

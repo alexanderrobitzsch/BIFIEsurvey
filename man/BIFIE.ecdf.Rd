@@ -1,3 +1,7 @@
+%% File Name: BIFIE.ecdf.Rd
+%% File Version: 0.15
+%% File Last Change: 2017-01-16 19:33:05
+
 \name{BIFIE.ecdf}
 \alias{BIFIE.ecdf}
 \alias{summary.BIFIE.ecdf}

@@ -1,3 +1,6 @@
+## File Name: write.BIFIE.data.R
+## File Version: 1.12
+## File Last Change: 2017-01-16 14:16:43
 
 #############################################################
 # write BIFIEdata object

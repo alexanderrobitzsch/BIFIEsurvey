@@ -1,3 +1,6 @@
+## File Name: save.BIFIE.data.R
+## File Version: 1.03
+## File Last Change: 2017-01-16 14:16:43
 
 ######################################################################
 # save BIFIEdata objects

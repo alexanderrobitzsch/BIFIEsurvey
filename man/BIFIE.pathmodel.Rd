@@ -1,3 +1,7 @@
+%% File Name: BIFIE.pathmodel.Rd
+%% File Version: 0.15
+%% File Last Change: 2017-01-16 19:39:19
+
 \name{BIFIE.pathmodel}
 \alias{BIFIE.pathmodel}
 \alias{summary.BIFIE.pathmodel}

@@ -1,3 +1,6 @@
+## File Name: BIFIE_data_nested_MI.R
+## File Version: 0.03
+## File Last Change: 2017-01-16 14:16:42
 
 ###########################################################
 # subfunction for handling nested multiple imputation

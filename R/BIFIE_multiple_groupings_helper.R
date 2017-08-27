@@ -1,3 +1,6 @@
+## File Name: BIFIE_multiple_groupings_helper.R
+## File Version: 0.05
+## File Last Change: 2017-01-16 14:16:42
 
 ################################################
 # multiple grouping helper functions

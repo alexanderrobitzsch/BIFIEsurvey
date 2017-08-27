@@ -1,3 +1,7 @@
+%% File Name: BIFIE.by.Rd
+%% File Version: 0.18
+%% File Last Change: 2017-01-16 19:24:06
+
 \name{BIFIE.by}
 \alias{BIFIE.by}
 \alias{summary.BIFIE.by}

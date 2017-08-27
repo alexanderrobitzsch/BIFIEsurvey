@@ -1,3 +1,6 @@
+## File Name: bifietable.R
+## File Version: 1.05
+## File Last Change: 2017-02-03 15:03:14
 
 
 ###########################################

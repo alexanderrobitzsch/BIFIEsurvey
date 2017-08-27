@@ -1,3 +1,6 @@
+## File Name: BIFIE.summary.R
+## File Version: 0.09
+## File Last Change: 2017-06-23 19:47:45
 
 BIFIE.summary <- function(object , print.time=TRUE){
 	cat("------------------------------------------------------------\n")

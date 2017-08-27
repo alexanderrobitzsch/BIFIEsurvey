@@ -1,3 +1,7 @@
+%% File Name: save.BIFIEdata.Rd
+%% File Version: 0.42
+%% File Last Change: 2017-08-10 13:35:24
+
 \name{save.BIFIEdata}
 \alias{save.BIFIEdata}
 \alias{load.BIFIEdata}
@@ -56,7 +60,7 @@ is the working directory.}
 	\code{table} (function \code{\link[utils:write.table]{utils::write.table}}),
 	\code{sav} (function \code{\link[foreign:read.spss]{foreign::read.spss}}
 		for reading sav files and function
-	\code{\link[sjlabelled:write_spss]{sjlabelled::write_spss}}.
+	\code{sjlabelled::write_spss} for writing sav files).
 		}
 \item{\dots}{Additional arguments to be passed to 
 	\code{\link[base:save]{base::save}},
@@ -64,7 +68,7 @@ is the working directory.}
 	\code{\link[utils:write.csv2]{utils::write.csv2}},
 	\code{\link[utils:write.table]{utils::write.table}}, 
 	\code{\link[foreign:read.spss]{foreign::read.spss}},
-	\code{\link[sjlabelled:write_spss]{sjlabelled::write_spss}}
+	\code{sjlabelled::write_spss}
 }
 \item{filename}{
 	File name of \code{BIFIEdata} object

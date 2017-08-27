@@ -1,3 +1,7 @@
+%% File Name: BIFIEsurvey-utilities.Rd
+%% File Version: 0.02
+%% File Last Change: 2017-06-23 20:31:36
+
 \name{BIFIEsurvey-utilities}
 \alias{BIFIEsurvey-utilities}
 \alias{bifie_rubin_rules}

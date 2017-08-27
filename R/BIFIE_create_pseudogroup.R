@@ -1,3 +1,6 @@
+## File Name: BIFIE_create_pseudogroup.R
+## File Version: 1.02
+## File Last Change: 2017-01-16 14:16:42
 
 ################################################
 # multiple grouping helper functions

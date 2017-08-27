@@ -1,3 +1,6 @@
+## File Name: BIFIE_table_multiple_groupings.R
+## File Version: 0.06
+## File Last Change: 2017-01-16 14:16:42
 
 #####################################################################
 BIFIE_table_multiple_groupings <- function( dfr , res00 ){

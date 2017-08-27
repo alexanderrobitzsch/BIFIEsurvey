@@ -1,3 +1,6 @@
+## File Name: create_summary_table.R
+## File Version: 0.06
+## File Last Change: 2017-06-23 19:47:18
 
 ##################################################################
 create_summary_table <- function( res_pars , parsM , parsrepM , dfr , BIFIEobj){	

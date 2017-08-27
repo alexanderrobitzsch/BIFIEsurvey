@@ -1,3 +1,6 @@
+## File Name: BIFIE.data.jack.R
+## File Version: 1.56
+## File Last Change: 2017-06-23 19:31:22
 ###########################################################
 # BIFIE.data objects for designs with jackknife zones
 BIFIE.data.jack <- function( data , wgt=NULL , jktype="JK_TIMSS" , pv_vars = NULL ,
