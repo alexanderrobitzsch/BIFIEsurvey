@@ -1,6 +1,6 @@
 %% File Name: BIFIE.mva.Rd
 %% File Version: 0.04
-%% File Last Change: 2017-01-16 19:38:25
+%% File Last Change: 2017-01-16 18:38:25
 
 \name{BIFIE.mva}
 \alias{BIFIE.mva}

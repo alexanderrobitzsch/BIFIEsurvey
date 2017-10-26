@@ -1,6 +1,6 @@
 ## File Name: BIFIE.crosstab.R
-## File Version: 0.26
-## File Last Change: 2017-02-03 14:55:43
+## File Version: 0.27
+## File Last Change: 2017-10-26 14:29:17
 
 
 #######################################################################
@@ -41,15 +41,13 @@ BIFIE.crosstab <- function( BIFIEobj , vars1 , vars2 ,
 	vars_index2 <- which( varnames == vars2 )
     # vars values
 	if ( is.null(vars_values1 ) ){ 
-		# t1 <- table( dat1[ , vars_index1 ] )	
-		t1 <- fasttable( datalistM[ , vars_index1 ] )		
+		t1 <- bifietable( datalistM[ , vars_index1 ] )		
 	    vars_values1 <- sort( as.numeric( paste( names(t1) ) ))
-				}
+	}
 	if ( is.null(vars_values2 ) ){ 
-		# t1 <- table( dat1[ , vars_index2 ] )				  
-		t1 <- fasttable( datalistM[ , vars_index2 ] )		
+		t1 <- bifietable( datalistM[ , vars_index2 ] )		
 	    vars_values2 <- sort( as.numeric( paste( names(t1) ) ))
-				}
+	}
 	
 	wgt_ <- matrix( wgt , ncol=1 )
 	if ( is.null( group) ){ nogroup <- TRUE } else { nogroup <- FALSE }

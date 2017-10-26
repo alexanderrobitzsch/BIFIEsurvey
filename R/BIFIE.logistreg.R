@@ -1,6 +1,6 @@
 ## File Name: BIFIE.logistreg.R
 ## File Version: 0.29
-## File Last Change: 2017-02-03 14:58:28
+## File Last Change: 2017-09-21 17:54:20
 
 
 #######################################################################

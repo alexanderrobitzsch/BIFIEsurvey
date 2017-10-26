@@ -1,6 +1,6 @@
 ## File Name: BIFIE.data.boot.R
 ## File Version: 0.11
-## File Last Change: 2017-01-31 19:23:42
+## File Last Change: 2017-09-21 17:54:18
 ###########################################################
 # BIFIE.data objects for bootstrap designs
 BIFIE.data.boot <- function( data , wgt=NULL ,  pv_vars = NULL ,

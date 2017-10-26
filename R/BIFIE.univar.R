@@ -1,6 +1,6 @@
 ## File Name: BIFIE.univar.R
 ## File Version: 1.65
-## File Last Change: 2017-02-03 15:01:15
+## File Last Change: 2017-09-21 17:54:22
 
 #######################################################################
 # univariate statistics

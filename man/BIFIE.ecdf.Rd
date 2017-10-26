@@ -1,6 +1,6 @@
 %% File Name: BIFIE.ecdf.Rd
-%% File Version: 0.15
-%% File Last Change: 2017-01-16 19:33:05
+%% File Version: 0.16
+%% File Last Change: 2017-10-26 14:27:55
 
 \name{BIFIE.ecdf}
 \alias{BIFIE.ecdf}
@@ -67,6 +67,8 @@ A list with following entries
  \item{ecdf}{Data frame with probabilities and the empirical
  	 distribution function (See Examples).
  }
+ \item{stat}{Data frame with empirical distribution function stacked with
+     respect to variables, groups and group values}
  \item{output}{More extensive output}
  \item{\dots}{More values}
 }

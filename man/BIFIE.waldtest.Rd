@@ -1,6 +1,6 @@
 %% File Name: BIFIE.waldtest.Rd
 %% File Version: 0.24
-%% File Last Change: 2017-01-16 19:44:31
+%% File Last Change: 2017-01-16 18:44:31
 
 \name{BIFIE.waldtest}
 \alias{BIFIE.waldtest}

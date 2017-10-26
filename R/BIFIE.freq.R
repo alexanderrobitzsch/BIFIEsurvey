@@ -1,6 +1,6 @@
 ## File Name: BIFIE.freq.R
-## File Version: 0.41
-## File Last Change: 2017-02-03 14:56:49
+## File Version: 0.42
+## File Last Change: 2017-10-26 13:43:40
 
 
 #######################################################################
@@ -154,7 +154,7 @@ BIFIE.freq <- function( BIFIEobj , vars , group=NULL , group_values=NULL , se=TR
 			"parnames" = parnames , "CALL"=cl )
 	class(res1) <- "BIFIE.freq"
 	return(res1)
-		}
+}
 ###################################################################################
 
 ####################################################################################

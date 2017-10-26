@@ -1,6 +1,6 @@
 ## File Name: BIFIEdata2svrepdesign.R
 ## File Version: 0.06
-## File Last Change: 2017-04-27 11:01:11
+## File Last Change: 2017-09-21 17:54:24
 
 BIFIEdata2svrepdesign <- function(bifieobj)
 {

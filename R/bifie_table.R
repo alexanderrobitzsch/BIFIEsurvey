@@ -1,10 +1,10 @@
-## File Name: bifietable.R
+## File Name: bifie_table.R
 ## File Version: 1.07
-## File Last Change: 2017-10-26 14:10:42
+## File Last Change: 2017-10-26 13:47:56
 
 ###########################################
 # Rcpp version of R's table function
-bifietable <- function( vec  , sort.names=FALSE )
+bifie_table <- function( vec  , sort.names=FALSE )
 {
     datavec <- matrix( vec , ncol=1 )
     # res <- bifie_fasttable( datavec )	
@@ -31,4 +31,5 @@ bifietable <- function( vec  , sort.names=FALSE )
         }
 ###########################################		
 
-fasttable <- bifietable 
+bifietable <- bifie_table
+fasttable <- bifie_table 

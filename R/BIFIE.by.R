@@ -1,6 +1,6 @@
 ## File Name: BIFIE.by.R
-## File Version: 1.41
-## File Last Change: 2017-02-03 14:54:33
+## File Version: 1.42
+## File Last Change: 2017-10-26 14:28:35
 
 
 #######################################################################
@@ -50,7 +50,7 @@ BIFIE.by <- function( BIFIEobj , vars , userfct , userparnames=NULL ,
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	

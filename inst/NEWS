@@ -49,7 +49,7 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.3  |  2017-09-21  |  Last: BIFIEsurvey 2.3-9
+VERSIONS BIFIEsurvey 2.4  |  2017-10-26  |  Last: BIFIEsurvey 2.4-1
 --------------------------------------------------------------------------
  
 xxx   * ---
@@ -58,6 +58,15 @@ DATA  * ---
 EXAMP * ---
 
 
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.3  |  2017-10-26  |  Last: BIFIEsurvey 2.3-18
+--------------------------------------------------------------------------
+ 
+NOTE  * included variable names, groups and grouping values in output
+        value 'stat' in 'BIFIE.ecdf' function
+
+DATA  * ---
+EXAMP * ---
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 2.2  |  2017-08-10  |  Last: BIFIEsurvey 2.2-22

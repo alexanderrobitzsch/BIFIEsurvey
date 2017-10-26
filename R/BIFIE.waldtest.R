@@ -1,6 +1,6 @@
 ## File Name: BIFIE.waldtest.R
 ## File Version: 1.18
-## File Last Change: 2017-02-03 15:08:49
+## File Last Change: 2017-09-21 17:54:22
 
 
 #######################################################################
