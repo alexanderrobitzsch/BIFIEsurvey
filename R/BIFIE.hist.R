@@ -1,6 +1,5 @@
 ## File Name: BIFIE.hist.R
-## File Version: 0.17
-## File Last Change: 2017-09-21 17:54:20
+## File Version: 0.18
 
 
 #######################################################################
@@ -57,7 +56,7 @@ BIFIE.hist <- function( BIFIEobj , vars , breaks=NULL ,
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	
@@ -112,17 +111,19 @@ BIFIE.hist <- function( BIFIEobj , vars , breaks=NULL ,
 
 ####################################################################################
 # summary for BIFIE.hist function
-summary.BIFIE.hist <- function( object ,  ... ){
+summary.BIFIE.hist <- function( object ,  ... )
+{
     BIFIE.summary(object)
-			}
+}
 ##########################################################################			
 # plot function
-plot.BIFIE.hist <- function( x , ask=TRUE , ... ){
-    res <- x
-    GG <- res$GG
-    for (gg in 1:GG){
-      graphics::plot( res$histobj[[gg]] , ... )
-      graphics::par(ask=ask)
-                    }
-      }
+plot.BIFIE.hist <- function( x , ask=TRUE , ... )
+{
+	res <- x
+	GG <- res$GG
+	for (gg in 1:GG){
+		graphics::plot( res$histobj[[gg]] , ... )
+		graphics::par(ask=ask)
+    }
+}
 			

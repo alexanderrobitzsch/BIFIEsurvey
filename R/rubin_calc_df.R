@@ -1,6 +1,5 @@
 ## File Name: rubin_calc_df.R
 ## File Version: 0.06
-## File Last Change: 2017-04-05 17:23:46
 
 ######################################################
 # calculate degrees of freedom according to Rubin

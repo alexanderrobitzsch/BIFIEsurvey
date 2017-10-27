@@ -1,6 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
 %% File Version: 0.77
-%% File Last Change: 2017-02-08 09:19:36
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}

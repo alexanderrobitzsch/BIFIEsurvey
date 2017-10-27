@@ -1,6 +1,5 @@
 ## File Name: BIFIE.freq.R
-## File Version: 0.42
-## File Last Change: 2017-10-26 13:43:40
+## File Version: 0.43
 
 
 #######################################################################
@@ -37,7 +36,7 @@ BIFIE.freq <- function( BIFIEobj , vars , group=NULL , group_values=NULL , se=TR
 	vars_info <- list(1:VV)
 	for (vv in 1:VV){
 	   # t1 <- table( dat1[,vars_index[vv] ] )	   
-    	t1 <- fasttable( datalistM[ , vars_index[vv] ] )
+    	t1 <- bifietable( datalistM[ , vars_index[vv] ] )
 	    vars_info[[vv]] <- sort( as.numeric( paste0(names(t1) )))	   
 		    }
 	vars_values_numb <- unlist( lapply( vars_info , FUN = function(uu){ length(uu) } )	) 
@@ -61,7 +60,7 @@ BIFIE.freq <- function( BIFIEobj , vars , group=NULL , group_values=NULL , se=TR
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	

@@ -1,14 +1,13 @@
 ## File Name: BIFIE.logistreg.R
-## File Version: 0.29
-## File Last Change: 2017-09-21 17:54:20
+## File Version: 0.31
 
 
 #######################################################################
 # Linear regression
 BIFIE.logistreg <- function( BIFIEobj , dep=NULL , pre=NULL  , 
-            formula=NULL ,   
-			group=NULL , group_values=NULL , se=TRUE , eps = 1E-8 , maxiter=100){
-	#****
+            formula=NULL , group=NULL , group_values=NULL , se=TRUE , 
+			eps = 1E-8 , maxiter=100)
+{
 	s1 <- Sys.time()
 	cl <- match.call()		
 	bifieobj <- BIFIEobj
@@ -78,7 +77,7 @@ BIFIE.logistreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	
@@ -95,10 +94,8 @@ BIFIE.logistreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 	res <- bifie_logistreg(  datalistM , wgt_ , as.matrix(wgtrep) , dep_index -1 , 
 				pre_index - 1 ,  fayfac ,    Nimp ,  group_index -  1, group_values ,
 				eps , maxiter )
-
 		
 	GG <- length(group_values)
-#	ZZ <- nrow(itempair_index )	
     ZZ <- VV
 	p1 <- c( rep("b",VV) )
     p2 <- c( pre )
@@ -110,8 +107,7 @@ BIFIE.logistreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 	             }							 
 	dfr$Ncases <- rep( rowMeans( res$ncasesM ) , each=ZZ )
 	dfr$Nweight <- rep( rowMeans( res$sumwgtM ) , each=ZZ )	
-	
-		
+			
 	dfr <- create_summary_table( res_pars=res$regrcoefL , 
 				     parsM=res$regrcoefM   , parsrepM=res$regrcoefrepM , 
 					 dfr=dfr , BIFIEobj=BIFIEobj )				
@@ -140,14 +136,15 @@ BIFIE.logistreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 			"GG"=GG , "parnames" = parnames , "CALL"=cl)
 	class(res1) <- "BIFIE.logistreg"
 	return(res1)
-		}
+}
 ###################################################################################
 
 ####################################################################################
 # summary for BIFIE.linreg function
-summary.BIFIE.logistreg <- function( object , digits=4 , ... ){
-    BIFIE.summary(object)
+summary.BIFIE.logistreg <- function( object , digits=4 , ... )
+{
+	BIFIE.summary(object)
 	cat("Statistical Inference for Logistic Regression \n")	
 	obji <- object$stat
 	print.object.summary( obji , digits=digits )
-			}
+}

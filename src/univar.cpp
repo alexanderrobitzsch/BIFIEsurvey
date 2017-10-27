@@ -1,6 +1,5 @@
 //// File Name: univar.cpp
 //// File Version: 7.71
-//// File Last Change: 2017-09-19 15:05:14
 
 
 #include <RcppArmadillo.h>

@@ -1,6 +1,5 @@
 ## File Name: BIFIE.crosstab.R
-## File Version: 0.27
-## File Last Change: 2017-10-26 14:29:17
+## File Version: 0.28
 
 
 #######################################################################
@@ -63,7 +62,7 @@ BIFIE.crosstab <- function( BIFIEobj , vars1 , vars2 ,
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	

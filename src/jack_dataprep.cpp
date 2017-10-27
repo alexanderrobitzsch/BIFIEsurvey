@@ -1,6 +1,5 @@
 //// File Name: jack_dataprep.cpp
 //// File Version: 1.05
-//// File Last Change: 2017-08-27 14:44:09
 
 
 #include <RcppArmadillo.h>

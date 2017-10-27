@@ -1,6 +1,5 @@
 %% File Name: BIFIE.logistreg.Rd
 %% File Version: 0.15
-%% File Last Change: 2017-01-16 18:37:43
 
 \name{BIFIE.logistreg}
 \alias{BIFIE.logistreg}

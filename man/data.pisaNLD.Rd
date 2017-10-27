@@ -1,6 +1,5 @@
 %% File Name: data.pisaNLD.Rd
 %% File Version: 0.13
-%% File Last Change: 2017-04-19 20:24:38
 
 \name{data.pisaNLD}
 \alias{data.pisaNLD}

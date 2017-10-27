@@ -1,6 +1,5 @@
 %% File Name: save.BIFIEdata.Rd
 %% File Version: 0.42
-%% File Last Change: 2017-08-10 13:35:24
 
 \name{save.BIFIEdata}
 \alias{save.BIFIEdata}

@@ -1,6 +1,5 @@
 ## File Name: BIFIE.derivedParameters.R
 ## File Version: 0.21
-## File Last Change: 2017-09-21 17:54:19
 
 ####################################################
 # statistical inference for derived parameters

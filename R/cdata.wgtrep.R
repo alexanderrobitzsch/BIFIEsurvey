@@ -1,6 +1,5 @@
 ## File Name: cdata.wgtrep.R
 ## File Version: 0.02
-## File Last Change: 2017-09-21 17:54:24
 
 ############################################
 # BIFIEcdata format for replicate weights

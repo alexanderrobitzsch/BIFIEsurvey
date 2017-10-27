@@ -1,6 +1,5 @@
 ## File Name: BIFIE.linreg.R
-## File Version: 0.41
-## File Last Change: 2017-09-21 17:54:20
+## File Version: 0.42
 
 
 #######################################################################
@@ -80,7 +79,7 @@ BIFIE.linreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 	#@@@@***
 
     if ( is.null(group_values ) ){ 
-		t1 <- fasttable( datalistM[ , group_index ] )				  
+		t1 <- bifietable( datalistM[ , group_index ] )				  
 	    group_values <- sort( as.numeric( paste( names(t1) ) ))
 				}
 	
@@ -147,9 +146,10 @@ BIFIE.linreg <- function( BIFIEobj , dep=NULL , pre=NULL  ,
 
 ####################################################################################
 # summary for BIFIE.linreg function
-summary.BIFIE.linreg <- function( object , digits=4 , ... ){
-    BIFIE.summary(object)
+summary.BIFIE.linreg <- function( object , digits=4 , ... )
+{
+	BIFIE.summary(object)
 	cat("Statistical Inference for Linear Regression \n\n")	
 	obji <- object$stat
 	print.object.summary( obji , digits=digits )
-			}
+}

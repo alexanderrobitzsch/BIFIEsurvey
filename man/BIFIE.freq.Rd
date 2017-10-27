@@ -1,6 +1,5 @@
 %% File Name: BIFIE.freq.Rd
 %% File Version: 0.12
-%% File Last Change: 2017-01-16 18:22:10
 
 \name{BIFIE.freq}
 \alias{BIFIE.freq}

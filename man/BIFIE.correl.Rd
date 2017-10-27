@@ -1,6 +1,5 @@
 %% File Name: BIFIE.correl.Rd
 %% File Version: 0.16
-%% File Last Change: 2017-01-16 18:22:10
 
 \name{BIFIE.correl}
 \alias{BIFIE.correl}

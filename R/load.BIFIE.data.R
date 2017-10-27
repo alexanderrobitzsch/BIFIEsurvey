@@ -1,6 +1,5 @@
 ## File Name: load.BIFIE.data.R
 ## File Version: 1.16
-## File Last Change: 2017-09-21 17:54:25
 	
 ############################################################################################
 # load BIFIEdata objects when objects are saved as full BIFIEdata

@@ -1,6 +1,5 @@
 ## File Name: BIFIE.data.R
 ## File Version: 1.38
-## File Last Change: 2017-09-21 17:54:19
 
 ##################################################################
 # Convert a list of multiply imputed datasets into an object

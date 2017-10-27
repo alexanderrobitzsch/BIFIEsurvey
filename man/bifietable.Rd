@@ -1,6 +1,5 @@
 %% File Name: bifietable.Rd
 %% File Version: 1.05
-%% File Last Change: 2017-01-16 18:44:35
 
 \name{bifietable}
 \alias{bifietable}

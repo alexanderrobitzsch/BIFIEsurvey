@@ -1,6 +1,5 @@
 ## File Name: bifietable.R
 ## File Version: 1.07
-## File Last Change: 2017-10-26 14:10:42
 
 ###########################################
 # Rcpp version of R's table function

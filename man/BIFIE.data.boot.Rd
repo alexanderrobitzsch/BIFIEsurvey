@@ -1,6 +1,5 @@
 %% File Name: BIFIE.data.boot.Rd
 %% File Version: 0.07
-%% File Last Change: 2017-01-16 18:22:10
 
 \name{BIFIE.data.boot}
 \alias{BIFIE.data.boot}

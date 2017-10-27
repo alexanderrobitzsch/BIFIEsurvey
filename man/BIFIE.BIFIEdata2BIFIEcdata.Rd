@@ -1,6 +1,5 @@
 %% File Name: BIFIE.BIFIEdata2BIFIEcdata.Rd
 %% File Version: 0.14
-%% File Last Change: 2017-01-16 18:22:48
 
 \name{BIFIE.BIFIEdata2BIFIEcdata}
 \alias{BIFIE.BIFIEdata2BIFIEcdata}

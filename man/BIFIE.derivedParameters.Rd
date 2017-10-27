@@ -1,6 +1,5 @@
 %% File Name: BIFIE.derivedParameters.Rd
 %% File Version: 0.13
-%% File Last Change: 2017-01-16 18:32:49
 
 \name{BIFIE.derivedParameters}
 \alias{BIFIE.derivedParameters}

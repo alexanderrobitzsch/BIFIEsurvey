@@ -1,6 +1,5 @@
 ## File Name: BIFIE.twolevelreg.R
 ## File Version: 0.39
-## File Last Change: 2017-09-21 17:54:21
 
 #############################################################
 # BIFIE.twolevelreg

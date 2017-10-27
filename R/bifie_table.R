@@ -1,6 +1,5 @@
 ## File Name: bifie_table.R
 ## File Version: 1.07
-## File Last Change: 2017-10-26 13:47:56
 
 ###########################################
 # Rcpp version of R's table function

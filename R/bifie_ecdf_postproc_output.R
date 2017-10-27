@@ -1,6 +1,5 @@
 ## File Name: bifie_ecdf_postproc_output.R
 ## File Version: 0.06
-## File Last Change: 2017-10-26 15:10:51
 
 
 bifie_ecdf_postproc_output <- function(res, group_values, breaks, VV, res00,

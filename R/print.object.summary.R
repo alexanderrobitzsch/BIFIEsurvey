@@ -1,6 +1,5 @@
 ## File Name: print.object.summary.R
 ## File Version: 0.05
-## File Last Change: 2017-06-23 19:49:29
 
 print.object.summary <- function( obji , digits ){
     obji0 <- obji

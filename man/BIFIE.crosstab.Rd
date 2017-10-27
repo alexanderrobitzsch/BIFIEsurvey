@@ -1,6 +1,5 @@
 %% File Name: BIFIE.crosstab.Rd
 %% File Version: 0.09
-%% File Last Change: 2017-01-16 18:24:41
 
 \name{BIFIE.crosstab}
 \alias{BIFIE.crosstab}

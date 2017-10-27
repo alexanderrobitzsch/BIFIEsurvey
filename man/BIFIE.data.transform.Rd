@@ -1,6 +1,5 @@
 %% File Name: BIFIE.data.transform.Rd
 %% File Version: 0.29
-%% File Last Change: 2017-01-16 18:56:30
 
 \name{BIFIE.data.transform}
 \alias{BIFIE.data.transform}

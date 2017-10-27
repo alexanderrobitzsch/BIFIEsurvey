@@ -1,6 +1,5 @@
 %% File Name: BIFIE.univar.Rd
 %% File Version: 0.27
-%% File Last Change: 2017-01-16 18:43:25
 
 \name{BIFIE.univar}
 \alias{BIFIE.univar}

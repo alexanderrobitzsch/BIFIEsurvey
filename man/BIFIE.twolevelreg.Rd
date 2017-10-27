@@ -1,6 +1,5 @@
 %% File Name: BIFIE.twolevelreg.Rd
 %% File Version: 0.18
-%% File Last Change: 2017-01-16 18:41:31
 
 \name{BIFIE.twolevelreg}
 \alias{BIFIE.twolevelreg}

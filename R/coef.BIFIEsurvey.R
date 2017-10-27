@@ -1,6 +1,5 @@
 ## File Name: coef.BIFIEsurvey.R
 ## File Version: 0.06
-## File Last Change: 2017-09-21 17:54:24
 
 ###########################################
 # general BIFIE method coef

@@ -1,6 +1,5 @@
 ## File Name: summary.BIFIE.data.R
 ## File Version: 0.09
-## File Last Change: 2017-06-23 19:46:30
 
 ##############################################################
 summary.BIFIEdata <- function(object , ... ){

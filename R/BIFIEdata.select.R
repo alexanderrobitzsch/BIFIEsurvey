@@ -1,6 +1,5 @@
 ## File Name: BIFIEdata.select.R
 ## File Version: 1.02
-## File Last Change: 2017-09-21 17:54:23
 
 
 #..............................................................
