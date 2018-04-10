@@ -1,5 +1,5 @@
 //// File Name: univar_helpers.h
-//// File Version: 7.15
+//// File Version: 7.16
 
 
 #include <RcppArmadillo.h>
@@ -514,9 +514,9 @@ Rcpp::List rubin_rules_univ( Rcpp::NumericMatrix parsM , Rcpp::NumericMatrix par
 	   tmp3 += pars_varM(pp,ii) ;
 			}
 	
-	pars[pp] = tmp1 / Nimp ;
-	pars_varWithin[pp] = tmp3 / Nimp ;   		
-	pars_varBetween[pp] = ( tmp2 - Nimp * pow( pars[pp] , 2.0) ) / (Nimp - 1+eps ) ;
+	pars[pp] = tmp1 / Nimp2 ;
+	pars_varWithin[pp] = tmp3 / Nimp2 ;   		
+	pars_varBetween[pp] = ( tmp2 - Nimp2 * pow( pars[pp] , 2.0) ) / (Nimp2 - 1+eps ) ;
 	// ARb 2014-09-10:  added "1.0" instead of "1"
 	pars_se[pp] = sqrt( pars_varWithin[pp] + ( 1.0 + 1/Nimp2) * pars_varBetween[pp] ) ;
 	pars_fmi[pp] = ( 1.0 + 1/Nimp2) * pars_varBetween[pp] / pow(pars_se[pp] + eps,2.0) ;

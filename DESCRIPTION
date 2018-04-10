@@ -1,19 +1,19 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 2.4-4
-Date: 2017-10-27 13:06:56
+Version: 2.4-10
+Date: 2018-04-10 10:22:42
 Author: BIFIE
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description:
     Contains tools for survey statistics (especially in educational
     assessment) for datasets with replication designs (jackknife, 
-    bootstrap, replicate weights). Descriptive statistics, linear
-    and logistic regression, path models for manifest variables
-    with measurement error correction and two-level hierarchical
-    regressions for weighted samples are included. Statistical 
-    inference can be conducted for multiply imputed datasets and
-    nested multiply imputed datasets.    
+    bootstrap, replicate weights; see Kolenikov, 2010). 
+    Descriptive statistics, linear and logistic regression, 
+    path models for manifest variables with measurement error 
+    correction and two-level hierarchical regressions for weighted 
+    samples are included. Statistical inference can be conducted for 
+    multiply imputed datasets and nested multiply imputed datasets.    
     This package is developed by BIFIE (Federal Institute for 
     Educational Research, Innovation and Development of the Austrian 
     School System; Salzburg, Austria).

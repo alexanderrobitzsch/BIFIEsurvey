@@ -13,12 +13,11 @@ The CRAN version can be installed from within R using:
 utils::install.packages("BIFIEsurvey")
 ```
 
-#### GitHub version `BIFIEsurvey` 2.4-4 (2017-10-27)
+#### GitHub version `BIFIEsurvey` 2.5-10 (2018-04-10)
 
 The version hosted [here](https://github.com/alexanderrobitzsch/BIFIEsurvey) is the development version of `BIFIEsurvey`. 
 The GitHub version can be installed using `devtools` as:
 
 ```r
-utils::install.packages("devtools")
 devtools::install_github("alexanderrobitzsch/BIFIEsurvey")
 ```

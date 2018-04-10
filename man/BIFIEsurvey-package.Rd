@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 0.77
+%% File Version: 0.79
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}
@@ -12,15 +12,15 @@ Some Tools for Survey Statistics in Educational Assessment, Developed by BIFIE
 \description{
     Contains tools for survey statistics (especially in educational
     assessment) for datasets with replication designs (jackknife, 
-    bootstrap, replicate weights). Descriptive statistics, linear
-    and logistic regression, path models for manifest variables
-    with measurement error correction and two-level hierarchical
-    regressions for weighted samples are included. Statistical 
-    inference can be conducted for multiply imputed datasets and
-    nested multiply imputed datasets.    
+    bootstrap, replicate weights; see Kolenikov, 2010). 
+    Descriptive statistics, linear and logistic regression, 
+    path models for manifest variables with measurement error 
+    correction and two-level hierarchical regressions for weighted 
+    samples are included. Statistical inference can be conducted for 
+    multiply imputed datasets and nested multiply imputed datasets.    
     This package is developed by BIFIE (Federal Institute for 
     Educational Research, Innovation and Development of the Austrian 
-    School System; Salzburg, Austria).    
+    School System; Salzburg, Austria). 
 }
 
 %% \code{Sys.time}: \tab syssys \cr
@@ -88,10 +88,10 @@ With contributions from: Konrad Oberwimmer, Alexander Robitzsch
 %\code{\link{BIFIE.logistreg}}
 %----
 
-%\references{
-%Rubin, D. B. (2003). Nested multiple imputation of NMES via partially 
-%incompatible MCMC. \emph{Statistica Neerlandica}, \bold{57}, 3-18.
-%}
+\references{
+Kolenikov, S. (2010). Resampling variance estimation for complex survey data. 
+\emph{Stata Journal, 10}(2), 165-199.
+}
 
 \keyword{package}
 \seealso{

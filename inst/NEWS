@@ -49,21 +49,20 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.4  |  2017-10-27  |  Last: BIFIEsurvey 2.4-4
+VERSIONS BIFIEsurvey 2.5  |  2018-04-10  |  Last: BIFIEsurvey 2.5-10
 --------------------------------------------------------------------------
  
-xxx   * ---
+NOTE   * maintenance release
 
 DATA  * ---
 EXAMP * ---
-
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 2.3  |  2017-10-26  |  Last: BIFIEsurvey 2.3-18
 --------------------------------------------------------------------------
  
 NOTE  * included variable names, groups and grouping values in output
-        value 'stat' in 'BIFIE.ecdf' function
+        value 'stat' in BIFIE.ecdf() function
 
 DATA  * ---
 EXAMP * ---
@@ -72,11 +71,11 @@ EXAMP * ---
 VERSIONS BIFIEsurvey 2.2  |  2017-08-10  |  Last: BIFIEsurvey 2.2-22
 --------------------------------------------------------------------------
  
-ADDED * included arguments 'pvpre' and 'pv_vars' in 'BIFIE.data' function
+ADDED * included arguments 'pvpre' and 'pv_vars' in BIFIE.data() function
 NOTE  * reformatted summary output for all analyses in BIFIEsurvey 
         to digits in scientific notation
-NOTE  * exported utility functions 'bifie_rubin_rules',
-        'bifie_replication_variance' and 'BIFIE_NMI_inference_parameters'
+NOTE  * exported utility functions bifie_rubin_rules(),
+        bifie_replication_variance() and BIFIE_NMI_inference_parameters()
 
 DATA  * ---
 EXAMP * ---
@@ -85,7 +84,7 @@ EXAMP * ---
 VERSIONS BIFIEsurvey 2.1  |  2017-05-17  |  Last: BIFIEsurvey 2.1-6
 --------------------------------------------------------------------------
  
-FIXED * fixed a bug in 'BIFIE.data.jack' for replication designs in PISA which
+FIXED * fixed a bug in BIFIE.data.jack() for replication designs in PISA which
         was not able to handle more than 9 plausible values (for example,
         10 plausible values as in PISA 2015)
 
@@ -98,12 +97,12 @@ VERSIONS BIFIEsurvey 2.0  |  2017-04-27  |  Last: BIFIEsurvey 2.0-7
  
 NOTE  * changed degrees of freedom ('df') for model estimation to df=Inf
         in case of only one (imputed) dataset
-ADDED * included argument jktype="JK_TIMSS2" in 'BIFIE.data.jack' for
+ADDED * included argument jktype="JK_TIMSS2" in BIFIE.data.jack() for
         TIMSS 2015 replication method
-NOTE  * included argument 'mse=TRUE' in examples with survey::svrepdesign
+NOTE  * included argument 'mse=TRUE' in examples with survey::svrepdesign()
         which now provides equivalent results of the BIFIEsurvey package
         and survey package
-ADDED * included function 'BIFIEdata2svrepdesign' which converts objects
+ADDED * included function BIFIEdata2svrepdesign() which converts objects
         of class 'BIFIEdata' to objects in the survey package 
 
 DATA  * ---
