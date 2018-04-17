@@ -1,5 +1,5 @@
 //// File Name: jack_dataprep.cpp
-//// File Version: 1.05
+//// File Version: 1.06
 
 
 #include <RcppArmadillo.h>
@@ -10,6 +10,7 @@
 
 
 using namespace Rcpp;
+using namespace arma;
 
 
 

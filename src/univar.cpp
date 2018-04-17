@@ -1,12 +1,12 @@
 //// File Name: univar.cpp
-//// File Version: 7.71
+//// File Version: 7.72
 
 
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
 
-// #include <Rcpp.h>
+#include <Rcpp.h>
 // #include <Rmath.h>
 
 
@@ -21,7 +21,8 @@ using namespace Rcpp;
 Rcpp::List univar_multiple_V2group( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1, 
       Rcpp::NumericMatrix wgtrep , Rcpp::NumericVector vars_index, Rcpp::NumericVector fayfac, 
       Rcpp::NumericVector NI , Rcpp::NumericVector group_index1, 
-      Rcpp::NumericVector group_values ){
+      Rcpp::NumericVector group_values )
+{
                 
      int Nimp = NI[0] ;  
      int RR = wgtrep.ncol() ;   
