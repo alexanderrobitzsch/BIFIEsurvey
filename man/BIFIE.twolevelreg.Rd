@@ -83,7 +83,7 @@ includes the fixed effects predictors (specified by \code{formula.fixed})
 and \eqn{\bold{Z}_{ij}} includes the random effects predictors 
 (specified by \code{formula.random}). The random effects \eqn{\bold{u}_j}
 follow a multivariate normal distribution.
-		
+        
 The function also computes a variance decomposition of explained
 variance due to fixed and random effects for the within and the
 between level. This variance decomposition is conducted for the predictor
@@ -105,8 +105,8 @@ A list with following entries
 \references{
 Raudenbush, S. W., & Bryk, A. S. (2002). 
 \emph{Hierarchical linear models: Applications and data analysis methods}.
-Thousand Oaks: Sage.	
-	
+Thousand Oaks: Sage.    
+    
 Snijders, T. A. B., & Bosker, R. J. (2012). 
 \emph{Multilevel analysis: An introduction to basic and advanced multilevel 
 modeling}. Thousand Oaks: Sage.

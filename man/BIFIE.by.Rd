@@ -41,7 +41,7 @@ a matrix \code{X} and a weight vector \code{w} as
 arguments. The value of this function must be a vector.
 }
 \item{userparnames}{An optional vector of parameter names for the
-	value of \code{userfct}.	
+    value of \code{userfct}.    
 }
   \item{group}{
 Optional grouping variable(s)

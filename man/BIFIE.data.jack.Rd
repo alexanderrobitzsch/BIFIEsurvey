@@ -56,15 +56,15 @@ If \code{jktype="JK_TIMSS"}, then \code{jkfac=2}.
 Fay factor for statistical inference. The default is set to \code{NULL}.
 }
 \item{wgtrep}{Variables in the dataset which refer to the replicate
-	weights. In case of \code{cdata=TRUE}, the replicate weights
-	are deleted from \code{datalistM}.
-		}
+    weights. In case of \code{cdata=TRUE}, the replicate weights
+    are deleted from \code{datalistM}.
+        }
 \item{pvpre}{Only applicable for \code{jktype="RW_PISA"}. The vector contains
-	the prefixes of the variables containing plausible values.	
+    the prefixes of the variables containing plausible values.    
 }
 \item{ngr}{Number of randomly created groups in \code{"JK_RANDOM"}.}
 \item{seed}{The simulation seed if \code{"JK_RANDOM"} is chosen.
-	If \code{seed=NULL}, then the grouping is done according the
+    If \code{seed=NULL}, then the grouping is done according the
 order in the dataset.}
 \item{cdata}{An optional logical indicating whether the \code{BIFIEdata}
 object should be compactly saved. The default is \code{FALSE}.}

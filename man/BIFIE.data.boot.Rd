@@ -15,7 +15,7 @@ The sampling is done assuming independence of cases.
 
 \usage{
 BIFIE.data.boot( data , wgt=NULL ,  pv_vars = NULL ,
-	     Nboot = 500 , seed = .Random.seed , cdata=FALSE)
+         Nboot = 500 , seed = .Random.seed , cdata=FALSE)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -65,7 +65,7 @@ Object of class \code{BIFIEdata}
 
 
 \examples{
-\dontrun{	
+\dontrun{    
 #############################################################################
 # EXAMPLE 1: Bootstrap TIMSS data set
 #############################################################################

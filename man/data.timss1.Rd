@@ -1,5 +1,5 @@
 %% File Name: data.timss1.Rd
-%% File Version: 0.24
+%% File Version: 0.25
 
 \name{data.timss}
 \alias{data.timss}
@@ -32,7 +32,7 @@ data(data.timss4)
 \format{
 The dataset \code{data.timss1} is a list containing 5 imputed datasets. 
 The dataset \code{data.timss1.ind} contains response indicators of these
-5 imputed datatsets in \code{data.timss1}.
+5 imputed datasets in \code{data.timss1}.
 
 The dataset \code{data.timss2} is a list containing 5 datasets in which
 only plausible values are imputed, but student covariates are missing.
@@ -57,7 +57,7 @@ datasets, with 5 between-nest and 4 within-nest imputations.
 %}
 
 \examples{
-\dontrun{	
+\dontrun{    
 library(survey)
 library(lavaan.survey)
 library(intsvy)

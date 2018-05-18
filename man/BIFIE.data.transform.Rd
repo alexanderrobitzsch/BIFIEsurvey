@@ -90,7 +90,7 @@ res1 <- BIFIEsurvey::BIFIE.univar( bifieobj , vars = c("books_sq" , "books_cub" 
 summary(res1)
 
 \dontrun{
-#****************************	
+#****************************    
 #*** Transformation 2: Create dummy variables for variable book
 transform.formula <- ~ 0 + as.factor(books)
 bifieobj <- BIFIEsurvey::BIFIE.data.transform( bifieobj, 
@@ -260,7 +260,7 @@ transform.formula2 <- as.formula( paste0( "~ 0 + I ( BIFIE.princomp( ~ " ,
 #****************************
 #*** Transformation 10: Overwriting variables books and migrant 
 bifieobj4 <-  BIFIEsurvey::BIFIE.data.transform( bifieobj3 , 
-	        transform.formula = ~ 0 + I( 1*(books >= 1 ) ) + I(2*migrant) ,
+            transform.formula = ~ 0 + I( 1*(books >= 1 ) ) + I(2*migrant) ,
                 varnames.new= c("books","migrant") )  
 summary(bifieobj4)  
 }

@@ -82,7 +82,7 @@ bdat1a <- BIFIEsurvey::BIFIEdata.select( bdat1 , varnames = bdat1$varnames[ 1:7 
 bdat2a <- BIFIEsurvey::BIFIEdata.select( bdat2 , varnames = bdat2$varnames[ 1:7 ] , 
                 impdata.index = c(1,2,4) )
 summary(bdat1a)
-summary(bdat2a)	
+summary(bdat2a)    
 }
 
 

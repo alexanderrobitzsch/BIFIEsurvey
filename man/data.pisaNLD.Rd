@@ -1,12 +1,12 @@
 %% File Name: data.pisaNLD.Rd
-%% File Version: 0.13
+%% File Version: 0.14
 
 \name{data.pisaNLD}
 \alias{data.pisaNLD}
 
 \docType{data}
 \title{
-Some PISA Datatsets
+Some PISA Datasets
 }
 
 \description{
@@ -37,7 +37,7 @@ Downloaded from \url{http://www.jstatsoft.org/v20/i05/}
 %}
 
 \examples{
-\dontrun{	
+\dontrun{    
 library(mitools)
 library(survey)
 library(intsvy)

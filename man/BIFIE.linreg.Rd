@@ -38,7 +38,7 @@ Vector of predictor variables. If the intercept should be included,
 then use the variable \code{one} for specifying it (see Examples).
 }
 \item{formula}{An \R formula object which can be applied instead of
-	providing \code{dep} and \code{pre}. Note that there is 
+    providing \code{dep} and \code{pre}. Note that there is 
    additional computation time needed for model matrix creation.}
   \item{group}{
 Optional grouping variable(s)
@@ -84,7 +84,7 @@ A list with following entries
 
 \seealso{
 \code{\link[survey:svyglm]{survey::svyglm}},
-\code{\link[intsvy:timss.reg]{intsvy::timss.reg}},	
+\code{\link[intsvy:timss.reg]{intsvy::timss.reg}},    
 \code{\link[intsvy:timss.reg.pv]{intsvy::timss.reg.pv}},
 \code{\link[stats:lm]{stats::lm}}
 }

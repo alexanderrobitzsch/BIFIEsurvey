@@ -1,8 +1,8 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 2.5-5
-Date: 2018-04-17 10:57:53
+Version: 2.5-19
+Date: 2018-05-18 16:26:59
 Author: BIFIE
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description:

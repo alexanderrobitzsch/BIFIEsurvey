@@ -42,35 +42,35 @@ load.BIFIEdata.files( files.imp , wgt , file.wgtrep , file.ind = NULL ,
 Object of class \code{BIFIEdata}
 }
 \item{name.BIFIEdata}{
-	Name of \code{BIFIEdata} set to be saved
+    Name of \code{BIFIEdata} set to be saved
    }
 \item{cdata}{An optional logical indicating whether the dataset should be
 saved in a 'compact way'}
 \item{varnames}{Vector of variable names which should be saved. The default
-	is to use all variables.	
+    is to use all variables.    
 }
 \item{dir}{Directory in which data files should be saved. The default
 is the working directory.}
 \item{impdata.index}{Vector of indices for selecting imputed datasets}
 \item{type}{Type of saved data. Options are \code{Rdata} (function 
-	\code{\link[base:save]{base::save}}, 
-	\code{csv} (function \code{\link[utils:write.csv]{utils::write.csv}}),
-	\code{csv2} (function \code{\link[utils:write.csv2]{utils::write.csv2}}),
-	\code{table} (function \code{\link[utils:write.table]{utils::write.table}}),
-	\code{sav} (function \code{\link[foreign:read.spss]{foreign::read.spss}}
-		for reading sav files and function
-	\code{sjlabelled::write_spss} for writing sav files).
-		}
+    \code{\link[base:save]{base::save}}, 
+    \code{csv} (function \code{\link[utils:write.csv]{utils::write.csv}}),
+    \code{csv2} (function \code{\link[utils:write.csv2]{utils::write.csv2}}),
+    \code{table} (function \code{\link[utils:write.table]{utils::write.table}}),
+    \code{sav} (function \code{\link[foreign:read.spss]{foreign::read.spss}}
+        for reading sav files and function
+    \code{sjlabelled::write_spss} for writing sav files).
+        }
 \item{\dots}{Additional arguments to be passed to 
-	\code{\link[base:save]{base::save}},
-	\code{\link[utils:write.csv]{utils::write.csv}},
-	\code{\link[utils:write.csv2]{utils::write.csv2}},
-	\code{\link[utils:write.table]{utils::write.table}}, 
-	\code{\link[foreign:read.spss]{foreign::read.spss}},
-	\code{sjlabelled::write_spss}
+    \code{\link[base:save]{base::save}},
+    \code{\link[utils:write.csv]{utils::write.csv}},
+    \code{\link[utils:write.csv2]{utils::write.csv2}},
+    \code{\link[utils:write.table]{utils::write.table}}, 
+    \code{\link[foreign:read.spss]{foreign::read.spss}},
+    \code{sjlabelled::write_spss}
 }
 \item{filename}{
-	File name of \code{BIFIEdata} object
+    File name of \code{BIFIEdata} object
    }
 \item{files.imp}{Vector of file names of imputed datasets}
 \item{wgt}{Variable name of case weight}
@@ -189,9 +189,9 @@ BIFIEsurvey::write.BIFIEdata( bifieobj , name.BIFIEdata = "timss2_save5" , type=
 #***--- read Rdata format
 # extract files with imputed datasets and replicate weights
 files.imp <- miceadds::grep.vec( c("timss2_save4__IMP" , ".Rdata" ) , 
-			list.files(getwd())  )$x
+            list.files(getwd())  )$x
 file.wgtrep <- miceadds::grep.vec( c("timss2_save4__WGTREP" , ".Rdata" ) , 
-			list.files(getwd())  )$x
+            list.files(getwd())  )$x
 # select some variables in varnames
 varnames <- scan( nlines=1, what="character")
    IDSTUD   TOTWGT books lang migrant likesc  ASMMAT

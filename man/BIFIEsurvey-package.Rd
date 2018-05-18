@@ -56,7 +56,7 @@ random slope model)
 replicated statistics
 
 \item User-defined \R functions (\code{\link{BIFIE.by}})
-	
+    
 }
 
 }

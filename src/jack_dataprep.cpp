@@ -1,5 +1,5 @@
 //// File Name: jack_dataprep.cpp
-//// File Version: 1.06
+//// File Version: 1.07
 
 
 #include <RcppArmadillo.h>
@@ -33,14 +33,14 @@ Rcpp::NumericMatrix bifie_jack_timss( Rcpp::NumericVector wgt,
     for (int rr=0;rr<RR;rr++){  
         for (int nn=0;nn<N;nn++){  
             if ( jkzone[nn] == rr ){  
-     	      wgtrep(nn,rr) = jkfac * wgt[nn] * jkrep[nn] ;  
-     		} else {  
-     	      wgtrep(nn,rr) = wgt[nn] ;  
-     		}  
-     	}  
-        if (prbar[rr] == 1){		  
-     	  Rcpp::Rcout << "-" <<  std::flush  ;  
-     	}  
+               wgtrep(nn,rr) = jkfac * wgt[nn] * jkrep[nn] ;  
+             } else {  
+               wgtrep(nn,rr) = wgt[nn] ;  
+             }  
+         }  
+        if (prbar[rr] == 1){          
+           Rcpp::Rcout << "-" <<  std::flush  ;  
+         }  
     }  
     return( wgtrep ) ;                
 }
@@ -71,22 +71,22 @@ Rcpp::List bifie_boot( Rcpp::NumericVector cumwgt , Rcpp::NumericMatrix rand_wgt
        
      for (int ww=0;ww<WW;ww++){  
        for (int nn=0;nn<N;nn++){  
-       	    wgt_temp(nn,0) = rand_wgt(nn,ww) ;  
-       	}  
+               wgt_temp(nn,0) = rand_wgt(nn,ww) ;  
+           }  
        // sort entries  
        arma::colvec wgt_tempsort = arma::sort( wgt_temp ) ;           
        zz=0;  
        nn1=0;           
        while (nn1<N){  
-       	if (wgt_tempsort(nn1,0) < cumwgt[zz] ){  
-       		wgtM(zz,ww) ++ ;  
-       		nn1 ++ ;	  
-       		} else {  
-       		zz ++ ;   
-       		}  
-       	}  
+           if (wgt_tempsort(nn1,0) < cumwgt[zz] ){  
+               wgtM(zz,ww) ++ ;  
+               nn1 ++ ;      
+               } else {  
+               zz ++ ;   
+               }  
+           }  
      }  
-     	  
+           
      //*************************************************      
      // OUTPUT                                     
      return Rcpp::List::create(   
@@ -119,19 +119,19 @@ Rcpp::List bifie_bifiedata2bifiecdata( Rcpp::NumericMatrix datalistM , int Nimp 
      int Nmiss=0;  
      for (int nn=0;nn<N;nn++){ // beg nn  
      for (int vv=0;vv<VV;vv++){  // beg vv  
-     	datalistM_ind(nn,vv) = 1 ;  
-     	t1 = datalistM(nn,vv) ;  
-     if ( ! R_IsNA( datalistM(nn , vv ) ) ){		  
-     	for (int ii=1;ii<Nimp;ii++){ // beg ii  
-     		if ( datalistM( nn + ii*N , vv ) != t1 ){  
-     			datalistM_ind(nn,vv)=0;  
-     			Nmiss ++ ;  
-     			break ;  
-     				}  
-     			}  // end ii  
-     		}  
-     	} // end vv	  
-     	} // end nn  
+         datalistM_ind(nn,vv) = 1 ;  
+         t1 = datalistM(nn,vv) ;  
+     if ( ! R_IsNA( datalistM(nn, vv ) ) ){          
+         for (int ii=1;ii<Nimp;ii++){ // beg ii  
+             if ( datalistM( nn + ii*N , vv ) != t1 ){  
+                 datalistM_ind(nn,vv)=0;  
+                 Nmiss ++ ;  
+                 break ;  
+                     }  
+                 }  // end ii  
+             }  
+         } // end vv      
+         } // end nn  
        
        
      //************************************************  
@@ -153,23 +153,23 @@ Rcpp::List bifie_bifiedata2bifiecdata( Rcpp::NumericMatrix datalistM , int Nimp 
      int zz=0;  
      for (int vv=0;vv<VV;vv++){  
        for (int nn=0;nn<N;nn++){  
-         if ( ! R_IsNA( datalistM(nn , vv ) ) ){	  
+         if ( ! R_IsNA( datalistM(nn , vv ) ) ){      
            if ( datalistM_ind(nn,vv) == 0 ){ // beg if missing entry  
-             	datalistM_impindex(zz,0)=nn;  
-             	datalistM_impindex(zz,1)=vv;				  
-             	for (int ii=0;ii<Nimp;ii++){  // beg ii  
-                 	//	datalistM_imputed(zz,0) = ii;  
-                 	//	datalistM_imputed(zz,1) = nn;	  
-                 	//	datalistM_imputed(zz,2) = vv;	  
-                 	//	datalistM_imputed(zz,3) = datalistM( nn+ii*N , vv) ;  
-                 	datalistM_imputed(zz,ii) = datalistM(nn+ii*N , vv ) ;		  
-             	} // end ii  
-             	zz ++ ;			  
-           }	// end if missing entry  
+                 datalistM_impindex(zz,0)=nn;  
+                 datalistM_impindex(zz,1)=vv;                  
+                 for (int ii=0;ii<Nimp;ii++){  // beg ii  
+                     //    datalistM_imputed(zz,0) = ii;  
+                     //    datalistM_imputed(zz,1) = nn;      
+                     //    datalistM_imputed(zz,2) = vv;      
+                     //    datalistM_imputed(zz,3) = datalistM( nn+ii*N , vv) ;  
+                     datalistM_imputed(zz,ii) = datalistM(nn+ii*N , vv ) ;          
+                 } // end ii  
+                 zz ++ ;              
+           }    // end if missing entry  
          }  // end R_IsNA 
        } // end nn  
      } // end vv  
-           	  
+                 
      //*************************************************      
      // OUTPUT                             
      return Rcpp::List::create(   
@@ -194,7 +194,7 @@ Rcpp::List bifie_bifiedata2bifiecdata( Rcpp::NumericMatrix datalistM , int Nimp 
 // [[Rcpp::export]]
 Rcpp::List bifie_bifiecdata2bifiedata( Rcpp::NumericMatrix datalistM_ind, 
       Rcpp::NumericMatrix datalistM_imputed , 
-	  int Nimp, Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix datalistM_impindex ){
+      int Nimp, Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix datalistM_impindex ){
   
      int N=dat1.nrow();  
      int VV=dat1.ncol();  
@@ -204,30 +204,30 @@ Rcpp::List bifie_bifiecdata2bifiedata( Rcpp::NumericMatrix datalistM_ind,
      //**** non-imputed data  
      for (int ii=0;ii<Nimp;ii++){   // beg ss  
        for (int nn=0;nn<N;nn++){ // beg nn  
-          for (int vv=0;vv<VV;vv++){	// beg vv  
-         	if ( datalistM_ind(nn,vv) == 1 ){ // beg non-imputed data  
-         		datalistM(nn+ii*N,vv) = dat1(nn,vv) ;  
-         				}  // end non-imputed data			  
+          for (int vv=0;vv<VV;vv++){    // beg vv  
+             if ( datalistM_ind(nn,vv) == 1 ){ // beg non-imputed data  
+                 datalistM(nn+ii*N,vv) = dat1(nn,vv) ;  
+                         }  // end non-imputed data              
           } // end vv  
-       	} // end nn  
+           } // end nn  
     } // end ss  
        
              
      //**** imputed data  
      //--- Rcpp::NumericMatrix datalistM_imputed(ZZ,4);  
-     // 	first column: subject case  
-     // 	second column: imputed variable  
+     //     first column: subject case  
+     //     second column: imputed variable  
               
      int HH=datalistM_imputed.nrow();   
      int nn_ ;  
      int vv_ ;  
        
      for ( int hh=0;hh<HH;hh++){  
-        nn_ = datalistM_impindex(hh,0) ;	  
-        vv_ = datalistM_impindex(hh,1) ;	  
-        for (int ii=0;ii<Nimp;ii++){		  
+        nn_ = datalistM_impindex(hh,0) ;      
+        vv_ = datalistM_impindex(hh,1) ;      
+        for (int ii=0;ii<Nimp;ii++){          
              datalistM( nn_ + ii * N , vv_ ) = datalistM_imputed(hh, ii ) ;  
-     			}	  
+                 }      
      }                                  
              
      //*************************************************      
@@ -268,12 +268,12 @@ Rcpp::List bifie_bifiedata_stepwise( Rcpp::NumericMatrix dat1,
      for (int vv=0;vv<VV;vv++){  
      for (int nn=0;nn<N;nn++){  
      if ( dat_ind(nn,vv) == 0 ){ // beg if missing entry  
-     	datalistM_imputed(zz,0) = ii;  
-     	datalistM_imputed(zz,1) = nn;	  
-     	datalistM_imputed(zz,2) = vv;	  
-     	datalistM_imputed(zz,3) = dat1( nn , vv) ;  
-     	zz ++ ;				  
-     	}	// end if missing entry  
+         datalistM_imputed(zz,0) = ii;  
+         datalistM_imputed(zz,1) = nn;      
+         datalistM_imputed(zz,2) = vv;      
+         datalistM_imputed(zz,3) = dat1( nn , vv) ;  
+         zz ++ ;                  
+         }    // end if missing entry  
      } // end nn  
      } // end vv  
                

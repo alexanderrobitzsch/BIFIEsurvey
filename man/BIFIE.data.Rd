@@ -40,8 +40,8 @@ containing all case weights.
 Optional vector of replicate weights
 }
 \item{fayfac}{Fay factor for calculating standard errors, a numeric value. 
-	If finite sampling correction
-	is requested, an appropriate vector input can be used (see Example 3).
+    If finite sampling correction
+    is requested, an appropriate vector input can be used (see Example 3).
 }
 \item{pv_vars}{Optional vector for names of plausible values, see
 \code{\link{BIFIE.data.jack}}.}
@@ -76,8 +76,8 @@ included in the list:
 \item{NMI}{Logical indicating whether the dataset is nested multiply
 imputed.}
 \item{cdata}{Logical indicating whether the \code{BIFIEdata} object is in
-	compact format (\code{cdata=TRUE}) or in a non-compact format
-	(\code{cdata=FALSE}).
+    compact format (\code{cdata=TRUE}) or in a non-compact format
+    (\code{cdata=FALSE}).
 }
 \item{Nvars}{Number of variables}
 \item{variables}{Data frame including some informations about variables.
@@ -85,7 +85,7 @@ All transformations are saved in the column \code{source}.}
 \item{datalistM_ind}{Data frame with response indicators 
 (if \code{cdata=TRUE})}
 \item{datalistM_imputed}{Data frame with imputed values 
-(if \code{cdata=TRUE})}		
+(if \code{cdata=TRUE})}        
 }
 
 

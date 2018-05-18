@@ -38,7 +38,7 @@ Vector of predictor variables. If the intercept should be included,
 then use the variable \code{one} for specifying it (see Examples).
 }
 \item{formula}{An \R formula object which can be applied instead of
-	providing \code{dep} and \code{pre}. Note that there is 
+    providing \code{dep} and \code{pre}. Note that there is 
    additional computation time needed for model matrix creation.}
   \item{group}{
 Optional grouping variable(s)
@@ -143,7 +143,7 @@ summary(bifiedata)
 mod2 <- BIFIEsurvey::BIFIE.logistreg( bifiedata , formula = y ~ x1+x2 )
 
 #*** (4) compare results
-summary(mod2)	# BIFIE.logistreg
+summary(mod2)    # BIFIE.logistreg
 summary(mod1)   # glm
 }
 }

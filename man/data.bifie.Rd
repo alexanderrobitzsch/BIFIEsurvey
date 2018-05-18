@@ -24,7 +24,7 @@ data(data.bifie01)
 \item The dataset \code{data.bifie01} contains data of 4th Grade Austrian
 students from the TIMSS 2011 study.
 
-}	
+}    
 }
 
 %\details{

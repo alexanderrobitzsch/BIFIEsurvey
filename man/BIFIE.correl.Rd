@@ -82,7 +82,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[stats:cov.wt]{stats::cov.wt}},	
+\code{\link[stats:cov.wt]{stats::cov.wt}},    
 \code{\link[intsvy:timss.rho]{intsvy::timss.rho}},
 \code{\link[intsvy:timss.rho.pv]{intsvy::timss.rho.pv}},
 \code{\link[Hmisc:rcorr]{Hmisc::rcorr}},

@@ -91,7 +91,7 @@ sampling scheme)}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[survey:svytable]{survey::svytable}},	
+\code{\link[survey:svytable]{survey::svytable}},    
 \code{\link[Hmisc:wtd.stats]{Hmisc::wtd.table}}
 }
 %\code{\link[intsvy:timss.table]{timss.table}} (\pkg{intsvy}),

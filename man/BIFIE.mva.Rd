@@ -1,5 +1,5 @@
 %% File Name: BIFIE.mva.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{BIFIE.mva}
 \alias{BIFIE.mva}
@@ -43,7 +43,7 @@ based on replication should be employed.}
 \value{
 A list with following entries
  \item{stat.mva}{Data frame with missing value statistics}
- \item{res_list}{List with extensive output splitted 
+ \item{res_list}{List with extensive output split 
      according to each variable in \code{missvars}}
  \item{\dots}{More values}
 }
@@ -64,7 +64,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 %\seealso{
-%\code{\link[stats:cov.wt]{cov.wt}} (\pkg{stats}),	
+%\code{\link[stats:cov.wt]{cov.wt}} (\pkg{stats}),    
 %}
 
 

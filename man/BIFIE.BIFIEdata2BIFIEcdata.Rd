@@ -95,7 +95,7 @@ bdat3 <- BIFIEsurvey::BIFIE.BIFIEcdata2BIFIEdata( bifieobj=bdat2 , impdata.index
 # object summaries
 summary(bdat1)
 summary(bdat2)
-summary(bdat3)		
+summary(bdat3)        
 
 \dontrun{
 #############################################################################

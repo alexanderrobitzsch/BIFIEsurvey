@@ -27,7 +27,7 @@ BIFIE.univar.test(BIFIE.method , wald_test=TRUE)
 Object of class \code{BIFIE.univar}
 }
 \item{wald_test}{Optional logical indicating whether a Wald test should
-	 be performed.}
+     be performed.}
 \item{object}{Object of class \code{BIFIE.univar.test}}
 \item{digits}{Number of digits for rounding output}
 \item{\dots}{Further arguments to be passed}

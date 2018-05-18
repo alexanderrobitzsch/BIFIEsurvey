@@ -99,7 +99,7 @@ res1 <- BIFIEsurvey::BIFIE.linreg( bdat, dep= "ASMMAT", pre=c("one","books","mig
 summary(res1)
 
 #*** Wald test which tests whether sigma and R^2 values are the same
-res1$parnames	# parameter names
+res1$parnames    # parameter names
 pn <- res1$parnames ; PN <- length(pn)
 Cdes <- matrix(0,nrow=2 , ncol=PN)
 colnames(Cdes) <- pn
@@ -130,7 +130,7 @@ Cdes[ 2 , c("ASMMAT_books" , "ASSSCI_books") ] <- c(1,-1)
 rdes <- rep(0,2)
 # perform Wald test
 wres2a <- BIFIEsurvey::BIFIE.waldtest( res2a , Cdes , rdes )
-summary(wres2a)	
+summary(wres2a)    
 
 #******************
 #*** Model 3: Frequencies
@@ -170,7 +170,7 @@ rdes <- rep(0,2)
 # Wald test
 wres4a <- BIFIEsurvey::BIFIE.waldtest( res4a , Cdes , rdes )
 summary(wres4a)
-}	
+}    
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

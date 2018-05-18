@@ -76,7 +76,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[graphics:hist]{graphics::hist}}	
+\code{\link[graphics:hist]{graphics::hist}}    
 }
 
 

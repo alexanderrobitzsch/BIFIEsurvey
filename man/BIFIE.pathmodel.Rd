@@ -43,7 +43,7 @@ Object of class \code{BIFIEdata}
    \pkg{lavaan} syntax. \code{lavaan.model} also allows the
    extended functionality in the 
    \code{\link[TAM:lavaanify.IRT]{TAM::lavaanify.IRT}} function.
-		}
+        }
  \item{reliability}{
 Optional vector containing the reliabilities of each variable.
 This vector can also include only a subset of all variables.
@@ -118,7 +118,7 @@ For the \code{lavaan} syntax, see
 \dontrun{
 #############################################################################
 # EXAMPLE 1: Path model data.bifie01
-#############################################################################	
+#############################################################################    
 
 data(data.bifie01)
 dat <- data.bifie01
@@ -134,7 +134,7 @@ lavmodel1 <- "
      # define latent variable with 2nd and 3rd item in reversed scoring
      ASBM03 =~ 1*ASBM03A + (-1)*ASBM03B + (-1)*ASBM03C + 1*ASBM03D
      ASBG07A ~ ASBM02E
-     ASBG07A ~~ .2*ASBG07A	# measurement error variance of .20
+     ASBG07A ~~ .2*ASBG07A    # measurement error variance of .20
      ASBM02E ~~ .45*ASBM02E     # measurement error variance of .45 
      ASBM02E ~ ASBM02A + ASBM02B
         "

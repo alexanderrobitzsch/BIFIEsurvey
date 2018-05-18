@@ -25,7 +25,7 @@ BIFIE.ecdf( BIFIEobj, vars , breaks=NULL, quanttype=1, group=NULL , group_values
 }
 
 % BIFIE.ecdf <- function( BIFIEobj , vars , breaks=NULL , quanttype=1 , 
-%	group=NULL , group_values=NULL  ){
+%    group=NULL , group_values=NULL  ){
 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -64,7 +64,7 @@ values will be determined automatically.
 \value{
 A list with following entries
  \item{ecdf}{Data frame with probabilities and the empirical
- 	 distribution function (See Examples).
+      distribution function (See Examples).
  }
  \item{stat}{Data frame with empirical distribution function stacked with
      respect to variables, groups and group values}
