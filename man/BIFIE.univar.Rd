@@ -1,5 +1,5 @@
 %% File Name: BIFIE.univar.Rd
-%% File Version: 0.27
+%% File Version: 0.32
 
 \name{BIFIE.univar}
 \alias{BIFIE.univar}
@@ -14,12 +14,12 @@ Univariate Descriptive Statistics (Means and Standard Deviations)
 }
 
 \description{
-Computes some univariate descriptive statistics 
+Computes some univariate descriptive statistics
 (means and standard deviations).
 }
 
 \usage{
-BIFIE.univar(BIFIEobj, vars, group = NULL, group_values = NULL, se=TRUE)
+BIFIE.univar(BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE)
 
 \method{summary}{BIFIE.univar}(object,digits=3,...)
 
@@ -82,7 +82,7 @@ A list with following entries
 See \code{\link{BIFIE.univar.test}} for a test of equal means and
 effect sizes \eqn{\eta} and \eqn{d}.
 
-Descriptive statistics without statistical inference can be 
+Descriptive statistics without statistical inference can be
 estimated by the collection of
 \code{\link[miceadds:ma.wtd.statNA]{miceadds::ma.wtd.statNA}}
 functions from the \pkg{miceadds} package.
@@ -112,11 +112,11 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIE.dat object
-bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1 , wgt=data.timss1[[1]]$TOTWGT ,
+bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
            wgtrep=data.timssrep[, -1 ] )
 
 # compute descriptives for plausible values
-res1 <- BIFIEsurvey::BIFIE.univar( bdat , vars = c("ASMMAT","ASSSCI","books") )
+res1 <- BIFIEsurvey::BIFIE.univar( bdat, vars=c("ASMMAT","ASSSCI","books") )
 summary(res1)
 
 # split descriptives by number of books
@@ -145,7 +145,7 @@ summary(res1b)
 # split descriptives by number of books
 res2 <- BIFIEsurvey::BIFIE.univar( bdat1, vars=c("ASMMAT","ASSSCI"), group="books")
 # Note that if group_values is not specified as an argument it will be
-# automatically determined by the observed frequencies in the dataset 
+# automatically determined by the observed frequencies in the dataset
 summary(res2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

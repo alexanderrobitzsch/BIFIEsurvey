@@ -1,9 +1,9 @@
 ## File Name: BIFIE_data_nested_MI.R
-## File Version: 0.03
+## File Version: 0.07
 
 ###########################################################
 # subfunction for handling nested multiple imputation
-BIFIE_data_nested_MI <- function( data.list , NMI ){
+BIFIE_data_nested_MI <- function( data.list, NMI ){
     Nimp_B <- length(data.list)
     Nimp_W <- length(data.list[[1]])
     Ntot <- Nimp_B * Nimp_W
@@ -17,10 +17,10 @@ BIFIE_data_nested_MI <- function( data.list , NMI ){
                 data.list[[hh]] <- data.list0[[ii]][[jj]]
                 hh <- hh + 1
                             }
-                        }        
-        Nimp_NMI <- c( Nimp_B , Nimp_W )
+                        }
+        Nimp_NMI <- c( Nimp_B, Nimp_W )
             }
-    res <- list( data.list = data.list , Nimp_NMI = Nimp_NMI )
+    res <- list( data.list=data.list, Nimp_NMI=Nimp_NMI )
     return(res)
             }
-###############################################################            
+###############################################################

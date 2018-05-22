@@ -1,5 +1,5 @@
 %% File Name: BIFIE.crosstab.Rd
-%% File Version: 0.09
+%% File Version: 0.14
 
 \name{BIFIE.crosstab}
 \alias{BIFIE.crosstab}
@@ -18,8 +18,8 @@ Creates cross tabulations and computes some effect sizes.
 }
 
 \usage{
-BIFIE.crosstab( BIFIEobj , vars1 , vars2 , vars_values1 = NULL , vars_values2 = NULL , 
-     group=NULL , group_values=NULL , se=TRUE )
+BIFIE.crosstab( BIFIEobj, vars1, vars2, vars_values1=NULL, vars_values2=NULL,
+     group=NULL, group_values=NULL, se=TRUE )
 
 \method{summary}{BIFIE.crosstab}(object,digits=3,...)
 
@@ -91,7 +91,7 @@ sampling scheme)}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[survey:svytable]{survey::svytable}},    
+\code{\link[survey:svytable]{survey::svytable}},
 \code{\link[Hmisc:wtd.stats]{Hmisc::wtd.table}}
 }
 %\code{\link[intsvy:timss.table]{timss.table}} (\pkg{intsvy}),
@@ -106,13 +106,13 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIE.dat object
-bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1 , wgt=data.timss1[[1]]$TOTWGT,
+bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
            wgtrep=data.timssrep[, -1 ] )
 
-#--- Model 1: cross tabulation           
-res1 <- BIFIEsurvey::BIFIE.crosstab( bifieobj , vars1="migrant" , 
-               vars2 = "books", group="female" )
-summary(res1)                  
+#--- Model 1: cross tabulation
+res1 <- BIFIEsurvey::BIFIE.crosstab( bifieobj, vars1="migrant",
+               vars2="books", group="female" )
+summary(res1)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

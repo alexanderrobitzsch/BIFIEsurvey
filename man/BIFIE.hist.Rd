@@ -1,5 +1,5 @@
 %% File Name: BIFIE.hist.Rd
-%% File Version: 0.18
+%% File Version: 0.22
 
 \name{BIFIE.hist}
 \alias{BIFIE.hist}
@@ -12,13 +12,13 @@ Histogram
 }
 
 \description{
-Computes a histogram with same output as in 
+Computes a histogram with same output as in
 \code{\link[graphics:hist]{graphics::hist}}.
 Statistical inference is not conducted for this method.
 }
 
 \usage{
-BIFIE.hist( BIFIEobj, vars , breaks=NULL, group=NULL , group_values=NULL  )
+BIFIE.hist( BIFIEobj, vars, breaks=NULL, group=NULL, group_values=NULL  )
 
 \method{summary}{BIFIE.hist}(object,...)
 
@@ -76,7 +76,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[graphics:hist]{graphics::hist}}    
+\code{\link[graphics:hist]{graphics::hist}}
 }
 
 
@@ -92,17 +92,17 @@ data(data.timssrep)
 bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
            wgtrep=data.timssrep[, -1 ] )
 
-# histogram  
-res1 <- BIFIEsurvey::BIFIE.hist( bifieobj , vars = "ASMMAT" , group="female" )
-# plot histogram for first group (female = 0)
-plot( res1$histobj$ASMMAT_female0 , col="lightblue")
+# histogram
+res1 <- BIFIEsurvey::BIFIE.hist( bifieobj, vars="ASMMAT", group="female" )
+# plot histogram for first group (female=0)
+plot( res1$histobj$ASMMAT_female0, col="lightblue")
 # plot both histograms after each other
 plot( res1 )
-           
+
 # user-defined vector of breaks
-res2 <- BIFIEsurvey::BIFIE.hist( bifieobj , vars = "ASMMAT", 
+res2 <- BIFIEsurvey::BIFIE.hist( bifieobj, vars="ASMMAT",
               breaks=seq(0,900,10), group="female" )
-plot( res2 , col="orange")
+plot( res2, col="orange")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

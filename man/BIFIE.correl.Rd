@@ -1,5 +1,5 @@
 %% File Name: BIFIE.correl.Rd
-%% File Version: 0.16
+%% File Version: 0.22
 
 \name{BIFIE.correl}
 \alias{BIFIE.correl}
@@ -19,7 +19,7 @@ Computes correlations and covariances
 }
 
 \usage{
-BIFIE.correl(BIFIEobj, vars, group = NULL, group_values = NULL, se=TRUE)
+BIFIE.correl(BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE)
 
 \method{summary}{BIFIE.correl}(object,digits=4, ...)
 
@@ -61,7 +61,7 @@ A list with following entries
  \item{stat.cor}{Data frame with correlation statistics}
  \item{stat.cov}{Data frame with covariance statistics}
  \item{cor_matrix}{List of estimated correlation matrices}
- \item{cov_matrix}{List of estimated covariance matrices} 
+ \item{cov_matrix}{List of estimated covariance matrices}
  \item{output}{Extensive output with all replicated statistics}
  \item{\dots}{More values}
 }
@@ -82,7 +82,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[stats:cov.wt]{stats::cov.wt}},    
+\code{\link[stats:cov.wt]{stats::cov.wt}},
 \code{\link[intsvy:timss.rho]{intsvy::timss.rho}},
 \code{\link[intsvy:timss.rho.pv]{intsvy::timss.rho.pv}},
 \code{\link[Hmisc:rcorr]{Hmisc::rcorr}},
@@ -99,18 +99,18 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIE.dat object
-bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1 , wgt=  data.timss1[[1]]$TOTWGT ,
+bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
            wgtrep=data.timssrep[, -1 ] )
 
 # Correlations splitted by gender
-res1 <- BIFIEsurvey::BIFIE.correl( bdat , vars=c("lang" , "books" , "migrant" ) , 
-              group="female" , group_values=0:1 )
-summary(res1)  
+res1 <- BIFIEsurvey::BIFIE.correl( bdat, vars=c("lang", "books", "migrant" ),
+              group="female", group_values=0:1 )
+summary(res1)
 
 # Correlations splitted by gender: no statistical inference (se=FALSE)
-res1a <- BIFIEsurvey::BIFIE.correl( bdat , vars=c("lang" , "books" , "migrant" ) , 
-              group="female" , group_values=0:1 , se=FALSE)
-summary(res1a)  
+res1a <- BIFIEsurvey::BIFIE.correl( bdat, vars=c("lang", "books", "migrant" ),
+              group="female", group_values=0:1, se=FALSE)
+summary(res1a)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

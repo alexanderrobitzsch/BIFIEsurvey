@@ -4,7 +4,7 @@
 
 If you use `BIFIEsurvey` and have suggestions for improvement or have found bugs, please email me at robitzsch@ipn.uni-kiel.de.
 
-#### CRAN version `BIFIEsurvey` 2.4-9 (2018-04-09)
+#### CRAN version `BIFIEsurvey` 2.5-44 (2018-05-22)
 
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/BIFIEsurvey)](https://cran.r-project.org/package=BIFIEsurvey)
@@ -18,9 +18,9 @@ The CRAN version can be installed from within R using:
 utils::install.packages("BIFIEsurvey")
 ```
 
-#### GitHub version `BIFIEsurvey` 2.5-19 (2018-05-18)
+#### GitHub version `BIFIEsurvey` 2.6-1 (2018-05-22)
 
-[![](https://img.shields.io/badge/github%20version-2.5--19-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
+[![](https://img.shields.io/badge/github%20version-2.6--1-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
 
 The version hosted [here](https://github.com/alexanderrobitzsch/BIFIEsurvey) is the development version of `BIFIEsurvey`. 
 The GitHub version can be installed using `devtools` as:

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.boot.Rd
-%% File Version: 0.07
+%% File Version: 0.12
 
 \name{BIFIE.data.boot}
 \alias{BIFIE.data.boot}
@@ -14,8 +14,8 @@ The sampling is done assuming independence of cases.
 }
 
 \usage{
-BIFIE.data.boot( data , wgt=NULL ,  pv_vars = NULL ,
-         Nboot = 500 , seed = .Random.seed , cdata=FALSE)
+BIFIE.data.boot( data, wgt=NULL,  pv_vars=NULL,
+         Nboot=500, seed=.Random.seed, cdata=FALSE)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -30,7 +30,7 @@ A string indicating the label of case weight.
 An optional vector of plausible values which define multiply
 imputed datasets.
 }
-\item{Nboot}{Number of 
+\item{Nboot}{Number of
 bootstrap samples for usage}
 \item{seed}{Simulation seed.}
 \item{cdata}{An optional logical indicating whether the \code{BIFIEdata}
@@ -59,20 +59,20 @@ Object of class \code{BIFIEdata}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link{BIFIE.data}}, \code{\link{BIFIE.data.jack}} 
+\code{\link{BIFIE.data}}, \code{\link{BIFIE.data.jack}}
 }
 
 
 
 \examples{
-\dontrun{    
+\dontrun{
 #############################################################################
 # EXAMPLE 1: Bootstrap TIMSS data set
 #############################################################################
 data(data.timss1)
 
 # bootstrap samples using weights
-bifieobj1 <- BIFIEsurvey::BIFIE.data.boot( data.timss1 , wgt="TOTWGT" )
+bifieobj1 <- BIFIEsurvey::BIFIE.data.boot( data.timss1, wgt="TOTWGT" )
 summary(bifieobj1)
 
 # bootstrap samples without weights

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.BIFIEdata2BIFIEcdata.Rd
-%% File Version: 0.14
+%% File Version: 0.19
 
 \name{BIFIE.BIFIEdata2BIFIEcdata}
 \alias{BIFIE.BIFIEdata2BIFIEcdata}
@@ -19,16 +19,16 @@ class \code{BIFIEdata} in a compact form (\code{cdata=TRUE}).
 The function \code{BIFIE.BIFIE2data2BIFIEdata} takes the reverse operation.
 
 The function \code{BIFIE.BIFIEdata2datalist} converts a (part) of the
-object of class \code{BIFIEdata} into a list of multiply-imputed 
+object of class \code{BIFIEdata} into a list of multiply-imputed
 datasets.
 }
 
 \usage{
-BIFIE.BIFIEdata2BIFIEcdata(bifieobj, varnames = NULL, impdata.index = NULL)
+BIFIE.BIFIEdata2BIFIEcdata(bifieobj, varnames=NULL, impdata.index=NULL)
 
-BIFIE.BIFIEcdata2BIFIEdata(bifieobj, varnames = NULL, impdata.index = NULL)
+BIFIE.BIFIEcdata2BIFIEdata(bifieobj, varnames=NULL, impdata.index=NULL)
 
-BIFIE.BIFIEdata2datalist(bifieobj, varnames = NULL, impdata.index = NULL)
+BIFIE.BIFIEdata2datalist(bifieobj, varnames=NULL, impdata.index=NULL)
 }
 
 
@@ -80,22 +80,22 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIEdata object
-bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt= data.timss1[[1]]$TOTWGT,
+bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
             wgtrep=data.timssrep[, -1 ])
-summary(bdat1)           
+summary(bdat1)
 
 # convert BIFIEdata object bdat1 into a BIFIEcdata object with
 #  only using the first three datasets and a variable selection
-bdat2 <- BIFIEsurvey::BIFIE.BIFIEdata2BIFIEcdata( bifieobj=bdat1, 
+bdat2 <- BIFIEsurvey::BIFIE.BIFIEdata2BIFIEcdata( bifieobj=bdat1,
                 varnames=bdat1$varnames[ c(1:7,10) ] )
 
 # convert bdat2 into BIFIEdata object and only use the first three imputed datasets
-bdat3 <- BIFIEsurvey::BIFIE.BIFIEcdata2BIFIEdata( bifieobj=bdat2 , impdata.index=1:3)
+bdat3 <- BIFIEsurvey::BIFIE.BIFIEcdata2BIFIEdata( bifieobj=bdat2, impdata.index=1:3)
 
 # object summaries
 summary(bdat1)
 summary(bdat2)
-summary(bdat3)        
+summary(bdat3)
 
 \dontrun{
 #############################################################################
@@ -106,29 +106,29 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIEdata object
-bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt= data.timss1[[1]]$TOTWGT,
+bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
             wgtrep=data.timssrep[, -1 ])
 summary(bifieobj)
 
 # define variables for which unique values should be extracted
-vars <- c( "female" , "books" ,"ASMMAT" )
+vars <- c( "female", "books","ASMMAT" )
 # convert these variables from BIFIEdata object into a list of datasets
-bdatlist <- BIFIEsurvey::BIFIE.BIFIEdata2datalist( bifieobj , varnames = vars )
+bdatlist <- BIFIEsurvey::BIFIE.BIFIEdata2datalist( bifieobj, varnames=vars )
 # look for unique values in first dataset for variables
-values <- lapply( bdatlist[[1]] , FUN = function(vv){
+values <- lapply( bdatlist[[1]], FUN=function(vv){
                 sort( unique( vv ) ) } )
 # number of unique values in first dataset
-Nvalues <- lapply( bdatlist[[1]] , FUN = function(vv){
+Nvalues <- lapply( bdatlist[[1]], FUN=function(vv){
                 length( unique( vv ) ) } )
 # number of unique values in all datasets
-Nvalues2 <- lapply( vars , FUN = function(vv){
+Nvalues2 <- lapply( vars, FUN=function(vv){
     #vv <- vars[1]
-    unlist( lapply( bdatlist , FUN = function(dd){
+    unlist( lapply( bdatlist, FUN=function(dd){
                 length( unique( dd[,vv]  ) )
                         }    )     )
                     } )
 # --> for extracting the number of unique values using BIFIE.by and a user
-#     defined function see Example 1, Model 3 in "BIFIE.by" 
+#     defined function see Example 1, Model 3 in "BIFIE.by"
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.Rd
-%% File Version: 0.37
+%% File Version: 0.42
 
 \name{BIFIE.data}
 \alias{BIFIE.data}
@@ -13,13 +13,13 @@ Creates an Object of Class \code{BIFIEdata}
 
 \description{
 This function creates an object of class \code{BIFIEdata}.
-Finite sampling correction of statistical inferences can be 
+Finite sampling correction of statistical inferences can be
 conducted by specifying appropriate input in the \code{fayfac}
 argument.
 }
 \usage{
-BIFIE.data(data.list, wgt = NULL, wgtrep = NULL , fayfac = 1, pv_vars = NULL, 
-     pvpre = NULL, cdata=FALSE, NMI=FALSE)
+BIFIE.data(data.list, wgt=NULL, wgtrep=NULL, fayfac=1, pv_vars=NULL,
+     pvpre=NULL, cdata=FALSE, NMI=FALSE)
 
 \method{summary}{BIFIEdata}(object,...)
 
@@ -39,7 +39,7 @@ containing all case weights.
   \item{wgtrep}{
 Optional vector of replicate weights
 }
-\item{fayfac}{Fay factor for calculating standard errors, a numeric value. 
+\item{fayfac}{Fay factor for calculating standard errors, a numeric value.
     If finite sampling correction
     is requested, an appropriate vector input can be used (see Example 3).
 }
@@ -82,14 +82,14 @@ imputed.}
 \item{Nvars}{Number of variables}
 \item{variables}{Data frame including some informations about variables.
 All transformations are saved in the column \code{source}.}
-\item{datalistM_ind}{Data frame with response indicators 
+\item{datalistM_ind}{Data frame with response indicators
 (if \code{cdata=TRUE})}
-\item{datalistM_imputed}{Data frame with imputed values 
-(if \code{cdata=TRUE})}        
+\item{datalistM_imputed}{Data frame with imputed values
+(if \code{cdata=TRUE})}
 }
 
 
-  
+
 %\references{
 %% ~put references to the literature/web site here ~
 %}
@@ -108,13 +108,13 @@ All transformations are saved in the column \code{source}.}
 See \code{\link{BIFIE.data.transform}} for data transformations on
 \code{BIFIEdata} objects.
 
-For saving and loading \code{BIFIEdata} objects see 
+For saving and loading \code{BIFIEdata} objects see
 \code{\link{save.BIFIEdata}}.
 
 For converting PIRLS/TIMSS or PISA datasets into \code{BIFIEdata}
 objects see \code{\link{BIFIE.data.jack}}.
 
-See the \code{\link{BIFIEdata2svrepdesign}} function for converting 
+See the \code{\link{BIFIEdata2svrepdesign}} function for converting
 \code{BIFIEdata} objects to objects used in the \pkg{survey} package.
 }
 
@@ -125,13 +125,13 @@ See the \code{\link{BIFIEdata2svrepdesign}} function for converting
 data(data.timss1)
 data(data.timssrep)
 
-bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt= data.timss1[[1]]$TOTWGT,
+bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
             wgtrep=data.timssrep[, -1 ] )
-summary(bdat)            
+summary(bdat)
 # create BIFIEdata object in a compact way
-bdat2 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt= data.timss1[[1]]$TOTWGT,
-            wgtrep=data.timssrep[, -1 ] , cdata=TRUE)
-summary(bdat2)  
+bdat2 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
+            wgtrep=data.timssrep[, -1 ], cdata=TRUE)
+summary(bdat2)
 
 \dontrun{
 #############################################################################
@@ -152,20 +152,20 @@ data(data.timssrep)
 
 #-----
 # BIFIEdata object without finite sampling correction
-bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt= data.timss1[[1]]$TOTWGT,
+bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
             wgtrep=data.timssrep[, -1 ] )
-summary(bdat1)            
+summary(bdat1)
 
 #-----
-# generate BIFIEdata object with finite sampling correction by adjusting 
+# generate BIFIEdata object with finite sampling correction by adjusting
 # the "fayfac" factor
 bdat2 <- bdat1
 #-- modify "fayfac" constant
 fayfac0 <- bdat1$fayfac
-# set fayfac = .75 for the first 50 replication zones (25% of students in the
-# population were sampled) and fayfac = .20 for replication zones 51-75
+# set fayfac=.75 for the first 50 replication zones (25% of students in the
+# population were sampled) and fayfac=.20 for replication zones 51-75
 # (meaning that 80% of students were sampled)
-fayfac <- rep( fayfac0 , bdat1$RR )
+fayfac <- rep( fayfac0, bdat1$RR )
 fayfac[1:50] <- fayfac0 * .75
 fayfac[51:75] <- fayfac0 * .20
 # include this modified "fayfac" factor in bdat2
@@ -175,10 +175,10 @@ summary(bdat1)
 
 #---- compare some univariate statistics
 # no finite sampling correction
-res1 <- BIFIEsurvey::BIFIE.univar( bdat1 , vars="ASMMAT")
+res1 <- BIFIEsurvey::BIFIE.univar( bdat1, vars="ASMMAT")
 summary(res1)
 # finite sampling correction
-res2 <- BIFIEsurvey::BIFIE.univar( bdat2 , vars="ASMMAT")
+res2 <- BIFIEsurvey::BIFIE.univar( bdat2, vars="ASMMAT")
 summary(res2)
 
 \dontrun{
@@ -190,10 +190,10 @@ data(data.timss4)
 data(data.timssrep)
 
 # nested imputed dataset, save it in compact format
-bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss4 , 
-            wgt= data.timss4[[1]][[1]]$TOTWGT, wgtrep=data.timssrep[, -1 ] , 
-            NMI=TRUE , cdata=TRUE )
-summary(bdat)            
+bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss4,
+            wgt=data.timss4[[1]][[1]]$TOTWGT, wgtrep=data.timssrep[, -1 ],
+            NMI=TRUE, cdata=TRUE )
+summary(bdat)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -1,5 +1,5 @@
 %% File Name: bifietable.Rd
-%% File Version: 1.05
+%% File Version: 1.06
 
 \name{bifietable}
 \alias{bifietable}
@@ -10,7 +10,7 @@ An \pkg{Rcpp} Based Version of the \code{table} Function
 }
 
 \description{
-This is an \pkg{Rcpp} based version of the 
+This is an \pkg{Rcpp} based version of the
 \code{\link[base:table]{base::table}} function.
 }
 
@@ -23,7 +23,7 @@ bifietable(vec, sort.names=FALSE)
 A numeric or character vector
 }
 \item{sort.names}{An optional logical indicating whether values in the
-character vector should also be sorted in the table output}    
+character vector should also be sorted in the table output}
 }
 
 %\details{
@@ -51,7 +51,7 @@ Same output like \code{\link[base:table]{base::table}}
 \examples{
 data(data.timss1)
 table( data.timss1[[1]][,"books"] )
-BIFIEsurvey::bifietable( data.timss1[[1]][,"books"] )    
+BIFIEsurvey::bifietable( data.timss1[[1]][,"books"] )
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

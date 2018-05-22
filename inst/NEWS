@@ -52,7 +52,7 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.5  |  2018-05-18  |  Last: BIFIEsurvey 2.5-19
+VERSIONS BIFIEsurvey 2.6  |  2018-05-22  |  Last: BIFIEsurvey 2.6-1
 --------------------------------------------------------------------------
  
 xxx   * ---
@@ -62,6 +62,18 @@ EXAMP * ---
 
 
 
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.5  |  2018-05-22  |  Last: BIFIEsurvey 2.5-44
+--------------------------------------------------------------------------
+ 
+NOTE  * internal restructure of Rcpp files
+NOTE  * renamed functions bifiesurvey_rcpp_rubin_rules() and 
+        bifiesurvey_rcpp_replication_variance() (substituted bifie_foo()
+        by bifiesurvey_rcpp_foo())
+
+DATA  * ---
+EXAMP * ---
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 2.4  |  2018-04-09  |  Last: BIFIEsurvey 2.4-9

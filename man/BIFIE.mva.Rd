@@ -1,5 +1,5 @@
 %% File Name: BIFIE.mva.Rd
-%% File Version: 0.05
+%% File Version: 0.08
 
 \name{BIFIE.mva}
 \alias{BIFIE.mva}
@@ -15,7 +15,7 @@ Conducts a missing value analysis.
 }
 
 \usage{
-BIFIE.mva( BIFIEobj , missvars , covariates=NULL , se=TRUE )
+BIFIE.mva( BIFIEobj, missvars, covariates=NULL, se=TRUE )
 
 \method{summary}{BIFIE.mva}(object,digits=4,...)
 }
@@ -26,8 +26,8 @@ Object of class \code{BIFIEdata}
 }
   \item{missvars}{
 Vector of variables for which missing value statistics should be computed
-}  
-\item{covariates}{Vector of variables which work as covariates} 
+}
+\item{covariates}{Vector of variables which work as covariates}
 \item{se}{Optional logical indicating whether statistical inference
 based on replication should be employed.}
 \item{object}{Object of class \code{BIFIE.correl}}
@@ -43,7 +43,7 @@ based on replication should be employed.}
 \value{
 A list with following entries
  \item{stat.mva}{Data frame with missing value statistics}
- \item{res_list}{List with extensive output split 
+ \item{res_list}{List with extensive output split
      according to each variable in \code{missvars}}
  \item{\dots}{More values}
 }
@@ -64,7 +64,7 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 %\seealso{
-%\code{\link[stats:cov.wt]{cov.wt}} (\pkg{stats}),    
+%\code{\link[stats:cov.wt]{cov.wt}} (\pkg{stats}),
 %}
 
 
@@ -77,12 +77,12 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIE.dat object
-BIFIEdata <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, 
+BIFIEdata <- BIFIEsurvey::BIFIE.data( data.list=data.timss1,
                 wgt=data.timss1[[1]]$TOTWGT, wgtrep=data.timssrep[, -1 ] )
 
 # missing value analysis for "scsci" and "books" and three covariates
-res1 <- BIFIEsurvey::BIFIE.mva( BIFIEdata , missvars=c("scsci" , "books" ) , 
-             covariates=c("ASMMAT" , "female" , "ASSSCI") )
+res1 <- BIFIEsurvey::BIFIE.mva( BIFIEdata, missvars=c("scsci", "books" ),
+             covariates=c("ASMMAT", "female", "ASSSCI") )
 summary(res1)
 
 # missing value analysis without statistical inference and without covariates

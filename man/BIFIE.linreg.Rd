@@ -1,5 +1,5 @@
 %% File Name: BIFIE.linreg.Rd
-%% File Version: 0.22
+%% File Version: 0.28
 
 \name{BIFIE.linreg}
 \alias{BIFIE.linreg}
@@ -18,8 +18,8 @@ Computes linear regression.
 }
 
 \usage{
-BIFIE.linreg(BIFIEobj, dep=NULL , pre=NULL, formula=NULL , 
-    group = NULL, group_values = NULL, se=TRUE)
+BIFIE.linreg(BIFIEobj, dep=NULL, pre=NULL, formula=NULL,
+    group=NULL, group_values=NULL, se=TRUE)
 
 \method{summary}{BIFIE.linreg}(object,digits=4,...)
 
@@ -38,7 +38,7 @@ Vector of predictor variables. If the intercept should be included,
 then use the variable \code{one} for specifying it (see Examples).
 }
 \item{formula}{An \R formula object which can be applied instead of
-    providing \code{dep} and \code{pre}. Note that there is 
+    providing \code{dep} and \code{pre}. Note that there is
    additional computation time needed for model matrix creation.}
   \item{group}{
 Optional grouping variable(s)
@@ -84,7 +84,7 @@ A list with following entries
 
 \seealso{
 \code{\link[survey:svyglm]{survey::svyglm}},
-\code{\link[intsvy:timss.reg]{intsvy::timss.reg}},    
+\code{\link[intsvy:timss.reg]{intsvy::timss.reg}},
 \code{\link[intsvy:timss.reg.pv]{intsvy::timss.reg.pv}},
 \code{\link[stats:lm]{stats::lm}}
 }
@@ -103,25 +103,25 @@ bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOT
              wgtrep=data.timssrep[, -1 ] )
 
 #**** Model 1: Linear regression for mathematics score
-mod1 <- BIFIEsurvey::BIFIE.linreg( bdat, dep= "ASMMAT", pre=c("one","books","migrant"),
-              group= "female" )
+mod1 <- BIFIEsurvey::BIFIE.linreg( bdat, dep="ASMMAT", pre=c("one","books","migrant"),
+              group="female" )
 summary(mod1)
 
 \dontrun{
-# same model but specified with R formulas 
-mod1a <- BIFIEsurvey::BIFIE.linreg( bdat , formula = ASMMAT ~ books + migrant ,
-               group= "female" , group_values = 0:1 )
+# same model but specified with R formulas
+mod1a <- BIFIEsurvey::BIFIE.linreg( bdat, formula=ASMMAT ~ books + migrant,
+               group="female", group_values=0:1 )
 summary(mod1a)
 
 # compare result with lm function and first imputed dataset
 dat1 <- data.timss1[[1]]
 mod1b <- stats::lm( ASMMAT ~ 0 + as.factor(female) + as.factor(female):books +
-                              as.factor(female):migrant , 
-                         data= dat1 ,  weights=dat1$TOTWGT )
+                              as.factor(female):migrant,
+                         data=dat1,  weights=dat1$TOTWGT )
 summary(mod1b)
 
-#**** Model 2: Like Model 1, but books is now treated as a factor 
-mod2 <- BIFIEsurvey::BIFIE.linreg( bdat , formula = ASMMAT ~ as.factor(books) + migrant)
+#**** Model 2: Like Model 1, but books is now treated as a factor
+mod2 <- BIFIEsurvey::BIFIE.linreg( bdat, formula=ASMMAT ~ as.factor(books) + migrant)
 summary(mod2)
 
 #############################################################################
@@ -132,40 +132,40 @@ data(data.pisaNLD)
 data <- data.pisaNLD
 
 #--- Create BIFIEdata object immediately using BIFIE.data.jack function
-bdat <- BIFIEsurvey::BIFIE.data.jack( data.pisaNLD, jktype = "RW_PISA", cdata=TRUE)
+bdat <- BIFIEsurvey::BIFIE.data.jack( data.pisaNLD, jktype="RW_PISA", cdata=TRUE)
 summary(bdat)
 
 #****************************************************
 #*** Model 1: linear regression
-mod1 <- BIFIEsurvey::BIFIE.linreg( bdat , formula = MATH ~ HISEI )
+mod1 <- BIFIEsurvey::BIFIE.linreg( bdat, formula=MATH ~ HISEI )
 summary(mod1)
 
 #****************************************************
 #*** Model 2: Cubic regression
-mod2 <- BIFIEsurvey::BIFIE.linreg( bdat , 
-              formula = MATH ~ HISEI + I(HISEI^2) + I(HISEI^3) )
+mod2 <- BIFIEsurvey::BIFIE.linreg( bdat,
+              formula=MATH ~ HISEI + I(HISEI^2) + I(HISEI^3) )
 summary(mod2)
 
 #****************************************************
 #*** Model 3: B-spline regression
 
 # test with design of HISEI values
-dfr <- data.frame("HISEI" = 16:90 )
-des <- stats::model.frame( ~ splines::bs( HISEI , df=5 ) , dfr )
+dfr <- data.frame("HISEI"=16:90 )
+des <- stats::model.frame( ~ splines::bs( HISEI, df=5 ), dfr )
 des <- des$splines
-plot( dfr$HISEI , des[,1] , type="l" , pch=1 , lwd=2 , ylim=c(0,1) )
+plot( dfr$HISEI, des[,1], type="l", pch=1, lwd=2, ylim=c(0,1) )
 for (vv in 2:ncol(des) ){
-    lines( dfr$HISEI , des[,vv] , lty=vv , col=vv , lwd=2)
+    lines( dfr$HISEI, des[,vv], lty=vv, col=vv, lwd=2)
 }
 
 # apply B-spline regression in BIFIEsurvey::BIFIE.linreg
-mod3 <- BIFIEsurvey::BIFIE.linreg( bdat , formula = MATH ~ splines::bs(HISEI,df=5) )
+mod3 <- BIFIEsurvey::BIFIE.linreg( bdat, formula=MATH ~ splines::bs(HISEI,df=5) )
 summary(mod3)
 
 #*** include transformed HISEI values for B-spline matrix in bdat
-bdat2 <- BIFIEsurvey::BIFIE.data.transform( bdat , ~ 0 + splines::bs( HISEI , df = 5 ))
-bdat2$varnames[ bdat2$varsindex.added ] <- paste0("HISEI_bsdes" , 
-            seq( 1 , length( bdat2$varsindex.added ) ) )
+bdat2 <- BIFIEsurvey::BIFIE.data.transform( bdat, ~ 0 + splines::bs( HISEI, df=5 ))
+bdat2$varnames[ bdat2$varsindex.added ] <- paste0("HISEI_bsdes",
+            seq( 1, length( bdat2$varsindex.added ) ) )
 
 #****************************************************
 #*** Model 4: Nonparametric regression using BIFIE.by
@@ -174,38 +174,38 @@ bdat2$varnames[ bdat2$varsindex.added ] <- paste0("HISEI_bsdes" ,
 
 #---- (1) test function with one dataset
 dat1 <- bdat$dat1
-vars <- c("MATH" , "HISEI")
+vars <- c("MATH", "HISEI")
 X <- dat1[,vars]
 w <- bdat$wgt
 X <- as.data.frame(X)
 # estimate model
-mod <- stats::loess( MATH ~ HISEI , weights = w , data = X )
+mod <- stats::loess( MATH ~ HISEI, weights=w, data=X )
 
 # predict HISEI values
-hisei_val <- data.frame( "HISEI" = seq(16,90) )
-y_pred <- stats::predict( mod , hisei_val )
-graphics::plot( hisei_val$HISEI , y_pred , type="l")
+hisei_val <- data.frame( "HISEI"=seq(16,90) )
+y_pred <- stats::predict( mod, hisei_val )
+graphics::plot( hisei_val$HISEI, y_pred, type="l")
 
 #--- (2) define loess function
 loess_fct <- function(X,w){
-    X1 <- data.frame( X , w )
-    colnames(X1) <- c( vars , "wgt")
-    X1 <- stats::na.omit(X1)  
-#    mod <- stats::lm( MATH ~ HISEI , weights = X1$wgt , data = X1 )
-    mod <- stats::loess( MATH ~ HISEI , weights = X1$wgt , data = X1 )
-    y_pred <- stats::predict( mod , hisei_val )
+    X1 <- data.frame( X, w )
+    colnames(X1) <- c( vars, "wgt")
+    X1 <- stats::na.omit(X1)
+#    mod <- stats::lm( MATH ~ HISEI, weights=X1$wgt, data=X1 )
+    mod <- stats::loess( MATH ~ HISEI, weights=X1$wgt, data=X1 )
+    y_pred <- stats::predict( mod, hisei_val )
     return(y_pred)
 }
 
 #--- (3) estimate model
-mod4 <-  BIFIEsurvey::BIFIE.by( bdat , vars  , userfct= loess_fct )
+mod4 <-  BIFIEsurvey::BIFIE.by( bdat, vars, userfct=loess_fct )
 summary(mod4)
 
 # plot linear function pointwise and confidence intervals
-graphics::plot( hisei_val$HISEI , mod4$stat$est , type="l" , lwd = 2 , 
-        xlab="HISEI" , ylab="PVMATH" , ylim=c(430,670) ) 
-graphics::lines( hisei_val$HISEI , mod4$stat$est - 1.96* mod4$stat$SE , lty=3 )
-graphics::lines( hisei_val$HISEI , mod4$stat$est + 1.96* mod4$stat$SE , lty=3 )
+graphics::plot( hisei_val$HISEI, mod4$stat$est, type="l", lwd=2,
+        xlab="HISEI", ylab="PVMATH", ylim=c(430,670) )
+graphics::lines( hisei_val$HISEI, mod4$stat$est - 1.96* mod4$stat$SE, lty=3 )
+graphics::lines( hisei_val$HISEI, mod4$stat$est + 1.96* mod4$stat$SE, lty=3 )
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

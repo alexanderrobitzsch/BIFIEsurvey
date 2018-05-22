@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.select.Rd
-%% File Version: 0.07
+%% File Version: 0.12
 
 \name{BIFIEdata.select}
 \alias{BIFIEdata.select}
@@ -7,17 +7,17 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 
 \title{
-Selection of Variables and Imputed Datasets for Objects of Class \code{BIFIEdata} 
+Selection of Variables and Imputed Datasets for Objects of Class \code{BIFIEdata}
 }
 
 \description{
 This function select variables and some (or all) imputed datasets of
 an object of class \code{BIFIEdata} and saves the resulting
-object also of class \code{BIFIEdata}. 
+object also of class \code{BIFIEdata}.
 }
 
 \usage{
-BIFIEdata.select(bifieobj, varnames = NULL, impdata.index = NULL)
+BIFIEdata.select(bifieobj, varnames=NULL, impdata.index=NULL)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -67,22 +67,22 @@ data(data.timss1)
 data(data.timssrep)
 
 # create BIFIEdata
-bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1 , wgt=data.timss1[[1]]$TOTWGT,
+bdat1 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
             wgtrep=data.timssrep[, -1 ])
-summary(bdat1)           
+summary(bdat1)
 
 # create BIFIEcdata object
-bdat2 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1 , wgt=data.timss1[[1]]$TOTWGT,
-            wgtrep=data.timssrep[, -1 ] , cdata=TRUE )
-summary(bdat2)           
+bdat2 <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
+            wgtrep=data.timssrep[, -1 ], cdata=TRUE )
+summary(bdat2)
 
 # selection of variables for BIFIEdata object
-bdat1a <- BIFIEsurvey::BIFIEdata.select( bdat1 , varnames = bdat1$varnames[ 1:7 ] )
+bdat1a <- BIFIEsurvey::BIFIEdata.select( bdat1, varnames=bdat1$varnames[ 1:7 ] )
 # selection of variables and 1st, 2nd and 4th imputed datasets of BIFIEcdata object
-bdat2a <- BIFIEsurvey::BIFIEdata.select( bdat2 , varnames = bdat2$varnames[ 1:7 ] , 
-                impdata.index = c(1,2,4) )
+bdat2a <- BIFIEsurvey::BIFIEdata.select( bdat2, varnames=bdat2$varnames[ 1:7 ],
+                impdata.index=c(1,2,4) )
 summary(bdat1a)
-summary(bdat2a)    
+summary(bdat2a)
 }
 
 

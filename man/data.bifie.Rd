@@ -1,5 +1,5 @@
 %% File Name: data.bifie.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{data.bifie}
 \alias{data.bifie}
@@ -24,7 +24,7 @@ data(data.bifie01)
 \item The dataset \code{data.bifie01} contains data of 4th Grade Austrian
 students from the TIMSS 2011 study.
 
-}    
+}
 }
 
 %\details{
