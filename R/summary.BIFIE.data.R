@@ -1,5 +1,5 @@
 ## File Name: summary.BIFIE.data.R
-## File Version: 0.15
+## File Version: 0.16
 
 ##############################################################
 summary.BIFIEdata <- function(object, ... )

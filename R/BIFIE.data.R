@@ -1,11 +1,11 @@
 ## File Name: BIFIE.data.R
-## File Version: 1.40
+## File Version: 1.44
 
 ##################################################################
 # Convert a list of multiply imputed datasets into an object
 #      of class BIFIEdata
-BIFIE.data <- function( data.list , wgt=NULL , wgtrep=NULL , fayfac=1 ,
-        pv_vars = NULL , pvpre = NULL, cdata=FALSE, NMI=FALSE )
+BIFIE.data <- function( data.list, wgt=NULL, wgtrep=NULL, fayfac=1,
+        pv_vars=NULL, pvpre=NULL, cdata=FALSE, NMI=FALSE )
 {
 
     cl <- match.call()
@@ -26,7 +26,7 @@ BIFIE.data <- function( data.list , wgt=NULL , wgtrep=NULL , fayfac=1 ,
     }
 
     # subroutine for preparation of nested multiple imputations
-    res0 <- BIFIE_data_nested_MI( data.list=data.list , NMI=NMI )
+    res0 <- BIFIE_data_nested_MI( data.list=data.list, NMI=NMI )
     data.list <- res0$data.list
     Nimp_NMI <- res0$Nimp_NMI
 
@@ -42,30 +42,30 @@ BIFIE.data <- function( data.list , wgt=NULL , wgtrep=NULL , fayfac=1 ,
         cat("Variable 'one' in datasets is replaced by a constant variable")
         cat(" containing only ones!\n" )
         for (ii in 1:Nimp){
-            data.list[[ii]][ , "one"] <- NULL
+            data.list[[ii]][, "one"] <- NULL
         }
     }
     N <- nrow( data.list[[1]] )
     V <- ncol( data.list[[1]] )
     dat1 <- data.list[[1]]
 
-    cn <- c( colnames(dat1) , "one" )
+    cn <- c( colnames(dat1), "one" )
     N <- nrow(dat1)
 
-    p1 <- sapply( 1:V , FUN = function(vv){ is.numeric( dat1[,vv] ) } )
+    p1 <- sapply( 1:V, FUN=function(vv){ is.numeric( dat1[,vv] ) } )
     notnum <- which( ! p1 )
-    datalistM <- matrix( NA , nrow=N*Nimp , V + 1)
+    datalistM <- matrix( NA, nrow=N*Nimp, V + 1)
     cat("+++ Generate BIFIE.data object\n")
-    cat(paste0( "|" , paste0( rep("*" , FF) , collapse="") , "|\n|" ))
+    cat(paste0( "|", paste0( rep("*", FF), collapse=""), "|\n|" ))
     #****
     # weights
-    if ( is.character(wgt) & ( length(wgt) == 1 ) ){
-        wgt <- data.list[[1]][ , wgt ]
+    if ( is.character(wgt) & ( length(wgt)==1 ) ){
+        wgt <- data.list[[1]][, wgt ]
     }
 
     if ( is.null(wgt) ){ wgt <- rep(1,N) }
     wgt <- as.numeric( wgt )
-    if ( is.null(wgtrep) ){ wgtrep <- matrix( wgt , nrow=N , ncol=1 ) }
+    if ( is.null(wgtrep) ){ wgtrep <- matrix( wgt, nrow=N, ncol=1 ) }
     wgtrep <- as.matrix( wgtrep )
     for (ff in 1:FF){  # imputed dataset ff
         dat1 <- data.list[[ff]]
@@ -74,14 +74,14 @@ BIFIE.data <- function( data.list , wgt=NULL , wgtrep=NULL , fayfac=1 ,
         }
         dat1$one <- 1
         dat1 <- as.matrix( dat1)
-        datalistM[ 1:N + N*(ff-1) , ] <- dat1
+        datalistM[ 1:N + N*(ff-1), ] <- dat1
         cat("-") ; flush.console()
     }
     cat("|\n")
     wgtrep <- as.matrix(wgtrep)
-    res <- list( "datalistM" = datalistM , "wgt" = wgt , "wgtrep" = wgtrep ,
-        "Nimp" = Nimp , "N"= N , "dat1" = dat1  , "varnames" = cn , "fayfac"= fayfac ,
-        "RR"= ncol(wgtrep) , "time" = Sys.time() , "CALL"= cl )
+    res <- list( "datalistM"=datalistM, "wgt"=wgt, "wgtrep"=wgtrep,
+        "Nimp"=Nimp, "N"=N, "dat1"=dat1, "varnames"=cn, "fayfac"=fayfac,
+        "RR"=ncol(wgtrep), "time"=Sys.time(), "CALL"=cl )
     res$NMI <- NMI
     res$Nimp_NMI <- Nimp_NMI
     res$cdata <- FALSE
@@ -89,11 +89,11 @@ BIFIE.data <- function( data.list , wgt=NULL , wgtrep=NULL , fayfac=1 ,
     #***** variable names and transformations
     VV <- length(res$varnames)
     res$Nvars <- VV
-    dfr2 <- data.frame( "index" = 1:VV , "variable" = res$varnames ,
-                "variable_orig" = res$varnames , "source"="indata")
+    dfr2 <- data.frame( "index"=1:VV, "variable"=res$varnames,
+                "variable_orig"=res$varnames, "source"="indata")
     res$variables <- dfr2
     if ( cdata ){
-        res <- BIFIE.BIFIEdata2BIFIEcdata( bifieobj =res , varnames=NULL )
+        res <- BIFIE.BIFIEdata2BIFIEcdata( bifieobj=res, varnames=NULL )
                 }
     return(res)
     }
@@ -105,18 +105,18 @@ print.BIFIEdata <- function(x,...){
     print( x$CALL )
     #*** multiply imputed data
     if ( ! x$NMI ){
-        cat("MI data with", x$Nimp ,"datasets\n")
+        cat("MI data with", x$Nimp,"datasets\n")
     }
     #*** nested multiply imputed data
     if ( x$NMI ){
-        v1 <- paste0( "NMI data with ", x$Nimp_NMI[1] ," between datasets and " ,
+        v1 <- paste0( "NMI data with ", x$Nimp_NMI[1]," between datasets and ",
               x$Nimp_NMI[2], " within datasets\n")
         cat(v1)
     }
-    v1 <- paste0( x$RR , " replication weights with fayfac=" ,
-                    round(x$fayfac,3) , " \n" )
+    v1 <- paste0( x$RR, " replication weights with fayfac=",
+                    round(x$fayfac,3), " \n" )
     cat(v1)
-    v1 <- paste0( x$N , " cases and " ,    x$Nvars , " variables \n" )
+    v1 <- paste0( x$N, " cases and ",    x$Nvars, " variables \n" )
     cat(v1)
 }
 ########################################################

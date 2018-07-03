@@ -1,11 +1,11 @@
 ## File Name: BIFIE.waldtest.R
-## File Version: 1.26
+## File Version: 1.27
 
 
 #######################################################################
 # BIFIE Wald test
-BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL ){
-    #****
+BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL )
+{
     s1 <- Sys.time()
     cl <- match.call()
     res1 <- BIFIE.method
@@ -20,23 +20,20 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL ){
     Nimp <- BIFIE.method$Nimp
     RR <- BIFIE.method$RR
 
-    #****************************************
-    # which columns in C do have non-zero entries
+    #****** which columns in C do have non-zero entries
     Ccols <- which( colSums( abs( Cdes) ) > 0 )
 
     if ( ! BIFIE.method$NMI ){
         # apply Rcpp Wald test function
-       res <- bifie_waldtest( parsM, parsrepM, Cdes, rdes, Ccols - 1, fayfac )
-
+        res <- bifie_waldtest( parsM, parsrepM, Cdes, rdes, Ccols - 1, fayfac )
         RR <- res$RR
         Nimp <- res$Nimp
         fayfac <- res$fayfac
-
         # data frame with results
         dfr <- data.frame( "D1"=res$D1, "D2"=res$D2, "df1"=res$df,
                 "D1_df2"=round(res$nu2,1), "D2_df2"=round(res$nu3,1),
                 "D1_p"=res$p_D1, "D2_p"=res$p_D2 )
-            }
+    }
 
     if ( BIFIE.method$NMI ){
         Cdes_cols <- Cdes[, Ccols, drop=FALSE]
@@ -53,23 +50,16 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL ){
         v1 <- paste0("parm",1:df1)
         dimnames(qhat) <- list(
             paste0("imp_nmi_dim1_", seq(1,dim(qhat)[[1]] ) ),
-            paste0("imp_nmi_dim2_", seq(1,dim(qhat)[[2]] ) ),
-            v1 )
-
+            paste0("imp_nmi_dim2_", seq(1,dim(qhat)[[2]] ) ), v1 )
         if ( ! is.null( dimnames(qhat) ) ){
             dimnames(qhat)[[3]] <- v1
-                                            }
+        }
         u <- array( u, dim=c( df1, df1, Nimp_NMI[2], Nimp_NMI[1] ) )
         u <- aperm( u, c(4,3,1,2) )
         res <- miceadds::NMIwaldtest( qhat=qhat, u=u, testnull=v1)
-        # res <- NMIwaldtest( qhat=qhat, u=u, testnull=v1)
         dfr <- data.frame( "D1"=res$stat$F,  "df1"=res$stat$df1,
-                "D1_df2"=round(res$stat$df2,1),
-                "D1_p"=res$stat$pval  )
-                }
-
-    # rownames(dfr) <- NULL
-
+                "D1_df2"=round(res$stat$df2,1), "D1_p"=res$stat$pval  )
+    }
     #*************************** OUTPUT ***************************************
     s2 <- Sys.time()
     timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
@@ -85,10 +75,11 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL ){
 
 ####################################################################################
 # summary for BIFIE.correl function
-summary.BIFIE.waldtest <- function( object, digits=4, ... ){
+summary.BIFIE.waldtest <- function( object, digits=4, ... )
+{
     BIFIE.summary(object, FALSE)
-    if ( ! object$NMI ){ cat("D1 and D2 Statistic for Wald Test \n\n")     }
-    if (  object$NMI ){ cat("D1 Statistic for Wald Test \n\n")     }
+    if ( ! object$NMI ){ cat("D1 and D2 Statistic for Wald Test \n\n") }
+    if (  object$NMI ){ cat("D1 Statistic for Wald Test \n\n") }
     obji <- object$stat.D
     print.object.summary( obji, digits=digits )
 }

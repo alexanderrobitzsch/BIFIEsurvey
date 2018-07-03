@@ -1,5 +1,5 @@
 ## File Name: BIFIE.by.R
-## File Version: 1.55
+## File Version: 1.56
 
 
 #######################################################################
@@ -51,7 +51,7 @@ BIFIE.by <- function( BIFIEobj, vars, userfct, userparnames=NULL,
     if ( is.null(group_values ) ){
         t1 <- bifie_table( datalistM[, group_index ] )
         group_values <- sort( as.numeric( paste( names(t1) ) ))
-                }
+    }
 
     #@@@@***
     res00 <- BIFIE_create_pseudogroup( datalistM, group, group_index, group_values )
@@ -121,7 +121,7 @@ BIFIE.by <- function( BIFIEobj, vars, userfct, userparnames=NULL,
             "parnames"=parnames, "CALL"=cl)
     class(res1) <- "BIFIE.by"
     return(res1)
-        }
+}
 ###################################################################################
 
 ####################################################################################
