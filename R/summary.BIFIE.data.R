@@ -1,5 +1,5 @@
 ## File Name: summary.BIFIE.data.R
-## File Version: 0.16
+## File Version: 0.18
 
 ##############################################################
 summary.BIFIEdata <- function(object, ... )
@@ -22,25 +22,25 @@ summary.BIFIEdata <- function(object, ... )
         cat("Nested multiply imputed dataset\n\n")
     }
 
-    cat( "Number of persons=", object$N, "\n" )
-    cat( "Number of variables=", object$Nvars, "\n" )
+    cat( "Number of persons","=", object$N, "\n" )
+    cat( "Number of variables","=", object$Nvars, "\n" )
     if ( ! object$NMI){
-        cat( "Number of imputed datasets=", object$Nimp, "\n" )
+        cat( "Number of imputed datasets","=", object$Nimp, "\n" )
     }
     if ( object$NMI){
-        cat( "Number of imputed between-nest datasets=", object$Nimp_NMI[1], "\n" )
-        cat( "Number of imputed within-nest datasets=", object$Nimp_NMI[2], "\n" )
+        cat( "Number of imputed between-nest datasets","=", object$Nimp_NMI[1], "\n" )
+        cat( "Number of imputed within-nest datasets","=", object$Nimp_NMI[2], "\n" )
     }
 
-    cat( "Number of Jackknife zones per dataset=", object$RR, "\n" )
+    cat( "Number of Jackknife zones per dataset","=", object$RR, "\n" )
 
     fayfac <- object$fayfac
     if ( length(fayfac)==1){
-        cat( "Fay factor=", round( object$fayfac, 5 ), "\n\n" )
+        cat( "Fay factor","=", round( object$fayfac, 5 ), "\n\n" )
     } else {
         mf <- mean(fayfac)
         sdf <- stats::sd(fayfac)
-        cat( "Fay factor: M=", round( mf, 5 ), "| SD=",
+        cat( "Fay factor: M","=", round( mf, 5 ), "| SD","=",
             round( sdf, 5 ), "\n\n" )
     }
 

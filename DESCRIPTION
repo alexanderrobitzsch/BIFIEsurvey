@@ -1,8 +1,8 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 2.18-5
-Date: 2018-07-03 18:02:52
+Version: 2.191-1
+Date: 2018-07-06 16:24:28
 Author: BIFIE
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description:
@@ -27,5 +27,7 @@ Suggests:
 LinkingTo: 
     Rcpp, RcppArmadillo    
 License: GPL (>= 2)
-URL: http://www.bifie.at, https://github.com/alexanderrobitzsch/BIFIEsurvey,
-     https://sites.google.com/site/alexanderrobitzsch2/software
+URL: 
+    http://www.bifie.at, 
+    https://github.com/alexanderrobitzsch/BIFIEsurvey,
+    https://sites.google.com/site/alexanderrobitzsch2/software
