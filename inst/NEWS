@@ -52,17 +52,14 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.191  |  2018-07-06  |  Last: BIFIEsurvey 2.191-1
+VERSIONS BIFIEsurvey 2.191  |  2018-08-09  |  Last: BIFIEsurvey 2.191-6
 --------------------------------------------------------------------------
  
-xxx   * ---
-
+NOTE  * exported Rcpp functions for linking from other R packages
+NOTE  * included more reference and internet links
 
 DATA  * ---
 EXAMP * ---
-
-
-
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 2.18  |  2018-07-06  |  Last: BIFIEsurvey 2.18-6

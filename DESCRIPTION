@@ -1,8 +1,8 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 2.191-1
-Date: 2018-07-06 16:24:28
+Version: 2.191-6
+Date: 2018-08-09 14:45:09
 Author: BIFIE
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description:
@@ -13,7 +13,11 @@ Description:
     path models for manifest variables with measurement error 
     correction and two-level hierarchical regressions for weighted 
     samples are included. Statistical inference can be conducted for 
-    multiply imputed datasets and nested multiply imputed datasets.    
+    multiply imputed datasets and nested multiply imputed datasets
+    and is in particularly suited for the analysis of plausible values
+    (for details see George, Oberwimmer & Itzlinger-Bruneforth, 2016; 
+    Bruneforth, Oberwimmer & Robitzsch, 2016; Robitzsch, Pham &
+    Yanagida, 2016).    
     This package is developed by BIFIE (Federal Institute for 
     Educational Research, Innovation and Development of the Austrian 
     School System; Salzburg, Austria).
@@ -23,11 +27,14 @@ Imports:
     graphics, grDevices, methods, miceadds, mitools, 
     Rcpp, stats, survey (>= 3.31-5), utils, TAM (>= 2.0)
 Suggests:
-    car, Hmisc, intsvy, lavaan.survey, lme4, svyPVpack
+    car, Hmisc, intsvy, lavaan.survey, lme4, LSAmitR, 
+    svyPVpack
 LinkingTo: 
     Rcpp, RcppArmadillo    
 License: GPL (>= 2)
 URL: 
     http://www.bifie.at, 
+    https://www.bifie.at/bildungsforschung/forschungsdatenbibliothek,
+    https://www.bifie.at/large-scale-assessment-mit-r-methodische-grundlagen-der-oesterreichischen-bildungsstandardueberpruefung,
     https://github.com/alexanderrobitzsch/BIFIEsurvey,
     https://sites.google.com/site/alexanderrobitzsch2/software

@@ -1,10 +1,12 @@
 //// File Name: bifiesurvey_rcpp_main.cpp
-//// File Version: 7.895
+//// File Version: 7.898
 
 
 #include <RcppArmadillo.h>
 // [[Rcpp::depends(RcppArmadillo)]]
 
+
+// [[Rcpp::interfaces(r, cpp)]]
 
 #include <Rcpp.h>
 #include <Rmath.h>

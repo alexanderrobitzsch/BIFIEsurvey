@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.cpp
-//// File Version: 7.36
+//// File Version: 7.39
 
 
 // [[Rcpp::depends(RcppArmadillo)]]
@@ -7,6 +7,7 @@
 #include <RcppArmadillo.h>
 // #include <Rcpp.h>
 
+// [[Rcpp::interfaces(r, cpp)]]
 
 using namespace Rcpp;
 using namespace arma;

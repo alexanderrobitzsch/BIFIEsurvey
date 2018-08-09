@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.h
-//// File Version: 7.36
+//// File Version: 7.39
 
 #ifndef _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
 #define _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
