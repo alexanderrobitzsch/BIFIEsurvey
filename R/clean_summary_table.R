@@ -1,5 +1,5 @@
 ## File Name: clean_summary_table.R
-## File Version: 0.09
+## File Version: 0.10
 
 
 clean_summary_table <- function( dfr, RR, se, Nimp )
@@ -19,8 +19,8 @@ clean_summary_table <- function( dfr, RR, se, Nimp )
     #**** Nimp==1
     if ( Nimp==1  ){
         vars <- c("cov_fmi", "cov_VarMI", "fmi", "VarMI")
-        for (vv in vars){  
-            dfr[,vv]  <- NULL 
+        for (vv in vars){
+            dfr[,vv]  <- NULL
         }
     }
     return(dfr)

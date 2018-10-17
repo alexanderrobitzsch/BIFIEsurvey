@@ -1,5 +1,5 @@
 ## File Name: BIFIE.univar.R
-## File Version: 1.81
+## File Version: 1.82
 
 #######################################################################
 # univariate statistics
@@ -220,11 +220,11 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
     #*************************** OUTPUT ***************************************
     s2 <- Sys.time()
     timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
-    res1 <- list( "stat"=dfr, "stat_M"=stat_M, "stat_SD"=stat_SD,
-            "output"=res, "timediff"=timediff,
-            "N"=N, "Nimp"=Nimp, "RR"=RR, "fayfac"=fayfac, "parnames"=parnames,
-            "NMI"=BIFIEobj$NMI, "Nimp_NMI"=BIFIEobj$Nimp_NMI, "se"=se,
-            "GG"=GG, "VV"=VV, "vars"=vars, "group"=group, "CALL"=cl)
+    res1 <- list( stat=dfr, stat_M=stat_M, stat_SD=stat_SD,
+            output=res, timediff=timediff,
+            N=N, Nimp=Nimp, RR=RR, fayfac=fayfac, parnames=parnames,
+            NMI=BIFIEobj$NMI, Nimp_NMI=BIFIEobj$Nimp_NMI, se=se,
+            GG=GG, VV=VV, vars=vars, group=group, CALL=cl)
     class(res1) <- "BIFIE.univar"
     return(res1)
         }
@@ -233,7 +233,8 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
 ####################################################################################
 # summary for BIFIE.univar function
 
-summary.BIFIE.univar <- function( object, digits=3, ... ){
+summary.BIFIE.univar <- function( object, digits=3, ... )
+{
     BIFIE.summary(object)
     cat("Univariate Statistics | Means\n")
     obji <- object$stat_M
@@ -241,5 +242,4 @@ summary.BIFIE.univar <- function( object, digits=3, ... ){
     cat("\nUnivariate Statistics | Standard Deviations\n")
     obji <- object$stat_SD
     print.object.summary( obji, digits=digits )
-
-            }
+}

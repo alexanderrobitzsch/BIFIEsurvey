@@ -1,5 +1,5 @@
 ## File Name: BIFIE.progressbar.R
-## File Version: 0.05
+## File Version: 0.06
 
 ################################################
 # Computation of a progress bar
@@ -7,7 +7,8 @@
 # ops ... number of operations (loop index)
 # prblen ... length of progress bar
 #---------------------------------
-BIFIE.progressbar <- function( ops, prblen ){
+BIFIE.progressbar <- function( ops, prblen )
+{
     prblen -> prb
     vec <- seq( 1, ops  )
     vec[ ops ] <- ops - .1
@@ -18,5 +19,5 @@ BIFIE.progressbar <- function( ops, prblen ){
     # returns a vector of zeroes and one indicating
     # iteration of a move in th progress bar
     return(pr1)
-        }
+}
 ####################################################

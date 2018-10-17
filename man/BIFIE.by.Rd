@@ -1,5 +1,5 @@
 %% File Name: BIFIE.by.Rd
-%% File Version: 0.24
+%% File Version: 0.27
 
 \name{BIFIE.by}
 \alias{BIFIE.by}
@@ -198,6 +198,52 @@ res3$output$parsrepM
   ##   [1,]    2    2    2    2    2
   ##   [2,]    5    5    5    5    5
   ##   [3,] 4617 4619 4614 4609 4608
+
+#****************************
+#**** Model 4: Estimation of a lavaan model with BIFIE.by
+
+#* estimate model in lavaan
+
+data0 <- data.timss1[[1]]
+# define lavaan model
+lavmodel <- "
+  ASSSCI ~ likesc
+  ASSSCI ~~ ASSSCI
+  likesc ~ female
+  likesc ~~ likesc
+  female ~~ female
+"
+
+mod0 <- lavaan::lavaan(lavmodel, data=data0, sampling.weights="TOTWGT")
+summary(mod0, stand=TRUE, fit.measures=TRUE)
+
+#* construct input for BIFIE.by
+vars <- c("ASSSCI","likesc","female","TOTWGT")
+X <- data0[,vars]
+mod0 <- lavaan::lavaan(lavmodel, data=X, sampling.weights="TOTWGT")
+w <- data0$TOTWGT
+
+#* define user function
+userfct <- function(X,w){
+  X1 <- as.data.frame(X)
+  colnames(X1) <- vars
+  X1$studwgt <- w
+  mod0 <- lavaan::lavaan(lavmodel, data=X1, sampling.weights="TOTWGT")
+  pars <- coef(mod0)
+  # extract some fit statistics
+  pars2 <- lavaan::fitMeasures(mod0)
+  pars <- c(pars, pars2[c("cfi","tli")])
+  return(pars)
+}
+
+#* test function
+res0 <- userfct(X,w)
+userparnames <- names(res0)
+
+#* estimate lavaan model with replicated sampling weights
+res1 <-  BIFIEsurvey::BIFIE.by( bifieobj, vars=vars, userfct=userfct,
+                  userparnames=userparnames, use_Rcpp=FALSE )
+summary(res1)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

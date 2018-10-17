@@ -1,5 +1,5 @@
 ## File Name: BIFIE.univar.test.R
-## File Version: 0.45
+## File Version: 0.46
 
 
 #######################################################################

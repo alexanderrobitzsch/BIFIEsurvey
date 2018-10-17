@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_jack_data_prep.cpp
-//// File Version: 1.25
+//// File Version: 1.26
 
 
 #include <RcppArmadillo.h>
@@ -241,7 +241,7 @@ Rcpp::List bifiesurvey_rcpp_bifiecdata2bifiedata( Rcpp::NumericMatrix datalistM_
 //-- bifie_bifiedata_stepwise
 //++ bifiesurvey_rcpp_bifiedata_stepwise
 // [[Rcpp::export]]
-Rcpp::List bifiesurvey_rcpp_bifiedata_stepwise( Rcpp::NumericMatrix dat1, 
+Rcpp::List bifiesurvey_rcpp_bifiedata_stepwise( Rcpp::NumericMatrix dat1,
         Rcpp::NumericMatrix dat_ind, int Nmiss )
 {
     int N=dat1.nrow();

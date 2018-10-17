@@ -52,14 +52,28 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 2.191  |  2018-08-09  |  Last: BIFIEsurvey 2.191-6
+VERSIONS BIFIEsurvey 2.192  |  2018-10-17  |  Last: BIFIEsurvey 2.192-1
 --------------------------------------------------------------------------
  
-NOTE  * exported Rcpp functions for linking from other R packages
-NOTE  * included more reference and internet links
+xxx   * ---
 
 DATA  * ---
 EXAMP * ---
+
+
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 2.191  |  2018-10-17  |  Last: BIFIEsurvey 2.191-12
+--------------------------------------------------------------------------
+ 
+NOTE  * exported Rcpp functions for linking from other R packages
+NOTE  * included more references and internet links
+NOTE  * included example of how to estimate lavaan models with a
+        BIFIEdata object using the BIFIE.by() function
+        (thanks to Boris Girnat)
+
+DATA  * ---
+EXAMP * BIFIE.by (1.4)
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 2.18  |  2018-07-06  |  Last: BIFIEsurvey 2.18-6

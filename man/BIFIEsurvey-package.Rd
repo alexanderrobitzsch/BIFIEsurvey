@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 0.9408
+%% File Version: 0.9411
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}
@@ -12,7 +12,8 @@ Some Tools for Survey Statistics in Educational Assessment, Developed by BIFIE
 \description{
     Contains tools for survey statistics (especially in educational
     assessment) for datasets with replication designs (jackknife, 
-    bootstrap, replicate weights; see Kolenikov, 2010). 
+    bootstrap, replicate weights; see Kolenikov, 2010; 
+    Shao, 1996, <doi:10.1080/02331889708802523>). 
     Descriptive statistics, linear and logistic regression, 
     path models for manifest variables with measurement error 
     correction and two-level hierarchical regressions for weighted 
@@ -21,7 +22,7 @@ Some Tools for Survey Statistics in Educational Assessment, Developed by BIFIE
     and is in particularly suited for the analysis of plausible values
     (for details see George, Oberwimmer & Itzlinger-Bruneforth, 2016; 
     Bruneforth, Oberwimmer & Robitzsch, 2016; Robitzsch, Pham &
-    Yanagida, 2016).    
+    Yanagida, 2016; <doi:10.17888/fdb-demo:bistE813I-16a>).    
     This package is developed by BIFIE (Federal Institute for 
     Educational Research, Innovation and Development of the Austrian 
     School System; Salzburg, Austria).
@@ -107,6 +108,9 @@ Kolenikov, S. (2010). Resampling variance estimation for complex survey data.
 Robitzsch, A., Pham, G., & Yanagida, T. (2016). Fehlende Daten und Plausible Values. 
 In S. Breit & C. Schreiner (Hrsg.). \emph{Large-Scale Assessment mit R: Methodische 
 Grundlagen der oesterreichischen Bildungsstandardueberpruefung} (S. 259-293). Wien: facultas.
+
+Shao, J. (1996). Invited discussion paper: Resampling methods in sample surveys. 
+\emph{Statistics, 27}(3-4), 203-237.
 }
 
 \keyword{package}
