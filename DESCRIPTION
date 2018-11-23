@@ -1,16 +1,17 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 2.192-7
-Date: 2018-11-12 10:45:50
+Version: 3.0-9
+Date: 2018-11-23 15:27:26
 Author: BIFIE [aut], Alexander Robitzsch [ctb, cre], 
         Konrad Oberwimmer [ctb]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description:
     Contains tools for survey statistics (especially in educational
     assessment) for datasets with replication designs (jackknife, 
-    bootstrap, replicate weights; see Kolenikov, 2010; 
-    Shao, 1996, <doi:10.1080/02331889708802523>). 
+    bootstrap, replicate weights; see Kolenikov, 2010;
+    Pfefferman & Rao, 2009a, 2009b, <doi:10.1016/S0169-7161(09)70003-3>,
+    <doi:S0169-7161(09)70037-9>); Shao, 1996, <doi:10.1080/02331889708802523>). 
     Descriptive statistics, linear and logistic regression, 
     path models for manifest variables with measurement error 
     correction and two-level hierarchical regressions for weighted 

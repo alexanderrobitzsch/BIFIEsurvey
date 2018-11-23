@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 0.9411
+%% File Version: 0.9415
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}
@@ -7,25 +7,17 @@
 \docType{package}
 
 \title{
-Some Tools for Survey Statistics in Educational Assessment, Developed by BIFIE
+\packageTitle{BIFIEsurvey}
 }
+
 \description{
-    Contains tools for survey statistics (especially in educational
-    assessment) for datasets with replication designs (jackknife, 
-    bootstrap, replicate weights; see Kolenikov, 2010; 
-    Shao, 1996, <doi:10.1080/02331889708802523>). 
-    Descriptive statistics, linear and logistic regression, 
-    path models for manifest variables with measurement error 
-    correction and two-level hierarchical regressions for weighted 
-    samples are included. Statistical inference can be conducted for 
-    multiply imputed datasets and nested multiply imputed datasets
-    and is in particularly suited for the analysis of plausible values
-    (for details see George, Oberwimmer & Itzlinger-Bruneforth, 2016; 
-    Bruneforth, Oberwimmer & Robitzsch, 2016; Robitzsch, Pham &
-    Yanagida, 2016; <doi:10.17888/fdb-demo:bistE813I-16a>).    
-    This package is developed by BIFIE (Federal Institute for 
-    Educational Research, Innovation and Development of the Austrian 
-    School System; Salzburg, Austria).
+\packageDescription{BIFIEsurvey}
+}
+
+\author{
+\packageAuthor{BIFIEsurvey}
+
+Maintainer: \packageMaintainer{BIFIEsurvey}
 }
 
 %% \code{Sys.time}: \tab syssys \cr
@@ -70,20 +62,6 @@ replicated statistics
 %Inference for nested multiple imputation (Rubin, 2003) is also included.
 
 
-\author{
-BIFIE [aut]
-
-\url{http://www.bifie.at}
-
-Bildungsforschung, Innovation & Entwicklung des oesterreichischen Schulwesens
-
-Federal Institute for Educational Research, Innovation and
-Development of the Austrian School System
-
-Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
-
-With contributions from: Konrad Oberwimmer, Alexander Robitzsch
-}
 
 %----
 %For the following functions, an own function maintainer is defined
@@ -104,6 +82,12 @@ Grundlagen der oesterreichischen Bildungsstandardueberpruefung} (S. 51-81). Wien
 
 Kolenikov, S. (2010). Resampling variance estimation for complex survey data.
 \emph{Stata Journal, 10}(2), 165-199.
+
+Pfefferman, D., & Rao, C. R. (2009a). \emph{Handbook of statistics, Vol. 29A:
+Sample surveys: Design, methods and applications}. Amsterdam: North Holland.
+
+Pfefferman, D., & Rao, C. R. (2009b). \emph{Handbook of statistics, Vol. 29A:
+Sample surveys: Inference and analysis}. Amsterdam: North Holland.
 
 Robitzsch, A., Pham, G., & Yanagida, T. (2016). Fehlende Daten und Plausible Values. 
 In S. Breit & C. Schreiner (Hrsg.). \emph{Large-Scale Assessment mit R: Methodische 
