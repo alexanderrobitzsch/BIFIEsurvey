@@ -1,5 +1,5 @@
 ## File Name: BIFIE.crosstab.R
-## File Version: 0.39
+## File Version: 0.43
 
 
 #######################################################################
@@ -241,7 +241,7 @@ BIFIE.crosstab <- function( BIFIEobj, vars1, vars2,
     wes <- res$ctparsM[l1,]
     chisquare <- wes^2 * ncases_gg
     p_chi2 <- (VV1-1)*(VV2-1)
-    p_chi2 <- 1- stats::pchisq( chisquare, df=p_chi2 )
+    p_chi2 <- 1-stats::pchisq( chisquare, df=p_chi2 )
     dfr4 <- data.frame("group"=group, "groupval"=group_values )
     for (ii in 1:GG){
         m1 <- miceadds::micombine.chisquare( dk=chisquare[ii,], df=(VV1-1)*(VV2-1),
@@ -268,19 +268,19 @@ BIFIE.crosstab <- function( BIFIEobj, vars1, vars2,
     s2 <- Sys.time()
     timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
     res1 <- list( "stat.probs"=dfr1, "stat.marg"=dfr2,
-            "stat.es"=dfr3, "chisq.test"=dfr4,
-            "output"=res, "timediff"=timediff,
+            "stat.es"=dfr3, "output"=res, "timediff"=timediff,
             "N"=N, "Nimp"=Nimp, "RR"=RR, "fayfac"=fayfac,
             "NMI"=BIFIEobj$NMI, "Nimp_NMI"=BIFIEobj$Nimp_NMI,
             "parnames"=parnames, "CALL"=cl )
     class(res1) <- "BIFIE.crosstab"
     return(res1)
-        }
+}
 ###################################################################################
 
 ####################################################################################
 # summary for BIFIE.crosstab function
-summary.BIFIE.crosstab <- function( object, digits=3, ... ){
+summary.BIFIE.crosstab <- function( object, digits=3, ... )
+{
     BIFIE.summary(object)
     cat("Joint and Conditional Probabilities\n")
     obji <- object$stat.probs
@@ -291,7 +291,4 @@ summary.BIFIE.crosstab <- function( object, digits=3, ... ){
     cat("\nEffect Sizes\n")
     obji <- object$stat.es
     print.object.summary( obji, digits=digits )
-    cat("\nChi Squared Test (Ignoring Weights and Sampling Scheme)\n")
-    obji <- object$chisq.test
-    print.object.summary( obji, digits=digits )
-            }
+}

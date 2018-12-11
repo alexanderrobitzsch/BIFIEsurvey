@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 0.9415
+%% File Version: 0.9416
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}
@@ -86,7 +86,7 @@ Kolenikov, S. (2010). Resampling variance estimation for complex survey data.
 Pfefferman, D., & Rao, C. R. (2009a). \emph{Handbook of statistics, Vol. 29A:
 Sample surveys: Design, methods and applications}. Amsterdam: North Holland.
 
-Pfefferman, D., & Rao, C. R. (2009b). \emph{Handbook of statistics, Vol. 29A:
+Pfefferman, D., & Rao, C. R. (2009b). \emph{Handbook of statistics, Vol. 29B:
 Sample surveys: Inference and analysis}. Amsterdam: North Holland.
 
 Robitzsch, A., Pham, G., & Yanagida, T. (2016). Fehlende Daten und Plausible Values. 

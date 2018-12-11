@@ -1,5 +1,5 @@
 %% File Name: BIFIE.crosstab.Rd
-%% File Version: 0.14
+%% File Version: 0.15
 
 \name{BIFIE.crosstab}
 \alias{BIFIE.crosstab}
@@ -69,8 +69,6 @@ A list with following entries
  \item{stat.es}{Statistics for effect sizes \eqn{w} (based on \eqn{\chi^2}),
      Cramers \eqn{V}, Goodman's gamma, the PRE lambda measure and
      Kruskals tau.}
-\item{chisq.test}{Table with chi square statistics (ignoring weights and
-sampling scheme)}
  \item{output}{Extensive output with all replicated statistics}
  \item{\dots}{More values}
 }

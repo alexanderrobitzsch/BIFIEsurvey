@@ -1,5 +1,5 @@
 ## File Name: BIFIE.twolevelreg.R
-## File Version: 0.55
+## File Version: 0.56
 
 #############################################################
 # BIFIE.twolevelreg
@@ -225,7 +225,7 @@ BIFIE.twolevelreg <- function( BIFIEobj, dep, formula.fixed, formula.random,
         pars.list <- list( pars.list[[1]], pars.list[[1]] )
         vcov.list <- list( vcov.list[[1]], vcov.list[[1]] )
     }
-    micombs <- mitools::MIcombine( pars.list, vcov.list )
+    micombs <- mitools::MIcombine( results=pars.list, variances=vcov.list )
     if ( ! se ){
         dfr$SE <- dfr$fmi <- dfr$VarRep <- NA
         v1 <- diag( micombs$variance )
