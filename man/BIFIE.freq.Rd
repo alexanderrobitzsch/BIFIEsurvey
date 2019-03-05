@@ -1,5 +1,5 @@
 %% File Name: BIFIE.freq.Rd
-%% File Version: 0.18
+%% File Version: 0.19
 
 \name{BIFIE.freq}
 \alias{BIFIE.freq}
@@ -110,8 +110,8 @@ summary(res3)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Descriptive statistics}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Descriptive statistics}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

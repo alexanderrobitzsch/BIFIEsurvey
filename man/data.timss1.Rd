@@ -1,5 +1,5 @@
 %% File Name: data.timss1.Rd
-%% File Version: 0.30
+%% File Version: 0.31
 
 \name{data.timss}
 \alias{data.timss}
@@ -228,4 +228,4 @@ summary(mod2)
 }
 
 
-\keyword{datasets}
+%% \keyword{datasets}

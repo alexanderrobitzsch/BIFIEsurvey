@@ -1,5 +1,5 @@
 %% File Name: BIFIE.ecdf.Rd
-%% File Version: 0.21
+%% File Version: 0.22
 
 \name{BIFIE.ecdf}
 \alias{BIFIE.ecdf}
@@ -120,7 +120,7 @@ plot( ecdf1$books_female0, ecdf1$yval, type="l", col="blue")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Empirical distribution function}
-\keyword{Quantiles}
-\keyword{summary}
+%% \keyword{Empirical distribution function}
+%% \keyword{Quantiles}
+%% \keyword{summary}
 %\keyword{plot}

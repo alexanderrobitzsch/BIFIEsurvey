@@ -1,5 +1,5 @@
 %% File Name: data.pisaNLD.Rd
-%% File Version: 0.19
+%% File Version: 0.20
 
 \name{data.pisaNLD}
 \alias{data.pisaNLD}
@@ -133,4 +133,4 @@ summary(res2c)
 }
 
 
-\keyword{datasets}
+%% \keyword{datasets}

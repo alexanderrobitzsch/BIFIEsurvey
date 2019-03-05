@@ -1,5 +1,5 @@
 %% File Name: BIFIE.waldtest.Rd
-%% File Version: 0.31
+%% File Version: 0.32
 
 \name{BIFIE.waldtest}
 \alias{BIFIE.waldtest}
@@ -174,5 +174,5 @@ summary(wres4a)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Wald test}
-\keyword{summary}
+%% \keyword{Wald test}
+%% \keyword{summary}

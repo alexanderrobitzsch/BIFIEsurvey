@@ -1,5 +1,5 @@
 %% File Name: BIFIE.hist.Rd
-%% File Version: 0.22
+%% File Version: 0.23
 
 \name{BIFIE.hist}
 \alias{BIFIE.hist}
@@ -106,6 +106,6 @@ plot( res2, col="orange")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Histogram}
-\keyword{summary}
-\keyword{plot}
+%% \keyword{Histogram}
+%% \keyword{summary}
+%% \keyword{plot}

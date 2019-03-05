@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.boot.Rd
-%% File Version: 0.12
+%% File Version: 0.13
 
 \name{BIFIE.data.boot}
 \alias{BIFIE.data.boot}
@@ -82,5 +82,5 @@ summary(bifieobj2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
+%% \keyword{BIFIEdata}
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

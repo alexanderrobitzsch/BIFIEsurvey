@@ -1,5 +1,5 @@
 %% File Name: BIFIE.logistreg.Rd
-%% File Version: 0.20
+%% File Version: 0.21
 
 \name{BIFIE.logistreg}
 \alias{BIFIE.logistreg}
@@ -149,8 +149,8 @@ summary(mod1)   # glm
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Logistic regression}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Logistic regression}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

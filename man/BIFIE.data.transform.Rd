@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.transform.Rd
-%% File Version: 0.36
+%% File Version: 0.37
 
 \name{BIFIE.data.transform}
 \alias{BIFIE.data.transform}
@@ -267,5 +267,5 @@ summary(bifieobj4)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Data transformation}
+%% \keyword{Data transformation}
 

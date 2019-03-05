@@ -1,5 +1,5 @@
 %% File Name: BIFIE.univar.test.Rd
-%% File Version: 0.17
+%% File Version: 0.18
 
 \name{BIFIE.univar.test}
 \alias{BIFIE.univar.test}
@@ -133,5 +133,5 @@ dstat[ ind, ]
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Descriptive statistics}
-\keyword{summary}
+%% \keyword{Descriptive statistics}
+%% \keyword{summary}

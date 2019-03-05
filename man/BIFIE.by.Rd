@@ -1,5 +1,5 @@
 %% File Name: BIFIE.by.Rd
-%% File Version: 0.27
+%% File Version: 0.28
 
 \name{BIFIE.by}
 \alias{BIFIE.by}
@@ -248,8 +248,8 @@ summary(res1)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{User defined function}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{User defined function}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

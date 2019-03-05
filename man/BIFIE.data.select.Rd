@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.select.Rd
-%% File Version: 0.12
+%% File Version: 0.13
 
 \name{BIFIEdata.select}
 \alias{BIFIEdata.select}
@@ -88,5 +88,5 @@ summary(bdat2a)
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
+%% \keyword{BIFIEdata}
 % \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

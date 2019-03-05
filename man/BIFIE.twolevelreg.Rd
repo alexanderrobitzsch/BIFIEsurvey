@@ -1,5 +1,5 @@
 %% File Name: BIFIE.twolevelreg.Rd
-%% File Version: 0.26
+%% File Version: 0.27
 
 \name{BIFIE.twolevelreg}
 \alias{BIFIE.twolevelreg}
@@ -273,8 +273,8 @@ vcov(mod1c)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Multilevel regression}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Multilevel regression}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.correl.Rd
-%% File Version: 0.22
+%% File Version: 0.23
 
 \name{BIFIE.correl}
 \alias{BIFIE.correl}
@@ -114,7 +114,7 @@ summary(res1a)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Descriptive statistics}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Descriptive statistics}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}

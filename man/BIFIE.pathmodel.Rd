@@ -1,5 +1,5 @@
 %% File Name: BIFIE.pathmodel.Rd
-%% File Version: 0.20
+%% File Version: 0.21
 
 \name{BIFIE.pathmodel}
 \alias{BIFIE.pathmodel}
@@ -161,8 +161,8 @@ summary(mod2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Linear regression}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Linear regression}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

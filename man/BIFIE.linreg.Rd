@@ -1,5 +1,5 @@
 %% File Name: BIFIE.linreg.Rd
-%% File Version: 0.28
+%% File Version: 0.29
 
 \name{BIFIE.linreg}
 \alias{BIFIE.linreg}
@@ -210,8 +210,8 @@ graphics::lines( hisei_val$HISEI, mod4$stat$est + 1.96* mod4$stat$SE, lty=3 )
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Linear regression}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Linear regression}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.crosstab.Rd
-%% File Version: 0.15
+%% File Version: 0.16
 
 \name{BIFIE.crosstab}
 \alias{BIFIE.crosstab}
@@ -114,8 +114,8 @@ summary(res1)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Descriptive statistics}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Descriptive statistics}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

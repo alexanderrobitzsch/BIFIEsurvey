@@ -1,12 +1,17 @@
 ## File Name: BIFIE.summary.R
-## File Version: 0.16
+## File Version: 0.22
 
 BIFIE.summary <- function(object, print.time=TRUE)
 {
     cat("------------------------------------------------------------\n")
-    d1 <- packageDescription("BIFIEsurvey")
-    cat( paste( d1$Package, " ", d1$Version, " (", d1$Date, ")", sep=""), "\n" )
-    cat( paste0("Function '", class(object) ) )
+    BIFIE_print_package_description(pack="BIFIEsurvey")
+    if ( class(object)=="BIFIE.lavaan.survey" ){
+        BIFIE_print_package_description(pack="lavaan")
+        BIFIE_print_package_description(pack="lavaan.survey")
+    }
+
+    #* function
+    cat( paste0("\nFunction '", class(object) ) )
     if ( class(object)=="BIFIE.waldtest" ){
         cat( paste0( "' for BIFIE method '", object$class.BIFIE.method ) )
     }
@@ -38,5 +43,5 @@ BIFIE.summary <- function(object, print.time=TRUE)
     }
 
     cat( "Number of Jackknife zones per dataset",  "=", object$RR, "\n" )
-    cat( "Fay factor=", round( object$fayfac, 5 ), "\n\n" )
+    cat( "Fay factor", "=", round( object$fayfac, 5 ), "\n\n" )
 }

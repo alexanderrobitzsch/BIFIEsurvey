@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.Rd
-%% File Version: 0.42
+%% File Version: 0.43
 
 \name{BIFIE.data}
 \alias{BIFIE.data}
@@ -198,7 +198,7 @@ summary(bdat)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
-\keyword{summary}
-\keyword{print}
+%% \keyword{BIFIEdata}
+%% \keyword{summary}
+%% \keyword{print}
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

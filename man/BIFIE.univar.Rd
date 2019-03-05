@@ -1,5 +1,5 @@
 %% File Name: BIFIE.univar.Rd
-%% File Version: 0.32
+%% File Version: 0.33
 
 \name{BIFIE.univar}
 \alias{BIFIE.univar}
@@ -150,8 +150,8 @@ summary(res2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Descriptive statistics}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Descriptive statistics}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

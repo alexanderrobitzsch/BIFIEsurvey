@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 0.9416
+%% File Version: 0.9417
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}

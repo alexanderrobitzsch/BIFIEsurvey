@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.h
-//// File Version: 7.39
+//// File Version: 7.45
 
 #ifndef _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
 #define _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
@@ -44,11 +44,6 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
     Rcpp::NumericVector group_values, Rcpp::NumericVector group_index1,
     Rcpp::NumericMatrix wgt, Rcpp::NumericVector vars_index,
     Rcpp::NumericMatrix itempair_index);
-
-Rcpp::List bifiehelpers_linreg( Rcpp::NumericMatrix dat1,
-    Rcpp::NumericVector group_values, Rcpp::NumericVector dep_index,
-    Rcpp::NumericVector pre_index, Rcpp::NumericMatrix wgt,
-    Rcpp::NumericVector group_index1 );
 
 Rcpp::List bifiehelpers_waldtest( int VV, Rcpp::NumericVector Ccols,
     Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,

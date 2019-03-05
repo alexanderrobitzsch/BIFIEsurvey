@@ -1,5 +1,5 @@
 %% File Name: save.BIFIEdata.Rd
-%% File Version: 0.48
+%% File Version: 0.49
 
 \name{save.BIFIEdata}
 \alias{save.BIFIEdata}
@@ -267,5 +267,5 @@ summary(res3)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
+%% \keyword{BIFIEdata}
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

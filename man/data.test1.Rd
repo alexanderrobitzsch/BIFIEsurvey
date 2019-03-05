@@ -1,5 +1,5 @@
 %% File Name: data.test1.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{data.test1}
 \alias{data.test1}
@@ -51,4 +51,4 @@ The dataset \code{data.test1} is a dataset with a stratified clustered sample of
 %data(data.test1)
 %## maybe str(data.test1) ; plot(data.test1) ...
 %}
-\keyword{datasets}
+%% \keyword{datasets}

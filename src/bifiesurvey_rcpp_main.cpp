@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_main.cpp
-//// File Version: 7.899
+//// File Version: 7.906
 
 
 #include <RcppArmadillo.h>
@@ -16,6 +16,7 @@ using namespace Rcpp;
 
 // [include_header_file]
 #include "bifiesurvey_rcpp_helper.h"
+
 
 
 //*************************************************************************
@@ -442,86 +443,6 @@ Rcpp::List bifie_correl( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1,
 
 
 
-//*************************************************************************
-//  bifie_linreg
-// [[Rcpp::export]]
-Rcpp::List bifie_linreg( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1,
-    Rcpp::NumericMatrix wgtrep, Rcpp::NumericVector dep_index,
-    Rcpp::NumericVector pre_index, Rcpp::NumericVector fayfac, Rcpp::NumericVector NI,
-    Rcpp::NumericVector group_index1, Rcpp::NumericVector group_values ){
-
-     int Nimp = NI[0];
-     int N = wgt1.nrow();
-     int VV = pre_index.size();
-     int NV = datalist.ncol();
-     int GG=group_values.size();
-     Rcpp::NumericMatrix dat1(N,NV);
-     int VV2=(2*VV+2)*GG;
-     Rcpp::NumericMatrix ncasesM(GG,Nimp);
-     Rcpp::NumericMatrix sumwgtM(GG,Nimp);
-     Rcpp::NumericMatrix regrcoefM(VV2,Nimp);
-     Rcpp::NumericMatrix regrcoef_varM(VV2,Nimp);
-     int WW = wgtrep.ncol();
-     Rcpp::NumericMatrix regrcoefrepM(VV2,Nimp*WW);
-
-     Rcpp::Rcout << "|";
-
-     //*****************************
-     // loop over imputations
-     for (int ii = 0; ii < Nimp; ii++){
-
-     // extract dataset
-     dat1 = datalist( Rcpp::Range( ii*N+0, ii*N+ (N-1) ), Rcpp::Range(0,NV-1) );
-
-     //** apply linear regression to one dataset;
-     Rcpp::List res1 = bifiehelpers_linreg( dat1, group_values,  dep_index, pre_index,
-                    wgt1, group_index1 );
-     Rcpp::NumericVector ncases = res1["ncases"];
-     Rcpp::NumericVector sumwgt0 = matr2vec(res1["sumwgt1"]);
-     Rcpp::NumericVector regrcoef0 = matr2vec(res1["regr_coef"]);
-
-     //*** apply linear regression to replicated datasets
-     Rcpp::List res2 = bifiehelpers_linreg( dat1, group_values,  dep_index, pre_index,
-                  wgtrep, group_index1 );
-     Rcpp::NumericMatrix sumwgtrep = res2["sumwgt1"];
-     Rcpp::NumericMatrix regrcoefrep = res2["regr_coef"];
-
-     // compute standard errors
-     Rcpp::NumericVector regrcoef_var = varjack_helper( regrcoef0, regrcoefrep, fayfac );
-
-     for (int gg=0;gg<GG; gg++){
-         ncasesM(gg,ii) = ncases[gg];
-         sumwgtM(gg,ii) = sumwgt0[gg];
-                 }
-     for (int zz=0;zz<VV2; zz++){
-         regrcoefM(zz,ii) = regrcoef0[zz];
-         regrcoef_varM(zz,ii) = regrcoef_var[zz];
-         for (int ww=0;ww<WW;ww++){
-                regrcoefrepM(zz, ww + ii*WW ) = regrcoefrep(zz,ww);
-                        }
-     }
-
-     Rcpp::Rcout << "-" <<  std::flush;
-
-          }  // end ii;  end multiple imputations
-     Rcpp::Rcout << "|" << std::endl;
-
-     ///*** Rubin inference
-     Rcpp::List regrcoefL = rubin_rules_univ( regrcoefM, regrcoef_varM );
-
-     //*************************************************
-     // OUTPUT
-     return Rcpp::List::create(
-         Rcpp::_["ncasesM"] = ncasesM,
-         Rcpp::_["sumwgtM"] = sumwgtM,
-         Rcpp::_["regrcoefrepM"] = regrcoefrepM,
-         Rcpp::_["regrcoefL"] = regrcoefL,
-         Rcpp::_["regrcoefM"] = regrcoefM,
-         Rcpp::_["regrcoef_varM"] = regrcoef_varM
-         );
-}
-
-//*************************************************************************
 
 //*************************************************************************
 //  bifie_waldtest

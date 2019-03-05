@@ -1,5 +1,5 @@
 %% File Name: BIFIE.mva.Rd
-%% File Version: 0.08
+%% File Version: 0.09
 
 \name{BIFIE.mva}
 \alias{BIFIE.mva}
@@ -91,5 +91,5 @@ summary(res2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Missing value analysis}
-\keyword{summary}
+%% \keyword{Missing value analysis}
+%% \keyword{summary}

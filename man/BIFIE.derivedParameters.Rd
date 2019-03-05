@@ -1,5 +1,5 @@
 %% File Name: BIFIE.derivedParameters.Rd
-%% File Version: 0.19
+%% File Version: 0.20
 
 \name{BIFIE.derivedParameters}
 \alias{BIFIE.derivedParameters}
@@ -131,8 +131,8 @@ summary(res2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{Derived parameters}
-\keyword{summary}
-\keyword{coef}
-\keyword{vcov}
+%% \keyword{Derived parameters}
+%% \keyword{summary}
+%% \keyword{coef}
+%% \keyword{vcov}
 

@@ -1,5 +1,5 @@
 %% File Name: BIFIE.BIFIEdata2BIFIEcdata.Rd
-%% File Version: 0.19
+%% File Version: 0.20
 
 \name{BIFIE.BIFIEdata2BIFIEcdata}
 \alias{BIFIE.BIFIEdata2BIFIEcdata}
@@ -133,5 +133,5 @@ Nvalues2 <- lapply( vars, FUN=function(vv){
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
+%% \keyword{BIFIEdata}
 %% \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,5 +1,5 @@
 %% File Name: data.bifie.Rd
-%% File Version: 0.05
+%% File Version: 0.06
 
 \name{data.bifie}
 \alias{data.bifie}
@@ -40,4 +40,4 @@ students from the TIMSS 2011 study.
 %data(data.bifie01)
 %## maybe str(data.bifie01) ; plot(data.bifie01) ...
 %}
-\keyword{datasets}
+%% \keyword{datasets}

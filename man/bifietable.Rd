@@ -1,5 +1,5 @@
 %% File Name: bifietable.Rd
-%% File Version: 1.06
+%% File Version: 1.07
 
 \name{bifietable}
 \alias{bifietable}
@@ -55,5 +55,5 @@ BIFIEsurvey::bifietable( data.timss1[[1]][,"books"] )
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{table}
+%% \keyword{table}
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

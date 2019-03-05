@@ -1,5 +1,5 @@
 %% File Name: BIFIEdata2svrepdesign.Rd
-%% File Version: 0.07
+%% File Version: 0.12
 
 \name{BIFIEdata2svrepdesign}
 \alias{BIFIEdata2svrepdesign}
@@ -16,7 +16,7 @@ Converts of a \code{BIFIEdata} object into a \code{svyrep} object in the
 }
 
 \usage{
-BIFIEdata2svrepdesign(bifieobj)
+BIFIEdata2svrepdesign(bifieobj, varnames=NULL)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -24,6 +24,7 @@ BIFIEdata2svrepdesign(bifieobj)
   \item{bifieobj}{
 Object of class \code{BIFIEdata}
 }
+\item{varnames}{Optional vector with variable names}
 }
 
 %\details{
@@ -86,11 +87,13 @@ svydes3b <- BIFIEsurvey::BIFIEdata2svrepdesign(bdat3)
 mod1a <- BIFIEsurvey::BIFIE.univar( bdat3, vars="ASMMAT1")
 mod1b <- survey::svymean( ~ ASMMAT1, design=svydes3a )
 mod1c <- survey::svymean( ~ ASMMAT1, design=svydes3b )
+lavmodel <- "ASMMAT1 ~ 1"
+mod1d <- BIFIEsurvey::BIFIE.lavaan.survey(lavmodel, svyrepdes=svydes3b)
 
 #- coefficients
-coef(mod1a); coef(mod1b); coef(mod1c)
+coef(mod1a); coef(mod1b); coef(mod1c); coef(mod1d)[1]
 #- standard errors
-survey::SE(mod1a); survey::SE(mod1b); survey::SE(mod1c)
+survey::SE(mod1a); survey::SE(mod1b); survey::SE(mod1c); sqrt(vcov(mod1d)[1,1])
 
 #############################################################################
 # EXAMPLE 2: Multiply imputed datasets, TIMSS replication design
@@ -120,8 +123,10 @@ svydes4b <- BIFIEsurvey::BIFIEdata2svrepdesign(bdat4)
 mod1a <- BIFIEsurvey::BIFIE.univar(bdat4, vars="ASMMAT")
 mod1b <- mitools::MIcombine( with(svydes4a, survey::svymean( ~ ASMMAT, design=svydes4a )))
 mod1c <- mitools::MIcombine( with(svydes4b, survey::svymean( ~ ASMMAT, design=svydes4b )))
+
+
 # results
-coef(mod1a); coef(mod1b); coef(mod1c)
+coef(mod1a); coef(mod1b); coef(mod1c); coef(mod1d)[1]
 survey::SE(mod1a); survey::SE(mod1b); survey::SE(mod1c)
 }
 }

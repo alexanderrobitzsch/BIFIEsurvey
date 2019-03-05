@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.jack.Rd
-%% File Version: 0.32
+%% File Version: 0.33
 
 \name{BIFIE.data.jack}
 \alias{BIFIE.data.jack}
@@ -165,5 +165,5 @@ summary(bifieobj1)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{BIFIEdata}
+%% \keyword{BIFIEdata}
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.cpp
-//// File Version: 7.43
+//// File Version: 7.45
 
 
 // [[Rcpp::depends(RcppArmadillo)]]
@@ -400,8 +400,8 @@ Rcpp::List univar_helper_multiple_V2group( Rcpp::NumericMatrix dat1,
          for (int gg=0;gg<GG;gg++){  // begin gg
              for (int hh=0;hh<WW;hh++){ // beg hh
                  mean1(vv*GG+gg,hh) = mean1vv(gg,hh) / ( sumwgt1(gg+vv*GG,hh) + eps );
-                 sd1(vv*GG+gg,hh) = sqrt( ( sd1vv(gg,hh) - sumwgt1(gg+vv*GG,hh)*
-                     pow(mean1(vv*GG+gg,hh),2) ) /( sumwgt1(gg+vv*GG,hh) - 1 ) );
+                 sd1(vv*GG+gg,hh) = std::sqrt( ( sd1vv(gg,hh) - sumwgt1(gg+vv*GG,hh)*
+                     std::pow(mean1(vv*GG+gg,hh),2) ) /( sumwgt1(gg+vv*GG,hh) - 1 ) );
             }
            } // end gg
 
@@ -727,154 +727,6 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
         _["cor1"] = cor1,
         _["ncases1"] = ncases1
         );
-}
-//**********************************************************
-
-//**********************************************************
-// linear regression
-Rcpp::List bifiehelpers_linreg( Rcpp::NumericMatrix dat1,
-    Rcpp::NumericVector group_values, Rcpp::NumericVector dep_index,
-    Rcpp::NumericVector pre_index, Rcpp::NumericMatrix wgt,
-    Rcpp::NumericVector group_index1 )
-{
-
-    int WW = wgt.ncol();
-    int N = wgt.nrow();
-    int VV = pre_index.size();
-    int group_index = group_index1[0];
-    int GG=group_values.size();
-    int VV2=(2*VV+2)*GG;
-
-    Rcpp::NumericMatrix sumwgt1(GG,WW);
-    Rcpp::NumericVector ncases(GG);
-    Rcpp::NumericMatrix regr_coef(VV2,WW);
-    Rcpp::NumericMatrix indcases(N,GG);
-
-    //**************************
-    // extract usable cases
-    for (int nn=0;nn<N;nn++){ // beg nn
-    for (int gg=0; gg < GG; gg++ ){  // beg gg
-    if ( dat1(nn,group_index) == group_values[gg] ){
-        indcases(nn,gg)=1;
-                }
-    if (  R_IsNA( dat1(nn, dep_index[0] ) ) ){ // beg R_IsNA dep var
-        indcases(nn,gg)=0;
-                } // end R_IsNA dep var
-    for (int vv=0;vv<VV;vv++){ // beg vv  independent vars
-       if (  R_IsNA( dat1(nn, pre_index[vv] ) ) ){
-        indcases(nn,gg)=0;
-                }
-            } // end vv  independent vars
-        if ( indcases(nn,gg) == 1 ){
-            ncases[gg] ++;
-            for (int ww=0;ww<WW; ww++){
-                sumwgt1(gg,ww) += wgt(nn,ww);
-                    }
-            break;
-                }
-        }   // end gg
-  }   // end nn
-
-
-    double sig2=0;
-    double sig2a=0;
-
-    for (int gg=0;gg<GG;gg++){
-    int igg=0;
-
-    // create design matrices
-    int ngg = ncases[gg];
-    arma::mat X0=arma::zeros( ngg, VV );
-    arma::mat X=arma::zeros( ngg, VV );
-    arma::colvec y0=arma::zeros( ngg );
-    arma::colvec y=arma::zeros( ngg );
-    arma::mat wgt0=arma::zeros( ngg, WW);
-
-    Rcpp::NumericMatrix M_pre(VV,WW);
-    Rcpp::NumericMatrix SD_pre(VV,WW);
-    Rcpp::NumericMatrix M_dep(1,WW);
-    Rcpp::NumericMatrix SD_dep(1,WW);
-
-    //***** define input matrices
-    for (int nn=0;nn < N; nn++){  // beg nn
-        if ( indcases(nn,gg)==1){  // beg indcases gg
-            y0(igg,0) = dat1(nn, dep_index[0] );
-            for (int vv=0;vv<VV;vv++){  // beg vv
-               X0(igg,vv) = dat1(nn,pre_index[vv] );
-                    }  // end vv
-            igg ++;
-            } // end if indcases gg
-          } // end nn
-
-    //**** define used matrices
-    double wtmp=0;
-
-    for ( int ww=0; ww <WW; ww++){ // beg ww
-    igg=0;
-    for (int nn=0;nn < N; nn++){  // beg nn
-        if ( indcases(nn,gg)==1){  // beg indcases gg
-            wgt0(igg,ww) = wgt(nn,ww);
-            wtmp = sqrt( wgt(nn,ww));
-            y(igg,0) = y0(igg,0)*wtmp;
-            M_dep(0,ww) += y0(igg,0) * wgt(nn,ww);
-            SD_dep(0,ww) += y0(igg,0) * y0(igg,0) * wgt(nn,ww);
-            for (int vv=0;vv<VV;vv++){  // beg vv
-               X(igg,vv) = X0(igg, vv )*wtmp;
-               M_pre(vv,ww) += X0(igg,vv) * wgt(nn,ww);
-               SD_pre(vv,ww) += X0(igg,vv) * X0(igg,vv) * wgt(nn,ww);
-                    }  // end vv
-            igg ++;
-            } // end if indcases gg
-          } // end nn
-
-    //*** fit linear model
-    arma::colvec coef = arma::solve(X, y);      // fit model y ~ X
-    // arma::colvec resid = y - X*coef;            // residuals
-    // not that the weights are already included in the residual calculation
-    arma::colvec resid(ngg);
-    for (int hh=0;hh<ngg;hh++){
-        resid(hh,0) = y0(hh,0);
-        for (int vv=0;vv<VV;vv++){
-           resid(hh,0) = resid(hh,0) - X0(hh,vv) * coef(vv,0);
-            }
-    }
-
-    // sig2 = arma::as_scalar( arma::trans(resid)*resid );
-    sig2=0;
-    for (int hh=0;hh<ngg;hh++){
-          sig2 += pow( resid(hh,0),2.0) * wgt0(hh,ww);
-       }
-    double sggww = sumwgt1(gg,ww);
-    sig2a = sig2 / ( sggww - VV );
-
-    // collect all regression coefficients
-    // unstandardized coefficients
-    for (int vv=0;vv<VV;vv++){
-        regr_coef( vv + gg*(2*VV+2), ww ) = coef(vv,0);
-            }
-    regr_coef( VV + gg*(2*VV+2), ww ) = sqrt( sig2a );  // sigma
-    // compute R^2
-    M_dep(0,ww) = M_dep(0,ww) / sggww;
-    double sig3 = SD_dep(0,ww) - sggww * pow( M_dep(0,ww), 2.0);
-    SD_dep(0,ww) = sqrt( sig3 / ( sggww - 1 ) );
-    regr_coef( VV+1 + gg*(2*VV+2), ww ) = 1 - sig2 / sig3;
-
-    // compute standardized coefficients
-    for (int vv=0;vv<VV;vv++){
-        M_pre(vv,ww) = M_pre(vv,ww) / sggww;
-        SD_pre(vv,ww) = SD_pre(vv,ww) - sggww *  pow( M_pre(vv,ww), 2.0);
-        SD_pre(vv,ww) = sqrt( SD_pre(vv,ww) / ( sggww - 1 ) );
-        regr_coef( VV+2+vv + gg*(2*VV+2), ww ) =
-           coef(vv,0) / SD_dep(0,ww) * SD_pre(vv,ww);
-                }
-    } // end ww
-    } // end gg
-
-    return Rcpp::List::create(
-        _["ncases"] = ncases,
-        _["sumwgt1"] = sumwgt1,
-        _["regr_coef"] = regr_coef
-    );
 }
 //**********************************************************
 

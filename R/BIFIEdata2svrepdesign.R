@@ -1,7 +1,7 @@
 ## File Name: BIFIEdata2svrepdesign.R
-## File Version: 0.09
+## File Version: 0.16
 
-BIFIEdata2svrepdesign <- function(bifieobj)
+BIFIEdata2svrepdesign <- function(bifieobj, varnames=NULL)
 {
     CALL <- match.call()
     Nimp <- bifieobj$Nimp
@@ -19,9 +19,12 @@ BIFIEdata2svrepdesign <- function(bifieobj)
     #**** create datasets
     if (Nimp==1){
         data <- as.data.frame(bifieobj$dat1)
+        if (! is.null(varnames)){
+            data <- data[,varnames, drop=FALSE]
+        }
     }
     if (Nimp>1){
-        data <- BIFIE.BIFIEdata2datalist(bifieobj=bifieobj)
+        data <- BIFIE.BIFIEdata2datalist(bifieobj=bifieobj, varnames=varnames)
         data <- mitools::imputationList(data)
     }
     #*** adjust scale factor in case of finite sampling correction
