@@ -1,5 +1,5 @@
 ## File Name: BIFIE.lavaan.survey.R
-## File Version: 0.46
+## File Version: 0.504
 
 
 BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
@@ -30,10 +30,14 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
     RR <- ncol(svyrepdes0$repweights)
 
     #- initial lavaan model
-    lav_fun <- create_function_name(pack="lavaan", fun=lavaan_fun)
-    lavfit <- lav_fun(lavmodel, data=data0, ...)
+    if (lavaan_fun=="sem"){ lav_fun <- lavaan::sem }
+    if (lavaan_fun=="cfa"){ lav_fun <- lavaan::cfa }
+    if (lavaan_fun=="lavaan"){ lav_fun <- lavaan::lavaan }
+    if (lavaan_fun=="growth"){ lav_fun <- lavaan::growth }
+    eval(parse(text=paste0( "lav_fun__" , " <<- ", "lav_fun")))
+    lavfit <- lav_fun__(lavmodel, data=data0, ...)
     class_lav <- class(lavfit)
-
+    
     #* wrapper to lavaan.survey
     if (lavaan_survey_default){
         res <- lavaan.survey::lavaan.survey(lavaan.fit=lavfit, survey.design=svyrepdes )
@@ -49,13 +53,18 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
             results[[ii]] <- coef(res)
             variances[[ii]] <- vcov(res)
             fitstat <- fitstat + lavaan::fitMeasures(res)
+            partable <- res@ParTable
+            if (ii==1){ partable0 <- partable }
+            if (ii>1){ partable0$est <- partable0$est + partable$est }
         }
         fitstat <- fitstat / Nimp
+        partable0$est <- partable0$est / Nimp
+        
         inf_res <- mitools::MIcombine(results=results, variances=variances)
         #--- include merged parameters
         res@Fit@x <- as.vector(inf_res$coefficients)
         res@vcov$vcov <- as.matrix(inf_res$variance)
-        partable <- res@ParTable
+        partable <- partable0
         ind_free <- which(partable$free>0)
         partable$est[ ind_free ] <- as.vector(inf_res$coefficients)
         partable$se[ ind_free ] <- sqrt(diag(as.matrix(inf_res$variance)))

@@ -51,7 +51,7 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.1  |  2019-03-05  |  Last: BIFIEsurvey 3.1-11
+VERSIONS BIFIEsurvey 3.1  |  2019-03-10  |  Last: BIFIEsurvey 3.1-15
 --------------------------------------------------------------------------
  
 NOTE  * included argument 'varnames' in BIFIEdata2svrepdesign()

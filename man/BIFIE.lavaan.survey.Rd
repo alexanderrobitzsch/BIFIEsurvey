@@ -1,5 +1,5 @@
 %% File Name: BIFIE.lavaan.survey.Rd
-%% File Version: 0.11
+%% File Version: 0.12
 
 \name{BIFIE.lavaan.survey}
 \alias{BIFIE.lavaan.survey}
@@ -119,8 +119,8 @@ coef(mod1); coef(mod2); coef(mod3); coef(mod4)
 # compare standard error estimates
 survey::SE(mod1)
 survey::SE(mod2)
-survey::SE(mod3)
-survey::SE(mod4)
+sqrt(diag(vcov(mod3)))
+sqrt(diag(vcov(mod4)))
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
