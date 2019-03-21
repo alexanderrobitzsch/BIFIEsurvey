@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_main.cpp
-//// File Version: 7.906
+//// File Version: 7.945
 
 
 #include <RcppArmadillo.h>
@@ -13,9 +13,13 @@
 
 
 using namespace Rcpp;
+using namespace arma;
 
 // [include_header_file]
 #include "bifiesurvey_rcpp_helper.h"
+
+// [include_header_file]
+#include "bifiesurvey_rcpp_wald_test.h"
 
 
 
@@ -444,187 +448,6 @@ Rcpp::List bifie_correl( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1,
 
 
 
-//*************************************************************************
-//  bifie_waldtest
-// [[Rcpp::export]]
-Rcpp::List bifie_waldtest( Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,
-     Rcpp::NumericMatrix Cdes, Rcpp::NumericVector rdes, Rcpp::NumericVector Ccols,
-     Rcpp::NumericVector fayfac ){
-     // number of involved variables in the test
-     int VV = Ccols.size();
-     int Nimp = parsM.ncol();
-     double Nimp2 = Nimp;
-     Nimp2 = Nimp2 + 1e-10;
-     int RR = parsrepM.ncol() / Nimp;
-     int df = Cdes.nrow();
-
-     Rcpp::NumericMatrix chi2M(Nimp,2);
-     // Rcpp::NumericMatrix var_w(VV,VV);
-     arma::mat var_w = arma::zeros(VV,VV);
-     arma::mat var_b = arma::zeros(VV,VV);
-     // Rcpp::NumericMatrix var_b(VV,VV);
-     Rcpp::NumericVector parsM_sel(VV);
-     arma::mat var_wM = arma::zeros(df,df*Nimp);
-     Rcpp::NumericMatrix hyp_statM(df,Nimp);
-     // Rcpp::NumericMatrix var_w(VV,VV);
-
-     // arma form of the design matrix Cdes
-     arma::mat ACdes = arma::zeros(df,VV);
-     for (int dd=0;dd<df;dd++){
-         for (int vv=0;vv<VV;vv++){
-                 ACdes(dd,vv) = Cdes(dd, Ccols[vv] );
-                         }
-                     }
-
-     // arma colvec for design vector
-     arma::colvec Ardes = arma::zeros(df,1);
-     for (int dd=0;dd<df;dd++){
-         Ardes(dd,0) =  rdes[dd];
-                     }
-
-     double tmp1=0;
-     double tmp2=0;
-
-     for ( int ii=0; ii < Nimp; ii++){
-
-         Rcpp::List res1 = bifiehelpers_waldtest_vcov(  VV,  Ccols, parsM, parsrepM,
-              ii,  RR, fayfac, ACdes,  Ardes );
-        Rcpp::NumericMatrix chi2a=res1["chi2"];
-         Rcpp::NumericMatrix var_hyp1=res1["var_hyp"];
-         Rcpp::NumericMatrix hyp_stat1=res1["hyp_stat"];
-
-
-    for (int dd=0;dd<df;dd++){
-        hyp_statM(dd,ii) = hyp_stat1(dd,0);
-        for (int ee=0;ee<df;ee++){
-            var_wM(dd,ee+ii*df) = var_hyp1(dd,ee);
-                    }
-    }
-
-
-
-         chi2M(ii,0) = chi2a(0,0);
-         tmp1 += chi2M(ii,0);
-         chi2M(ii,1) = sqrt( chi2M(ii,0) );
-         tmp2 += chi2M(ii,1);
-         Rcpp::NumericMatrix var_w1 = res1["var_w"];
-         for (int vv1=0;vv1<VV;vv1++){
-            for (int vv2=0;vv2<VV;vv2++){
-                  var_w(vv1,vv2) += var_w1(vv1,vv2);
-                              }
-                          }
-             }
-      // end ii
-
-     // calculate ARIV
-     double eps=1e-10;
-     double ariv = tmp1 - Nimp * std::pow( tmp2 / Nimp, 2.0 );
-     ariv = ariv / ( Nimp - 1 + eps ) * ( 1 + 1 / Nimp2 );
-
-     // calculate D2 statistic
-     // double D2 = tmp1 / Nimp2 - (Nimp2+1)/(Nimp2-1+eps) * ariv;
-     double D2 = tmp1 / df - (Nimp2+1)/(Nimp2-1+eps) * ariv;
-     // changed ARb 2015-12-14
-     D2 = D2 / ( 1 + ariv );
-     // calculate degrees of freedom
-     double df2 = df;
-     double nu3 = 1000;
-     if ( Nimp > 1 ){
-       nu3 = std::pow( df2, - 3.0 / Nimp2 ) * ( Nimp2 - 1 ) *
-                 std::pow( 1 + 1 / ( ariv + eps ), 2.0 );
-                   }
-
-    // inline double pf(double x, double df1, double df2, int lt, int lg)    {
-    //                        return ::Rf_pf(x, df1, df2, lt, lg); }
-    double p_D2 = Rf_pf( D2, df, nu3, FALSE, FALSE );
-    // double p_D2 = R::pf( D2, df, nu3, FALSE, FALSE );
-
-     // calculate covariance matrices
-     for (int vv1=0;vv1<VV;vv1++){
-        for (int vv2=0;vv2<VV;vv2++){
-              var_w(vv1,vv2) = var_w(vv1,vv2) / Nimp2;
-                          }
-                      }
-
-     // means of all parameters
-     for (int vv=0;vv<VV;vv++){
-        for (int ii=0;ii<Nimp;ii++){
-            parsM_sel[vv] += parsM( Ccols[vv], ii );
-         }
-         parsM_sel[vv] = parsM_sel[vv] / Nimp2;
-     }
-     // between matrix
-     // parsM( Ccols[vv1], ii ) )
-
-     for (int vv1=0;vv1<VV;vv1++){
-     for (int vv2=0;vv2<VV;vv2++){
-       for ( int ii=0; ii<Nimp; ii++){
-           var_b(vv1,vv2) += ( parsM( Ccols[vv1], ii ) - parsM_sel[vv1] ) *
-                  ( parsM( Ccols[vv2], ii ) - parsM_sel[vv2] );
-                     }
-           var_b(vv1,vv2) = 1 / ( Nimp2 - 1 ) * var_b( vv1, vv2 );
-                   }
-               }
-
-     arma::mat ariv_D1a = arma::mat( var_b * arma::inv( var_w ) );
-     double ariv_D1 = 0;
-     for (int vv=0;vv<VV;vv++){
-         ariv_D1 += ariv_D1a(vv,vv);
-                 }
-     ariv_D1 = ariv_D1 * ( 1 + 1 / Nimp2 ) / df;
-     arma::mat var_t1 = arma::mat( (1+ariv_D1) * var_w );
-
-     // hypothesis matrix
-     arma::mat var_hyp = arma::mat( ACdes * var_t1 * arma::trans( ACdes) );
-     // compute inverse of variance matrix of hypothesis
-     arma::mat var_hypinv = arma::inv( var_hyp );
-     // parameter vector
-     arma::colvec parm_vec= arma::zeros(VV,1);
-     for (int vv=0;vv<VV;vv++){
-             parm_vec(vv,0) = parsM_sel[vv];
-                     }
-     // hypothesis statistic
-     arma::mat hyp_stat = arma::mat( ACdes * parm_vec - Ardes );
-     arma::mat D1 = arma::mat( arma::trans( hyp_stat ) * var_hypinv * hyp_stat );
-     // D1(0,0) = D1(0,0) / df;
-     // according to Enders (2010, p. 236), D1 must be divided by df,
-     // but this is (could be) an error?
-
-     // calculate nu2
-     double nu2 = 1 + ( 1 - 2 / ( df * Nimp2 - df ) * 1 / ariv_D1 );
-     nu2 = 4 + ( df * Nimp2 - df - 4 ) * nu2 * nu2;
-
-     if (Nimp2 < 2 ){ nu2 = 1000;  }
-
-     double tmp11 = D1(0,0);
-
-     double p_D1 = Rf_pf( tmp11, df, nu2, FALSE, FALSE );
-
-     //*************************************************
-     // OUTPUT
-     return Rcpp::List::create(
-         Rcpp::_["chi2M"] = chi2M,
-         Rcpp::_["ariv"] = ariv,
-         Rcpp::_["D2"] = D2,
-         Rcpp::_["df"] = df,
-         Rcpp::_["nu2"] = nu2,
-         Rcpp::_["nu3"]=nu3,
-         Rcpp::_["p_D1"] = p_D1,
-         Rcpp::_["p_D2"] = p_D2,
-         Rcpp::_["Nimp"] = Nimp,
-         Rcpp::_["RR"] = RR,
-         Rcpp::_["fayfac"] = fayfac,
-         Rcpp::_["var_w"] = var_w,
-         Rcpp::_["var_b"] = var_b,
-         Rcpp::_["D1"] = D1,
-         Rcpp::_["Ccols"] = Ccols,
-         Rcpp::_["parsM_sel"] = parsM_sel,
-         Rcpp::_["var_wM"] = var_wM,
-         Rcpp::_["hyp_statM"] = hyp_statM
-         );
-}
-
-//*************************************************************************
 
 //*************************************************************************
 //  bifie_comp_vcov_within
@@ -692,14 +515,13 @@ Rcpp::List bifie_comp_vcov_within( Rcpp::NumericMatrix parsM,
 //  bifie_comp_vcov
 // [[Rcpp::export]]
 Rcpp::List bifie_comp_vcov( Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,
-     Rcpp::NumericMatrix Cdes, Rcpp::NumericVector rdes, Rcpp::NumericVector Ccols,
-     Rcpp::NumericVector fayfac ){
-
+    Rcpp::NumericMatrix Cdes, Rcpp::NumericVector rdes, Rcpp::NumericVector Ccols,
+    Rcpp::NumericVector fayfac )
+{
      // number of involved variables in the test
      int VV = Ccols.size();
      int Nimp = parsM.ncol();
-     double Nimp2 = Nimp;
-     Nimp2 = Nimp2 + 1e-10;
+     double Nimp2 = Nimp + 1e-10;
      int RR = parsrepM.ncol() / Nimp;
      int df = Cdes.nrow();
 
@@ -726,7 +548,7 @@ Rcpp::List bifie_comp_vcov( Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsr
      double tmp2=0;
 
      for ( int ii=0; ii < Nimp; ii++){
-         Rcpp::List res1 = bifiehelpers_waldtest_vcov(  VV,  Ccols, parsM, parsrepM,
+         Rcpp::List res1 = bifiesurvey_rcpp_wald_test_vcov(  VV,  Ccols, parsM, parsrepM,
               ii,  RR, fayfac, ACdes,  Ardes );
 
          Rcpp::NumericMatrix chi2a=res1["chi2"];
@@ -1898,96 +1720,6 @@ Rcpp::List bifie_mla2( Rcpp::NumericMatrix X_list, Rcpp::NumericMatrix Z_list,
 //*************************************************************************
 
 //*************************************************************************
-//  bifie_pathmodel
-// [[Rcpp::export]]
-Rcpp::List bifie_pathmodel( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1,
-      Rcpp::NumericMatrix wgtrep, Rcpp::NumericVector vars_index,
-      Rcpp::NumericVector fayfac, Rcpp::NumericVector NI,
-      Rcpp::NumericVector group_index1, Rcpp::NumericVector group_values,
-      Rcpp::NumericMatrix L, Rcpp::NumericVector L_row_index,
-      int NL, Rcpp::NumericMatrix E,
-      Rcpp::NumericMatrix R, Rcpp::NumericVector R_row_index,
-      Rcpp::NumericMatrix coeff_index, int NP0,
-      Rcpp::NumericVector unreliability ){
-
-     int Nimp = NI[0];
-     int RR = wgtrep.ncol();
-     int N = wgt1.nrow();
-     int NV = datalist.ncol();
-     int GG=group_values.size();
-
-     // parameter vector
-     int NR = R.nrow();
-     int NP = 2*NP0 + 2*NR;
-
-     Rcpp::NumericMatrix dat1(N,NV);
-     Rcpp::NumericMatrix parsM( NP*GG, Nimp );
-     Rcpp::NumericMatrix ncases( GG, 1 );
-     Rcpp::NumericMatrix sumwgt( GG, 1 );
-     Rcpp::NumericMatrix parsrepM( NP*GG, Nimp*RR );
-     Rcpp::NumericMatrix parsVar( NP*GG, Nimp);
-
-     Rcpp::Rcout << "|";
-
-     // loop imputed datasets
-     for (int ii=0;ii<Nimp;ii++){
-
-     //--- extract dataset
-     dat1 = datalist( Rcpp::Range( ii*N+0, ii*N+ (N-1) ), Rcpp::Range(0,NV-1) );
-
-     //--- computation complete data
-     Rcpp::List res21 = bifie_pathmodel_helper(   dat1,  wgt1,   group_values,  group_index1,
-         vars_index,  R,  NP0,   coeff_index,  E,   L,  NL,  L_row_index,
-         R_row_index,  unreliability );
-     Rcpp::NumericMatrix pM = res21["parsM"];
-     parsM(_,ii) = pM(_,0);
-     if (ii==0){
-         Rcpp::NumericVector v1 = res21["ncases"];
-         ncases(_,0) = v1;
-         Rcpp::NumericMatrix v2 = res21["sumwgt1"];
-         sumwgt(_,0) = v2(_,0);
-    }
-
-     //--- computation replicated data
-     Rcpp::List res22 = bifie_pathmodel_helper(   dat1,  wgtrep,   group_values,  group_index1,
-         vars_index,  R,  NP0,   coeff_index,  E,   L,  NL,  L_row_index,
-         R_row_index,  unreliability );
-     Rcpp::NumericMatrix pM1 = res22["parsM"];
-     for (int rr=0;rr<RR; rr++){
-         parsrepM( _, rr + ii*RR ) = pM1( _, rr );
-                 }
-
-     //--- Rubin inference
-     Rcpp::List res41 = varjack_bias_helper( pM, pM1, fayfac );
-     Rcpp::NumericVector pars_var = res41["pars_var"];
-     int NP1 = pars_var.size();
-
-       for (int pp=0;pp<NP1;pp++){
-              parsVar( pp, ii ) = pars_var[ pp ];
-                }
-      Rcpp::Rcout << "-" <<  std::flush;
-                     } // end ii (imputations)
-
-
-     //*** post-processing
-          //*** Rubin inference
-          Rcpp::List parsL = rubin_rules_univ( parsM, parsVar );
-          Rcpp::Rcout << "|" << std::endl;
-
-     //*************************************************
-     // OUTPUT
-     return Rcpp::List::create(
-         Rcpp::_["parsL"] = parsL,
-         Rcpp::_["parsM"] = parsM,
-         Rcpp::_["ncases"] = ncases,
-         Rcpp::_["sumwgt"] = sumwgt,
-         Rcpp::_["parsrepM"] = parsrepM,
-         Rcpp::_["parsVar"] = parsVar
-         );
-}
-//*************************************************************************
-
-//*************************************************************************
 //  bifiesurvey_rcpp_replication_variance
 // [[Rcpp::export]]
 Rcpp::NumericVector bifiesurvey_rcpp_replication_variance( Rcpp::NumericVector pars,
@@ -2007,3 +1739,5 @@ Rcpp::List bifiesurvey_rcpp_rubin_rules( Rcpp::NumericMatrix estimates, Rcpp::Nu
     return res__;
 }
 //*************************************************************************
+
+// Rcout << "The value of chi2M : \n" << chi2M << "\n";

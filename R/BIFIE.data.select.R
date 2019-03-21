@@ -1,5 +1,5 @@
 ## File Name: BIFIE.data.select.R
-## File Version: 1.20
+## File Version: 1.23
 
 
 #######################################################################
@@ -19,15 +19,16 @@ BIFIE.data.select <- function( bifieobj, varnames=NULL, impdata.index=NULL )
     if ( ! is.null(impdata.index ) ){
         i1 <- impdata.index - 1
         N <- bifieobj$N
-        ind <- unlist( sapply( i1, FUN=function(ii){
-                vec <- ii*N + ( 1:N )
-                return(vec)
-                        }, simplify=FALSE) )
+        ind <- NULL
+        for (ii in i1){
+            vec <- ii*N + ( 1:N )
+            ind <- c(ind, vec)
+        }
         bifieobj$datalistM <- bifieobj$datalistM[ ind,, drop=FALSE]
         bifieobj$Nimp <- length(i1)
     }
     #********* select some variables
-    if ( ! is.null( varnames) ){
+    if ( ! is.null(varnames) ){
         dfr1 <- data.frame( "varnames"=bifieobj$varnames, "index"=seq(1,length(bifieobj$varnames) ) )
         dfr1$selectvars <- 1 * ( dfr1$varnames %in% varnames )
         dfr1 <- dfr1[ dfr1$selectvars==1, ]

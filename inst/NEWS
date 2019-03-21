@@ -51,18 +51,38 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.1  |  2019-03-10  |  Last: BIFIEsurvey 3.1-15
+VERSIONS BIFIEsurvey 3.2  |  2019-03-21  |  Last: BIFIEsurvey 3.2-7
 --------------------------------------------------------------------------
  
-NOTE  * included argument 'varnames' in BIFIEdata2svrepdesign()
-ADDED * included function BIFIE.lavaan.survey()
+FIXED * fixed a bug in BIFIE.lavaan.survey()
 
 
 DATA  * ---
-EXAMP * BIFIE.lavaan.survey (1)
+EXAMP * ---
 
 
 
+
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 3.1  |  2019-03-20  |  Last: BIFIEsurvey 3.1-33
+--------------------------------------------------------------------------
+ 
+NOTE  * included argument 'varnames' in BIFIEdata2svrepdesign()
+ADDED * included function BIFIE.lavaan.survey() for fitting models
+        using lavaan and lavaan.survey packages
+FIXED * corrected a bug in computing D1 and D2 statistic
+NOTE  * included argument 'as_data_frame' in BIFIE.BIFIEdata2datalist()
+ADDED * included function svrepdesign2BIFIEdata() for converting survey
+        objects into BIFIEdata objects
+NOTE  * included standard error function()
+ADDED * included function BIFIE.survey() for fitting models in
+        survey package
+FIXED * fixed a bug in BIFIE.pathmodel() when no latent variables 
+        (all variables with perfect reliability) were involved
+
+DATA  * ---
+EXAMP * BIFIE.lavaan.survey (1,2), se (1), BIFIEdata2svrepdesign (1,2)
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 3.0  |  2018-12-11  |  Last: BIFIEsurvey 3.0-14

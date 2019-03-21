@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.h
-//// File Version: 7.45
+//// File Version: 7.492
 
 #ifndef _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
 #define _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
@@ -7,14 +7,6 @@
 #include <RcppArmadillo.h>
 using namespace Rcpp;
 using namespace arma;
-
-Rcpp::List bifie_pathmodel_helper( Rcpp::NumericMatrix dat1,
-    Rcpp::NumericMatrix wgt, Rcpp::NumericVector group_values,
-    Rcpp::NumericVector group_index1, Rcpp::NumericVector vars_index,
-    Rcpp::NumericMatrix R, int NP0, Rcpp::NumericMatrix coeff_index,
-    Rcpp::NumericMatrix E, Rcpp::NumericMatrix L, int NL,
-    Rcpp::NumericVector L_row_index, Rcpp::NumericVector R_row_index,
-    Rcpp::NumericVector unreliability );
 
 Rcpp::NumericVector bifie_sign( double x );
 
@@ -44,16 +36,6 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
     Rcpp::NumericVector group_values, Rcpp::NumericVector group_index1,
     Rcpp::NumericMatrix wgt, Rcpp::NumericVector vars_index,
     Rcpp::NumericMatrix itempair_index);
-
-Rcpp::List bifiehelpers_waldtest( int VV, Rcpp::NumericVector Ccols,
-    Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,
-    int ii, int RR, Rcpp::NumericVector fayfac,
-    arma::mat ACdes, arma::colvec Ardes );
-
-Rcpp::List bifiehelpers_waldtest_vcov( int VV, Rcpp::NumericVector Ccols,
-    Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,
-    int ii, int RR, Rcpp::NumericVector fayfac,
-    arma::mat ACdes, arma::colvec Ardes );
 
 Rcpp::List bifiehelpers_etasquared( Rcpp::NumericMatrix mean1M,
     Rcpp::NumericMatrix sd1M, Rcpp::NumericMatrix sumweightM, int GG );

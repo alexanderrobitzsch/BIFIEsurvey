@@ -1,10 +1,9 @@
 ## File Name: BIFIE.waldtest.R
-## File Version: 1.28
+## File Version: 1.309
 
 
-#######################################################################
-# BIFIE Wald test
-BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL )
+#***** BIFIE Wald test
+BIFIE.waldtest <- function( BIFIE.method, Cdes=NULL, rdes=NULL, type=NULL )
 {
     s1 <- Sys.time()
     cl <- match.call()
@@ -20,12 +19,21 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL )
     Nimp <- BIFIE.method$Nimp
     RR <- BIFIE.method$RR
 
+    #--- class derivedParameters
+    if (is.null(Cdes) & (class(BIFIE.method)=="BIFIE.derivedParameters") ){
+        res <- extract.replicated.pars(BIFIE.method=BIFIE.method)
+        parsM <- res$parsM
+        np <- nrow(parsM)
+        Cdes <- diag(np)
+        rdes <- rep(0,np)
+    }
+
     #****** which columns in C do have non-zero entries
     Ccols <- which( colSums( abs( Cdes) ) > 0 )
-
     if ( ! BIFIE.method$NMI ){
         # apply Rcpp Wald test function
-        res <- bifie_waldtest( parsM, parsrepM, Cdes, rdes, Ccols - 1, fayfac )
+        res <- bifiesurvey_rcpp_wald_test( parsM=parsM, parsrepM=parsrepM, Cdes=Cdes,
+                        rdes=rdes, Ccols=Ccols-1, fayfac=fayfac )
         RR <- res$RR
         Nimp <- res$Nimp
         fayfac <- res$fayfac
@@ -63,23 +71,18 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes, rdes, type=NULL )
     #*************************** OUTPUT ***************************************
     s2 <- Sys.time()
     timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
-    res1 <- list( "stat.D"=dfr,
-            "timediff"=timediff,
+    res1 <- list( "stat.D"=dfr, "timediff"=timediff,
             "N"=N, "Nimp"=Nimp, "RR"=RR, "fayfac"=fayfac,
             "NMI"=BIFIE.method$NMI, "Nimp_NMI"=BIFIE.method$Nimp_NMI,
             "class.BIFIE.method"=class(BIFIE.method), "CALL"=cl )
     class(res1) <- "BIFIE.waldtest"
     return(res1)
-        }
-###################################################################################
+}
 
-####################################################################################
-# summary for BIFIE.correl function
+#--- summary for BIFIE.waldtest function
 summary.BIFIE.waldtest <- function( object, digits=4, ... )
 {
     BIFIE.summary(object, FALSE)
-    if ( ! object$NMI ){ cat("D1 and D2 Statistic for Wald Test \n\n") }
-    if (  object$NMI ){ cat("D1 Statistic for Wald Test \n\n") }
-    obji <- object$stat.D
-    print.object.summary( obji, digits=digits )
+    BIFIE_waldtest_summary_print_test_statistics(object=object, digits=digits,
+            value_name="stat.D")
 }

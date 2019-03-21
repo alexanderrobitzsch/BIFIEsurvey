@@ -1,22 +1,28 @@
 %% File Name: BIFIEdata2svrepdesign.Rd
-%% File Version: 0.12
+%% File Version: 0.186
 
 \name{BIFIEdata2svrepdesign}
 \alias{BIFIEdata2svrepdesign}
+\alias{svrepdesign2BIFIEdata}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
 \title{
 Conversion of a \code{BIFIEdata} Object into a \code{svyrep} Object in the
-\pkg{survey} Package
+\pkg{survey} Package (and the other way around)
 }
 
 \description{
-Converts of a \code{BIFIEdata} object into a \code{svyrep} object in the
-\pkg{survey} package.
+The function \code{BIFIEdata2svrepdesign} converts of a \code{BIFIEdata} object into a
+\code{svyrep} object in the \pkg{survey} package.
+
+The function \code{svrepdesign2BIFIEdata} converts a
+\code{svyrep} object in the \pkg{survey} package into an object of class \code{BIFIEdata}.
 }
 
 \usage{
-BIFIEdata2svrepdesign(bifieobj, varnames=NULL)
+BIFIEdata2svrepdesign(bifieobj, varnames=NULL, impdata.index=NULL)
+
+svrepdesign2BIFIEdata(svrepdesign, varnames=NULL, cdata=FALSE)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -25,6 +31,12 @@ BIFIEdata2svrepdesign(bifieobj, varnames=NULL)
 Object of class \code{BIFIEdata}
 }
 \item{varnames}{Optional vector with variable names}
+\item{impdata.index}{
+Selected indices of imputed datasets
+}
+\item{svrepdesign}{Object of class \code{svyrep.design} or \code{svyimputationList}}
+\item{cdata}{Logical inducating whether \code{BIFIEdata} object should be
+saved in compact format}
 }
 
 %\details{
@@ -32,7 +44,10 @@ Object of class \code{BIFIEdata}
 %}
 
 \value{
-Object of class \code{svyrep.design} or \code{svyimputationList}
+Function \code{BIFIEdata2svrepdesign}:
+Object of class \code{svyrep.design} or \code{svyimputationList} \cr
+
+Function \code{svrepdesign2BIFIEdata}: Object of class \code{BIFIEdata}
 }
 
 
@@ -83,6 +98,9 @@ print(svydes3a)
 #--- create survey object by converting the BIFIEdata object to survey
 svydes3b <- BIFIEsurvey::BIFIEdata2svrepdesign(bdat3)
 
+#--- convert survey object into BIFIEdata object
+bdat3e <- BIFIEsurvey::svrepdesign2BIFIEdata(svrepdesign=svydes3b)
+
 #*** compare results for the mean in Mathematics scores
 mod1a <- BIFIEsurvey::BIFIE.univar( bdat3, vars="ASMMAT1")
 mod1b <- survey::svymean( ~ ASMMAT1, design=svydes3a )
@@ -119,14 +137,16 @@ print(svydes4a)
 #--- create BIFIEdata object with conversion function
 svydes4b <- BIFIEsurvey::BIFIEdata2svrepdesign(bdat4)
 
+#--- reconvert survey object into BIFIEdata object
+bdat4c <- BIFIEsurvey::svrepdesign2BIFIEdata(svrepdesign=svydes4b)
+
 #*** compare results for a mean
 mod1a <- BIFIEsurvey::BIFIE.univar(bdat4, vars="ASMMAT")
 mod1b <- mitools::MIcombine( with(svydes4a, survey::svymean( ~ ASMMAT, design=svydes4a )))
 mod1c <- mitools::MIcombine( with(svydes4b, survey::svymean( ~ ASMMAT, design=svydes4b )))
 
-
 # results
-coef(mod1a); coef(mod1b); coef(mod1c); coef(mod1d)[1]
+coef(mod1a); coef(mod1b); coef(mod1c)
 survey::SE(mod1a); survey::SE(mod1b); survey::SE(mod1c)
 }
 }

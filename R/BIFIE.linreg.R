@@ -1,5 +1,5 @@
 ## File Name: BIFIE.linreg.R
-## File Version: 0.57
+## File Version: 0.584
 
 
 #--- Linear regression
@@ -90,9 +90,10 @@ BIFIE.linreg <- function( BIFIEobj, dep=NULL, pre=NULL,
     res00$group -> group
     #@@@@***
 
-    #---- Rcpp call
-    res <- bifie_linreg( datalistM, wgt_, as.matrix(wgtrep), dep_index -1,
-            pre_index - 1,  fayfac,    Nimp,  group_index -  1, group_values )
+    #---- Rcpp call of linear regression function
+    res <- bifiesurvey_rcpp_linreg( datalist=datalistM, wgt1=wgt_, wgtrep=as.matrix(wgtrep),
+                dep_index=dep_index-1, pre_index=pre_index-1, fayfac=fayfac,
+                NI=Nimp, group_index1=group_index-1, group_values=group_values )
     GG <- length(group_values)
 #    ZZ <- nrow(itempair_index )
     ZZ <- 2*VV+2

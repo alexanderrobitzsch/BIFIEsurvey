@@ -1,14 +1,13 @@
 ## File Name: print.object.summary.R
-## File Version: 0.08
+## File Version: 0.13
 
 print.object.summary <- function( obji, digits )
 {
-    obji0 <- obji
     V <- ncol(obji)
-    for (vv in 1:V){
+    for (vv in 1L:V){
         if ( is.numeric( obji[,vv] ) ){
-            obji[,vv] <- round( obji[,vv], digits )
+            obji[,vv] <- round( obji[,vv], digits=digits )
         }
     }
-    print( obji0, digits=digits )
+    print( format(obji, scientific=FALSE), digits=digits )
 }
