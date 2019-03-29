@@ -1,5 +1,5 @@
 ## File Name: BIFIE.lavaan.survey.R
-## File Version: 0.592
+## File Version: 0.597
 
 
 BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
@@ -55,9 +55,9 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
 
     #* wrapper to lavaan.survey
     if (lavaan_survey_default){
-        res <- bifiesurvey_lavaan_survey_lavaan_survey(lavaan.fit=lavfit,
+        res <- BIFIE_lavaan_survey_lavaan_survey(lavaan.fit=lavfit,
                             survey.design=svyrepdes)
-        fitstat <- bifiesurvey_lavaan_fitMeasures(object=res, fit.measures=fit.measures)
+        fitstat <- BIFIE_lavaan_fitMeasures(object=res, fit.measures=fit.measures)
         results <- BIFIE_lavaan_coef(object=res)
         variances <- BIFIE_lavaan_vcov(object=res)
     } else {
@@ -70,16 +70,16 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
             svyrepdes0 <- BIFIE_lavaan_survey_extract_dataset(svyrepdes=svyrepdes,
                                     ii=ii, variables=variables, svyrepdes0=svyrepdes0,
                                     datalist=datalist)
-            res <- bifiesurvey_lavaan_survey_lavaan_survey(lavaan.fit=lavfit,
+            res <- BIFIE_lavaan_survey_lavaan_survey(lavaan.fit=lavfit,
                             survey.design=svyrepdes0)
             results[[ii]] <- BIFIE_lavaan_coef(object=res)
             variances[[ii]] <- BIFIE_lavaan_vcov(object=lavfit)
-            fitstat[[ii]] <- bifiesurvey_lavaan_fitMeasures(object=res, fit.measures=fit.measures)
+            fitstat[[ii]] <- BIFIE_lavaan_fitMeasures(object=res, fit.measures=fit.measures)
             partable[[ii]] <- res@ParTable
         }
 
         # combine fit statistics
-        fitstat <- BIFIE_lavaan_survey_combine_fit_measures(fitstat=fitstat, Nimp=Nimp)
+        fitstat <- bifie_lavaan_survey_combine_fit_measures(fitstat=fitstat, Nimp=Nimp)
 
         # inference parameters
         inf_res <- mitools::MIcombine(results=results, variances=variances)

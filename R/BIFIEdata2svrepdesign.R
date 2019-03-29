@@ -1,9 +1,10 @@
 ## File Name: BIFIEdata2svrepdesign.R
-## File Version: 0.26
+## File Version: 0.28
 
 BIFIEdata2svrepdesign <- function(bifieobj, varnames=NULL,
         impdata.index=NULL )
 {
+    requireNamespace("survey")
     CALL <- match.call()
     Nimp <- bifieobj$Nimp
     weights <- bifieobj$wgt

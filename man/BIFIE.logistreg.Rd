@@ -1,5 +1,5 @@
 %% File Name: BIFIE.logistreg.Rd
-%% File Version: 0.21
+%% File Version: 0.22
 
 \name{BIFIE.logistreg}
 \alias{BIFIE.logistreg}
@@ -14,7 +14,8 @@ Logistic Regression
 }
 
 \description{
-Computes logistic regression.
+Computes logistic regression. Explained variance \eqn{R^2} is computed
+by the approach of McKelvey and Zavoina.
 }
 
 \usage{

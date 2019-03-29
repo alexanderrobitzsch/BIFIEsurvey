@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_wald_test.cpp
-//// File Version: 0.12
+//// File Version: 0.175
 
 
 #include <RcppArmadillo.h>
@@ -15,30 +15,25 @@
 using namespace Rcpp;
 using namespace arma;
 
-// [NOinclude_header_file]
-// #include "bifiesurvey_rcpp_helper.h"
+// [include_header_file]
+#include "bifiesurvey_rcpp_helper.h"
+
 
 
 
 //**********************************************************
-// BIFIE helpers Wald test
+// BIFIE helper function Wald test
 Rcpp::List bifiesurvey_rcpp_wald_test_vcov( int VV, Rcpp::NumericVector Ccols,
-    Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM,
-    int ii, int RR, Rcpp::NumericVector fayfac,
-    arma::mat ACdes, arma::colvec Ardes )
+    Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix parsrepM, int ii, int RR,
+    Rcpp::NumericVector fayfac, arma::mat ACdes, arma::colvec Ardes )
 {
-    int NF = fayfac.size();
     double f1=0;
-
     //*** calculate covariance matrix for imputation ii
     arma::mat var_w = arma::zeros(VV,VV);
     for (int vv1=0;vv1<VV;vv1++){
         for (int vv2=vv1;vv2<VV;vv2++){
-            f1 = fayfac[0];
             for (int rr=0;rr<RR;rr++){
-                if (NF>1){
-                    f1 = fayfac[rr];
-                }
+                f1 = bifiesurvey_rcpp_extract_fayfac( fayfac, rr);
                 var_w(vv1,vv2) += f1 * ( parsrepM( Ccols[vv1], rr+ii*RR ) - parsM( Ccols[vv1], ii ) )*
                             ( parsrepM( Ccols[vv2], rr+ii*RR ) - parsM( Ccols[vv2], ii ) );
             }
@@ -46,15 +41,15 @@ Rcpp::List bifiesurvey_rcpp_wald_test_vcov( int VV, Rcpp::NumericVector Ccols,
         }
     }
 
-    //***  compute chi squared Wald test statistic
+    //***  compute chi square Wald test statistic
     // compute covariance matrix of hypothesis
-    arma::mat var_hyp = arma::mat( ACdes * var_w * arma::trans( ACdes) );
+    arma::mat var_hyp = arma::mat( ACdes * var_w * arma::trans(ACdes) );
 
     // compute inverse of variance matrix of hypothesis
-    arma::mat var_hypinv = arma::pinv( var_hyp );
+    arma::mat var_hypinv = arma::pinv(var_hyp);
 
     // parameter vector
-    arma::colvec parm_vec= arma::zeros(VV,1);
+    arma::colvec parm_vec = arma::zeros(VV,1);
     for (int vv=0;vv<VV;vv++){
         parm_vec(vv,0) = parsM( Ccols[vv], ii );
     }
@@ -72,7 +67,6 @@ Rcpp::List bifiesurvey_rcpp_wald_test_vcov( int VV, Rcpp::NumericVector Ccols,
 }
 //**********************************************************
 
-
 //*************************************************************************
 //  bifiesurvey_rcpp_wald_test
 // [[Rcpp::export]]
@@ -88,7 +82,6 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
     Nimp2 = Nimp2 + eps;
     int RR = parsrepM.ncol() / Nimp;
     int df = Cdes.nrow();
-
     Rcpp::NumericMatrix chi2M(Nimp,2);
     arma::mat var_w = arma::zeros(VV,VV);
     arma::mat var_b = arma::zeros(VV,VV);
@@ -115,9 +108,9 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
     for ( int ii=0; ii < Nimp; ii++){  // begin ii
         Rcpp::List res1 = bifiesurvey_rcpp_wald_test_vcov(  VV,  Ccols, parsM,
                     parsrepM, ii, RR, fayfac, ACdes,  Ardes );
-        Rcpp::NumericMatrix chi2a=res1["chi2"];
-        Rcpp::NumericMatrix var_hyp1=res1["var_hyp"];
-        Rcpp::NumericMatrix hyp_stat1=res1["hyp_stat"];
+        Rcpp::NumericMatrix chi2a = res1["chi2"];
+        Rcpp::NumericMatrix var_hyp1 = res1["var_hyp"];
+        Rcpp::NumericMatrix hyp_stat1 = res1["hyp_stat"];
 
         for (int dd=0;dd<df;dd++){
             hyp_statM(dd,ii) = hyp_stat1(dd,0);
@@ -137,6 +130,7 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
         }
     }  // end ii
 
+    ///-------- D2 statistic ----------------
     // calculate ARIV
     double ariv = tmp1 - Nimp * std::pow( tmp2 / Nimp, 2.0 );
     ariv = ariv / ( Nimp - 1 + eps ) * ( 1 + 1 / Nimp2 );
@@ -152,8 +146,10 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
         nu3 = std::pow( df2, -3.0/Nimp2) * ( Nimp2 - 1 ) *
                 std::pow( 1 + 1 / ( ariv + eps ), 2.0 );
     }
+    nu3 = bifiesurvey_rcpp_squeeze(nu3, 1, 1000);
     double p_D2 = ::Rf_pf( D2, df, nu3, FALSE, FALSE );
 
+    ///-------- D1 statistic ----------------
     // calculate covariance matrices
     for (int vv1=0;vv1<VV;vv1++){
         for (int vv2=0;vv2<VV;vv2++){
@@ -180,18 +176,16 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
         }
     }
 
-    arma::mat ariv_D1a = arma::mat( var_b * arma::inv( var_w ) );
-    double ariv_D1 = 0;
-    for (int vv=0;vv<VV;vv++){
-        ariv_D1 += ariv_D1a(vv,vv);
-    }
+    arma::mat ariv_D1a = arma::mat( var_b * arma::pinv(var_w) );
+    double ariv_D1 = bifiesurvey_rcpp_arma_trace(ariv_D1a);
+
     ariv_D1 = ariv_D1 * ( 1 + 1 / Nimp2 ) / df;
     arma::mat var_t1 = arma::mat( (1+ariv_D1) * var_w );
 
     // hypothesis matrix
     arma::mat var_hyp = arma::mat( ACdes * var_t1 * arma::trans(ACdes) );
     // compute inverse of variance matrix of hypothesis
-    arma::mat var_hypinv = arma::inv( var_hyp );
+    arma::mat var_hypinv = arma::pinv(var_hyp);
     // parameter vector
     arma::colvec parm_vec= arma::zeros(VV,1);
     for (int vv=0;vv<VV;vv++){
@@ -199,14 +193,14 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
     }
     // hypothesis statistic
     arma::mat hyp_stat = arma::mat( ACdes * parm_vec - Ardes );
-    arma::mat D1 = arma::mat( arma::trans( hyp_stat ) * var_hypinv * hyp_stat ) / df;
+    arma::mat D1 = arma::mat( arma::trans(hyp_stat) * var_hypinv * hyp_stat ) / df;
 
     // calculate nu2
-    double nu2 = 1 + ( 1 - 2 / ( df * Nimp2 - df ) * 1 / ariv_D1 );
+    double nu2 = 1 + ( 1 - 2 / ( df * Nimp2 - df ) / ariv_D1 );
     nu2 = 4 + ( df * Nimp2 - df - 4 ) * nu2 * nu2;
-    if (Nimp2 < 2 ){ nu2 = 1000; }
-    double tmp11 = D1(0,0);
-    double p_D1 = ::Rf_pf( tmp11, df, nu2, FALSE, FALSE );
+    if ((Nimp2 < 2) | (nu2 > 1000)){ nu2 = 1000; }
+    double D1_stat = D1(0,0);
+    double p_D1 = ::Rf_pf( D1_stat, df, nu2, FALSE, FALSE );
 
     //*************************************************
     // OUTPUT
@@ -216,7 +210,7 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
             Rcpp::Named("D2") = D2,
             Rcpp::Named("df") = df,
             Rcpp::Named("nu2") = nu2,
-            Rcpp::Named("nu3")=nu3,
+            Rcpp::Named("nu3")= nu3,
             Rcpp::Named("p_D1") = p_D1,
             Rcpp::Named("p_D2") = p_D2,
             Rcpp::Named("Nimp") = Nimp,
@@ -232,3 +226,6 @@ Rcpp::List bifiesurvey_rcpp_wald_test( Rcpp::NumericMatrix parsM, Rcpp::NumericM
         );
 }
 //*************************************************************************
+
+
+// Rcpp::Rcout << "ariv_D1 = " <<  ariv_D1 << std::endl;

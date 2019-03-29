@@ -51,14 +51,18 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.2  |  2019-03-21  |  Last: BIFIEsurvey 3.2-7
+VERSIONS BIFIEsurvey 3.2  |  2019-03-29  |  Last: BIFIEsurvey 3.2-17
 --------------------------------------------------------------------------
  
 FIXED * fixed a bug in BIFIE.lavaan.survey()
+NOTE  * leading zeros in formulas in BIFIE.data.transform() or
+        BIFIE.derivedParameters() (e.g., ~ 0 + as.factor(books)) are no
+        longer needed
+ADDED * included pseudo-R^2 of McKelvey and Zavoina in BIFIE.logistreg()
 
 
 DATA  * ---
-EXAMP * ---
+EXAMP * BIFIE.derivedParameters (1), BIFIE.data.transform (1)
 
 
 

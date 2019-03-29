@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_linreg.cpp
-//// File Version: 0.19
+//// File Version: 0.21
 
 
 #include <RcppArmadillo.h>
@@ -148,10 +148,9 @@ Rcpp::List bifiesurvey_rcpp_linreg_compute( Rcpp::NumericMatrix dat1,
             // compute standardized coefficients
             for (int vv=0; vv<VV; vv++){
                 M_pre(vv,ww) = M_pre(vv,ww) / sggww;
-                SD_pre(vv,ww) = SD_pre(vv,ww) - sggww *  std::pow( M_pre(vv,ww), 2.0);
+                SD_pre(vv,ww) = SD_pre(vv,ww) - sggww * std::pow( M_pre(vv,ww), 2.0);
                 SD_pre(vv,ww) = std::sqrt( SD_pre(vv,ww) / ( sggww - 1 ) );
-                regr_coef( VV+2+vv + gg*(2*VV+2), ww ) =
-                        coef(vv,0) / SD_dep(0,ww) * SD_pre(vv,ww);
+                regr_coef( VV+2+vv + gg*(2*VV+2), ww ) = coef(vv,0) / SD_dep(0,ww) * SD_pre(vv,ww);
             }
         } // end ww
     } // end gg

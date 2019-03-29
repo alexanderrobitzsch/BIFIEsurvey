@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.h
-//// File Version: 7.492
+//// File Version: 7.502
 
 #ifndef _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
 #define _BIFIESURVEY_BIFIESURVEY_RCPP_HELPER_H
@@ -7,6 +7,12 @@
 #include <RcppArmadillo.h>
 using namespace Rcpp;
 using namespace arma;
+
+double bifiesurvey_rcpp_squeeze( double x, double min_val, double max_val );
+
+double bifiesurvey_rcpp_arma_trace( arma::mat x );
+
+double bifiesurvey_rcpp_extract_fayfac( Rcpp::NumericVector fayfac, int rr);
 
 Rcpp::NumericVector bifie_sign( double x );
 
@@ -52,10 +58,6 @@ Rcpp::NumericVector bifie_helper_ecdf( Rcpp::NumericMatrix dat1,
     Rcpp::NumericVector vars_index, int ii,
     Rcpp::NumericMatrix ncasesM, Rcpp::NumericMatrix sumwgtM,
     int maxval, int quanttype );
-
-Rcpp::List bifie_estlogistic_helper( Rcpp::NumericVector y,
-    Rcpp::NumericMatrix X, Rcpp::NumericVector wgt,
-    Rcpp::NumericVector beta0, double eps, int maxiter );
 
 Rcpp::List rcppmat2armamat( Rcpp::NumericMatrix matr );
 

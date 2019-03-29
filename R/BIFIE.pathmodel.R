@@ -1,18 +1,19 @@
 ## File Name: BIFIE.pathmodel.R
-## File Version: 1.316
+## File Version: 1.319
 
 
 #--- path model
 BIFIE.pathmodel <- function( BIFIEobj, lavaan.model, reliability=NULL,
             group=NULL, group_values=NULL, se=TRUE )
 {
+    requireNamespace("TAM")
     s1 <- Sys.time()
     cl <- match.call()
     bifieobj <- BIFIEobj
     dat <- bifieobj$dat1
 
     # lavaanify syntax
-    lavpartable <- TAM::lavaanify.IRT( lavaan.model, dat )$lavpartable
+    lavpartable <- TAM::lavaanify.IRT( lavmodel=lavaan.model, data=dat )$lavpartable
     vars <- colnames(dat)
     lav1 <- lavpartable[ lavpartable$op %in% c("=~", "~"), ]
     lav.vars <- unique( c( lav1$lhs, lav1$rhs ) )

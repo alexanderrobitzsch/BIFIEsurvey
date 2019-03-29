@@ -1,5 +1,5 @@
 ## File Name: BIFIE.derivedParameters.R
-## File Version: 0.380
+## File Version: 0.385
 
 
 #--- statistical inference for derived parameters
@@ -24,17 +24,22 @@ BIFIE.derivedParameters <- function( BIFIE.method, derived.parameters, type=NULL
     FF <- length(derived.parameters)
     if (FF>1){
         for (ff in 2:FF){
-            t1 <- stats::terms( allformulas)
+            t1 <- stats::terms(allformulas)
             t2 <- paste( c( attr( t1, "term.labels" ),
-            attr(  stats::terms( derived.parameters[[ff]] ), "term.labels" )  ), collapse=" + " )
-            allformulas  <- stats::as.formula( paste( " ~ 0 + ", t2 ) )
+                attr(  stats::terms( derived.parameters[[ff]] ), "term.labels" ) ), collapse=" + " )
+            allformulas <- stats::as.formula( paste( " ~ 0 + ", t2 ) )
         }
+    } else {
+        t1 <- stats::terms(allformulas)
+        t2 <- attr( t1, "term.labels" )
+        allformulas <- stats::as.formula( paste( " ~ 0 + ", t2 ) )
     }
     # create matrices of derived parameters
     der.pars <- stats::model.matrix( allformulas, as.data.frame( t(pars0) ) )
     colnames(der.pars) <- names(derived.parameters)
     der.pars.rep <- stats::model.matrix( allformulas, as.data.frame( t(pars0.rep) ) )
     colnames(der.pars.rep) <- names(derived.parameters)
+
     fayfac <- res1$fayfac
     NP <- ncol(der.pars)
     Cdes <- diag(NP)
@@ -84,17 +89,12 @@ BIFIE.derivedParameters <- function( BIFIE.method, derived.parameters, type=NULL
 
     s2 <- Sys.time()
     timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
-    res <- list( "stat"=stat, "coef"=rowMeans( parsM ),
-                "se"=sqrt(diag(var_tot)),
-                "vcov"=var_tot, "Nimp"=Nimp, "fayfac"=fayfac,
-                "N"=res1$N, "RR"=res1$RR,
-                "NMI"=BIFIE.method$NMI, "Nimp_NMI"=BIFIE.method$Nimp_NMI,
-                "allformulas"=allformulas, "CALL"=cl,
-                "timediff"=timediff,
-                "derived.parameters"=derived.parameters,
-                "parsM"=parsM, parsrepM=parsrepM,
-                "parnames"=names(derived.parameters), res_wald=res_wald
-                        )
+    res <- list( stat=stat, coef=rowMeans( parsM ),
+                se=sqrt(diag(var_tot)), vcov=var_tot, Nimp=Nimp, fayfac=fayfac,
+                N=res1$N, RR=res1$RR, NMI=BIFIE.method$NMI, Nimp_NMI=BIFIE.method$Nimp_NMI,
+                allformulas=allformulas, CALL=cl, timediff=timediff,
+                derived.parameters=derived.parameters, parsM=parsM, parsrepM=parsrepM,
+                parnames=names(derived.parameters), res_wald=res_wald )
     class(res) <- "BIFIE.derivedParameters"
     return(res)
 }
@@ -107,10 +107,8 @@ summary.BIFIE.derivedParameters <- function( object, digits=4, ... )
     cat("Formulas for Derived Parameters \n\n")
     FF <- length( object$derived.parameters)
     for (ff in 1:FF){
-        cat( paste0(  object$parnames[ff], " :=", " ",
-                    attr(  stats::terms( object$derived.parameters[[ff]] ), "term.labels" ),
-                        collapse=" " ),
-                                "\n")
+        cat( paste0( object$parnames[ff], " :=", " ",
+                BIFIEsurvey_print_term_formula( formula=object$derived.parameters[[ff]] )), "\n")
     }
     cat("\nStatistical Inference for Derived Parameters \n\n")
     obji <- object$stat

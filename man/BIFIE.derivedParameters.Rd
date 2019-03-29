@@ -1,5 +1,5 @@
 %% File Name: BIFIE.derivedParameters.Rd
-%% File Version: 0.22
+%% File Version: 0.23
 
 \name{BIFIE.derivedParameters}
 \alias{BIFIE.derivedParameters}
@@ -116,14 +116,14 @@ res1$parnames
 # define four derived parameters
 derived.parameters <- list(
         # squared correlation of science and mathematics
-        "R2_sci_mat"=~ 0 + I( 100* ASSSCI_ASMMAT^2  ),
+        "R2_sci_mat"=~ I( 100* ASSSCI_ASMMAT^2  ),
         # partial correlation of science and mathematics controlling for books
-        "parcorr_sci_mat"=~ 0 + I( ( ASSSCI_ASMMAT - ASSSCI_books * ASMMAT_books ) /
+        "parcorr_sci_mat"=~ I( ( ASSSCI_ASMMAT - ASSSCI_books * ASMMAT_books ) /
                             sqrt(( 1 - ASSSCI_books^2 ) * ( 1-ASMMAT_books^2 ) ) ),
         # original correlation science and mathematics (already contained in res1)
-        "cor_sci_mat"=~ 0 + I( ASSSCI_ASMMAT ),
+        "cor_sci_mat"=~ I(ASSSCI_ASMMAT),
         # original correlation books and migrant
-        "cor_book_migra"=~ 0 + I( books_migrant )
+        "cor_book_migra"=~ I(books_migrant)
         )
 
 # statistical inference for derived parameters

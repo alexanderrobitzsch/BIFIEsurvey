@@ -5,14 +5,14 @@ vers <- paste("R package version", meta$Version)
 
 citEntry(entry="Manual",
          title = "BIFIEsurvey: Tools for survey statistics in educational assessment",
-         author = personList(as.person("BIFIE"),
-                   person(given = "Alexander",family = "Robitzsch"),
-                   person(given = "Konrad",family = "Oberwimmer")
+         author = personList( as.person("BIFIE"),
+                   person(given = "Alexander", family = "Robitzsch"),
+                   person(given = "Konrad", family = "Oberwimmer")
                           ),
          year = year,
          note = vers,
          url = "https://CRAN.R-project.org/package=BIFIEsurvey" ,
          textVersion =
-         paste0("BIFIE (", year , "). BIFIEsurvey: Tools for survey statistics in educational assessment. ",
+         paste0("BIFIE, Robitzsch, A., & Oberwimmer, K. (", year , "). BIFIEsurvey: Tools for survey statistics in educational assessment. ",
                vers, ". https://CRAN.R-project.org/package=BIFIEsurvey") 
         )

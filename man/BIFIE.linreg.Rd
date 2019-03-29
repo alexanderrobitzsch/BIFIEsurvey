@@ -1,5 +1,5 @@
 %% File Name: BIFIE.linreg.Rd
-%% File Version: 0.29
+%% File Version: 0.301
 
 \name{BIFIE.linreg}
 \alias{BIFIE.linreg}
@@ -83,10 +83,12 @@ A list with following entries
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[survey:svyglm]{survey::svyglm}},
+Alternative implementations: \code{\link[survey:svyglm]{survey::svyglm}},
 \code{\link[intsvy:timss.reg]{intsvy::timss.reg}},
 \code{\link[intsvy:timss.reg.pv]{intsvy::timss.reg.pv}},
 \code{\link[stats:lm]{stats::lm}}
+
+See \code{\link{BIFIE.logistreg}} for logistic regression.
 }
 
 
@@ -142,8 +144,7 @@ summary(mod1)
 
 #****************************************************
 #*** Model 2: Cubic regression
-mod2 <- BIFIEsurvey::BIFIE.linreg( bdat,
-              formula=MATH ~ HISEI + I(HISEI^2) + I(HISEI^3) )
+mod2 <- BIFIEsurvey::BIFIE.linreg( bdat, formula=MATH ~ HISEI + I(HISEI^2) + I(HISEI^3) )
 summary(mod2)
 
 #****************************************************

@@ -1,17 +1,18 @@
 ## File Name: BIFIE.data.transform.R
-## File Version: 1.26
+## File Version: 1.304
 
-#################################################################
-# transforming data in BIFIE.data object
+
+#--- transforming data in BIFIE.data object
 BIFIE.data.transform <- function( bifieobj, transform.formula, varnames.new=NULL )
 {
     varnames <- bifieobj$varnames
     transform.formula <- stats::as.formula( transform.formula )
+    # add "+0" input in formula
+    transform.formula <- BIFIE_data_transform_process_formula(transform.formula=transform.formula)
+
     # select variables which should be transformed
-    vars <- all.vars( transform.formula )
-    ind_vars <- unlist( sapply( vars, FUN=function(vv){
-                    which( varnames==vv )
-                } ) )
+    vars <- all.vars(transform.formula)
+    ind_vars <- unlist( sapply( vars, FUN=function(vv){    which( varnames==vv ) } ) )
     # check whether all variables are included in the BIFIEdata object
     h1 <- setdiff( vars, varnames )
     if ( length(h1)>0 ){
@@ -33,8 +34,8 @@ BIFIE.data.transform <- function( bifieobj, transform.formula, varnames.new=NULL
     N2 <- ncol( bifieobj$dat1)
     dfr_long <- dfr
     Nimp <- bifieobj$Nimp
-    #****
-    # check whether some variables should be removed in original BIFIE.data object
+
+    #*** check whether some variables should be removed in original BIFIE.data object
     if ( ! is.null( varnames.new) ){
         varnames.old <- bifieobj$varnames
         select_vars <- setdiff( varnames.old, varnames.new )
@@ -54,7 +55,7 @@ BIFIE.data.transform <- function( bifieobj, transform.formula, varnames.new=NULL
         dfr <- as.data.frame( dfr_long[ ( ii-1)*N + 1:N, ] )
         colnames(dfr) <- colnames(dfr_long)
         rownames(dfr) <- 1:N
-        M1 <- model.matrix( transform.formula, dfr )
+        M1 <- stats::model.matrix( transform.formula, dfr )
         varnames.added <- colnames(M1)
         varsindex.added <- seq( N2 + 1, N2 + ncol(M1) )
         M1.new <- matrix( NA, nrow=N, ncol=ncol(M1) )
@@ -100,13 +101,12 @@ BIFIE.data.transform <- function( bifieobj, transform.formula, varnames.new=NULL
         bifieobj$datalistM_ind <- cbind( bifieobj$datalistM_ind, datalistM_ind )
     }
 
-    #*****
-    # include variable names
+    #*** include variable names
     bifieobj$varnames <- varnames1
     bifieobj$varnames.added <- varnames.added
     bifieobj$varsindex.added <- varsindex.added
     cat( paste0( "Included ", VV, " variables: ", paste0( varnames.added, collapse=" " ), "\n") )
-    #**** add variable names in list
+    #*** add variable names in list
     dfr3 <- bifieobj$variables
     VV2 <- length(bifieobj$varnames.added)
     n0 <- max( dfr3$index )
@@ -114,10 +114,9 @@ BIFIE.data.transform <- function( bifieobj, transform.formula, varnames.new=NULL
     dfr2 <- data.frame( "index"=n0 + 1:VV2,
                 "variable"=varnames.added,
                 "variable_orig"=varnames.added1,
-                "source"=paste0( as.character(transform.formula), collapse=" ") )
-    dfr3 <- rbind( dfr3, dfr2 )
+                "source"=paste0(as.character(transform.formula), collapse=" "))
+    dfr3 <- rbind( dfr3, dfr2)
     dfr3 -> bifieobj$variables
     bifieobj$Nvars <- ncol(bifieobj$dat1)
     return( bifieobj )
 }
-#################################################################

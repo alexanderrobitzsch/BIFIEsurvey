@@ -15,6 +15,7 @@ useDynLib(BIFIEsurvey)
 importFrom(graphics, par)
 importFrom(graphics, plot)
 importFrom(grDevices, nclass.Sturges)
+importFrom(methods, getMethod)
 importFrom(methods, is)
 importFrom(Rcpp, evalCpp)
 importFrom(stats, as.formula)
@@ -52,8 +53,25 @@ importFrom(miceadds, Reval)
 importFrom(miceadds, save.data)
 importFrom(mitools, imputationList)
 importFrom(mitools, MIcombine)
-importFrom(survey, svrepdesign)
-importFrom(TAM, lavaanify.IRT)
+
+
+
+
+
+#***************************************************
+#************** Suggests ***************************
+
+
+# importFrom(lavaan, cfa)
+# importFrom(lavaan, fitMeasures)
+# importFrom(lavaan, growth)
+# importFrom(lavaan, lavaan)
+# importFrom(lavaan, lavaanify)
+# importFrom(lavaan, lavInspect)
+# importFrom(lavaan, sem)
+# importFrom(lavaan.survey, lavaan.survey)
+# importFrom(survey, svrepdesign)
+# importFrom(TAM, lavaanify.IRT)
 
 
 

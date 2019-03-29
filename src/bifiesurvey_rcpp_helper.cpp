@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.cpp
-//// File Version: 7.492
+//// File Version: 7.502
 
 
 // [[Rcpp::depends(RcppArmadillo)]]
@@ -17,6 +17,43 @@ using namespace arma;
 
 // Rcpp::Rcout << "sigma_XX(0,0)= " <<  sigma_XX(0,0) << " " <<
 //    "(1,1) " <<  sigma_XX(1,1)     <<  std::flush << std::endl;
+
+
+//**********************************************************
+// squeeze function
+double bifiesurvey_rcpp_squeeze( double x, double min_val, double max_val )
+{
+    double y=x;
+    if (x < min_val){ y=min_val; }
+    if (x > max_val){ y=max_val; }
+    return(y);
+}
+//**********************************************************
+
+//**********************************************************
+// trace of an arma matrix
+double bifiesurvey_rcpp_arma_trace( arma::mat x )
+{
+    double y=0;
+    int NV = x.n_cols;
+    for (int vv=0; vv<NV; vv++){
+        y += x(vv,vv);
+    }
+    return(y);
+}
+//**********************************************************
+
+//**********************************************************
+// extractor function fay factor
+double bifiesurvey_rcpp_extract_fayfac( Rcpp::NumericVector fayfac, int rr)
+{
+    double f1 = fayfac[0];
+    int NF = fayfac.size();
+    if (NF>1){ f1=fayfac[rr]; }
+    return(f1);
+}
+//**********************************************************
+
 
 //**********************************************************
 // signum function
@@ -125,7 +162,7 @@ Rcpp::List univar_helper_multiple_V2group( Rcpp::NumericMatrix dat1,
                      if ( dat1(nn,group_index) == group_values[gg] ){
                          for (int hh=0;hh<WW;hh++){
                              mean1vv(gg,hh) += wgt1(nn,hh) * dat1(nn,vars_index[vv]);
-                             sd1vv(gg,hh) += wgt1(nn,hh) * pow( dat1(nn,vars_index[vv]), 2.0);
+                             sd1vv(gg,hh) += wgt1(nn,hh) * std::pow( dat1(nn,vars_index[vv]), 2.0);
                         }
                         break;
                     } // end if
@@ -180,7 +217,7 @@ Rcpp::NumericVector varjack_helper( Rcpp::NumericVector pars,
              f1 = fayfac[rr];
                  }
           //--
-          tmp1 += f1 * pow( pars_jack(pp,rr) - pars[pp],2.0);
+          tmp1 += f1 * std::pow( pars_jack(pp,rr) - pars[pp],2.0);
                 }
        pars_var[pp] = tmp1;
             }
@@ -219,7 +256,7 @@ Rcpp::List varjack_bias_helper( Rcpp::NumericVector pars,
           if (NF>1){
              f1 = fayfac[rr];
                  }
-          tmp1 += f1 * pow( pars_jack(pp,rr) - pars_bias[pp],2.0);
+          tmp1 += f1 * std::pow( pars_jack(pp,rr) - pars_bias[pp],2.0);
                 }
        pars_var[pp] = tmp1;
             }
@@ -260,10 +297,10 @@ Rcpp::List rubin_rules_univ( Rcpp::NumericMatrix parsM, Rcpp::NumericMatrix pars
 
     pars[pp] = tmp1 / Nimp2;
     pars_varWithin[pp] = tmp3 / Nimp2;
-    pars_varBetween[pp] = ( tmp2 - Nimp2 * pow( pars[pp], 2.0) ) / (Nimp2 - 1+eps );
+    pars_varBetween[pp] = ( tmp2 - Nimp2 * std::pow( pars[pp], 2.0) ) / (Nimp2 - 1+eps );
     // ARb 2014-09-10:  added "1.0" instead of "1"
-    pars_se[pp] = sqrt( pars_varWithin[pp] + ( 1.0 + 1/Nimp2) * pars_varBetween[pp] );
-    pars_fmi[pp] = ( 1.0 + 1/Nimp2) * pars_varBetween[pp] / pow(pars_se[pp] + eps,2.0);
+    pars_se[pp] = std::sqrt( pars_varWithin[pp] + ( 1.0 + 1/Nimp2) * pars_varBetween[pp] );
+    pars_fmi[pp] = ( 1.0 + 1/Nimp2) * pars_varBetween[pp] / std::pow(pars_se[pp] + eps,2.0);
       }
 
 return Rcpp::List::create(
@@ -389,7 +426,7 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
         for (int vv=0;vv<VV;vv++){
            int tmpi2 = vv*GG + gg;
            mean1( tmpi2, ww ) += wgt(nn,ww) * dat1( nn, vars_index[vv] );
-           sd1( tmpi2, ww ) += wgt(nn,ww) * pow(dat1( nn, vars_index[vv] ),2.0);
+           sd1( tmpi2, ww ) += wgt(nn,ww) * std::pow(dat1( nn, vars_index[vv] ),2.0);
                     }
 
         // covariances
@@ -415,7 +452,7 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
        for (int gg=0;gg<GG;gg++){
            int zz=vv*GG+gg;
            mean1( zz, ww ) = mean1( zz, ww ) / sumwgt1( gg, ww );
-           sd1(zz, ww) = sqrt( ( sd1(zz,ww) - sumwgt1( gg, ww ) * pow(mean1(zz,ww),2.0) )/
+           sd1(zz, ww) = std::sqrt( ( sd1(zz,ww) - sumwgt1( gg, ww ) * std::pow(mean1(zz,ww),2.0) )/
                  ( sumwgt1( gg, ww ) - 1 ) );
                     }
                     }
@@ -424,7 +461,7 @@ Rcpp::List bifiehelpers_correl( Rcpp::NumericMatrix dat1, Rcpp::NumericVector in
         if (  itempair_index(pp,0) == itempair_index(pp,1) ){
           int ipp = itempair_index(pp,0);
           for (int gg=0;gg<GG;gg++){
-        cov1( pp*GG+gg, ww ) = pow( sd1( ipp*GG+gg, ww), 2.0);
+        cov1( pp*GG+gg, ww ) = std::pow( sd1( ipp*GG+gg, ww), 2.0);
                     }
                 }
             }
@@ -491,9 +528,9 @@ Rcpp::List bifiehelpers_etasquared( Rcpp::NumericMatrix mean1M,
             }  // end gg
         totmean[ww] = totmean[ww] / sumwgt[ww];
         for (int gg=0;gg<GG; gg++){  // beg gg
-          expl_var[ww] += sumweightM(gg,ww)*pow( mean1M(gg,ww) - totmean[ww], 2.0 );
-          resid_var[ww] += (sumweightM(gg,ww)-1)*pow( sd1M(gg,ww), 2.0 );
-          eta2(0,ww) = sqrt( expl_var[ww] / ( expl_var[ww] + resid_var[ww] ) );
+          expl_var[ww] += sumweightM(gg,ww)*std::pow( mean1M(gg,ww) - totmean[ww], 2.0 );
+          resid_var[ww] += (sumweightM(gg,ww)-1)*std::pow( sd1M(gg,ww), 2.0 );
+          eta2(0,ww) = std::sqrt( expl_var[ww] / ( expl_var[ww] + resid_var[ww] ) );
             }  // end gg
 
         // calculate d statistics
@@ -501,8 +538,8 @@ Rcpp::List bifiehelpers_etasquared( Rcpp::NumericMatrix mean1M,
         for ( int gg1=0; gg1 < GG - 1; gg1++){
         for (int gg2=gg1+1; gg2 < GG; gg2++){
            dstat(ii,ww) = mean1M(gg1,ww) - mean1M(gg2,ww);
-           dstat(ii,ww) = dstat(ii,ww) / sqrt( 0.5 * ( pow(sd1M(gg1,ww),2.0) +
-                    pow(sd1M(gg2,ww),2.0) ) );
+           dstat(ii,ww) = dstat(ii,ww) / std::sqrt( 0.5 * ( std::pow(sd1M(gg1,ww),2.0) +
+                    std::pow(sd1M(gg2,ww),2.0) ) );
            ii++;
                 }
             }
@@ -637,12 +674,12 @@ Rcpp::List bifiehelpers_crosstab( Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix 
        ind = vv2 + vv1*VV2 + gg*VV1*VV2;
        // probability under independence;
        tmp2 = probs_rowmarg( vv1 + gg*VV1, ww ) * probs_colmarg( vv2 + gg*VV2, ww );
-       w_es(gg,ww) += pow( probs_joint( ind, ww ) - tmp2, 2.0 ) / tmp2;
+       w_es(gg,ww) += std::pow( probs_joint( ind, ww ) - tmp2, 2.0 ) / tmp2;
     //  Rcpp::Rcout << "w_es " <<  w_es(gg,0) << "  gg,ww" << gg << "  " << ww <<  std::flush << std::endl;
                     } // end vv2
          } // end vv1
-    w_es(gg,ww) = sqrt( w_es(gg,ww) );  // effect size w
-    w_es(GG+gg,ww ) = w_es(gg,ww) / sqrt( VV3 - 1.0 ); // Cramer's V
+    w_es(gg,ww) = std::sqrt( w_es(gg,ww) );  // effect size w
+    w_es(GG+gg,ww ) = w_es(gg,ww) / std::sqrt( VV3 - 1.0 ); // Cramer's V
     } // end gg
     } // end ww
 
@@ -766,12 +803,12 @@ Rcpp::List bifiehelpers_crosstab( Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix 
     t1y=0;
     t2y=0;
     for (int vv2=0;vv2<VV2;vv2++){  // beg vv1
-        t2y += pow( probs_colmarg( vv2 + gg*VV2, ww ), 2.0 );
+        t2y += std::pow( probs_colmarg( vv2 + gg*VV2, ww ), 2.0 );
                   }  // end vv2
     for ( int vv1=0; vv1 < VV1; vv1++){  // beg vv1
     for (int vv2=0;vv2<VV2;vv2++){   // beg vv2
        ind = vv2 + vv1*VV2 + gg*VV1*VV2;
-       t1y += pow( probs_joint( ind, ww ), 2.0 ) / probs_rowmarg( vv1+gg*VV1, ww );
+       t1y += std::pow( probs_joint( ind, ww ), 2.0 ) / probs_rowmarg( vv1+gg*VV1, ww );
                 }   // end vv2
             }  // end vv1
     kruskal_tau(2+gg*3,ww) = ( t1y - t2y ) / ( 1 - t2y );
@@ -780,12 +817,12 @@ Rcpp::List bifiehelpers_crosstab( Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix 
     t1x=0;
     t2x=0;
     for (int vv1=0;vv1<VV1;vv1++){
-        t2x += pow( probs_rowmarg( vv1 + gg*VV1, ww ), 2.0 );
+        t2x += std::pow( probs_rowmarg( vv1 + gg*VV1, ww ), 2.0 );
                   }
     for ( int vv2=0; vv2 < VV2; vv2++){  // beg vv2
     for (int vv1=0;vv1<VV1;vv1++){   // beg vv1
        ind = vv2 + vv1*VV2 + gg*VV1*VV2;
-       t1x += pow( probs_joint( ind, ww ), 2.0 ) / probs_colmarg( vv2+gg*VV2, ww );
+       t1x += std::pow( probs_joint( ind, ww ), 2.0 ) / probs_colmarg( vv2+gg*VV2, ww );
                 }   // end vv1
             }  // end vv2
     kruskal_tau(1+gg*3,ww) = ( t1x - t2x ) / ( 1 - t2x );
@@ -1016,101 +1053,6 @@ Rcpp::NumericVector bifie_helper_ecdf( Rcpp::NumericMatrix dat1,
 }
 //**********************************************************
 
-//**********************************************************
-//**** logistic regression
-Rcpp::List bifie_estlogistic_helper( Rcpp::NumericVector y,
-    Rcpp::NumericMatrix X, Rcpp::NumericVector wgt,
-    Rcpp::NumericVector beta0, double eps, int maxiter )
-{
-  int N=X.nrow();
-  int P=X.ncol();
-  double t1=0;
-
-  //*** create matrices in Armadillo
-  // design matrix X
-  arma::mat Xa0(N,P);
-  arma::mat Xa(N,P);
-  for (int nn=0;nn<N;nn++){
-     for (int pp=0;pp<P;pp++){
-      Xa0(nn,pp) = X(nn,pp);
-              }
-           }
-  // outcome matrix y
-  arma::colvec ya(N);
-  for (int nn=0;nn<N;nn++){
-      ya(nn,0) = y[nn];
-           }
-  // regression coefficients
-  arma::colvec beta_old(P);
-  arma::colvec beta_new(P);
-  for (int pp=0;pp<P;pp++){
-      beta_old(pp,0) = beta0[pp];
-              }
-
-  // temporary values in iterations
-  arma::colvec pred_logit(N);
-  arma::colvec ypred(N);
-  arma::colvec z(N);
-  arma::colvec AM(N);
-  arma::colvec wgta(N);
-  double pardiff=100;
-
-  int ii=0;
-
-  while( ( pardiff > eps ) & ( ii < maxiter ) ){
-
-  // within an iteration
-
-  // calculate predicted logit value and probability
-  for( int nn=0; nn <N; nn++){
-  pred_logit(nn,0)=0;
-  for ( int pp=0; pp <P; pp++){
-      pred_logit(nn,0) += Xa0(nn,pp) * beta_old(pp,0);
-          }
-  if ( pred_logit(nn,0) < - 15 ){
-      pred_logit(nn,0) = - 15;
-                  }
-  ypred(nn,0) = 1 / ( 1 + exp( - pred_logit(nn,0) ) );
-  }
-  // calculate entries for A matrix and outcome z
-  for (int nn=0;nn<N;nn++){
-      AM(nn,0) = ypred(nn,0) * ( 1 - ypred(nn,0) );
-      wgta(nn,0) = sqrt( AM(nn,0) * wgt[nn] );
-      z(nn,0) = pred_logit(nn,0) + ( ya(nn,0) - ypred(nn,0) )/AM(nn,0);
-      z(nn,0) = wgta(nn,0) * z(nn,0);
-          }
-  for (int nn=0;nn<N;nn++){
-     for (int pp=0;pp<P;pp++){
-            Xa(nn,pp)=Xa0(nn,pp)*wgta(nn,0);
-                    }
-                }
-  // coefficient
-  beta_new = arma::solve(Xa, z);      // fit model y ~ X
-  // parameter difference
-  pardiff=0;
-  for (int pp=0;pp<P;pp++){
-      t1 = beta_old(pp,0) - beta_new(pp,0);
-      if (t1 < 0 ){ t1 = -t1; }
-      if (t1 > pardiff){ pardiff = t1; }
-          }
-  for (int pp=0;pp<P; pp++){
-      beta_old(pp,0) = beta_new(pp,0);
-          }
-     ii ++;
-      }
-
-  //*****************
-  // OUTPUT
-  return Rcpp::List::create(
-      _["pardiff"] = pardiff,
-      _["beta"] = beta_new,
-      _["iter"] = ii
-      );
-}
-//**********************************************************
-
-
-
 
 //**********************************************************
 // convert Rcpp matrix into Armadillo matrix
@@ -1221,7 +1163,7 @@ Rcpp::List mla2_decomp( Rcpp::NumericMatrix V,
             grmean(jj,ii) = grmean(jj,ii) / ( grwgt[jj] + eps2 );
                 }
         Ntot += grwgt[jj];
-        sumng2 += pow( grwgt[jj], 2.0 );
+        sumng2 += std::pow( grwgt[jj], 2.0 );
 
             }
 
@@ -1905,7 +1847,7 @@ Rcpp::List mla2_inits( arma::mat Xa, Rcpp::NumericMatrix X,
     arma::mat ypred = arma::mat( Xa * theta );
     double var_res = 0;
     for (int nn=0;nn<N;nn++){
-        var_res += pow( y[nn] - ypred(nn,0), 2.0 ) * wgtlev1[nn];
+        var_res += std::pow( y[nn] - ypred(nn,0), 2.0 ) * wgtlev1[nn];
                }
     var_res = var_res / W1[0];
 
@@ -2083,7 +2025,7 @@ Rcpp::List bifie_mla2_estimation( arma::mat theta_init, arma::mat Tmat_init,
             pars_temp[vv] = Tmat(ii,hh);
             vv ++;
             if (ii<hh){
-               pars_temp[vv] = Tmat( ii, hh ) / sqrt( Tmat(ii,ii) * Tmat(hh,hh) );
+               pars_temp[vv] = Tmat( ii, hh ) / std::sqrt( Tmat(ii,ii) * Tmat(hh,hh) );
                vv ++;
                   }
             }
