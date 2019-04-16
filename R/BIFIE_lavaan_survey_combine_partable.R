@@ -1,12 +1,14 @@
 ## File Name: BIFIE_lavaan_survey_combine_partable.R
-## File Version: 0.06
+## File Version: 0.07
 
 BIFIE_lavaan_survey_combine_partable <- function(partable, Nimp, inf_res)
 {
     partable0 <- partable[[1]]
-    for (ii in 2L:Nimp){
-        partable_ii <- partable[[ii]]
-        partable0$est <- partable0$est + partable_ii$est
+    if (Nimp>1){
+        for (ii in 2L:Nimp){
+            partable_ii <- partable[[ii]]
+            partable0$est <- partable0$est + partable_ii$est
+        }
     }
     partable0$est <- partable0$est / Nimp
     partable <- partable0

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.logistreg.R
-## File Version: 0.431
+## File Version: 0.432
 
 
 #-- logistic regression
@@ -87,11 +87,11 @@ BIFIE.logistreg <- function( BIFIEobj, dep=NULL, pre=NULL,
     #@@@@***
 
     #--- Rcpp call to logistic regression
-    res <- bifiesurvey_rcpp_logistreg( datalist=datalistM, wgt1=wgt_, 
-                wgtrep=as.matrix(wgtrep), dep_index=dep_index-1, pre_index=pre_index-1, 
+    res <- bifiesurvey_rcpp_logistreg( datalist=datalistM, wgt1=wgt_,
+                wgtrep=as.matrix(wgtrep), dep_index=dep_index-1, pre_index=pre_index-1,
                 fayfac=fayfac, NI=Nimp, group_index1=group_index-1, group_values=group_values,
                 eps=eps, maxiter=maxiter )
-                
+
     GG <- length(group_values)
     ZZ <- VV+1
     p1 <- c( rep("b",VV), "R2" )

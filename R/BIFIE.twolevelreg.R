@@ -1,15 +1,12 @@
 ## File Name: BIFIE.twolevelreg.R
-## File Version: 0.56
+## File Version: 0.581
 
-#############################################################
-# BIFIE.twolevelreg
+#--- BIFIE.twolevelreg
 BIFIE.twolevelreg <- function( BIFIEobj, dep, formula.fixed, formula.random,
             idcluster, wgtlevel2=NULL, wgtlevel1=NULL, group=NULL,
             group_values=NULL, recov_constraint=NULL, se=TRUE,
             globconv=1E-6, maxiter=1000)
 {
-
-
     #****
     s1 <- Sys.time()
     cl <- match.call()
@@ -225,7 +222,7 @@ BIFIE.twolevelreg <- function( BIFIEobj, dep, formula.fixed, formula.random,
         pars.list <- list( pars.list[[1]], pars.list[[1]] )
         vcov.list <- list( vcov.list[[1]], vcov.list[[1]] )
     }
-    micombs <- mitools::MIcombine( results=pars.list, variances=vcov.list )
+    micombs <- BIFIE_mitools_MIcombine( results=pars.list, variances=vcov.list )
     if ( ! se ){
         dfr$SE <- dfr$fmi <- dfr$VarRep <- NA
         v1 <- diag( micombs$variance )
@@ -256,10 +253,8 @@ BIFIE.twolevelreg <- function( BIFIEobj, dep, formula.fixed, formula.random,
     class(res1) <- "BIFIE.twolevelreg"
     return(res1)
 }
-#############################################################
 
 
-####################################################################################
 # summary for BIFIE.linreg function
 summary.BIFIE.twolevelreg <- function( object, digits=4, ... )
 {

@@ -1,9 +1,13 @@
 ## File Name: BIFIE_lavaan_vcov.R
-## File Version: 0.04
+## File Version: 0.05
 
-BIFIE_lavaan_vcov <- function(object)
+
+BIFIE_lavaan_vcov <- function(object, ...)
 {
-    res <- BIFIE_lavaan_lavInspect(object=object, what="vcov")
-    res <- as.matrix(res)
-    return(res)
+    requireNamespace("lavaan")
+    # res <- BIFIE_lavaan_lavInspect(object=object, what="vcov")
+    # res <- as.matrix(res)
+    lavaan_vcov <- methods::getMethod("vcov", "lavaan")
+    vcov1 <- lavaan_vcov(object, ...)
+    return(vcov1)
 }

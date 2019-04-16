@@ -1,5 +1,5 @@
 ## File Name: BIFIE.survey.R
-## File Version: 0.204
+## File Version: 0.224
 
 BIFIE.survey <- function(svyrepdes, survey.function, ...)
 {
@@ -13,10 +13,11 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
         Nimp <- svyrepdes$Nimp
         fayfac <- svyrepdes$fayfac
         NMI <- svyrepdes$NMI
+        Nimp_NMI <- svyrepdes$Nimp_NMI
+        svyrepdes$NMI <- FALSE
         RR <- svyrepdes$RR
         wgt <- svyrepdes$wgt
         wgtrep <- svyrepdes$wgtrep
-        bifie_nmi_error_message(fun="BIFIE.survey", NMI=NMI)
         variables <- NULL
         args <- list(...)
         for (vv in c("formula", "x")){
@@ -43,9 +44,8 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
         svyrep_ii <- NULL
         for (ii in 1:Nimp){
             if ( class(svyrepdes)=="BIFIEdata"){
-                svyrep_ii <- BIFIE_lavaan_survey_extract_dataset(
-                                svyrepdes=svyrepdes, ii=ii, variables=NULL,
-                                svyrepdes0=svyrep_ii, datalist=datalist)
+                svyrep_ii <- BIFIE_lavaan_survey_extract_dataset( svyrepdes=svyrepdes,
+                                    ii=ii, variables=NULL, svyrepdes0=svyrep_ii, datalist=datalist)
             }
             if ( class(svyrepdes)=="svyimputationList"){
                 svyrep_ii <- svrepdes$designs[[ii]]
@@ -55,16 +55,22 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
             res[[ii]] <- do.call( what=survey.function, args=args)
         }
         results <- res
+        results <- bifie_extend_list_length2(x=results)
     }
-    #*** statistical inference using mitools package
-    stat <- mitools::MIcombine(results=results)
+
+    if (! NMI){
+        #*** statistical inference using mitools package
+        stat <- BIFIE_mitools_MIcombine(results=results)
+    } else {
+        #*** nested multiply imputed dataset
+        stat <- bifie_NMIcombine_results(results=results, Nimp_NMI=Nimp_NMI, package="stats")
+    }
 
     #-- output
     s2 <- Sys.time()
     time <- c(s1, s2)
-    res1 <- list(stat=stat, CALL=CALL, time=time,
-                    NMI=NMI, fayfac=fayfac, N=N, Nimp=Nimp, RR=RR,
-                    results=results)
+    res1 <- list(stat=stat, CALL=CALL, time=time, NMI=NMI, fayfac=fayfac, N=N,
+                Nimp=Nimp, RR=RR, results=results, Nimp_NMI=Nimp_NMI)
     class(res1) <- "BIFIE.survey"
     return(res1)
 }

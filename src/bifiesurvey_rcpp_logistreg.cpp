@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_logistreg.cpp
-//// File Version: 0.22
+//// File Version: 0.23
 
 
 #include <RcppArmadillo.h>
@@ -21,7 +21,7 @@ using namespace arma;
 
 //**********************************************************
 //**** logistic regression
-Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::NumericMatrix X, 
+Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::NumericMatrix X,
     Rcpp::NumericVector wgt, Rcpp::NumericVector beta0, double eps, int maxiter )
 {
     int N=X.nrow();
@@ -109,7 +109,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::Nume
         parm[pp] = beta_new(pp,0);
     }
     parm[P] = R2;
-    
+
     //----- OUTPUT
     return Rcpp::List::create(
             Rcpp::Named("pardiff") = pardiff,
@@ -125,7 +125,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::Nume
 //  bifiesurvey_rcpp_logistreg
 // [[Rcpp::export]]
 Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::NumericMatrix wgt1,
-    Rcpp::NumericMatrix wgtrep, Rcpp::NumericVector dep_index, Rcpp::NumericVector pre_index, 
+    Rcpp::NumericMatrix wgtrep, Rcpp::NumericVector dep_index, Rcpp::NumericVector pre_index,
     Rcpp::NumericVector fayfac, Rcpp::NumericVector NI, Rcpp::NumericVector group_index1,
     Rcpp::NumericVector group_values, double eps, int maxiter )
 {
@@ -198,9 +198,9 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
                     Xt(tt,vv)=dat1( tempvec[tt], pre_index[vv] );
                 }
             } // end cases tt
-     
+
             // logistic regression original dataset
-            Rcpp::List res1 = bifiesurvey_rcpp_logistreg_compute( yt, Xt, wgtt, 
+            Rcpp::List res1 = bifiesurvey_rcpp_logistreg_compute( yt, Xt, wgtt,
                                     beta0, eps, maxiter );
             Rcpp::NumericVector tempcoef = res1["beta"];
             Rcpp::NumericVector tempparm = res1["parm"];
@@ -214,7 +214,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
                 for (int tt=0;tt<ngg;tt++){
                     wgttemp[tt] = wgtrept(tt,rr);
                 }
-                res2 = bifiesurvey_rcpp_logistreg_compute( yt, Xt, wgttemp, 
+                res2 = bifiesurvey_rcpp_logistreg_compute( yt, Xt, wgttemp,
                             tempcoef, eps, maxiter );
                 Rcpp::NumericVector tempcoef2=res2["parm"];
                 for (int vv=0;vv<VV+1;vv++){
@@ -228,7 +228,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
         }
 
         // compute standard errors
-        Rcpp::NumericVector regrcoef_var = varjack_helper( regrcoef0, 
+        Rcpp::NumericVector regrcoef_var = varjack_helper( regrcoef0,
                         tempcoefrepM, fayfac );
 
         for (int zz=0;zz<VV2; zz++){
@@ -239,7 +239,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
         }
         Rcpp::Rcout << "-" <<  std::flush;
     }  // end ii;  end multiple imputations
-    
+
     Rcpp::Rcout << "|" << std::endl;
     ///*** Rubin inference
     Rcpp::List regrcoefL = rubin_rules_univ( regrcoefM, regrcoef_varM );

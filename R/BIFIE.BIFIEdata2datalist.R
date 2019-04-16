@@ -1,13 +1,18 @@
 ## File Name: BIFIE.BIFIEdata2datalist.R
-## File Version: 0.13
+## File Version: 0.19
 
 
 #--- converts a BIFIEdata object into a list of multiply imputed datasets
 BIFIE.BIFIEdata2datalist <- function( bifieobj, varnames=NULL,
         impdata.index=NULL, as_data_frame=FALSE )
 {
+    Nimp <- bifieobj$Nimp
+    NMI <- bifieobj$NMI
     bifieobj <- BIFIEdata.select(bifieobj=bifieobj, varnames=varnames,
-                    impdata.index=impdata.index )
+                        impdata.index=impdata.index )
+    if (bifieobj$cdata){
+        bifieobj <- BIFIE.BIFIEcdata2BIFIEdata( bifieobj=bifieobj)
+    }
     datalistM <- bifieobj$datalistM
     variables <- bifieobj$variables
     cndat1 <- colnames(bifieobj$dat1)

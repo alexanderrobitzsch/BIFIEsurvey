@@ -1,5 +1,5 @@
 ## File Name: coef.BIFIE.lavaan.survey.R
-## File Version: 0.03
+## File Version: 0.05
 
 
 coef.BIFIE.lavaan.survey <- function(object, ...)
@@ -10,5 +10,5 @@ coef.BIFIE.lavaan.survey <- function(object, ...)
 
 vcov.BIFIE.lavaan.survey <- function(object, ...)
 {
-    vcov(object$lavfit, ...)
+    BIFIE_lavaan_vcov(object$lavfit, ...)
 }

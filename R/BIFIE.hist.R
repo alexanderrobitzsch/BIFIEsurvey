@@ -1,19 +1,18 @@
 ## File Name: BIFIE.hist.R
-## File Version: 0.25
+## File Version: 0.283
 
 
-#######################################################################
-# Histogram
+#--- Histogram
 BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
-        group=NULL, group_values=NULL  ){
-    #****
+        group=NULL, group_values=NULL  )
+{
     s1 <- Sys.time()
     cl <- match.call()
     bifieobj <- BIFIEobj
     if (bifieobj$cdata){
         varnames <- unique( c( vars, group, "one") )
         bifieobj <- BIFIE.BIFIEcdata2BIFIEdata( bifieobj, varnames=varnames )
-                        }
+    }
     FF <- Nimp <- bifieobj$Nimp
     N <- bifieobj$N
     dat1 <- bifieobj$dat1
@@ -28,17 +27,12 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
                         which( varnames==vv ) } ) )
 
     if ( is.null(breaks) ){
+        requireNamespace("grDevices")
         x <- dat1[, vars_index ]
         breaks <- pretty(x, n=grDevices::nclass.Sturges(x))
-                }
+    }
 
-        RR <- 0
-#    if (RR==1){ RR <- 0 }
-#    if ( ! se ){
-#        wgtrep <- matrix( wgt, ncol=1 )
-#        RR <- 0
-#                }
-
+    RR <- 0
     # vars values
     VV <- length(vars)
 
@@ -48,8 +42,7 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
     if (nogroup){
         group <- "one"
         group_values <- c(1)
-            }
-
+    }
 
     #@@@@***
     group_index <- match( group, varnames )
@@ -58,7 +51,7 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
     if ( is.null(group_values ) ){
         t1 <- bifie_table( datalistM[, group_index ] )
         group_values <- sort( as.numeric( paste( names(t1) ) ))
-                }
+    }
 
     #@@@@***
     res00 <- BIFIE_create_pseudogroup( datalistM, group, group_index, group_values )
@@ -68,8 +61,6 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
     res00$group_values -> group_values
     res00$group -> group
     #@@@@***
-
-
 
     #**************************************************************************#
     # Rcpp call
@@ -92,33 +83,29 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
         if ( stats::sd ( diff(res$mids) ) < .000001 ){ h1$equidist <- TRUE } else { h1$equidist <- FALSE }
         class(h1) <- "histogram"
         histobj[[gg]] <- h1
-        # histobj[[gg]] <- h1$xname
-                    }
+    }
     names(histobj) <- paste0( vars, "_", group, group_values )
     #*************************** OUTPUT ***************************************
     s2 <- Sys.time()
-    timediff <- c( s1, s2 ) #, paste(s2-s1 ) )
-    res1 <- list( "histobj"=histobj,
-            "output"=res,
-            "timediff"=timediff,
-            "N"=N, "Nimp"=Nimp, "RR"=RR, "fayfac"=fayfac,
-            "NMI"=BIFIEobj$NMI, "Nimp_NMI"=BIFIEobj$Nimp_NMI,
-            "GG"=GG, "CALL"=cl)
+    timediff <- c( s1, s2 )
+    res1 <- list( histobj=histobj, output=res, timediff=timediff,
+                    N=N, Nimp=Nimp, RR=RR, fayfac=fayfac, NMI=BIFIEobj$NMI,
+                    Nimp_NMI=BIFIEobj$Nimp_NMI, GG=GG, CALL=cl)
     class(res1) <- "BIFIE.hist"
     return(res1)
-        }
-###################################################################################
+}
 
-####################################################################################
-# summary for BIFIE.hist function
+
+#** summary for BIFIE.hist function
 summary.BIFIE.hist <- function( object,  ... )
 {
     BIFIE.summary(object)
 }
-##########################################################################
-# plot function
+
+#** plot function
 plot.BIFIE.hist <- function( x, ask=TRUE, ... )
 {
+    requireNamespace("graphics")
     res <- x
     GG <- res$GG
     for (gg in 1:GG){

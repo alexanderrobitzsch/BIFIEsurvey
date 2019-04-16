@@ -1,5 +1,5 @@
 %% File Name: BIFIE.lavaan.survey.Rd
-%% File Version: 0.206
+%% File Version: 0.210
 
 \name{BIFIE.lavaan.survey}
 \alias{BIFIE.lavaan.survey}
@@ -160,11 +160,41 @@ print(sdat)
 
 #- fit models in survey
 mod1 <- BIFIEsurvey::BIFIE.linreg(bdat, formula=ASMMAT~ASSSCI)
-mod2 <- BIFIEsurvey::BIFIE.survey( sdat, survey.function=survey::svyglm, formula=ASMMAT~ASSSCI)
-mod3 <- BIFIEsurvey::BIFIE.survey( bdat, survey.function=survey::svyglm, formula=ASMMAT~ASSSCI)
+mod2 <- BIFIEsurvey::BIFIE.survey( sdat, survey.function=survey::svyglm,
+                                    formula=ASMMAT~ASSSCI)
+mod3 <- BIFIEsurvey::BIFIE.survey( bdat, survey.function=survey::svyglm,
+                                     formula=ASMMAT~ASSSCI)
 summary(mod1)
 summary(mod2)
 summary(mod3)
+
+#############################################################################
+# EXAMPLE 3: Nested multiply imputed datasets | linear regression
+#############################################################################
+
+library(lavaan)
+data(data.timss4)
+data(data.timssrep)
+
+# nested imputed dataset
+bdat <- BIFIEsurvey::BIFIE.data( data.list=data.timss4,
+            wgt=data.timss4[[1]][[1]]$TOTWGT, wgtrep=data.timssrep[, -1 ],  NMI=TRUE )
+summary(bdat)
+
+#*** BIFIEsurvey::BIFIE.linreg
+mod1 <- BIFIEsurvey::BIFIE.linreg(bdat, formula=ASMMAT ~ migrant )
+
+#*** survey::svyglm
+mod2 <- BIFIEsurvey::BIFIE.survey(bdat, survey.function=survey::svyglm,
+                                    formula=ASMMAT~migrant)
+
+#*** lavaan.survey::lavaan.survey
+lavmodel <- "ASMMAT ~ 1
+             ASMMAT ~ migrant"
+mod3 <- BIFIEsurvey::BIFIE.lavaan.survey(lavmodel, svyrepdes=bdat)
+
+coef(mod1); coef(mod2); coef(mod3)
+se(mod1); BIFIEsurvey::se(mod2), BIFIEsurvey::se(mod3)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
