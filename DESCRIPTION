@@ -1,8 +1,8 @@
 Package: BIFIEsurvey
 Type: Package
 Title: Tools for Survey Statistics in Educational Assessment
-Version: 3.3-1
-Date: 2019-04-16 16:07:50
+Version: 3.3-4
+Date: 2019-05-10 11:21:32
 Author: BIFIE [aut], Alexander Robitzsch [aut, cre], 
         Konrad Oberwimmer [aut]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
@@ -42,3 +42,4 @@ URL:
     https://www.bifie.at/large-scale-assessment-mit-r-methodische-grundlagen-der-oesterreichischen-bildungsstandardueberpruefung,
     https://github.com/alexanderrobitzsch/BIFIEsurvey,
     https://sites.google.com/site/alexanderrobitzsch2/software
+RoxygenNote: 6.1.1
