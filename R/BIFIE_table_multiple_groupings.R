@@ -1,7 +1,7 @@
 ## File Name: BIFIE_table_multiple_groupings.R
-## File Version: 0.13
+## File Version: 0.14
 
-#####################################################################
+#- reidentify multiple grouping
 BIFIE_table_multiple_groupings <- function( dfr, res00 )
 {
     GR <- res00$GR
@@ -19,4 +19,3 @@ BIFIE_table_multiple_groupings <- function( dfr, res00 )
     }
     return(dfr)
 }
-#######################################################################

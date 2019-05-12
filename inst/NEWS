@@ -50,10 +50,12 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.3  |  2019-05-10  |  Last: BIFIEsurvey 3.3-4
+VERSIONS BIFIEsurvey 3.3  |  2019-05-12  |  Last: BIFIEsurvey 3.3-6
 --------------------------------------------------------------------------
  
-xxx   * ---
+NOTE  * changed behavior of BIFIE_create_pseudogroup() for many group 
+        values (thanks to Thomas Kiefer)
+
 
 DATA  * ---
 EXAMP * ---

@@ -1,8 +1,8 @@
 ## File Name: BIFIE_create_pseudogroup.R
-## File Version: 1.13
+## File Version: 1.16
 
-################################################
-# multiple grouping helper functions
+
+#**** multiple grouping helper functions
 BIFIE_create_pseudogroup <- function( datalistM,
     group, group_index, group_values )
 {
@@ -11,7 +11,6 @@ BIFIE_create_pseudogroup <- function( datalistM,
                 "group"=group, "group_index"=group_index, "GR"=GR,
                 "group_values"=group_values)
 
-    #****************
     #*** multiple groupings
     if (GR>1){
         group_values <- as.list( 1:GR )
@@ -25,7 +24,8 @@ BIFIE_create_pseudogroup <- function( datalistM,
         for (gg in 1:GR){
             datalistM2[,gg] <- match( datalistM2[,gg], group_values[[gg]] )
         }
-        maxval_exp <- 3
+        # maxval_exp <- 3
+        maxval_exp <- max(ceiling(log10(unlist(lapply(group_values, length)))+1)) + 1                
         maxval <- 10^maxval_exp
         res0$maxval <- maxval
         pseudogroup <- datalistM2[,1]
@@ -60,6 +60,6 @@ BIFIE_create_pseudogroup <- function( datalistM,
     #--- output
     return(res0)
 }
-###################################################
+
 
 
