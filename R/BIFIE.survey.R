@@ -1,11 +1,12 @@
 ## File Name: BIFIE.survey.R
-## File Version: 0.224
+## File Version: 0.226
 
 BIFIE.survey <- function(svyrepdes, survey.function, ...)
 {
     CALL <- match.call()
     s1 <- Sys.time()
     NMI <- FALSE
+    Nimp_NMI <- NULL
     svrepdes <- svyrepdes
     if ( class(svyrepdes)=="BIFIEdata"){
         data0 <- svyrepdes$dat1
@@ -63,7 +64,7 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
         stat <- BIFIE_mitools_MIcombine(results=results)
     } else {
         #*** nested multiply imputed dataset
-        stat <- bifie_NMIcombine_results(results=results, Nimp_NMI=Nimp_NMI, package="stats")
+        stat <- BIFIE_NMIcombine_results(results=results, Nimp_NMI=Nimp_NMI, package="stats")
     }
 
     #-- output

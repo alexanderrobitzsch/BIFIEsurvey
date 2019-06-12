@@ -1,7 +1,7 @@
-## File Name: bifie_data_select_pv_vars.R
-## File Version: 0.06
+## File Name: BIFIE_data_select_pv_vars.R
+## File Version: 0.07
 
-bifie_data_select_pv_vars <- function(pvpre, cn_data)
+BIFIE_data_select_pv_vars <- function(pvpre, cn_data)
 {
     # select variables with plausible values
     nc1 <- nchar( pvpre[1] )

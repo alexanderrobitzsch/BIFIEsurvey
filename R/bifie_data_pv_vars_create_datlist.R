@@ -1,7 +1,7 @@
-## File Name: bifie_data_pv_vars_create_datlist.R
-## File Version: 0.09
+## File Name: BIFIE_data_pv_vars_create_datlist.R
+## File Version: 0.11
 
-bifie_data_pv_vars_create_datlist <- function(pvpre, pv_vars, jktype, data)
+BIFIE_data_pv_vars_create_datlist <- function(pvpre, pv_vars, jktype, data)
 {
     dfr <- NULL
     VV <- length(pv_vars)

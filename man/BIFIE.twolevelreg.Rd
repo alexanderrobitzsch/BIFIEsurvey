@@ -1,5 +1,5 @@
 %% File Name: BIFIE.twolevelreg.Rd
-%% File Version: 0.27
+%% File Version: 0.28
 
 \name{BIFIE.twolevelreg}
 \alias{BIFIE.twolevelreg}
@@ -124,7 +124,7 @@ modeling}. Thousand Oaks: Sage.
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-The \code{\link[lme4:lmer]{lme4::lmer}} function in the \pkg{lme4} package allows only
+The \code{lme4::lmer} function in the \pkg{lme4} package allows only
 weights at the first level.
 
 See the \pkg{WeMix} package (and the function \code{WeMix::mix}) for estimation of

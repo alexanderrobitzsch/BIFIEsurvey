@@ -1,5 +1,5 @@
 ## File Name: BIFIE.lavaan.survey.R
-## File Version: 0.624
+## File Version: 0.641
 
 
 BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
@@ -15,6 +15,7 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
     #* handle design
     is_survey_design <- FALSE
     NMI <- FALSE
+    Nimp_NMI <- NULL
     variables <- NULL
     if ( class(svyrepdes)=="svyrep.design" ){
         svyrepdes0 <- svyrepdes
@@ -56,7 +57,10 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
 
     #- fit initial lavaan model
     lav_fun <- BIFIE_lavaan_survey_define_lavaan_function(lavaan_fun=lavaan_fun)
-    lavfit <- lav_fun(lavmodel, data=data0, ...)
+    lavmodel__ <- lavmodel
+    args <- list(x="lavmodel__", value=lavmodel, pos=1)
+    res <- do.call(what="assign", args=args)
+    lavfit <- lav_fun(lavmodel__, data=data0, ...)
     class_lav <- class(lavfit)
     lavfit_coef <- BIFIE_lavaan_coef(object=lavfit)
     npar <- length(lavfit_coef)
@@ -89,14 +93,14 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
         variances <- bifie_extend_list_length2(x=variances)
 
         # combine fit statistics
-        fitstat <- bifie_lavaan_survey_combine_fit_measures(fitstat=fitstat, Nimp=Nimp)
+        fitstat <- BIFIE_lavaan_survey_combine_fit_measures(fitstat=fitstat, Nimp=Nimp)
 
         if (! NMI){
             # inference parameters for multiply imputed datasets
             inf_res <- BIFIE_mitools_MIcombine(results=results, variances=variances)
         } else {
             # nested multiply imputed datasets
-            inf_res <- bifie_lavaan_survey_NMIcombine(results=results,
+            inf_res <- BIFIE_lavaan_survey_NMIcombine(results=results,
                             variances=variances, Nimp_NMI=Nimp_NMI)
         }
 

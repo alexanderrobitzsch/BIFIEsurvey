@@ -1,5 +1,5 @@
 ## File Name: BIFIE_create_pseudogroup.R
-## File Version: 1.16
+## File Version: 1.17
 
 
 #**** multiple grouping helper functions
@@ -25,7 +25,7 @@ BIFIE_create_pseudogroup <- function( datalistM,
             datalistM2[,gg] <- match( datalistM2[,gg], group_values[[gg]] )
         }
         # maxval_exp <- 3
-        maxval_exp <- max(ceiling(log10(unlist(lapply(group_values, length)))+1)) + 1                
+        maxval_exp <- max(ceiling(log10(unlist(lapply(group_values, length)))+1)) + 1
         maxval <- 10^maxval_exp
         res0$maxval <- maxval
         pseudogroup <- datalistM2[,1]

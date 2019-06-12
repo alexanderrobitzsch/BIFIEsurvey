@@ -1,9 +1,8 @@
 ## File Name: BIFIE.data.R
-## File Version: 1.44
+## File Version: 1.471
 
-##################################################################
-# Convert a list of multiply imputed datasets into an object
-#      of class BIFIEdata
+
+# Convert a list of multiply imputed datasets into an object of class BIFIEdata
 BIFIE.data <- function( data.list, wgt=NULL, wgtrep=NULL, fayfac=1,
         pv_vars=NULL, pvpre=NULL, cdata=FALSE, NMI=FALSE )
 {
@@ -19,9 +18,9 @@ BIFIE.data <- function( data.list, wgt=NULL, wgtrep=NULL, fayfac=1,
         }
         if (!is.null(pvpre)){
             cn_data <- colnames(data.list)
-            pv_vars <- bifie_data_select_pv_vars(pvpre=pvpre, cn_data=cn_data)
+            pv_vars <- BIFIE_data_select_pv_vars(pvpre=pvpre, cn_data=cn_data)
         }
-        data.list <- bifie_data_pv_vars_create_datlist(pvpre=pvpre, pv_vars=pv_vars,
+        data.list <- BIFIE_data_pv_vars_create_datlist(pvpre=pvpre, pv_vars=pv_vars,
                 jktype=jktype, data=data.list)
     }
 
@@ -96,8 +95,7 @@ BIFIE.data <- function( data.list, wgt=NULL, wgtrep=NULL, fayfac=1,
         res <- BIFIE.BIFIEdata2BIFIEcdata( bifieobj=res, varnames=NULL )
                 }
     return(res)
-    }
-########################################################################
+}
 
 #**************** print method ***********************
 print.BIFIEdata <- function(x,...){
@@ -119,4 +117,3 @@ print.BIFIEdata <- function(x,...){
     v1 <- paste0( x$N, " cases and ",    x$Nvars, " variables \n" )
     cat(v1)
 }
-########################################################

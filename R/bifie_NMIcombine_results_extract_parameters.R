@@ -1,8 +1,8 @@
-## File Name: bifie_NMIcombine_results_extract_parameters.R
-## File Version: 0.02
+## File Name: BIFIE_NMIcombine_results_extract_parameters.R
+## File Version: 0.03
 
 
-bifie_NMIcombine_results_extract_parameters <- function(results, fun, Nimp_NMI,
+BIFIE_NMIcombine_results_extract_parameters <- function(results, fun, Nimp_NMI,
     loop_within=TRUE)
 {
     u <- lapply(results, FUN=function(res){ fun(res) } )

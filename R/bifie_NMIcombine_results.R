@@ -1,7 +1,7 @@
-## File Name: bifie_NMIcombine_results.R
-## File Version: 0.07
+## File Name: BIFIE_NMIcombine_results.R
+## File Version: 0.09
 
-bifie_NMIcombine_results <- function(results, Nimp_NMI, package="stats")
+BIFIE_NMIcombine_results <- function(results, Nimp_NMI, package="stats")
 {
     if (package=="stats"){
         fun_coef <- coef
@@ -12,11 +12,11 @@ bifie_NMIcombine_results <- function(results, Nimp_NMI, package="stats")
         fun_vcov <- BIFIE_lavaan_vcov
     }
     #- estimates
-    qhat <- bifie_NMIcombine_results_extract_parameters(results=results,
+    qhat <- BIFIE_NMIcombine_results_extract_parameters(results=results,
                     fun=fun_coef, Nimp_NMI=Nimp_NMI)
 
     #- variance matrices
-    u <- bifie_NMIcombine_results_extract_parameters(results=results,
+    u <- BIFIE_NMIcombine_results_extract_parameters(results=results,
                     fun=fun_vcov, Nimp_NMI=Nimp_NMI)
 
     #- inference

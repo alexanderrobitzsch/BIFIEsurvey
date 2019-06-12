@@ -1,7 +1,8 @@
 ## File Name: BIFIE.data.jack.R
-## File Version: 1.67
-###########################################################
-# BIFIE.data objects for designs with jackknife zones
+## File Version: 1.703
+
+
+#--- BIFIE.data objects for designs with jackknife zones
 BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
     jkzone=NULL, jkrep=NULL, jkfac=NULL, fayfac=NULL,
     wgtrep="W_FSTR", pvpre=paste0("PV",1:5), ngr=100,
@@ -29,8 +30,8 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
         dataL <- data
     }
     data <- as.data.frame( data )
-    #*********************************************************
-    # using fixed jackknife zones
+
+    #*** using fixed jackknife zones
     if (jktype=="JK_GROUP"){
         N <- nrow(data)
         if ( is.null(wgt) ){
@@ -43,8 +44,6 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
         jkfac <- 0
     }
 
-
-    #**********************************************************
     #*** defaults for jackknife creation: random groups
     if (jktype=="JK_RANDOM"){
         N <- nrow(data)
@@ -71,7 +70,6 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
         jkfac <- 0
     }
 
-    #**********************************************************
     #**** defaults for TIMSS
     if (jktype %in% c("JK_TIMSS","JK_TIMSS2") ){
         if ( is.null(jkrep) ){
@@ -85,7 +83,7 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
         }
         jkfac <- 2
     }
-    #***********************************************************
+
     #**** defaults for PISA
     if (jktype=="RW_PISA"){
         jkrep <- NULL
@@ -98,13 +96,14 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
         repvars <- grep( wgtrep, cn_data )
         RR <- length(repvars)
 
-        pv_vars <- bifie_data_select_pv_vars(pvpre, cn_data )
+        pv_vars <- BIFIE_data_select_pv_vars(pvpre, cn_data )
         datarep <- data[, repvars ]
         RR <- ncol(datarep)
         fayfac <- 1 /  RR / ( 1 - .5)^2
         data <- data[, - repvars ]
     }
-    #******** generate replicate weights
+
+    #**** generate replicate weights
     if ( jktype %in% c("JK_TIMSS", "JK_GROUP", "JK_RANDOM", "JK_TIMSS2") ) {
         # redefine jackknife zones
         jkzones1 <- unique( data[,jkzone] )
@@ -145,7 +144,7 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
 
     #--------------------------------------------------
     if ( ! is.null( pv_vars )){
-        datalist <- bifie_data_pv_vars_create_datlist( pvpre=pvpre, pv_vars=pv_vars,
+        datalist <- BIFIE_data_pv_vars_create_datlist( pvpre=pvpre, pv_vars=pv_vars,
                             jktype=jktype, data=data )
     }  # end pv_vars
     #--------------------------------------------------
@@ -160,4 +159,3 @@ BIFIE.data.jack <- function( data, wgt=NULL, jktype="JK_TIMSS", pv_vars=NULL,
     bifiedat$CALL <- cl
     return(bifiedat)
 }
-###############################################################################

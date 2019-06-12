@@ -1,5 +1,5 @@
 %% File Name: BIFIE.derivedParameters.Rd
-%% File Version: 0.23
+%% File Version: 0.25
 
 \name{BIFIE.derivedParameters}
 \alias{BIFIE.derivedParameters}
@@ -83,8 +83,8 @@ A list with following entries
 \seealso{
 See also \code{\link{BIFIE.waldtest}} for multi-parameter tests.
 
-See \code{\link[car:deltaMethod]{car::deltaMethod}} for the delta
-method assuming that the multivariate distribution of the parameters is
+See \code{car::deltaMethod} for the Delta method assuming that the multivariate
+distribution of the parameters is
 asymptotically normal.
 }
 %\code{\link[survey:regTermTest]{regTermTest}} (\pkg{survey}),

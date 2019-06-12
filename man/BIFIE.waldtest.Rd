@@ -1,5 +1,5 @@
 %% File Name: BIFIE.waldtest.Rd
-%% File Version: 0.32
+%% File Version: 0.33
 
 \name{BIFIE.waldtest}
 \alias{BIFIE.waldtest}
@@ -76,7 +76,7 @@ Enders, C. K. (2010). \emph{Applied missing data analysis}. Guilford Press.
 \seealso{
 \code{\link[survey:regTermTest]{survey::regTermTest}},
 \code{\link[survey:anova.svyglm]{survey::anova.svyglm}},
-\code{\link[car:linearHypothesis]{car::linearHypothesis}}
+\code{car::linearHypothesis}
 }
 
 

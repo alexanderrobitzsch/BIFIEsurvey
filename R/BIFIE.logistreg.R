@@ -1,5 +1,5 @@
 ## File Name: BIFIE.logistreg.R
-## File Version: 0.432
+## File Version: 0.434
 
 
 #-- logistic regression
@@ -99,8 +99,8 @@ BIFIE.logistreg <- function( BIFIEobj, dep=NULL, pre=NULL,
     dfr <- data.frame( "parameter"=rep(p1,GG) )
     dfr$var <- rep(p2,GG)
     if (! nogroup){
-       dfr$groupvar <- group
-       dfr$groupval <- rep( group_values, each=ZZ )
+        dfr$groupvar <- group
+        dfr$groupval <- rep( group_values, each=ZZ )
     }
     dfr$Ncases <- rep( rowMeans( res$ncasesM ), each=ZZ )
     dfr$Nweight <- rep( rowMeans( res$sumwgtM ), each=ZZ )
@@ -129,9 +129,8 @@ BIFIE.logistreg <- function( BIFIEobj, dep=NULL, pre=NULL,
     class(res1) <- "BIFIE.logistreg"
     return(res1)
 }
-###################################################################################
 
-####################################################################################
+
 # summary for BIFIE.linreg function
 summary.BIFIE.logistreg <- function( object, digits=4, ... )
 {

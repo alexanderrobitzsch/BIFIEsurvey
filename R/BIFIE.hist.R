@@ -1,5 +1,5 @@
 ## File Name: BIFIE.hist.R
-## File Version: 0.283
+## File Version: 0.287
 
 
 #--- Histogram
@@ -62,11 +62,10 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
     res00$group -> group
     #@@@@***
 
-    #**************************************************************************#
-    # Rcpp call
-    res <- bifie_hist(  datalistM, wgt_, wgtrep,
-                vars_index - 1,    fayfac,
-                Nimp, group_index - 1, group_values, breaks )
+    #--- Rcpp call
+    res <- bifie_hist( datalist=datalistM, wgt1=wgt_, wgtrep=wgtrep,
+                vars_index=vars_index-1, fayfac=fayfac, NI=Nimp,
+                group_index1=group_index-1, group_values=group_values, breaks=breaks )
 
     # create histogram objects
     GG <- length(group_values)
@@ -74,13 +73,10 @@ BIFIE.hist <- function( BIFIEobj, vars, breaks=NULL,
     BB <- res$BB
 
     for (gg in 1:GG){
-        h1 <- list( "breaks"=res$breaks,
-                "counts"=res$sumwgt[ ( gg-1)*BB + 1:BB ],
-                "density"=res$density_vec[ ( gg-1)*BB + 1:BB ],
-                "mids"=res$mids
-                        )
+        h1 <- list( breaks=res$breaks, counts=res$sumwgt[ ( gg-1)*BB + 1:BB ],
+                    density=res$density_vec[ ( gg-1)*BB + 1:BB ], mids=res$mids )
         h1$xname <- paste0( vars, "_", group, group_values[gg] )
-        if ( stats::sd ( diff(res$mids) ) < .000001 ){ h1$equidist <- TRUE } else { h1$equidist <- FALSE }
+        if ( stats::sd( diff(res$mids) ) < .000001 ){ h1$equidist <- TRUE } else { h1$equidist <- FALSE }
         class(h1) <- "histogram"
         histobj[[gg]] <- h1
     }
@@ -109,7 +105,7 @@ plot.BIFIE.hist <- function( x, ask=TRUE, ... )
     res <- x
     GG <- res$GG
     for (gg in 1:GG){
-        graphics::plot( res$histobj[[gg]], ... )
+        graphics::plot(res$histobj[[gg]], ... )
         graphics::par(ask=ask)
     }
 }

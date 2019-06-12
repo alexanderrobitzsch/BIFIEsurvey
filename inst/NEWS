@@ -49,18 +49,28 @@ CHANGELOG BIFIEsurvey
 
 
 
+
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.3  |  2019-05-12  |  Last: BIFIEsurvey 3.3-6
+VERSIONS BIFIEsurvey 3.4  |  2019-06-12  |  Last: BIFIEsurvey 3.4-1
 --------------------------------------------------------------------------
  
-NOTE  * changed behavior of BIFIE_create_pseudogroup() for many group 
-        values (thanks to Thomas Kiefer)
-
+xxx   * ---
 
 DATA  * ---
 EXAMP * ---
 
 
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 3.3  |  2019-06-12  |  Last: BIFIEsurvey 3.3-12
+--------------------------------------------------------------------------
+ 
+NOTE  * changed behavior of BIFIE_create_pseudogroup() for many group 
+        values (thanks to Thomas Kiefer)
+FIXED * fixed bug in BIFIE.lavaan.survey() and BIFIE.survey() (objects
+        were not found)
+
+DATA  * ---
+EXAMP * ---
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 3.2  |  2019-04-16  |  Last: BIFIEsurvey 3.2-25

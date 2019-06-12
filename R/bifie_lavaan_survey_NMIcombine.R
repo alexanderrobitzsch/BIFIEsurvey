@@ -1,7 +1,7 @@
-## File Name: bifie_lavaan_survey_NMIcombine.R
-## File Version: 0.02
+## File Name: BIFIE_lavaan_survey_NMIcombine.R
+## File Version: 0.03
 
-bifie_lavaan_survey_NMIcombine <- function(results, variances, Nimp_NMI)
+BIFIE_lavaan_survey_NMIcombine <- function(results, variances, Nimp_NMI)
 {
     qhat <- miceadds::List2nestedList(List=results, N_between=Nimp_NMI[1],
                         N_within=Nimp_NMI[2], loop_within=TRUE)

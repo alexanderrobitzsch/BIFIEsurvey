@@ -1,8 +1,8 @@
 ## File Name: BIFIE.univar.R
-## File Version: 1.82
+## File Version: 1.842
 
-#######################################################################
-# univariate statistics
+
+#--- univariate statistics
 BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE ){
     #****
     s1 <- Sys.time()
@@ -34,15 +34,13 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
     if ( is.null( group) ){
             nogroup <- TRUE } else {
             nogroup <- FALSE
-#            if (group=="one"){ nogroup <- TRUE }
-                    }
+    }
 
     cat(paste0( "|", paste0( rep("*", FF), collapse=""), "|\n" ))
     if (nogroup){
         group <- "one"
         group_values <- c(1)
-            }
-
+    }
 
     #@@@@***
     group_index <- match( group, varnames )
@@ -51,7 +49,7 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
     if ( is.null(group_values ) ){
         t1 <- bifie_table( datalistM[, group_index ] )
         group_values <- sort( as.numeric( paste( names(t1) ) ))
-                }
+    }
 
     #@@@@***
     res00 <- BIFIE_create_pseudogroup( datalistM, group, group_index, group_values )
@@ -62,14 +60,10 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
     res00$group -> group
     #@@@@***
 
-    #**************************************************************************#
     #****************** no grouping variable **********************************#
     if ( nogroup ){
-#        GG <- 1
-#        VV <- length(vars)
-
-        res <- univar_multiple_V2group( datalistM, wgt_, wgtrep, vars_index - 1,
-                    fayfac, Nimp, group_index - 1, group_values )
+        res <- univar_multiple_V2group( datalistM, wgt_, wgtrep, vars_index-1,
+                    fayfac, Nimp, group_index-1, group_values )
         GG <- length(group_values)
         VV <- length(vars)
         dfr <- data.frame( "var"=rep(vars,each=GG),
@@ -82,7 +76,7 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
 
         dfr$M_t <- dfr$M / dfr$M_SE
         dfr$M_p <- 2* stats::pt( - abs( dfr$M_t), df=dfr$M_df )
-        dfr0 <- data.frame(        "M_fmi"=res$mean1_fmi,
+        dfr0 <- data.frame( "M_fmi"=res$mean1_fmi,
                 "M_VarMI"=res$mean1_varBetween, "M_VarRep"=res$mean1_varWithin,
                 "SD"=res$sd1, "SD_SE"=res$sd1_se )
         dfr <- cbind( dfr,  dfr0 )
@@ -120,11 +114,10 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
             dfr$SD_fmi <- res1$pars_fmi
             dfr$SD_VarMI <- res1$pars_varBetween1 + res1$pars_varBetween2
             dfr$SD_VarRep <- res1$pars_varWithin
-                            }
+        }
+    }
 
 
-                }
-    #**************************************************************************#
     #****************** with grouping variable ********************************#
     if ( ! nogroup ){
         res <- univar_multiple_V2group( datalistM, wgt_, wgtrep, vars_index - 1, fayfac, Nimp,
@@ -181,19 +174,18 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
             dfr$SD_VarRep <- res1$pars_varWithin
                             }
 
-                 }
+        }
 
 
     if ( ( ! se ) &  ( RR==0 ) ){
         dfr$M_SE <- dfr$M_fmi <- dfr$M_VarMI <- dfr$M_VarRep <- dfr$M_t <- dfr$M_df <- dfr$M_p <- NULL
         dfr$SD_SE <- dfr$SD_fmi <- dfr$SD_VarMI <- dfr$SD_VarRep <-
                     dfr$SD_t <- dfr$SD_df <- dfr$SD_p <-NULL
-                }
+    }
     if ( Nimp==1 ){
         dfr$M_fmi <- dfr$M_VarMI <- NULL
         dfr$SD_fmi <- dfr$SD_VarMI <- NULL
-                }
-
+    }
 
     #****
     # statistics for mean and SD
@@ -227,12 +219,10 @@ BIFIE.univar <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
             GG=GG, VV=VV, vars=vars, group=group, CALL=cl)
     class(res1) <- "BIFIE.univar"
     return(res1)
-        }
-###################################################################################
+}
 
-####################################################################################
+
 # summary for BIFIE.univar function
-
 summary.BIFIE.univar <- function( object, digits=3, ... )
 {
     BIFIE.summary(object)
