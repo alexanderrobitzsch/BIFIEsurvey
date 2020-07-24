@@ -8,21 +8,29 @@
 
 <title>Dataset TIMSS 2011 — data.timss • BIFIEsurvey</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Dataset TIMSS 2011 — data.timss" />
 
+<meta property="og:title" content="Dataset TIMSS 2011 — data.timss" />
 <meta property="og:description" content="Example dataset TIMSS 2011" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -79,11 +88,10 @@
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -94,6 +102,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -105,18 +114,17 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Example dataset TIMSS 2011</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss1.ind</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timssrep</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss4</span>)</pre>
-        
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss1</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss1.ind</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss2</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timssrep</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss3</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss4</span>)</pre>
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>The dataset <code>data.timss1</code> is a list containing 5 imputed datasets.
@@ -129,83 +137,82 @@ only plausible values are imputed, but student covariates are missing.</p>
 student covariates and all 5 plausible values contained in one file.</p>
 <p>The dataset <code>data.timss4</code> is a list containing nested multiply imputed
 datasets, with 5 between-nest and 4 within-nest imputations.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>survey</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>lavaan.survey</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>intsvy</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>mitools</span>)
+    <pre class="examples"><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>lavaan.survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>intsvy</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>mitools</span>)
 
 <span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 1: TIMSS dataset data.timss3 (one dataset including all PVs)</span>
 <span class='co'>#############################################################################</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timssrep</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss2</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss3</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timssrep</span>)
 
 <span class='co'># Analysis based on official 'single' datasets (data.timss3)</span>
 <span class='co'># There are 5 plausible values, but student covariates are not imputed.</span>
 
 <span class='co'>#--- create object of class BIFIE data</span>
-<span class='no'>bdat3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.data'>BIFIE.data</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss3</span>$<span class='no'>TOTWGT</span>,
+<span class='no'>bdat3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.data.html'>BIFIE.data</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss3</span>$<span class='no'>TOTWGT</span>,
               <span class='kw'>wgtrep</span><span class='kw'>=</span><span class='no'>data.timssrep</span>[,-<span class='fl'>1</span>], <span class='kw'>fayfac</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>bdat3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bdat3</span>)
 <span class='co'># This BIFIEdata object contains one dataset in which all</span>
 <span class='co'># plausible values are included. This object can be used</span>
 <span class='co'># in analysis without plausible values.</span>
 <span class='co'># Equivalently, one can define bdat3 much simpler by</span>
-<span class='no'>bdat3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.data.jack'>BIFIE.data.jack</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>jktype</span><span class='kw'>=</span><span class='st'>"JK_TIMSS"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>bdat3</span>)
+<span class='no'>bdat3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.data.jack.html'>BIFIE.data.jack</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>jktype</span><span class='kw'>=</span><span class='st'>"JK_TIMSS"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bdat3</span>)
 
 <span class='co'>#--- In the following, the object bdat4 is defined with 5 datasets</span>
 <span class='co'># referring to 5 plausible values.</span>
-<span class='no'>bdat4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.data.jack'>BIFIE.data.jack</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>pv_vars</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASMMAT"</span>,<span class='st'>"ASSSCI"</span>),
+<span class='no'>bdat4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.data.jack.html'>BIFIE.data.jack</a></span>(<span class='no'>data.timss3</span>, <span class='kw'>pv_vars</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASMMAT"</span>,<span class='st'>"ASSSCI"</span>),
                <span class='kw'>jktype</span><span class='kw'>=</span><span class='st'>"JK_TIMSS"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>bdat4</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bdat4</span>)
 
 <span class='co'>#--- create object in survey package</span>
-<span class='no'>dat3a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>( <span class='no'>data.timss2</span><span class='kw'>[[</span><span class='fl'>1</span>]], <span class='no'>data.timssrep</span> ) )
-<span class='no'>RR</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>ncol</a></span>(<span class='no'>data.timssrep</span>) - <span class='fl'>1</span>       <span class='co'># number of jackknife zones</span>
-<span class='no'>svydes3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/survey/topics/svrepdesign'>svrepdesign</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>dat3a</span>, <span class='kw'>weights</span><span class='kw'>=</span>~<span class='no'>TOTWGT</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"JKn"</span>,
-                 <span class='kw'>repweights</span><span class='kw'>=</span><span class='st'>'w_fstr[0-9]'</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>,  <span class='kw'>rscales</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>1</span>,<span class='no'>RR</span>), <span class='kw'>mse</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>svydes3</span>)
+<span class='no'>dat3a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>( <span class='no'>data.timss2</span><span class='kw'>[[</span><span class='fl'>1</span>]], <span class='no'>data.timssrep</span> ) )
+<span class='no'>RR</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='no'>data.timssrep</span>) - <span class='fl'>1</span>       <span class='co'># number of jackknife zones</span>
+<span class='no'>svydes3</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/survey/man/svrepdesign.html'>svrepdesign</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>dat3a</span>, <span class='kw'>weights</span><span class='kw'>=</span>~<span class='no'>TOTWGT</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"JKn"</span>,
+                 <span class='kw'>repweights</span><span class='kw'>=</span><span class='st'>'w_fstr[0-9]'</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>,  <span class='kw'>rscales</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>,<span class='no'>RR</span>), <span class='kw'>mse</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>svydes3</span>)
 
 <span class='co'>#--- create object with imputed datasets in survey</span>
 <span class='no'>datL</span> <span class='kw'>&lt;-</span> <span class='no'>data.timss2</span>
 <span class='co'># include replicate weights in each dataset</span>
 <span class='kw'>for</span> (<span class='no'>ii</span> <span class='kw'>in</span> <span class='fl'>1</span>:<span class='fl'>5</span>){
     <span class='no'>dat1</span> <span class='kw'>&lt;-</span> <span class='no'>datL</span><span class='kw'>[[</span><span class='no'>ii</span>]]
-    <span class='no'>dat1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(  <span class='no'>dat1</span>, <span class='no'>data.timssrep</span>[,-<span class='fl'>1</span>] )
+    <span class='no'>dat1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(  <span class='no'>dat1</span>, <span class='no'>data.timssrep</span>[,-<span class='fl'>1</span>] )
     <span class='no'>datL</span><span class='kw'>[[</span><span class='no'>ii</span>]] <span class='kw'>&lt;-</span> <span class='no'>dat1</span>
 }
-<span class='no'>datL</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mitools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mitools/topics/imputationList'>imputationList</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>( <span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>1</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>2</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>3</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>4</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>5</span>]]))
-<span class='no'>svydes4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/survey/topics/svrepdesign'>svrepdesign</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>datL</span>, <span class='kw'>weights</span><span class='kw'>=</span>~<span class='no'>TOTWGT</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"JKn"</span>,
-                   <span class='kw'>repweights</span><span class='kw'>=</span><span class='st'>'w_fstr[0-9]'</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>,  <span class='kw'>rscales</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='fl'>1</span>,<span class='no'>RR</span>), <span class='kw'>mse</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>svydes4</span>)
+<span class='no'>datL</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mitools</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/mitools/man/imputationList.html'>imputationList</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>( <span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>1</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>2</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>3</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>4</span>]],<span class='no'>datL</span><span class='kw'>[[</span><span class='fl'>5</span>]]))
+<span class='no'>svydes4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/survey/man/svrepdesign.html'>svrepdesign</a></span>(<span class='kw'>data</span><span class='kw'>=</span><span class='no'>datL</span>, <span class='kw'>weights</span><span class='kw'>=</span>~<span class='no'>TOTWGT</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"JKn"</span>,
+                   <span class='kw'>repweights</span><span class='kw'>=</span><span class='st'>'w_fstr[0-9]'</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>,  <span class='kw'>rscales</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>1</span>,<span class='no'>RR</span>), <span class='kw'>mse</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>svydes4</span>)
 
 <span class='co'>#--- reconstruct data.timss3 for intsvy package. Plausible values must be labeled</span>
 <span class='co'># as PV01, PV02, ... and NOT PV1, PV2, ...</span>
 <span class='no'>data.timss3a</span> <span class='kw'>&lt;-</span> <span class='no'>data.timss3</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>data.timss3a</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>( <span class='st'>"ASMMAT"</span>, <span class='st'>"ASMMAT0"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>data.timss3a</span>) )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>data.timss3a</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>( <span class='st'>"ASSSCI"</span>, <span class='st'>"ASSSCI0"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>data.timss3a</span>) )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>data.timss3a</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span>( <span class='st'>"ASMMAT"</span>, <span class='st'>"ASMMAT0"</span>, <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>data.timss3a</span>) )
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>data.timss3a</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span>( <span class='st'>"ASSSCI"</span>, <span class='st'>"ASSSCI0"</span>, <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>data.timss3a</span>) )
 
 <span class='co'>#***************************</span>
 <span class='co'># Model 1: Linear regression (no grouping variable)</span>
 
 <span class='co'>#--- linear regression in survey</span>
-<span class='no'>mod1a</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/survey/topics/svyglm'>svyglm</a></span>( <span class='no'>scsci</span> ~ <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod1a</span>)
+<span class='no'>mod1a</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/survey/man/svyglm.html'>svyglm</a></span>( <span class='no'>scsci</span> ~ <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1a</span>)
 
 <span class='co'>#--- regression with pirls.reg (intsvy)</span>
-<span class='no'>mod1b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/intsvy/topics/pirls.reg'>pirls.reg</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>)
+<span class='no'>mod1b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'>pirls.reg</span>( <span class='kw'>y</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>)
 <span class='no'>mod1b</span>
 
 <span class='co'>#---- regression with BIFIEsurvey</span>
-<span class='no'>mod1c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.linreg'>BIFIE.linreg</a></span>( <span class='no'>bdat3</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod1c</span>)
+<span class='no'>mod1c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.linreg.html'>BIFIE.linreg</a></span>( <span class='no'>bdat3</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1c</span>)
 
 <span class='co'>#--- regression with lavaan.survey package</span>
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>"
@@ -214,30 +221,30 @@ datasets, with 5 between-nest and 4 within-nest imputations.</p>
     scsci ~~ scsci
         "</span>
 <span class='co'># fit in lavaan</span>
-<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>lavaan.fit</span>)
+<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>lavaan.fit</span>)
 <span class='co'># using all replicated weights</span>
-<span class='no'>mod1d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan.survey/topics/lavaan.survey'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes3</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod1d</span>)
+<span class='no'>mod1d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan.survey/man/lavaan.survey.html'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes3</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1d</span>)
 
 <span class='co'>#***************************</span>
 <span class='co'># Model 2: Linear regression (grouped by female)</span>
 
 <span class='co'>#--- linear regression in survey</span>
-<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/survey/topics/svyglm'>svyglm</a></span>( <span class='no'>scsci</span> ~ <span class='fl'>0</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>as.factor</a></span>(<span class='no'>female</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>as.factor</a></span>(<span class='no'>female</span>):<span class='no'>migrant</span>
-               + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>as.factor</a></span>(<span class='no'>female</span>):<span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2a</span>)
+<span class='no'>mod2a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/survey/man/svyglm.html'>svyglm</a></span>( <span class='no'>scsci</span> ~ <span class='fl'>0</span> + <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>female</span>) + <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>female</span>):<span class='no'>migrant</span>
+               + <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>female</span>):<span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes3</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2a</span>)
 
 <span class='co'>#--- regression with pirls.reg (intsvy)</span>
-<span class='no'>mod2b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/intsvy/topics/pirls.reg'>pirls.reg</a></span>( <span class='kw'>y</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
+<span class='no'>mod2b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'>pirls.reg</span>( <span class='kw'>y</span><span class='kw'>=</span><span class='st'>"scsci"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
                  <span class='kw'>by</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>)
 <span class='no'>mod2b</span><span class='kw'>[[</span><span class='st'>"0"</span>]]   <span class='co'># regression coefficients female=0</span>
 <span class='no'>mod2b</span><span class='kw'>[[</span><span class='st'>"1"</span>]]   <span class='co'># regression coefficients female=1</span>
 
 <span class='co'>#--- regression with BIFIEsurvey</span>
-<span class='no'>mod2c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.linreg'>BIFIE.linreg</a></span>( <span class='no'>bdat3</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"scsci"</span>,
-               <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>), <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2c</span>)
+<span class='no'>mod2c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.linreg.html'>BIFIE.linreg</a></span>( <span class='no'>bdat3</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"scsci"</span>,
+               <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>), <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2c</span>)
 
 <span class='co'>#--- regression with lavaan.survey package</span>
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>"
@@ -246,27 +253,27 @@ datasets, with 5 between-nest and 4 within-nest imputations.</p>
     scsci ~~ scsci
         "</span>
 <span class='co'># fit in lavaan</span>
-<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>lavaan.fit</span>)
-<span class='no'>mod2d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan.survey/topics/lavaan.survey'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes3</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2d</span>)
+<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>lavaan.fit</span>)
+<span class='no'>mod2d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan.survey/man/lavaan.survey.html'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes3</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2d</span>)
 
 <span class='co'>#***************************</span>
 <span class='co'># Model 3: Linear regression with mathematics PVs</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>mitools</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>mitools</span>)
 
 <span class='co'>#--- linear regression in survey</span>
-<span class='no'>mod3a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/with'>with</a></span>(<span class='no'>svydes4</span>,  <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/survey/topics/svyglm'>svyglm</a></span>( <span class='no'>ASMMAT</span> ~ <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes4</span> ) )
-<span class='no'>res3a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mitools</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/mitools/topics/MIcombine'>MIcombine</a></span>(<span class='no'>mod3a</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res3a</span>)
+<span class='no'>mod3a</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>svydes4</span>,  <span class='kw pkg'>survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/survey/man/svyglm.html'>svyglm</a></span>( <span class='no'>ASMMAT</span> ~ <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>design</span><span class='kw'>=</span><span class='no'>svydes4</span> ) )
+<span class='no'>res3a</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>mitools</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/mitools/man/MIcombine.html'>MIcombine</a></span>(<span class='no'>mod3a</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res3a</span>)
 
 <span class='co'>#--- regression with pirls.reg.pv (intsvy)</span>
-<span class='no'>mod3b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/intsvy/topics/pirls.reg.pv'>pirls.reg.pv</a></span>( <span class='kw'>pvlabel</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
+<span class='no'>mod3b</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>intsvy</span><span class='kw ns'>::</span><span class='fu'>pirls.reg.pv</span>( <span class='kw'>pvlabel</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>x</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
              <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3a</span>)
 
 <span class='co'>#--- regression with BIFIEsurvey</span>
-<span class='no'>mod3c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.linreg'>BIFIE.linreg</a></span>( <span class='no'>bdat4</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3c</span>)
+<span class='no'>mod3c</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.linreg.html'>BIFIE.linreg</a></span>( <span class='no'>bdat4</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"migrant"</span>,<span class='st'>"books"</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3c</span>)
 
 <span class='co'>#--- regression with lavaan.survey package</span>
 <span class='no'>lavmodel</span> <span class='kw'>&lt;-</span> <span class='st'>"
@@ -275,43 +282,39 @@ datasets, with 5 between-nest and 4 within-nest imputations.</p>
     ASMMAT ~~ ASMMAT
         "</span>
 <span class='co'># fit in lavaan</span>
-<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3a</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>lavaan.fit</span>)
-<span class='no'>mod3d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan.survey/topics/lavaan.survey'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes4</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod3d</span>)
+<span class='no'>lavaan.fit</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>( <span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data.timss3a</span>, <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>estimator</span><span class='kw'>=</span><span class='st'>"MLM"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>lavaan.fit</span>)
+<span class='no'>mod3d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan.survey</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan.survey/man/lavaan.survey.html'>lavaan.survey</a></span>(<span class='kw'>lavaan.fit</span><span class='kw'>=</span><span class='no'>lavaan.fit</span>, <span class='kw'>survey.design</span><span class='kw'>=</span><span class='no'>svydes4</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod3d</span>)
 
 <span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 2: TIMSS dataset data.timss4 | Nested multiply imputed dataset</span>
 <span class='co'>#############################################################################</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss4</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timssrep</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss4</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timssrep</span>)
 
 <span class='co'>#**** create BIFIEdata object</span>
-<span class='no'>bdat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.data'>BIFIE.data</a></span>( <span class='kw'>data.list</span><span class='kw'>=</span><span class='no'>data.timss4</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss4</span><span class='kw'>[[</span><span class='fl'>1</span>]]<span class='kw'>[[</span><span class='fl'>1</span>]]$<span class='no'>TOTWGT</span>,
+<span class='no'>bdat</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.data.html'>BIFIE.data</a></span>( <span class='kw'>data.list</span><span class='kw'>=</span><span class='no'>data.timss4</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss4</span><span class='kw'>[[</span><span class='fl'>1</span>]]<span class='kw'>[[</span><span class='fl'>1</span>]]$<span class='no'>TOTWGT</span>,
                <span class='kw'>wgtrep</span><span class='kw'>=</span><span class='no'>data.timssrep</span>[, -<span class='fl'>1</span> ], <span class='kw'>NMI</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>cdata</span><span class='kw'>=</span><span class='fl'>TRUE</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>bdat</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>bdat</span>)
 
 <span class='co'>#**** Model 1: Linear regression for mathematics score</span>
-<span class='no'>mod1</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.linreg'>BIFIE.linreg</a></span>( <span class='no'>bdat</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"books"</span>,<span class='st'>"migrant"</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod1</span>)
+<span class='no'>mod1</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.linreg.html'>BIFIE.linreg</a></span>( <span class='no'>bdat</span>, <span class='kw'>dep</span><span class='kw'>=</span><span class='st'>"ASMMAT"</span>, <span class='kw'>pre</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>,<span class='st'>"books"</span>,<span class='st'>"migrant"</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod1</span>)
 
 <span class='co'>#*** Model 2: Univariate statistics ?BIFIEsurvey::BIFIE.univar</span>
-<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.univar'>BIFIE.univar</a></span>( <span class='no'>bdat</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASMMAT"</span>,<span class='st'>"ASSSCI"</span>,<span class='st'>"books"</span>) )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod2</span>)
-<span class='co'># }</span></pre>
+<span class='no'>mod2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.univar.html'>BIFIE.univar</a></span>( <span class='no'>bdat</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASMMAT"</span>,<span class='st'>"ASSSCI"</span>,<span class='st'>"books"</span>) )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod2</span>)
+}</pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#format">Format</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -319,13 +322,16 @@ datasets, with 5 between-nest and 4 within-nest imputations.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

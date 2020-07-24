@@ -8,21 +8,29 @@
 
 <title>Statistics for User Defined Functions — BIFIE.by • BIFIEsurvey</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Statistics for User Defined Functions — BIFIE.by" />
 
+<meta property="og:title" content="Statistics for User Defined Functions — BIFIE.by" />
 <meta property="og:description" content="Computes statistics for user defined functions." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -79,11 +88,10 @@
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -94,6 +102,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -105,23 +114,21 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Computes statistics for user defined functions.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>BIFIE.by</span>( <span class='no'>BIFIEobj</span>, <span class='no'>vars</span>, <span class='no'>userfct</span>, <span class='kw'>userparnames</span><span class='kw'>=</span><span class='kw'>NULL</span>,
      <span class='kw'>group</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>group_values</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>se</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>use_Rcpp</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
 
 <span class='co'># S3 method for BIFIE.by</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>,<span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>,<span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>,<span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>,<span class='no'>...</span>)
 
 <span class='co'># S3 method for BIFIE.by</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)
 
 <span class='co'># S3 method for BIFIE.by</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -172,121 +179,118 @@ function should be evaluated in <span class="pkg">Rcpp</span>.</p></td>
       <td><p>Number of digits for rounding output</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Further arguments to be passed</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list with following entries</p>
 <dt>stat</dt><dd><p>Data frame with statistics defined in <code>userfct</code></p></dd>
  <dt>output</dt><dd><p>Extensive output with all replicated statistics</p></dd>
- <dt>&#8230;</dt><dd><p>More values</p></dd>
+ <dt>...</dt><dd><p>More values</p></dd>
 
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/survey/topics/svyby'>survey::svyby</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/survey/man/svyby.html'>survey::svyby</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'>#############################################################################</span>
+    <pre class="examples"><span class='co'>#############################################################################</span>
 <span class='co'># EXAMPLE 1: Imputed TIMSS dataset</span>
 <span class='co'>#############################################################################</span>
 
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timss1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>data.timssrep</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timss1</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>data.timssrep</span>)
 
 <span class='co'># create BIFIE.dat object</span>
-<span class='no'>bifieobj</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.data'>BIFIE.data</a></span>( <span class='kw'>data.list</span><span class='kw'>=</span><span class='no'>data.timss1</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss1</span><span class='kw'>[[</span><span class='fl'>1</span>]]$<span class='no'>TOTWGT</span>,
+<span class='no'>bifieobj</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.data.html'>BIFIE.data</a></span>( <span class='kw'>data.list</span><span class='kw'>=</span><span class='no'>data.timss1</span>, <span class='kw'>wgt</span><span class='kw'>=</span><span class='no'>data.timss1</span><span class='kw'>[[</span><span class='fl'>1</span>]]$<span class='no'>TOTWGT</span>,
            <span class='kw'>wgtrep</span><span class='kw'>=</span><span class='no'>data.timssrep</span>[, -<span class='fl'>1</span> ] )
 
 <span class='co'>#****************************</span>
 <span class='co'>#*** Model 1: Weighted means (as a toy example)</span>
 <span class='no'>userfct</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>X</span>,<span class='no'>w</span>){
-        <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/weighted.mean'>weighted.mean</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>], <span class='no'>w</span> ),
-                     <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/weighted.mean'>weighted.mean</a></span>(<span class='no'>X</span>[,<span class='fl'>2</span>], <span class='no'>w</span> )   )
-        <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>pars</span>)
+        <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/weighted.mean.html'>weighted.mean</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>], <span class='no'>w</span> ),
+                     <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/weighted.mean.html'>weighted.mean</a></span>(<span class='no'>X</span>[,<span class='fl'>2</span>], <span class='no'>w</span> )   )
+        <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>pars</span>)
                         }
-<span class='no'>res1</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span>),
-                <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>, <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"MW_MAT"</span>, <span class='st'>"MW_Migr"</span>),
+<span class='no'>res1</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span>),
+                <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>, <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MW_MAT"</span>, <span class='st'>"MW_Migr"</span>),
                 <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res1</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res1</span>)
 
 <span class='co'># evaluate function in pure R implementation using the use_Rcpp argument</span>
-<span class='no'>res1b</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
-                <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>, <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"MW_MAT"</span>, <span class='st'>"MW_Migr"</span>),
+<span class='no'>res1b</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span> ),
+                <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>, <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"MW_MAT"</span>, <span class='st'>"MW_Migr"</span>),
                 <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>use_Rcpp</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res1b</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res1b</span>)
 
 <span class='co'>#--- statistical inference for a derived parameter (see ?BIFIE.derivedParameters)</span>
 <span class='co'># define gender difference for mathematics score (divided by 100)</span>
-<span class='no'>derived.parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(
-        <span class='st'>"gender_diff"</span><span class='kw'>=</span>~ <span class='fl'>0</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>( ( <span class='no'>MW_MAT_female1</span> - <span class='no'>MW_MAT_female0</span> ) / <span class='fl'>100</span> )
+<span class='no'>derived.parameters</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+        <span class='st'>"gender_diff"</span><span class='kw'>=</span>~ <span class='fl'>0</span> + <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span>( ( <span class='no'>MW_MAT_female1</span> - <span class='no'>MW_MAT_female0</span> ) / <span class='fl'>100</span> )
                             )
 <span class='co'># inference derived parameter</span>
-<span class='no'>res1d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.derivedParameters'>BIFIE.derivedParameters</a></span>( <span class='no'>res1</span>,
+<span class='no'>res1d</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='BIFIE.derivedParameters.html'>BIFIE.derivedParameters</a></span>( <span class='no'>res1</span>,
                 <span class='kw'>derived.parameters</span><span class='kw'>=</span><span class='no'>derived.parameters</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res1d</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res1d</span>)
 
-<span class='co'># }</span><span class='co'># NOT RUN {</span>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'>#****************************</span>
 <span class='co'>#**** Model 2: Robust linear model</span>
 
 <span class='co'># (1) start from scratch to formulate the user function for X and w</span>
 <span class='no'>dat1</span> <span class='kw'>&lt;-</span> <span class='no'>bifieobj</span>$<span class='no'>dat1</span>
-<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span> )
+<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASMMAT"</span>, <span class='st'>"migrant"</span>, <span class='st'>"books"</span> )
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>dat1</span>[,<span class='no'>vars</span>]
 <span class='no'>w</span> <span class='kw'>&lt;-</span> <span class='no'>bifieobj</span>$<span class='no'>wgt</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>MASS</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>MASS</span>)
 <span class='co'># ASMMAT ~ migrant + books</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/rlm'>rlm</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>] ~  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>( <span class='no'>X</span>[, -<span class='fl'>1</span> ] ), <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>)
+<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/rlm.html'>rlm</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>] ~  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span>( <span class='no'>X</span>[, -<span class='fl'>1</span> ] ), <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span> )
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>)
 <span class='co'># (2) define a user function "my_rlm"</span>
 <span class='no'>my_rlm</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>X</span>,<span class='no'>w</span>){
-    <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/rlm'>rlm</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>] ~  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>( <span class='no'>X</span>[, -<span class='fl'>1</span> ] ), <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span> )
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>) )
+    <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/rlm.html'>rlm</a></span>( <span class='no'>X</span>[,<span class='fl'>1</span>] ~  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span>( <span class='no'>X</span>[, -<span class='fl'>1</span> ] ), <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span> )
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>( <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>) )
                 }
 <span class='co'># (3) estimate model</span>
-<span class='no'>res2</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm</span>,
+<span class='no'>res2</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm</span>,
                 <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>group_values</span><span class='kw'>=</span><span class='fl'>0</span>:<span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res2</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res2</span>)
 <span class='co'># estimate model without computing standard errors</span>
-<span class='no'>res2a</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm</span>,
+<span class='no'>res2a</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm</span>,
                 <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res2a</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res2a</span>)
 
 <span class='co'># define a user function with formula language</span>
 <span class='no'>my_rlm2</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>X</span>,<span class='no'>w</span>){
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>X</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
-    <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='no'>X</span>)
-    <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/MASS/topics/rlm'>rlm</a></span>( <span class='no'>ASMMAT</span> ~  <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X</span>)
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod</span>) )
+    <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>X</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
+    <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>X</span>)
+    <span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>MASS</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/rlm.html'>rlm</a></span>( <span class='no'>ASMMAT</span> ~  <span class='no'>migrant</span> + <span class='no'>books</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>w</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>( <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod</span>) )
                 }
 <span class='co'># estimate model</span>
-<span class='no'>res2b</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm2</span>,
+<span class='no'>res2b</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>my_rlm2</span>,
                 <span class='kw'>group</span><span class='kw'>=</span><span class='st'>"female"</span>, <span class='kw'>group_values</span><span class='kw'>=</span><span class='fl'>0</span>:<span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res2b</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res2b</span>)
 
 
 <span class='co'>#****************************</span>
 <span class='co'>#**** Model 3: Number of unique values for variables in BIFIEdata</span>
 
 <span class='co'>#*** define variables for which the number of unique values should be calculated</span>
-<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>( <span class='st'>"female"</span>, <span class='st'>"books"</span>,<span class='st'>"ASMMAT"</span> )
+<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>( <span class='st'>"female"</span>, <span class='st'>"books"</span>,<span class='st'>"ASMMAT"</span> )
 <span class='co'>#*** define a user function extracting these unqiue values</span>
 <span class='no'>userfct</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>X</span>,<span class='no'>w</span>){
-        <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>( <span class='no'>X</span>, <span class='fl'>2</span>, <span class='kw'>FUN</span><span class='kw'>=</span><span class='kw'>function</span>(<span class='no'>vv</span>){
-                     <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>( <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/unique'>unique</a></span>(<span class='no'>vv</span>))  } )
+        <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span>( <span class='no'>X</span>, <span class='fl'>2</span>, <span class='kw'>FUN</span><span class='kw'>=</span><span class='kw'>function</span>(<span class='no'>vv</span>){
+                     <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span>(<span class='no'>vv</span>))  } )
         <span class='co'># Note that weights are (of course) ignored in this function</span>
-        <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>pars</span>)
+        <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>pars</span>)
                         }
 <span class='co'>#*** extract number of unique values</span>
-<span class='no'>res3</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>,
-              <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>( <span class='no'>vars</span>, <span class='st'>"_Nunique"</span>),  <span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res3</span>)
+<span class='no'>res3</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>,
+              <span class='kw'>userparnames</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>( <span class='no'>vars</span>, <span class='st'>"_Nunique"</span>),  <span class='kw'>se</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res3</span>)
   <span class='co'>##   Statistical Inference for User Definition Function</span>
   <span class='co'>##               parm Ncases  Nweight    est</span>
   <span class='co'>##   1 female_Nunique   4668 78332.99    2.0</span>
@@ -314,52 +318,45 @@ function should be evaluated in <span class="pkg">Rcpp</span>.</p></td>
   female ~~ female
 "</span>
 
-<span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data0</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>mod0</span>, <span class='kw'>stand</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>fit.measures</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>data0</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>mod0</span>, <span class='kw'>stand</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>fit.measures</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
 
 <span class='co'>#* construct input for BIFIE.by</span>
-<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ASSSCI"</span>,<span class='st'>"likesc"</span>,<span class='st'>"female"</span>,<span class='st'>"TOTWGT"</span>)
+<span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ASSSCI"</span>,<span class='st'>"likesc"</span>,<span class='st'>"female"</span>,<span class='st'>"TOTWGT"</span>)
 <span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>data0</span>[,<span class='no'>vars</span>]
-<span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
+<span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
 <span class='no'>w</span> <span class='kw'>&lt;-</span> <span class='no'>data0</span>$<span class='no'>TOTWGT</span>
 
 <span class='co'>#* define user function</span>
 <span class='no'>userfct</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>X</span>,<span class='no'>w</span>){
-  <span class='no'>X1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></span>(<span class='no'>X</span>)
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>X1</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
+  <span class='no'>X1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>X</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>X1</span>) <span class='kw'>&lt;-</span> <span class='no'>vars</span>
   <span class='no'>X1</span>$<span class='no'>studwgt</span> <span class='kw'>&lt;-</span> <span class='no'>w</span>
-  <span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/lavaan'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X1</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
-  <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>mod0</span>)
+  <span class='no'>mod0</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/lavaan.html'>lavaan</a></span>(<span class='no'>lavmodel</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>X1</span>, <span class='kw'>sampling.weights</span><span class='kw'>=</span><span class='st'>"TOTWGT"</span>)
+  <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>mod0</span>)
   <span class='co'># extract some fit statistics</span>
-  <span class='no'>pars2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/lavaan/topics/fitMeasures'>fitMeasures</a></span>(<span class='no'>mod0</span>)
-  <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>pars</span>, <span class='no'>pars2</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"cfi"</span>,<span class='st'>"tli"</span>)])
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/function'>return</a></span>(<span class='no'>pars</span>)
+  <span class='no'>pars2</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>lavaan</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/lavaan/man/fitMeasures.html'>fitMeasures</a></span>(<span class='no'>mod0</span>)
+  <span class='no'>pars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>pars</span>, <span class='no'>pars2</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"cfi"</span>,<span class='st'>"tli"</span>)])
+  <span class='fu'><a href='https://rdrr.io/r/base/function.html'>return</a></span>(<span class='no'>pars</span>)
 }
 
 <span class='co'>#* test function</span>
 <span class='no'>res0</span> <span class='kw'>&lt;-</span> <span class='fu'>userfct</span>(<span class='no'>X</span>,<span class='no'>w</span>)
-<span class='no'>userparnames</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>res0</span>)
+<span class='no'>userparnames</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>res0</span>)
 
 <span class='co'>#* estimate lavaan model with replicated sampling weights</span>
-<span class='no'>res1</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/BIFIEsurvey/topics/BIFIE.by'>BIFIE.by</a></span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>,
+<span class='no'>res1</span> <span class='kw'>&lt;-</span>  <span class='kw pkg'>BIFIEsurvey</span><span class='kw ns'>::</span><span class='fu'>BIFIE.by</span>( <span class='no'>bifieobj</span>, <span class='kw'>vars</span><span class='kw'>=</span><span class='no'>vars</span>, <span class='kw'>userfct</span><span class='kw'>=</span><span class='no'>userfct</span>,
                   <span class='kw'>userparnames</span><span class='kw'>=</span><span class='no'>userparnames</span>, <span class='kw'>use_Rcpp</span><span class='kw'>=</span><span class='fl'>FALSE</span> )
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res1</span>)
-<span class='co'># }</span></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>res1</span>)
+}</pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -367,13 +364,16 @@ function should be evaluated in <span class="pkg">Rcpp</span>.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

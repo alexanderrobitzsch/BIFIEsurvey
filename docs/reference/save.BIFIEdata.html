@@ -8,21 +8,29 @@
 
 <title>Saving, Writing and Loading <code>BIFIEdata</code> Objects — save.BIFIEdata • BIFIEsurvey</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,14 +38,14 @@
 
 
 
-<meta property="og:title" content="Saving, Writing and Loading <code>BIFIEdata</code> Objects — save.BIFIEdata" />
 
+<meta property="og:title" content="Saving, Writing and Loading <code>BIFIEdata</code> Objects — save.BIFIEdata" />
 <meta property="og:description" content="These functions save (save.BIFIEdata), write (write.BIFIEdata)
 or load (load.BIFIEdata) objects of class BIFIEdata.
 The function load.BIFIEdata.files allows the creation
 of BIFIEdata objects by loading separate files of imputed datasets,
 replicate weights and a possible indicator dataset." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -51,9 +59,10 @@ replicate weights and a possible indicator dataset." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,7 +84,7 @@ replicate weights and a possible indicator dataset." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -83,11 +92,10 @@ replicate weights and a possible indicator dataset." />
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -98,6 +106,7 @@ replicate weights and a possible indicator dataset." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -109,25 +118,23 @@ replicate weights and a possible indicator dataset." />
     </div>
 
     <div class="ref-description">
-    
     <p>These functions save (<code>save.BIFIEdata</code>), write (<code>write.BIFIEdata</code>)
 or load (<code>load.BIFIEdata</code>) objects of class <code>BIFIEdata</code>.</p>
 <p>The function <code>load.BIFIEdata.files</code> allows the creation
 of <code>BIFIEdata</code> objects by loading separate files of imputed datasets,
 replicate weights and a possible indicator dataset.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>save.BIFIEdata</span>(<span class='no'>BIFIEdata</span>, <span class='no'>name.BIFIEdata</span>, <span class='kw'>cdata</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>varnames</span><span class='kw'>=</span><span class='kw'>NULL</span>)
 
-<span class='fu'>write.BIFIEdata</span>( <span class='no'>BIFIEdata</span>, <span class='no'>name.BIFIEdata</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>(), <span class='kw'>varnames</span><span class='kw'>=</span><span class='kw'>NULL</span>,
+<span class='fu'>write.BIFIEdata</span>( <span class='no'>BIFIEdata</span>, <span class='no'>name.BIFIEdata</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>(), <span class='kw'>varnames</span><span class='kw'>=</span><span class='kw'>NULL</span>,
     <span class='kw'>impdata.index</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"Rdata"</span>, <span class='no'>...</span> )
 
-<span class='fu'>load.BIFIEdata</span>(<span class='no'>filename</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>() )
+<span class='fu'>load.BIFIEdata</span>(<span class='no'>filename</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>() )
 
 <span class='fu'>load.BIFIEdata.files</span>( <span class='no'>files.imp</span>, <span class='no'>wgt</span>, <span class='no'>file.wgtrep</span>, <span class='kw'>file.ind</span><span class='kw'>=</span><span class='kw'>NULL</span>,
-    <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"Rdata"</span>,<span class='kw'>varnames</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>cdata</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>(), <span class='no'>...</span> )</pre>
-    
+    <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"Rdata"</span>,<span class='kw'>varnames</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>cdata</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>dir</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>(), <span class='no'>...</span> )</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -161,23 +168,23 @@ is the working directory.</p></td>
     <tr>
       <th>type</th>
       <td><p>Type of saved data. Options are <code>Rdata</code> (function
-    <code><a href='https://www.rdocumentation.org/packages/base/topics/save'>base::save</a></code>,
-    <code>csv</code> (function <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.csv</a></code>),
-    <code>csv2</code> (function <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.csv2</a></code>),
-    <code>table</code> (function <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.table</a></code>),
-    <code>sav</code> (function <code><a href='https://www.rdocumentation.org/packages/foreign/topics/read.spss'>foreign::read.spss</a></code>
+    <code><a href='https://rdrr.io/r/base/save.html'>base::save</a></code>,
+    <code>csv</code> (function <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.csv</a></code>),
+    <code>csv2</code> (function <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.csv2</a></code>),
+    <code>table</code> (function <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.table</a></code>),
+    <code>sav</code> (function <code><a href='https://rdrr.io/pkg/foreign/man/read.spss.html'>foreign::read.spss</a></code>
         for reading sav files and function
-    <code><a href='https://www.rdocumentation.org/packages/sjlabelled/topics/write_spss'>sjlabelled::write_spss</a></code> for writing sav files).</p></td>
+    <code><a href='https://rdrr.io/pkg/sjlabelled/man/write_spss.html'>sjlabelled::write_spss</a></code> for writing sav files).</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Additional arguments to be passed to
-    <code><a href='https://www.rdocumentation.org/packages/base/topics/save'>base::save</a></code>,
-    <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.csv</a></code>,
-    <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.csv2</a></code>,
-    <code><a href='https://www.rdocumentation.org/packages/utils/topics/write.table'>utils::write.table</a></code>,
-    <code><a href='https://www.rdocumentation.org/packages/foreign/topics/read.spss'>foreign::read.spss</a></code>,
-    <code><a href='https://www.rdocumentation.org/packages/sjlabelled/topics/write_spss'>sjlabelled::write_spss</a></code></p></td>
+    <code><a href='https://rdrr.io/r/base/save.html'>base::save</a></code>,
+    <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.csv</a></code>,
+    <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.csv2</a></code>,
+    <code><a href='https://rdrr.io/r/utils/write.table.html'>utils::write.table</a></code>,
+    <code><a href='https://rdrr.io/pkg/foreign/man/read.spss.html'>foreign::read.spss</a></code>,
+    <code><a href='https://rdrr.io/pkg/sjlabelled/man/write_spss.html'>sjlabelled::write_spss</a></code></p></td>
     </tr>
     <tr>
       <th>filename</th>
@@ -200,186 +207,25 @@ is the working directory.</p></td>
       <td><p>Optional. File name for dataset with response data indicators</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Saved <span style="R">R</span> object and a summary in working directory or a loaded <span style="R">R</span> object.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>For creating objects of class <code>BIFIEdata</code> see <code><a href='BIFIE.data.html'>BIFIE.data</a></code>.</p>
-<p><code><a href='https://www.rdocumentation.org/packages/base/topics/save'>base::save</a></code>, <code><a href='https://www.rdocumentation.org/packages/base/topics/load'>base::load</a></code></p></div>
-    
+<p><code><a href='https://rdrr.io/r/base/save.html'>base::save</a></code>, <code><a href='https://rdrr.io/r/base/load.html'>base::load</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-#############################################################################
-# EXAMPLE 1: Saving and loading BIFIE data objects
-#############################################################################
-data(data.timss1)
-data(data.timssrep)
-
-bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt=data.timss1[[1]]$TOTWGT,
-                 wgtrep=data.timssrep[, -1 ] )
-summary(bifieobj)
-
-# save bifieobj in a compact way
-BIFIEsurvey::save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_cdata" )
-# save bifieobj in a non-compact way
-BIFIEsurvey::save.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_data", cdata=FALSE)
-
-# load this object with object name "bdat2"
-bdat2 <- BIFIEsurvey::load.BIFIEdata( filename="timss1_data.Rdata" )
-summary(bdat2)
-
-# save bifieobj with selected variables
-BIFIEsurvey::save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_cdata",
-                     varnames=bifieobj$varnames[ c(1:7,13,12,9) ] )
-# the same object, but use the non-compact way of saving
-BIFIEsurvey::save.BIFIEdata( bifieobj, name.BIFIEdata="timss1_selectvars_data", cdata=FALSE,
-                     varnames=bifieobj$varnames[ c(1:7,13,12,9) ] )
-
-# load object timss1_cdata (in compact data format)
-bdat3 <- BIFIEsurvey::load.BIFIEdata( filename="timss1_cdata.Rdata" )
-summary(bdat3)
-# save selected variables of object bdat3
-BIFIEsurvey::save.BIFIEdata( bdat3, name.BIFIEdata="timss1_selectvars2_cdata",
-                     varnames=bifieobj$varnames[ c(1:4,12,8) ] )
-
-#############################################################################
-# EXAMPLE 2: Writing BIFIEdata objects
-#############################################################################
-
-data(data.timss2)
-data(data.timssrep)
-
-# create compactBIFIEdata
-bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss2, wgt=data.timss2[[1]]$TOTWGT,
-                wgtrep=data.timssrep[, -1 ], cdata=TRUE)
-summary(bifieobj)
-
-# save imputed datasets in format csv2
-BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save1", type="csv2", row.names=FALSE)
-
-# save imputed datasets of BIFIEdata object in format table without column names
-# and code missings as "."
-BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save2", type="table",
-                  col.names=FALSE, row.names=FALSE, na="." )
-
-# save imputed datasets of  BIFIEdata object in format csv and select some variables
-# and only the first three datasets
-varnames <- c("IDSTUD","TOTWGT","female","books","lang","ASMMAT")
-BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save3", type="csv",
-                   impdata.index=1:3, varnames=varnames)
-
-# save imputed datasets of BIFIEdata object in format Rdata, the R binary format
-BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save4", type="Rdata"  )
-
-# save imputed datasets in sav (SPSS) format
-BIFIEsurvey::write.BIFIEdata( bifieobj, name.BIFIEdata="timss2_save5", type="sav" )
-
-#############################################################################
-# EXAMPLE 3: Loading BIFIEdata objects saved in separate files
-#                   (no indicator dataset)
-#############################################################################
-
-# We assume that Example 2 is applied and we build on the saved files
-# from this example.
-
-#***--- read Rdata format
-# extract files with imputed datasets and replicate weights
-files.imp <- miceadds::grep.vec( c("timss2_save4__IMP", ".Rdata" ),
-            list.files(getwd())  )$x
-file.wgtrep <- miceadds::grep.vec( c("timss2_save4__WGTREP", ".Rdata" ),
-            list.files(getwd())  )$x
-# select some variables in varnames
-varnames <- scan( nlines=1, what="character")
-   IDSTUD   TOTWGT books lang migrant likesc  ASMMAT
-
-# load files and create BIFIEdata object
-bifieobj1 <- BIFIEsurvey::load.BIFIEdata.files( files.imp, wgt="TOTWGT", file.wgtrep,
-                        type="Rdata", varnames=varnames )
-summary(bifieobj1)
-
-#***--- read csv2 format
-files.imp <- miceadds::grep.vec( c("timss2_save1__IMP", ".csv" ),
-                        list.files(getwd()) )$x
-file.wgtrep <- miceadds::grep.vec( c("timss2_save1__WGTREP", ".csv" ),
-                        list.files(getwd()) )$x
-bifieobj2 <- BIFIEsurvey::load.BIFIEdata.files( files.imp, wgt="TOTWGT",
-                    file.wgtrep, type="csv2" )
-summary(bifieobj2)
-
-#***--- read sav format
-files.imp <- miceadds::grep.vec( c("timss2_save5__IMP", ".sav" ),
-                        list.files(getwd()) )$x
-file.wgtrep <- miceadds::grep.vec( c("timss2_save5__WGTREP", ".sav" ),
-                        list.files(getwd()) )$x
-bifieobj3 <- BIFIEsurvey::load.BIFIEdata.files( files.imp, wgt="TOTWGT",
-                file.wgtrep, type="sav", to.data.frame=TRUE, use.value.labels=FALSE)
-summary(bifieobj3)
-
-#############################################################################
-# EXAMPLE 4: Loading BIFIEdata objects saved in separate files
-#                   (with an indicator dataset)
-#############################################################################
-
-data(data.timss1)
-data(data.timss1.ind)
-data(data.timssrep)
-
-# create BIFIEdata object at first
-bifieobj <- BIFIEsurvey::BIFIE.data( data.list=data.timss1, wgt="TOTWGT",
-            wgtrep=data.timssrep[, -1 ] )
-summary(bifieobj)
-
-#--- save datasets for the purpose of the following example
-write.BIFIEdata( BIFIEdata=bifieobj, name.BIFIEdata="timss1_ex", type="Rdata" )
-# save indicator dataset
-save( data.timss1.ind, file="timss1_ex__IND.Rdata" )
-
-# grep file names
-files.imp <- miceadds::grep.vec( c("timss1_ex__IMP", ".Rdata" ),
-                      list.files(getwd()) )$x
-file.wgtrep <- miceadds::grep.vec( c("timss1_ex__WGTREP", ".Rdata" ),
-                      list.files(getwd()) )$x
-file.ind <- miceadds::grep.vec( c("timss1_ex__IND", ".Rdata" ),
-                      list.files(getwd()) )$x
-# define variables for selection
-varnames <- c("IDSTUD","TOTWGT","female","books","lang","ASMMAT")
-# read files using indicator dataset
-bifieobj2 <- BIFIEsurvey::load.BIFIEdata.files( files.imp, wgt="TOTWGT",
-                  file.wgtrep=file.wgtrep, file.ind=file.ind, type="Rdata",
-                  varnames=varnames)
-summary(bifieobj2)
-
-# read files without indicator dataset
-bifieobj3 <- BIFIEsurvey::load.BIFIEdata.files( files.imp, wgt="TOTWGT",
-                file.wgtrep=file.wgtrep, type="Rdata", varnames=varnames)
-summary(bifieobj3)
-
-# compare some descriptive statistics
-res2 <- BIFIEsurvey::BIFIE.univar( bifieobj2, vars=c("books", "ASMMAT", "lang") )
-res3 <- BIFIEsurvey::BIFIE.univar( bifieobj3, vars=c("books", "ASMMAT", "lang") )
-summary(res2)
-summary(res3)
-# }
-</pre>
+    <pre class="examples"></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -387,13 +233,16 @@ summary(res3)
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

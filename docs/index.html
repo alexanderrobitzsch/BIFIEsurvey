@@ -6,9 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tools for Survey Statistics in Educational Assessment • BIFIEsurvey</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Tools for Survey Statistics in Educational Assessment">
 <meta property="og:description" content="
     Contains tools for survey statistics (especially in educational
@@ -29,13 +31,12 @@
     The package development was supported by BIFIE (Federal Institute for 
     Educational Research, Innovation and Development of the Austrian 
     School System; Salzburg, Austria).">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -48,7 +49,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">BIFIEsurvey</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.4.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.4-3</span>
       </span>
     </div>
 
@@ -56,7 +57,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -66,8 +67,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -80,6 +81,7 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="contents col-md-9">
 <div id="bifiesurvey" class="section level1">
@@ -88,12 +90,18 @@
 <div id="tools-for-survey-statistics-in-educational-assessment" class="section level4">
 <h4 class="hasAnchor">
 <a href="#tools-for-survey-statistics-in-educational-assessment" class="anchor"></a>Tools for Survey Statistics in Educational Assessment</h4>
-<p>If you use <code>BIFIEsurvey</code> and have suggestions for improvement or have found bugs, please email me at <a href="mailto:robitzsch@ipn.uni-kiel.de" class="email">robitzsch@ipn.uni-kiel.de</a>.</p>
+<p>If you use <code>BIFIEsurvey</code> and have suggestions for improvement or have found bugs, please email me at <script type="text/javascript">
+<!--
+h='&#108;&#x65;&#x69;&#98;&#110;&#x69;&#122;&#x2d;&#x69;&#112;&#110;&#46;&#100;&#x65;';a='&#64;';n='&#114;&#x6f;&#98;&#x69;&#116;&#122;&#x73;&#x63;&#104;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script></p>
+<noscript>robitzsch at leibniz-ipn dot de</noscript>.
 </div>
 <div id="manual" class="section level4">
 <h4 class="hasAnchor">
 <a href="#manual" class="anchor"></a>Manual</h4>
-<p>The manual may be found here <a href="https://alexanderrobitzsch.github.io/BIFIEsurvey/">https://alexanderrobitzsch.github.io/BIFIEsurvey/</a></p>
+<p>The manual may be found here <a href="https://alexanderrobitzsch.github.io/BIFIEsurvey/"></a><a href="https://alexanderrobitzsch.github.io/BIFIEsurvey/" class="uri">https://alexanderrobitzsch.github.io/BIFIEsurvey/</a></p>
 </div>
 <div id="cran-version" class="section level4">
 <h4 class="hasAnchor">
@@ -103,24 +111,24 @@
 &#160;&#160;
 -->
 <p>The official version of <code>BIFIEsurvey</code> is hosted on CRAN and may be found <a href="https://cran.r-project.org/package=BIFIEsurvey">here</a>. The CRAN version can be installed from within R using:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">utils<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"BIFIEsurvey"</span>)</a></code></pre></div>
+<pre class="r"><span class="kw pkg">utils</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BIFIEsurvey"</span>)</pre>
 </div>
 <div id="github-version" class="section level4">
 <h4 class="hasAnchor">
 <a href="#github-version" class="anchor"></a>GitHub version</h4>
 <p>The version hosted <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">here</a> is the development version of <code>BIFIEsurvey</code>. The GitHub version can be installed using <code>devtools</code> as:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"alexanderrobitzsch/BIFIEsurvey"</span>)</a></code></pre></div>
+<pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"alexanderrobitzsch/BIFIEsurvey"</span>)</pre>
 </div>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=BIFIEsurvey">https://​cloud.r-project.org/​package=BIFIEsurvey</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">https://​github.com/​alexanderrobitzsch/​BIFIEsurvey</a>
+<li>Browse source code at <br><a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">https://​github.com/​alexanderrobitzsch/​BIFIEsurvey/​</a>
 </li>
 </ul>
 </div>
@@ -146,17 +154,20 @@
   </div>
 </div>
 
+
       <footer><div class="copyright">
   <p>Developed by Alexander Robitzsch.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

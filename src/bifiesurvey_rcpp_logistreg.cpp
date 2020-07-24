@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_logistreg.cpp
-//// File Version: 0.23
+//// File Version: 0.25
 
 
 #include <RcppArmadillo.h>
@@ -28,6 +28,7 @@ Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::Nume
     int P=X.ncol();
     double t1=0;
     double minval_logit = -15; // minimum value for logit computation
+    double eps1=1e-8;
 
     //*** create matrices in Armadillo
     // design matrix X
@@ -71,11 +72,11 @@ Rcpp::List bifiesurvey_rcpp_logistreg_compute( Rcpp::NumericVector y, Rcpp::Nume
             if ( pred_logit(nn,0) < minval_logit ){
                 pred_logit(nn,0) = minval_logit;
             }
-            ypred(nn,0) = 1 / ( 1 + exp( - pred_logit(nn,0) ) );
+            ypred(nn,0) = 1 / ( 1 + std::exp( - pred_logit(nn,0) ) );
         }
         // calculate entries for A matrix and outcome z
         for (int nn=0;nn<N;nn++){
-            AM(nn,0) = ypred(nn,0) * ( 1 - ypred(nn,0) );
+            AM(nn,0) = ypred(nn,0) * ( 1 - ypred(nn,0) ) + eps1;
             wgta(nn,0) = std::sqrt( AM(nn,0) * wgt[nn] );
             z(nn,0) = pred_logit(nn,0) + ( ya(nn,0) - ypred(nn,0) )/AM(nn,0);
             z(nn,0) = wgta(nn,0) * z(nn,0);

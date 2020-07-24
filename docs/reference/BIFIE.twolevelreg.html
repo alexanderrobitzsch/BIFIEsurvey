@@ -8,21 +8,29 @@
 
 <title>Two Level Regression — BIFIE.twolevelreg • BIFIEsurvey</title>
 
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<!-- jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,13 +38,13 @@
 
 
 
-<meta property="og:title" content="Two Level Regression — BIFIE.twolevelreg" />
 
+<meta property="og:title" content="Two Level Regression — BIFIE.twolevelreg" />
 <meta property="og:description" content="This function computes the hierarchical two level model with
 random intercepts and random slopes. The full maximum
 likelihood estimation is conducted by means of an
 EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -50,9 +58,10 @@ EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +83,7 @@ EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,11 +91,10 @@ EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/alexanderrobitzsch/BIFIEsurvey/">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,6 +105,7 @@ EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -108,12 +117,10 @@ EM algorithm (Raudenbush &amp;amp; Bryk, 2002)." />
     </div>
 
     <div class="ref-description">
-    
     <p>This function computes the hierarchical two level model with
 random intercepts and random slopes. The full maximum
 likelihood estimation is conducted by means of an
 EM algorithm (Raudenbush &amp; Bryk, 2002).</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>BIFIE.twolevelreg</span>( <span class='no'>BIFIEobj</span>, <span class='no'>dep</span>, <span class='no'>formula.fixed</span>, <span class='no'>formula.random</span>, <span class='no'>idcluster</span>,
@@ -121,14 +128,14 @@ EM algorithm (Raudenbush &amp; Bryk, 2002).</p>
    <span class='kw'>recov_constraint</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>se</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>globconv</span><span class='kw'>=</span><span class='fl'>1E-6</span>, <span class='kw'>maxiter</span><span class='kw'>=</span><span class='fl'>1000</span> )
 
 <span class='co'># S3 method for BIFIE.twolevelreg</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>object</span>,<span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>,<span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>object</span>,<span class='kw'>digits</span><span class='kw'>=</span><span class='fl'>4</span>,<span class='no'>...</span>)
 
 <span class='co'># S3 method for BIFIE.twolevelreg</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/coef'>coef</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)
 
 <span class='co'># S3 method for BIFIE.twolevelreg</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/vcov'>vcov</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/stats/vcov.html'>vcov</a></span>(<span class='no'>object</span>,<span class='no'>...</span>)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -205,11 +212,11 @@ the assumption of random sampling of level 2 clusters.</p></td>
       <td><p>Number of digits for rounding output</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Further arguments to be passed</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The implemented random slope model can be written as
@@ -227,16 +234,14 @@ matrices \(\bold{X}\) and \(\bold{Z}\). It is assumed that
 \( \bold{X}_{ij}=\bold{X}_j^B + \bold{X}_{ij}^W\).
 The different sources of variance are computed by formulas as
 proposed in Snijders and Bosker (2012, Ch. 7).</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list with following entries</p>
 <dt>stat</dt><dd><p>Data frame with coefficients and different sources
  of variance.</p></dd>
  <dt>output</dt><dd><p>Extensive output with all replicated statistics</p></dd>
- <dt>&#8230;</dt><dd><p>More values</p></dd>
+ <dt>...</dt><dd><p>More values</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Raudenbush, S. W., &amp; Bryk, A. S. (2002).
@@ -245,173 +250,23 @@ Thousand Oaks: Sage.</p>
 <p>Snijders, T. A. B., &amp; Bosker, R. J. (2012).
 <em>Multilevel analysis: An introduction to basic and advanced multilevel
 modeling</em>. Thousand Oaks: Sage.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>The <code><a href='https://www.rdocumentation.org/packages/lme4/topics/lmer'>lme4::lmer</a></code> function in the <span class="pkg">lme4</span> package allows only
+    <div class='dont-index'><p>The <code><a href='https://rdrr.io/pkg/lme4/man/lmer.html'>lme4::lmer</a></code> function in the <span class="pkg">lme4</span> package allows only
 weights at the first level.</p>
 <p>See the <span class="pkg">WeMix</span> package (and the function <code>WeMix::mix</code>) for estimation of
 mixed effects models with weights at different levels.</p></div>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-library(lme4)
-
-#############################################################################
-# EXAMPLE 1: Dataset data.bifie01 | TIMSS 2011
-#############################################################################
-
-data(data.bifie01)
-dat <- data.bifie01
-set.seed(987)
-
-# create dataset with replicate weights and plausible values
-bdat1 <- BIFIEsurvey::BIFIE.data.jack( data=dat, jktype="JK_TIMSS", jkzone="JKCZONE",
-            jkrep="JKCREP", wgt="TOTWGT", pv_vars=c("ASMMAT","ASSSCI") )
-
-# create dataset without plausible values and ignoring weights
-bdat2 <- BIFIEsurvey::BIFIE.data.jack( data=dat, jktype="JK_RANDOM", ngr=10 )
-#=> standard errors from ML estimation
-
-#***********************************************
-# Model 1: Random intercept model
-
-#--- Model 1a: without weights, first plausible value
-mod1a <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat2, dep="ASMMAT01",
-                formula.fixed=~ 1, formula.random=~ 1, idcluster="idschool",
-                wgtlevel2="one", se=FALSE )
-summary(mod1a)
-
-#--- Model 1b: estimation in lme4
-mod1b <- lme4::lmer( ASMMAT01 ~ 1 + ( 1 | idschool), data=dat, REML=FALSE)
-summary(mod1b)
-
-#--- Model 1c: Like Model 1a but for five plausible values and ML inference
-mod1c <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat1, dep="ASMMAT",
-                formula.fixed=~ 1, formula.random=~ 1, idcluster="idschool",
-                wgtlevel2="one",  se=FALSE )
-summary(mod1c)
-
-#--- Model 1d: weights and sampling design and all plausible values
-mod1d <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat1, dep="ASMMAT",
-                formula.fixed=~ 1, formula.random=~ 1, idcluster="idschool",
-                wgtlevel2="SCHWGT" )
-summary(mod1d)
-
-#***********************************************
-# Model 2: Random slope model
-
-#--- Model 2a: without weights
-mod2a <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat2, dep="ASMMAT01",
-                formula.fixed=~  female +  ASBG06A, formula.random=~ ASBG06A,
-                idcluster="idschool", wgtlevel2="one",  se=FALSE )
-summary(mod2a)
-
-#--- Model 2b: estimation in lme4
-mod2b <- lme4::lmer( ASMMAT01 ~ female +  ASBG06A + ( 1 + ASBG06A | idschool),
-                   data=dat, REML=FALSE)
-summary(mod2b)
-
-#--- Model 2c: weights and sampling design and all plausible values
-mod2c <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat1, dep="ASMMAT",
-                formula.fixed=~  female +  ASBG06A, formula.random=~ ASBG06A,
-                idcluster="idschool", wgtlevel2="SCHWGT", maxiter=500, se=FALSE)
-summary(mod2c)
-
-#--- Model 2d: Uncorrelated intecepts and slopes
-
-# constraint for zero covariance between intercept and slope
-recov_constraint <- matrix( c(1,2,0), ncol=3 )
-mod2d <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat2, dep="ASMMAT01",
-                formula.fixed=~ female +  ASBG06A, formula.random=~ ASBG06A,
-                idcluster="idschool", wgtlevel2="one",  se=FALSE,
-                recov_constraint=recov_constraint )
-summary(mod2d)
-
-#--- Model 2e: Fixed entries in the random effects covariance matrix
-
-# two constraints for random effects covariance
-# Cov(Int, Slo)=0  # zero slope for intercept and slope
-# Var(Slo)=10      # slope variance of 10
-recov_constraint <- matrix( c(1,2,0,
-                      2,2,10), ncol=3, byrow=TRUE)
-mod2e <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat2, dep="ASMMAT01",
-                formula.fixed=~  female +  ASBG06A, formula.random=~ ASBG06A,
-                idcluster="idschool", wgtlevel2="one",  se=FALSE,
-                recov_constraint=recov_constraint )
-summary(mod2e)
-
-#############################################################################
-# SIMULATED EXAMPLE 2: Two-level regression with random slopes
-#############################################################################
-
-#--- (1) simulate data
-set.seed(9876)
-NC <- 100    # number of clusters
-Nj <- 20     # number of persons per cluster
-iccx <- .4   # intra-class correlation predictor
-theta <- c( 0.7, .3 )    # fixed effects
-Tmat <- diag( c(.3, .1 ) ) # variances of random intercept and slope
-sig2 <- .60    # residual variance
-N <- NC*Nj
-idcluster <- rep( 1:NC, each=Nj )
-dat1 <- data.frame("idcluster"=idcluster )
-dat1$X <- rep( stats::rnorm( NC, sd=sqrt(iccx) ), each=Nj ) +
-                 stats::rnorm( N, sd=sqrt( 1 - iccx) )
-dat1$Y <- theta[1] + rep( stats::rnorm(NC, sd=sqrt(Tmat[1,1] ) ), each=Nj ) +
-      theta[2] + rep( stats::rnorm(NC, sd=sqrt(Tmat[2,2])), each=Nj )) * dat1$X +
-      stats::rnorm(N, sd=sqrt(sig2) )
-
-#--- (2) create design object
-bdat1 <- BIFIEsurvey::BIFIE.data.jack( data=dat1, jktype="JK_GROUP", jkzone="idcluster")
-summary(bdat1)
-
-#*** Model 1: Random slope model (ML standard errors)
-
-#- estimation using BIFIE.twolevelreg
-mod1a <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat1, dep="Y",
-                formula.fixed=~ 1+X, formula.random=~ 1+X, idcluster="idcluster",
-                wgtlevel2="one",  se=FALSE )
-summary(mod1a)
-
-#- estimation in lme4
-mod1b <- lme4::lmer( Y ~ X + ( 1+X | idcluster), data=dat1, REML=FALSE  )
-summary(mod1b)
-
-#- using Jackknife for inference
-mod1c <- BIFIEsurvey::BIFIE.twolevelreg( BIFIEobj=bdat1, dep="Y",
-                formula.fixed=~ 1+X, formula.random=~ 1+X, idcluster="idcluster",
-                wgtlevel2="one",  se=TRUE )
-summary(mod1c)
-
-# extract coefficients
-coef(mod1a)
-coef(mod1c)
-# covariance matrix
-vcov(mod1a)
-vcov(mod1c)
-# }
-</pre>
+    <pre class="examples"></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -419,13 +274,16 @@ vcov(mod1c)
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

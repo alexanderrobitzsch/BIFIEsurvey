@@ -2,7 +2,7 @@
 #### Tools for Survey Statistics in Educational Assessment
 
 
-If you use `BIFIEsurvey` and have suggestions for improvement or have found bugs, please email me at robitzsch@ipn.uni-kiel.de.
+If you use `BIFIEsurvey` and have suggestions for improvement or have found bugs, please email me at robitzsch@leibniz-ipn.de.
 
 #### Manual
 
@@ -22,9 +22,9 @@ The CRAN version can be installed from within R using:
 utils::install.packages("BIFIEsurvey")
 ```
 
-#### GitHub version `BIFIEsurvey` 3.4-1 (2019-06-12)
+#### GitHub version `BIFIEsurvey` 3.4-3 (2020-07-24)
 
-[![](https://img.shields.io/badge/github%20version-3.4--1-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
+[![](https://img.shields.io/badge/github%20version-3.4--3-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
 
 The version hosted [here](https://github.com/alexanderrobitzsch/BIFIEsurvey) is the development version of `BIFIEsurvey`. 
 The GitHub version can be installed using `devtools` as:
