@@ -1,5 +1,5 @@
 ## File Name: BIFIE.data.R
-## File Version: 1.471
+## File Version: 1.473
 
 
 # Convert a list of multiply imputed datasets into an object of class BIFIEdata

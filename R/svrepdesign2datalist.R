@@ -1,9 +1,9 @@
 ## File Name: svrepdesign2datalist.R
-## File Version: 0.07
+## File Version: 0.081
 
 svrepdesign2datalist <- function(svrepdesign, varnames=NULL)
 {
-    if (class(svrepdesign)=="svyimputationList"){
+    if (inherits(svrepdesign,"svyimputationList")){
         datalist <- list()
         designs <- svrepdesign$designs
         Nimp <- length(designs)
@@ -15,7 +15,7 @@ svrepdesign2datalist <- function(svrepdesign, varnames=NULL)
             datalist[[ii]] <- data_ii[,varnames, drop=FALSE]
         }
     }
-    if (class(svrepdesign)=="svyrep.design"){
+    if (inherits(svrepdesign,"svyrep.design")){
         if (is.null(varnames)){
             varnames <- setdiff( colnames(svrepdesign$variables), "one")
         }

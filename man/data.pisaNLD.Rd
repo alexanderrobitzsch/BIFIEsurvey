@@ -1,5 +1,5 @@
 %% File Name: data.pisaNLD.Rd
-%% File Version: 0.20
+%% File Version: 0.222
 
 \name{data.pisaNLD}
 \alias{data.pisaNLD}
@@ -28,13 +28,14 @@ which is a part of the Dutch PISA 2006 data.
 %}
 
 \source{
-Downloaded from \url{http://www.jstatsoft.org/v20/i05/}
+Downloaded from \doi{10.18637/jss.v020.i05} (Fox, 2007).
 }
 
 
-%\references{
-%%  ~~ possibly secondary sources and usages ~~
-%}
+\references{
+Fox, J.-P. (2007). Multilevel IRT Modeling in practice with the package mlirt.
+\emph{Journal of Statistical Software, 20}(5), 1-16. \doi{10.18637/jss.v020.i05}
+}
 
 \examples{
 \dontrun{

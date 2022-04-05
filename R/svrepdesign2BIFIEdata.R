@@ -1,11 +1,11 @@
 ## File Name: svrepdesign2BIFIEdata.R
-## File Version: 0.256
+## File Version: 0.261
 
 
 svrepdesign2BIFIEdata <- function(svrepdesign, varnames=NULL, cdata=FALSE)
 {
     ## class svyrep.design
-    if (class(svrepdesign)=="svyrep.design"){
+    if (inherits(svrepdesign,"svyrep.design")){
         res <- svrepdesign_extract_data(svrepdesign=svrepdesign, varnames=varnames)
         wgt <- res$wgt
         wgtrep <- res$wgtrep
@@ -16,7 +16,7 @@ svrepdesign2BIFIEdata <- function(svrepdesign, varnames=NULL, cdata=FALSE)
         datalist <- data[, varnames, drop=FALSE]
     }
     ## class svyimputationList
-    if (class(svrepdesign)=="svyimputationList"){
+    if (inherits(svrepdesign,"svyimputationList")){
         designs <- svrepdesign$designs
         Nimp <- length(designs)
         svrepdesign0 <- designs[[1]]

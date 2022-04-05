@@ -1,8 +1,8 @@
 ## File Name: vcov.BIFIE.survey.R
-## File Version: 0.28
+## File Version: 0.294
 
-####################################################
-# vcov.BIFIEsurvey
+
+#--- vcov.BIFIEsurvey
 vcov.BIFIEsurvey <- function( object, type=NULL, eps=1E-10, avoid.singul=FALSE )
 {
     # extract replicated parameters
@@ -13,11 +13,10 @@ vcov.BIFIEsurvey <- function( object, type=NULL, eps=1E-10, avoid.singul=FALSE )
     parsrepM <- parsres$parsrepM
     parnames <- parsres$parnames
     RR <- object$RR
-    # avoid.singul <- FALSE
-    if ( ( class(object)=="BIFIE.correl" ) & is.null(type) ){
+    if ( inherits(object,"BIFIE.correl") & is.null(type) ){
         avoid.singul <- TRUE
     }
-    if ( ( class(object) %in% c("BIFIE.freq", "BIFIE.crosstab") )  ){
+    if ( inherits(object, c("BIFIE.freq", "BIFIE.crosstab") )  ){
         avoid.singul <- TRUE
     }
     if ( avoid.singul ){
@@ -44,7 +43,7 @@ vcov.BIFIEsurvey <- function( object, type=NULL, eps=1E-10, avoid.singul=FALSE )
     }
     return(var_tot)
 }
-#########################################################
+
 vcov.BIFIE.correl <- function( object, type=NULL, ... )
 {
     pars <- vcov.BIFIEsurvey( object=object, type=type, ... )

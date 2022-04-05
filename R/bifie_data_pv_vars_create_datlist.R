@@ -1,5 +1,5 @@
 ## File Name: BIFIE_data_pv_vars_create_datlist.R
-## File Version: 0.11
+## File Version: 0.131
 
 BIFIE_data_pv_vars_create_datlist <- function(pvpre, pv_vars, jktype, data)
 {
@@ -8,9 +8,10 @@ BIFIE_data_pv_vars_create_datlist <- function(pvpre, pv_vars, jktype, data)
     for (vv in 1:VV){
         vv1 <- pv_vars[vv]
         if (jktype !="RW_PISA"){
-            ind.vv1 <- which( substring( colnames(data), 1, nchar( vv1 ) )==pv_vars[vv] )
+            # ind.vv1 <- which( substring( colnames(data), 1, nchar(vv1) )==vv1 )
+            ind.vv1 <- grep(vv1, colnames(data))
         } else {
-            varsel <- paste0( pvpre, vv1    )
+            varsel <- paste0( pvpre, vv1)
             ind.vv1 <- which( colnames(data) %in% varsel )
         }
         Nimp <- length(ind.vv1)

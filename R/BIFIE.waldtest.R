@@ -1,5 +1,5 @@
 ## File Name: BIFIE.waldtest.R
-## File Version: 1.309
+## File Version: 1.311
 
 
 #***** BIFIE Wald test
@@ -20,7 +20,7 @@ BIFIE.waldtest <- function( BIFIE.method, Cdes=NULL, rdes=NULL, type=NULL )
     RR <- BIFIE.method$RR
 
     #--- class derivedParameters
-    if (is.null(Cdes) & (class(BIFIE.method)=="BIFIE.derivedParameters") ){
+    if (is.null(Cdes) & (inherits(BIFIE.method,"BIFIE.derivedParameters")) ){
         res <- extract.replicated.pars(BIFIE.method=BIFIE.method)
         parsM <- res$parsM
         np <- nrow(parsM)

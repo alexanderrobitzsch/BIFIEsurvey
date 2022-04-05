@@ -1,5 +1,5 @@
 ## File Name: BIFIE.lavaan.survey.R
-## File Version: 0.641
+## File Version: 0.642
 
 
 BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
@@ -17,7 +17,7 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
     NMI <- FALSE
     Nimp_NMI <- NULL
     variables <- NULL
-    if ( class(svyrepdes)=="svyrep.design" ){
+    if ( inherits(svyrepdes,"svyrep.design") ){
         svyrepdes0 <- svyrepdes
         data0 <- as.data.frame(svyrepdes$variables)
         Nimp <- 1
@@ -26,7 +26,7 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
         RR <- ncol(svyrepdes0$repweights)
         is_survey_design <- TRUE
     }
-    if ( class(svyrepdes)=="svyimputationList"){
+    if ( inherits(svyrepdes,"svyimputationList") ){
         svyrepdes0 <- svyrepdes$designs[[1]]
         data0 <- as.data.frame(svyrepdes0$variables)
         Nimp <- length(svyrepdes$designs)
@@ -34,7 +34,7 @@ BIFIE.lavaan.survey <- function(lavmodel, svyrepdes, lavaan_fun="sem",
         RR <- ncol(svyrepdes0$repweights)
         is_survey_design <- TRUE
     }
-    if ( class(svyrepdes)=="BIFIEdata"){
+    if ( inherits(svyrepdes,"BIFIEdata") ){
         data0 <- svyrepdes$dat1
         Nimp <- svyrepdes$Nimp
         fayfac <- svyrepdes$fayfac

@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_helper.cpp
-//// File Version: 7.502
+//// File Version: 7.504
 
 
 // [[Rcpp::depends(RcppArmadillo)]]
@@ -577,7 +577,7 @@ Rcpp::List bifiehelpers_crosstab( Rcpp::NumericMatrix dat1, Rcpp::NumericMatrix 
     if ( dat1( nn, group_index ) == group_values[gg] ){  // beg if groupval gg
     for (int vv1=0;vv1<VV1;vv1++){   // beg vv1
        for (int vv2=0;vv2<VV2;vv2++){    // beg vv2
-          if ( ( dat1(nn, vars_index1[0]) == vars_values1[vv1] ) &
+          if ( ( dat1(nn, vars_index1[0]) == vars_values1[vv1] ) &&
                ( dat1(nn, vars_index2[0]) == vars_values2[vv2] ) ){  // beg if comb
             ncases( vv2 + vv1*VV2 + gg*VV1*VV2, 0 ) ++;
             for (int ww=0;ww<WW;ww++){  // beg ww
@@ -1016,7 +1016,7 @@ Rcpp::NumericVector bifie_helper_ecdf( Rcpp::NumericMatrix dat1,
     uu=0;
     bb=0;
     MM=0;
-    while ( ( bb < BB ) & ( ! ( uu >= ngg ) ) ){
+    while ( ( bb < BB ) && ( ! ( uu >= ngg ) ) ){
         if ( a1(uu,1) > breaks[bb] ){
            if (quanttype==1){
             ecdf_temp[bb] = a1(uu,2) + ( a1(uu,3) - a1(uu,2) ) *
@@ -1211,13 +1211,13 @@ Rcpp::List mla2_decomp( Rcpp::NumericMatrix V,
         }
          }
     //--- estimation variance components
-        double eps0 = Ntot * 1E-10;
+    double eps0 = Ntot * 1E-10;
     for (int ii=0;ii<NV;ii++){
     for (int hh=0;hh<NV;hh++){
         Sigma_W(ii,hh) = MSE(ii,hh);
         Sigma_B(ii,hh) = ( MSA(ii,hh) - MSE(ii,hh) ) *
          ( Gtot - 1.0 ) / ( Ntot - sumng2 / ( Ntot + eps0 ) );
-        if ( ( MSA(hh,hh) < eps0 ) | ( MSA(ii,ii) < eps0 ) ){
+        if ( ( MSA(hh,hh) < eps0 ) || ( MSA(ii,ii) < eps0 ) ){
                 Sigma_B(ii,hh) = 0;
                                 }
                 }
@@ -1280,7 +1280,7 @@ Rcpp::NumericVector mla2_checkconv( arma::mat theta, arma::mat theta0,
                 }
     Rcpp::NumericVector absval3(1);
     absval3[0] = absval;
-    return(absval3 );
+    return(absval3);
 }
 //**********************************************************
 
@@ -1484,7 +1484,7 @@ Rcpp::NumericMatrix create_idclustertable( Rcpp::NumericVector group,
 {
     int N = group.size();
     Rcpp::NumericMatrix idcluster_table2(NC,4);
-    double cl=-99999;
+    double cl=-99999.0;
     int jj=-1;
     for (int nn=0;nn<N;nn++){
         if ( cluster[nn] > cl ){
@@ -1526,7 +1526,7 @@ Rcpp::NumericVector rescale_lev1weights( Rcpp::NumericMatrix idcluster_table,
 
 
 //**********************************************************
-// E and M step of the algorithm
+// E- and M-step of the algorithm for the two-level model
 Rcpp::List mla2_emsteps( Rcpp::NumericMatrix X, Rcpp::NumericMatrix Z,
     Rcpp::NumericMatrix idcluster_table, arma::mat Tmat,
     arma::mat Xa, arma::mat theta, Rcpp::NumericVector y,
@@ -1926,7 +1926,7 @@ Rcpp::List bifie_mla2_estimation( arma::mat theta_init, arma::mat Tmat_init,
     Rcpp::List res2;
 
   //***************************** start algorithm
-   while ( ( absval > globconv ) & ( iter < maxiter ) ){
+   while ( ( absval > globconv ) && ( iter < maxiter ) ){
 
     // define previous solutions
     sig20(0,0) = sig2(0,0);

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.survey.R
-## File Version: 0.226
+## File Version: 0.228
 
 BIFIE.survey <- function(svyrepdes, survey.function, ...)
 {
@@ -8,7 +8,7 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
     NMI <- FALSE
     Nimp_NMI <- NULL
     svrepdes <- svyrepdes
-    if ( class(svyrepdes)=="BIFIEdata"){
+    if ( inherits(svyrepdes,"BIFIEdata") ){
         data0 <- svyrepdes$dat1
         N <- nrow(data0)
         Nimp <- svyrepdes$Nimp
@@ -24,14 +24,14 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
         for (vv in c("formula", "x")){
             if ( vv %in% names(args)){
                 args_vv <- args[[vv]]
-                if (class(args_vv)=="formula"){
+                if (inherits(args_vv,"formula") ){
                     variables <- all.vars(args_vv)
                 }
             }
         }
         datalist <- BIFIE.BIFIEdata2datalist( bifieobj=svyrepdes, varnames=variables)
     }
-    if ( class(svyrepdes)=="svyimputationList"){
+    if ( inherits(svyrepdes,"svyimputationList") ){
         res <- svrepdesign_extract_data(svrepdesign=svrepdes$designs[[1]])
         N <- res$N
         RR <- res$RR
@@ -40,15 +40,15 @@ BIFIE.survey <- function(svyrepdes, survey.function, ...)
     }
 
     #* loop over imputations
-    if ( class(svyrepdes) %in% c("BIFIEdata", "svyimputationList") ){
+    if ( inherits(svyrepdes, c("BIFIEdata", "svyimputationList") ) ){
         res <- list()
         svyrep_ii <- NULL
         for (ii in 1:Nimp){
-            if ( class(svyrepdes)=="BIFIEdata"){
+            if ( inherits(svyrepdes,"BIFIEdata") ){
                 svyrep_ii <- BIFIE_lavaan_survey_extract_dataset( svyrepdes=svyrepdes,
                                     ii=ii, variables=NULL, svyrepdes0=svyrep_ii, datalist=datalist)
             }
-            if ( class(svyrepdes)=="svyimputationList"){
+            if ( inherits(svyrepdes,"svyimputationList") ){
                 svyrep_ii <- svrepdes$designs[[ii]]
             }
             args <- list(...)

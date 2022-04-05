@@ -1,5 +1,5 @@
 %% File Name: BIFIE.data.jack.Rd
-%% File Version: 0.33
+%% File Version: 0.34
 
 \name{BIFIE.data.jack}
 \alias{BIFIE.data.jack}
@@ -39,7 +39,7 @@ Type of jackknife procedure for creating the \code{BIFIE.data} object.
 \code{jktype="JK_TIMSS2"} refers to TIMSS/PIRLS datasets starting from 2015 data. The type
 \code{"JK_GROUP"} creates jackknife weights based on a user defined
 grouping, the type \code{"JK_RANDOM"} creates random groups. The number
-of random groups can be defined in \code{ngr}. The argument \code{type="RW_PISA"}
+of random groups can be defined in \code{ngr}. The argument \code{jktype="RW_PISA"}
 converts PISA datasets into objects of class \code{BIFIEdata}.
 }
   \item{jkzone}{

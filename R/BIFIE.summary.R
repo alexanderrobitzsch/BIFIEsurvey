@@ -1,18 +1,18 @@
 ## File Name: BIFIE.summary.R
-## File Version: 0.22
+## File Version: 0.231
 
 BIFIE.summary <- function(object, print.time=TRUE)
 {
     cat("------------------------------------------------------------\n")
     BIFIE_print_package_description(pack="BIFIEsurvey")
-    if ( class(object)=="BIFIE.lavaan.survey" ){
+    if ( inherits(object,"BIFIE.lavaan.survey") ){
         BIFIE_print_package_description(pack="lavaan")
         BIFIE_print_package_description(pack="lavaan.survey")
     }
 
     #* function
     cat( paste0("\nFunction '", class(object) ) )
-    if ( class(object)=="BIFIE.waldtest" ){
+    if ( inherits(object,"BIFIE.waldtest") ){
         cat( paste0( "' for BIFIE method '", object$class.BIFIE.method ) )
     }
     cat("'" )
