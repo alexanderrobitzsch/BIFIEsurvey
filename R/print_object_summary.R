@@ -1,7 +1,7 @@
-## File Name: print.object.summary.R
-## File Version: 0.13
+## File Name: print_object_summary.R
+## File Version: 0.161
 
-print.object.summary <- function( obji, digits )
+print_object_summary <- function( obji, digits)
 {
     V <- ncol(obji)
     for (vv in 1L:V){

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.pathmodel.R
-## File Version: 1.319
+## File Version: 1.321
 
 
 #--- path model
@@ -281,5 +281,5 @@ summary.BIFIE.pathmodel <- function( object, digits=4, ... )
     # estimated parameters
     cat("Statistical Inference for Path Model \n\n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

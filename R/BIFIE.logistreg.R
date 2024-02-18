@@ -1,5 +1,5 @@
 ## File Name: BIFIE.logistreg.R
-## File Version: 0.434
+## File Version: 0.435
 
 
 #-- logistic regression
@@ -137,5 +137,5 @@ summary.BIFIE.logistreg <- function( object, digits=4, ... )
     BIFIE.summary(object)
     cat("Statistical Inference for Logistic Regression \n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

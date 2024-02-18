@@ -1,5 +1,5 @@
 %% File Name: BIFIE.pathmodel.Rd
-%% File Version: 0.21
+%% File Version: 0.224
 
 \name{BIFIE.pathmodel}
 \alias{BIFIE.pathmodel}
@@ -106,7 +106,7 @@ Buonaccorsi, J. P. (2010).
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See the \pkg{lavaan} and \pkg{lavaan.survey} package.
+See the \pkg{lavaan} and \bold{lavaan.survey} package.
 
 For the \code{lavaan} syntax, see
 \code{\link[lavaan:lavaanify]{lavaan::lavaanify}} and

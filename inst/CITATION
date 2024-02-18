@@ -3,9 +3,9 @@ citHeader("To cite the 'BIFIEsurvey' package in publications use:")
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
 
-citEntry(entry="Manual",
+bibentry(bibtype="Manual",
          title = "BIFIEsurvey: Tools for survey statistics in educational assessment",
-         author = personList( as.person("BIFIE"),
+         author = c( as.person("BIFIE"),
                    person(given = "Alexander", family = "Robitzsch"),
                    person(given = "Konrad", family = "Oberwimmer")
                           ),

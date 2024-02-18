@@ -1,5 +1,5 @@
 ## File Name: BIFIE.mva.R
-## File Version: 0.32
+## File Version: 0.331
 
 
 #######################################################################
@@ -154,5 +154,5 @@ summary.BIFIE.mva <- function( object, digits=4, ... )
     BIFIE.summary(object)
     cat("Missing Value Analysis \n")
     obji <- object$stat.mva
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.correl.R
-## File Version: 0.46
+## File Version: 0.471
 
 
 #######################################################################
@@ -222,11 +222,12 @@ BIFIE.correl <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE
 
 ####################################################################################
 # summary for BIFIE.correl function
-summary.BIFIE.correl <- function( object, digits=4, ... ){
+summary.BIFIE.correl <- function( object, digits=4, ... )
+{
     BIFIE.summary(object)
     cat("Statistical Inference for Correlations \n")
     obji <- object$stat.cor
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
     cat("\nCorrelation Matrices \n\n")
     obji <- object$cor_matrix
     GG <- object$GG
@@ -234,5 +235,4 @@ summary.BIFIE.correl <- function( object, digits=4, ... ){
         obji[[gg]] <- round( obji[[gg]], digits=digits)
                 }
     print(obji)
-#    print.object.summary( obji, digits=digits )
-            }
+}

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.univar.R
-## File Version: 1.842
+## File Version: 1.844
 
 
 #--- univariate statistics
@@ -228,8 +228,8 @@ summary.BIFIE.univar <- function( object, digits=3, ... )
     BIFIE.summary(object)
     cat("Univariate Statistics | Means\n")
     obji <- object$stat_M
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
     cat("\nUnivariate Statistics | Standard Deviations\n")
     obji <- object$stat_SD
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

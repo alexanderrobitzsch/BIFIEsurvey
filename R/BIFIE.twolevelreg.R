@@ -1,5 +1,5 @@
 ## File Name: BIFIE.twolevelreg.R
-## File Version: 0.581
+## File Version: 0.583
 
 #--- BIFIE.twolevelreg
 BIFIE.twolevelreg <- function( BIFIEobj, dep, formula.fixed, formula.random,
@@ -264,5 +264,5 @@ summary.BIFIE.twolevelreg <- function( object, digits=4, ... )
     cat("Statistical Inference for Two-Level Linear Regression \n\n")
     obji <- object$stat
     rownames(obji) <- NULL
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

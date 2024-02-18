@@ -1,5 +1,5 @@
 ## File Name: BIFIE.univar.test.R
-## File Version: 0.46
+## File Version: 0.471
 
 
 #######################################################################
@@ -178,12 +178,12 @@ summary.BIFIE.univar.test <- function( object, digits=4, ... )
     if ( object$wald_test ){
         cat("F Test (ANOVA) \n")
         obji <- object$stat.F
-        print.object.summary( obji, digits=digits )
+        print_object_summary( obji, digits=digits )
     }
     cat("\nEta Squared \n")
     obji <- object$stat.eta
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
     cat("\nCohen's d Statistic \n")
     obji <- object$stat.dstat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

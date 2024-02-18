@@ -1,5 +1,5 @@
 ## File Name: BIFIE.linreg.R
-## File Version: 0.584
+## File Version: 0.586
 
 
 #--- Linear regression
@@ -142,5 +142,5 @@ summary.BIFIE.linreg <- function( object, digits=4, ... )
     BIFIE.summary(object)
     cat("Statistical Inference for Linear Regression \n\n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

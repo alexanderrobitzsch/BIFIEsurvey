@@ -1,5 +1,5 @@
 %% File Name: BIFIEsurvey-package.Rd
-%% File Version: 1.021
+%% File Version: 1.025
 
 \name{BIFIEsurvey-package}
 \alias{BIFIEsurvey-package}
@@ -100,7 +100,7 @@ Shao, J. (1996). Invited discussion paper: Resampling methods in sample surveys.
 \keyword{package}
 \seealso{
 See also the \pkg{survey}, \pkg{intsvy}, \pkg{EdSurvey},
-\pkg{lavaan.survey}, \pkg{EVER} and
+\bold{lavaan.survey}, \pkg{EVER} and
 the \pkg{eatRep} packages.
 }
 

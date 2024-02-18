@@ -1,5 +1,5 @@
 ## File Name: BIFIE.freq.R
-## File Version: 0.52
+## File Version: 0.531
 
 
 #######################################################################
@@ -158,9 +158,10 @@ BIFIE.freq <- function( BIFIEobj, vars, group=NULL, group_values=NULL, se=TRUE )
 ####################################################################################
 # summary for BIFIE.freq function
 
-summary.BIFIE.freq <- function( object, digits=3, ... ){
+summary.BIFIE.freq <- function( object, digits=3, ... )
+{
     BIFIE.summary(object)
     cat("Relative Frequencies \n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
-            }
+    print_object_summary( obji, digits=digits )
+}

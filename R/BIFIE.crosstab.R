@@ -1,5 +1,5 @@
 ## File Name: BIFIE.crosstab.R
-## File Version: 0.43
+## File Version: 0.441
 
 
 #######################################################################
@@ -284,11 +284,11 @@ summary.BIFIE.crosstab <- function( object, digits=3, ... )
     BIFIE.summary(object)
     cat("Joint and Conditional Probabilities\n")
     obji <- object$stat.probs
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
     cat("\nMarginal Probabilities\n")
     obji <- object$stat.marg
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
     cat("\nEffect Sizes\n")
     obji <- object$stat.es
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

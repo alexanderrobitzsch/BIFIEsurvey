@@ -1,5 +1,5 @@
 ## File Name: BIFIE.derivedParameters.R
-## File Version: 0.385
+## File Version: 0.386
 
 
 #--- statistical inference for derived parameters
@@ -112,7 +112,7 @@ summary.BIFIE.derivedParameters <- function( object, digits=4, ... )
     }
     cat("\nStatistical Inference for Derived Parameters \n\n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 
     #- Wald test
     cat("\n")

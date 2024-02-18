@@ -1,10 +1,10 @@
 ## File Name: BIFIE_lavaan_survey_lavaan_survey.R
-## File Version: 0.05
+## File Version: 0.078
 
 BIFIE_lavaan_survey_lavaan_survey <- function(lavaan.fit, survey.design, ...)
 {
-    requireNamespace("lavaan.survey")
-    res <- lavaan.survey::lavaan.survey(lavaan.fit=lavaan.fit,
-                survey.design=survey.design, ...)
+    args <- c(as.list(environment()), list(...))
+    do.call(what=requireNamespace, args=list(package="lavaan.survey"))
+    res <- do.call(what="lavaan.survey", args=args)
     return(res)
 }

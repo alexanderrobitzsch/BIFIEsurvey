@@ -52,16 +52,25 @@ CHANGELOG BIFIEsurvey
 
 
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.5  |  2022-04-05  |  Last: BIFIEsurvey 3.5-3
+VERSIONS BIFIEsurvey 3.6  |  2024-02-18  |  Last: BIFIEsurvey 3.6-2
 --------------------------------------------------------------------------
  
 xxx   * ---
+
 
 DATA  * ---
 EXAMP * ---
 
 
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 3.5  |  2024-02-18  |  Last: BIFIEsurvey 3.5-19
+--------------------------------------------------------------------------
+ 
+FIXED * removed links to lavaan.survey package in the manual due to a CRAN 
+        request. The lavaan.survey has been removed from CRAN.
 
+DATA  * ---
+EXAMP * ---
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 3.4  |  2022-04-04  |  Last: BIFIEsurvey 3.4-15

@@ -1,5 +1,5 @@
 ## File Name: BIFIE.by.R
-## File Version: 1.56
+## File Version: 1.571
 
 
 #######################################################################
@@ -131,5 +131,5 @@ summary.BIFIE.by <- function( object, digits=4, ... )
     BIFIE.summary(object)
     cat("Statistical Inference for User Defined Function \n")
     obji <- object$stat
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }

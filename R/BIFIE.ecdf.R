@@ -1,5 +1,5 @@
 ## File Name: BIFIE.ecdf.R
-## File Version: 0.34
+## File Version: 0.36
 
 
 #######################################################################
@@ -106,5 +106,5 @@ summary.BIFIE.ecdf <- function( object, digits=4, ... )
     BIFIE.summary(object)
     cat("Empirical Distribution Function \n")
     obji <- object$ecdf
-    print.object.summary( obji, digits=digits )
+    print_object_summary( obji, digits=digits )
 }
