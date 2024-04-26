@@ -51,8 +51,10 @@ CHANGELOG BIFIEsurvey
 
 
 
+
+
 --------------------------------------------------------------------------
-VERSIONS BIFIEsurvey 3.6  |  2024-02-18  |  Last: BIFIEsurvey 3.6-2
+VERSIONS BIFIEsurvey 3.7  |  2024-04-26  |  Last: BIFIEsurvey 3.7-1
 --------------------------------------------------------------------------
  
 xxx   * ---
@@ -61,6 +63,16 @@ xxx   * ---
 DATA  * ---
 EXAMP * ---
 
+
+
+--------------------------------------------------------------------------
+VERSIONS BIFIEsurvey 3.6  |  2024-04-25  |  Last: BIFIEsurvey 3.6-6
+--------------------------------------------------------------------------
+ 
+FIXED * fixed a bug in pseudo-R^2 computation in BIFIE.logistreg()
+
+DATA  * ---
+EXAMP * ---
 
 --------------------------------------------------------------------------
 VERSIONS BIFIEsurvey 3.5  |  2024-02-18  |  Last: BIFIEsurvey 3.5-19

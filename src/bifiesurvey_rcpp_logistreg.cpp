@@ -1,5 +1,5 @@
 //// File Name: bifiesurvey_rcpp_logistreg.cpp
-//// File Version: 0.29
+//// File Version: 0.303
 
 
 #include <RcppArmadillo.h>
@@ -212,7 +212,8 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
             tempcoef = res1["beta"];
             Rcpp::NumericVector tempparm = res1["parm"];
             for (int vv=0;vv<VV+1;vv++){
-                regrcoefM(vv+gg*VV,ii) = tempparm[vv];
+                // regrcoefM(vv+gg*VV,ii) = tempparm[vv];
+                regrcoefM(vv+gg*(VV+1),ii) = tempparm[vv];                
             }
 
             Rcpp::List res2;
@@ -225,7 +226,8 @@ Rcpp::List bifiesurvey_rcpp_logistreg( Rcpp::NumericMatrix datalist, Rcpp::Numer
                             tempcoef, eps, maxiter );
                 Rcpp::NumericVector tempcoef2=res2["parm"];
                 for (int vv=0;vv<VV+1;vv++){
-                    tempcoefrepM(vv+gg*VV,rr) = tempcoef2[vv];
+                    // tempcoefrepM(vv+gg*VV,rr) = tempcoef2[vv];
+                    tempcoefrepM(vv+gg*(VV+1),rr) = tempcoef2[vv];                    
                 }
             } // end rr
         } //----- end gg

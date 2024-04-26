@@ -12,7 +12,7 @@ all necessary information on the used librarys, the R version, and the OS it is 
 
 The manual may be found here [https://alexanderrobitzsch.github.io/BIFIEsurvey/](https://alexanderrobitzsch.github.io/BIFIEsurvey/) 
 
-#### CRAN version `BIFIEsurvey` 3.5-19 (2024-02-18)
+#### CRAN version `BIFIEsurvey` 3.6-6 (2024-04-25)
 
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/BIFIEsurvey)](https://cran.r-project.org/package=BIFIEsurvey)
@@ -26,9 +26,9 @@ The CRAN version can be installed from within R using:
 utils::install.packages("BIFIEsurvey")
 ```
 
-#### GitHub version `BIFIEsurvey` 3.6-2 (2024-02-18)
+#### GitHub version `BIFIEsurvey` 3.7-1 (2024-04-26)
 
-[![](https://img.shields.io/badge/github%20version-3.6--2-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
+[![](https://img.shields.io/badge/github%20version-3.7--1-orange.svg)](https://github.com/alexanderrobitzsch/BIFIEsurvey)&#160;&#160;
 
 The version hosted [here](https://github.com/alexanderrobitzsch/BIFIEsurvey) is the development version of `BIFIEsurvey`. 
 The GitHub version can be installed using `devtools` as:
